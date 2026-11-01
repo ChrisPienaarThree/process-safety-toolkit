@@ -884,5 +884,167 @@ async function boot() {
 }
 window.addEventListener("DOMContentLoaded", boot);
 </script>
+<script>
+/* Hover tips with a 0.4 s delay for the Process Safety Analysis Toolkit tools (injected by each build_*_app.py).
+   - Existing title attributes and SVG <title> elements become tips when hovered (works on redrawn content too).
+   - Buttons, tabs and menu items without a title get the tips below, matched by CSS selector or by their label.
+   The tools re-render often, so tips are looked up on hover rather than attached once. */
+(function () {
+  "use strict";
+  if (window.PSTips) return;
+  var DELAY = 400;
+  var COMMON = [
+    ["#btnFile", "Open, save, back up, export, print and load examples"],
+    ["#btnReconnect", "The browser needs your permission again to write to the linked file. Click, then allow."],
+    ["#savePill", "Where your work is saved right now"],
+    ['[data-act="open"]', "Open a study file saved earlier (.json). In Chrome or Edge it is linked, so changes are saved back to it."],
+    ['[data-act="saveas"]', "Choose a file to save to. From then on every change is written to it automatically (Chrome or Edge)."],
+    ['[data-act="savenow"]', "Write the current state to the linked file now"],
+    ['[data-act="exportjson"]', "Download a copy of everything as a .json file – works in every browser"],
+    ['[data-act="importjson"]', "Replace the current work with a downloaded backup (.json)"],
+    ['[data-act="importft"]', "Bring in a fault tree (.fta.json) so its gates can supply probabilities here"],
+    ['[data-act="exportxlsx"]', "Save the data and results as an Excel workbook"],
+    ['[data-act="exportsvg"]', "Save the diagram as an SVG picture for reports and slides"],
+    ['[data-act="print"]', "Print the report, or choose Save as PDF in the print dialog"],
+    ['[data-act="sample"]', "Replace the current work with the built-in example"],
+    ['[data-act="guide"]', "Open the user guide"],
+    ['[data-act="about"]', "Open the help and user guide"],
+    ["#zIn", "Zoom in"], ["#zOut", "Zoom out"], ["#zFit", "Fit the whole diagram on screen"],
+    ['[data-t="settings"]', "Units, calculation options and display settings"],
+    ['[data-t="guide"]', "How to use this tool, with formulas and a worked example"],
+    ['[data-t="fts"]', "Fault trees imported into this file, and where their gates are used"]
+  ];
+  var TOOL = {
+    "HAZOP Study Manager": [
+      ['[data-act="new"]', "Start a new, empty study (save or back up the current one first)"],
+      ['[data-v="dashboard"]', "Progress of the study: nodes, deviations, risk ranking and open recommendations"],
+      ['[data-v="study"]', "Study title, scope, team members and session attendance"],
+      ['[data-v="psi"]', "Process safety information: drawings and documents used, and which nodes they cover"],
+      ['[data-v="nodes"]', "Divide the process into nodes and describe each one's design intent"],
+      ['[data-v="worksheet"]', "Work through deviations node by node: causes, consequences, safeguards, risk and recommendations"],
+      ['[data-v="safeguards"]', "All safeguards in the study, which deviations use them, and which are claimed as IPLs"],
+      ['[data-v="recs"]', "All recommendations, owners, due dates and status"],
+      ['[data-v="matrix"]', "The 5 × 5 risk matrix and the risk bands used for ranking"],
+      ['[data-v="library"]', "Parameters, guidewords and typical causes offered in the worksheet"],
+      ['[data-v="reports"]', "Print the report, download it as HTML, or export to Excel"],
+      ['[data-v="data"]', "How the study data is structured, and an integrity check"],
+      ["#dSample", "Open the hot DRI transfer conveyor example to see a finished study"],
+      ["#addTeam", "Add a person to the study team"], ["#addSess", "Add a study session and who attended"],
+      ["#addPsi", "Add a drawing or document used in the study"], ["#psiChk", "Add the usual PSI documents as a checklist to tick off"],
+      ["#addNode", "Add a node (a section of the process with one design intent)"],
+      ["#prevN", "Previous node"], ["#nextN", "Next node"], ["#editN", "Change this node's name, intent and boundaries"],
+      ["#addDev", "Add one deviation to this node"], ["#quickAdd", "Add several deviations at once by ticking parameter–guideword pairs"],
+      ["#qaCore", "Tick the usual process set: flow, pressure, temperature, level and composition"], ["#qaNone", "Clear all ticks"],
+      ["#dAuto", "Fill the deviation wording from the parameter and guideword"],
+      ["#cAdd", "Add this cause to the deviation"], ["#sgAdd", "Add this safeguard; new text is added to the safeguard register"],
+      ["#recLink", "Link an existing recommendation to this deviation"], ["#recNew", "Write a new recommendation for this deviation"],
+      ["#addSg", "Add a safeguard to the register"], ["#addRec", "Add a recommendation"],
+      ["#mReset", "Put the risk matrix back to the default 5 × 5"], ["#chk", "Check the study for broken links and missing data"],
+      ["#rPrint", "Print the report, or save it as PDF"], ["#rHtml", "Download the report as a web page (.html)"],
+      ["#xX", "Export the study to Excel"], ["#xJ", "Download a backup (.json)"], ["#xI", "Load a backup (.json)"]
+    ],
+    "Fault Tree & PFD Calculator": [
+      ['[data-act="new"]', "Start a new, empty fault tree (save or back up the current one first)"],
+      ['[data-act="sampleDri"]', "Load the hot DRI conveyor N2 fire-protection example"],
+      ['[data-t="tree"]', "Draw and edit the tree: gates and events"],
+      ['[data-t="events"]', "All basic events with their failure models and data"],
+      ['[data-t="ccf"]', "Common-cause failure groups (β-factor)"],
+      ['[data-t="results"]', "Top-event probability, PFDavg, cut sets, importance and uncertainty"],
+      ['[data-t="sif"]', "IEC 61508 calculator for 1oo1, 1oo2, 2oo2, 1oo3 and 2oo3 functions"],
+      ["#aGate", "Add a gate below the selected gate"], ["#aEv", "Add a new basic event below the selected gate"],
+      ["#aEx", "Use an event that is already in the tree here as well (shared event)"],
+      ["#gCol", "Collapse or expand everything below this gate"], ["#gUp", "Select the gate above"], ["#gDel", "Delete this gate and everything below it"],
+      ["#eUp", "Select the gate above"], ["#eCopy", "Make this shared event independent here, with its own data"],
+      ["#eRm", "Take the event out of this gate (it stays in the event list)"],
+      ["#addE", "Add a basic event to the list without placing it in the tree"],
+      ["#addC", "Add a common-cause (β) group"], ["#runMc", "Run the Monte Carlo uncertainty analysis"],
+      ["#addSub", "Add a subsystem (sensor, logic or final element group)"], ["#mkFt", "Turn this SIF into a fault tree you can edit"]
+    ],
+    "Event Tree Analysis": [
+      ['[data-act="new"]', "Start a new, empty event tree (save or back up the current one first)"],
+      ['[data-t="tree"]', "The tree: initiating event, headings and end sequences"],
+      ['[data-t="headings"]', "Headings in time order, with their probabilities or fault-tree links"],
+      ['[data-t="cats"]', "Consequence categories with tolerable frequencies and costs"],
+      ['[data-t="results"]', "Frequency of each category against its target, sensitivity and uncertainty"],
+      ["#clr", "Clear the selection"], ["#nEnd", "Stop this branch here (later headings do not apply)"],
+      ["#addH", "Add a heading after the last one"], ["#insH0", "Add a heading before the first one"],
+      ["#impFt", "Bring in a fault tree (.fta.json) so a gate can supply a heading's probability"],
+      ["#addC", "Add a consequence category"], ["#runMc", "Run the Monte Carlo uncertainty analysis"]
+    ],
+    "Bow Tie Analysis": [
+      ['[data-act="new"]', "Start a new, empty bow tie (save or back up the current one first)"],
+      ["#btnHealth", "Switch between barriers at their design PFD and their current condition"],
+      ['[data-t="bowtie"]', "The diagram: threats, barriers, top event and consequences"],
+      ['[data-t="register"]', "All barriers: type, PFD, condition, owner, performance standard and verification"],
+      ['[data-t="lines"]', "Each threat and consequence line with its barriers in order"],
+      ['[data-t="results"]', "Risk ranking and how much each barrier matters"],
+      ['[data-t="matrix"]', "The risk matrix and frequency bands used for ranking"],
+      ["#addT", "Add a threat (a cause of the top event)"], ["#addC", "Add a consequence"],
+      ["#addB", "Add a new barrier to this line"], ["#addEx", "Add a barrier already in the register to this line"],
+      ["#up", "Move up"], ["#dn", "Move down"], ["#addEf", "Add an escalation factor that can defeat this barrier"],
+      ["#rm", "Remove the barrier from this line (it stays in the register)"], ["#addCt", "Add a control for this escalation factor"],
+      ["#bSel", "Select the barrier in the register"], ["#impFt", "Bring in a fault tree (.fta.json) so a gate can supply a barrier's PFD"]
+    ]
+  };
+  var LABELS = { // exact button labels, used when no selector rule matches
+    "Open worksheet": "Go to the HAZOP worksheet", "Worksheet": "Open this node in the HAZOP worksheet",
+    "All": "Show all recommendations", "Open": "Show only recommendations with this status", "In progress": "Show only recommendations with this status",
+    "Open + In progress": "Show recommendations that are still open or in progress", "Closed": "Show only recommendations with this status", "Rejected": "Show only recommendations with this status",
+    "Add": "Add this entry",
+    "Load the worked example": "Replace the current work with the example used in this guide", "Load the conveyor fire example": "Replace the current work with the example used in this guide",
+    "Print / save guide as PDF": "Print this guide, or choose Save as PDF in the print dialog",
+    "Rename": "Rename this imported fault tree", "Replace with newer version…": "Load a newer version of this fault tree (.fta.json)",
+    "Download .fta.json": "Save this fault tree as a file to open in the Fault Tree & PFD Calculator", "Remove": "Remove this imported fault tree from the file"
+  };
+  var ICONS = { "✕": "Remove", "🗑": "Delete", "↑": "Move up", "↓": "Move down", "⧉": "Duplicate", "◀": "Previous", "▶": "Next", "＋": "Add", "+": "Zoom in", "−": "Zoom out", "✎": "Edit", "→": "Go to" };
+  var RULES = COMMON.concat(TOOL[document.title] || []);
+
+  function tipFor(start) {
+    for (var el = start; el && el.nodeType === 1 && el !== document.body; el = el.parentNode) {
+      if (el.hasAttribute("data-tip")) return [el, el.getAttribute("data-tip")];
+      var t = el.getAttribute("title");
+      if (t) { el.removeAttribute("title"); if (t.trim()) { el.setAttribute("data-tip", t); return [el, t]; } }
+      if (el.namespaceURI === "http://www.w3.org/2000/svg") {
+        var st = null; for (var c = el.firstElementChild; c; c = c.nextElementSibling) if (c.tagName.toLowerCase() === "title") { st = c; break; }
+        if (st) { var s = st.textContent; st.remove(); if (s.trim()) { el.setAttribute("data-tip", s); return [el, s]; } }
+      }
+      for (var i = 0; i < RULES.length; i++) if (el.matches && el.matches(RULES[i][0])) return [el, RULES[i][1]];
+      if (el.tagName === "BUTTON") { var txt = el.textContent.trim(); if (ICONS[txt]) return [el, ICONS[txt]]; if (LABELS[txt]) return [el, LABELS[txt]]; }
+    }
+    return null;
+  }
+  var box, timer = null, cur = null;
+  function ensureBox() {
+    if (box) return box;
+    var st = document.createElement("style");
+    st.textContent = ".pst-tip{position:fixed;z-index:2147483000;max-width:320px;background:#172231;color:#f4f7fa;font:12.5px/1.35 system-ui,-apple-system,'Segoe UI',Arial,sans-serif;padding:6px 9px;border-radius:6px;box-shadow:0 6px 18px rgba(0,0,0,.25);pointer-events:none;opacity:0;transition:opacity .12s}.pst-tip.on{opacity:1}@media print{.pst-tip{display:none}}";
+    document.head.appendChild(st);
+    box = document.createElement("div"); box.className = "pst-tip"; box.setAttribute("role", "tooltip"); document.body.appendChild(box); return box;
+  }
+  function hide() { clearTimeout(timer); timer = null; cur = null; if (box) box.classList.remove("on"); }
+  function show(el, text) {
+    if (!el.isConnected) return;
+    var b = ensureBox(); b.textContent = text; b.classList.add("on");
+    var r = el.getBoundingClientRect(), w = b.offsetWidth, h = b.offsetHeight;
+    var x = Math.min(Math.max(6, r.left + r.width / 2 - w / 2), innerWidth - w - 6), y = r.bottom + 8;
+    if (y + h > innerHeight - 6) y = Math.max(6, r.top - h - 8);
+    b.style.left = x + "px"; b.style.top = y + "px";
+  }
+  function arm(e) {
+    var hit = tipFor(e.target);
+    if (hit && hit[0] === cur) return;
+    hide(); if (!hit) return;
+    cur = hit[0]; timer = setTimeout(function () { show(hit[0], hit[1]); }, DELAY);
+  }
+  document.addEventListener("mouseover", arm, true);
+  document.addEventListener("focusin", arm, true);
+  document.addEventListener("mouseout", function (e) { if (cur && !cur.contains(e.relatedTarget)) hide(); }, true);
+  ["focusout", "pointerdown", "wheel"].forEach(function (ev) { document.addEventListener(ev, hide, true); });
+  document.addEventListener("scroll", hide, true);
+  document.addEventListener("keydown", function (e) { if (e.key === "Escape") hide(); }, true);
+  window.PSTips = { delay: DELAY, tipFor: tipFor };
+})();
+
+</script>
 </body>
 </html>
