@@ -1,0 +1,1188 @@
+{
+ "app": "Bow Tie Analysis",
+ "schema": 1,
+ "title": "BT-PR-01 – Loss of containment of propane at the unloading bay and storage (propane storage example)",
+ "description": "Threat T1 frequency = demand gate G-006 of fault tree FT-PR-01 with the overfill barrier = FT-PR-01 gate G-002, so its contribution equals the FT-PR-01 top event. The ESD barrier = FT-PR-03 gate G-001. The top-event frequency is the initiating frequency of event tree ETA-PR-01; consequences JET, BLEVE, FF and VCE reproduce its end states. HAZOP N01, N02; FMECA S01, S02. Illustrative data.",
+ "modified": "2026-11-12T16:00:00.000Z",
+ "hazard": "Liquid propane at 5–17.5 barg in road tankers, bullets T-1/T-2/T-3 and the liquid lines (extremely flammable, heavier-than-air vapour)",
+ "top": "Loss of containment of liquid propane at the unloading bay or tank farm",
+ "threats": [
+  {
+   "id": "t000062",
+   "name": "Bullet overfilled during unloading (liquid to the relief valves)",
+   "freq": 0.5,
+   "cond": 1,
+   "notes": "Frequency = FT-PR-01 gate G-006. HAZOP N01-06.",
+   "barrierIds": [
+    "b000051"
+   ],
+   "key": "T1"
+  },
+  {
+   "id": "t000063",
+   "name": "Unloading arm / hose failure during transfer",
+   "freq": 0.1,
+   "cond": 0.3,
+   "notes": "0.1 /yr = CCPS IE & IPL hose leak (library ie-hose); 0.3 = significant release. HAZOP N01-09.",
+   "barrierIds": [
+    "b000052"
+   ],
+   "key": "T2"
+  },
+  {
+   "id": "t000064",
+   "name": "Tanker drive-away while still connected",
+   "freq": 0.01,
+   "cond": 1,
+   "notes": "Library ie-truck-drive. HAZOP N01-10.",
+   "barrierIds": [
+    "b000053",
+    "b000054"
+   ],
+   "key": "T3"
+  },
+  {
+   "id": "t000065",
+   "name": "Flange, gasket or pump-seal leak on the liquid lines",
+   "freq": 0.1,
+   "cond": 0.3,
+   "notes": "HAZOP N02-02, N02-08; FMECA S02 P-01",
+   "barrierIds": [
+    "b000055"
+   ],
+   "key": "T4"
+  },
+  {
+   "id": "t000066",
+   "name": "Brittle fracture after auto-refrigeration (rapid depressurisation)",
+   "freq": 0.01,
+   "cond": 0.1,
+   "notes": "HAZOP N01-08 (R-007)",
+   "barrierIds": [
+    "b000056"
+   ],
+   "key": "T5"
+  },
+  {
+   "id": "t000067",
+   "name": "Vehicle impact on the arm, bullets or liquid lines",
+   "freq": 0.01,
+   "cond": 0.3,
+   "notes": "Library ie-thirdparty. HAZOP N01-01 (R-016)",
+   "barrierIds": [
+    "b000057"
+   ],
+   "key": "T6"
+  }
+ ],
+ "consequences": [
+  {
+   "id": "q000068",
+   "name": "Prolonged jet fire at the bay – flame impingement, no BLEVE",
+   "cond": 0.09,
+   "sev": {
+    "P": 4,
+    "E": 2,
+    "A": 4,
+    "R": 4
+   },
+   "notes": "ETA-PR-01 end state 'Prolonged jet fire – cooling prevents BLEVE'. cond = H1 x (1 − H5).",
+   "barrierIds": [
+    "b000058"
+   ],
+   "key": "JET"
+  },
+  {
+   "id": "q000069",
+   "name": "BLEVE of the tanker or a bullet – fireball and fragments",
+   "cond": 0.1,
+   "sev": {
+    "P": 5,
+    "E": 2,
+    "A": 5,
+    "R": 5
+   },
+   "notes": "ETA-PR-01 end state 'BLEVE – fireball, fragments, multiple fatalities'. cond = H1.",
+   "barrierIds": [
+    "b000058",
+    "b000060"
+   ],
+   "key": "BLEVE"
+  },
+  {
+   "id": "q000070",
+   "name": "Large flash fire from a prolonged release",
+   "cond": 0.63,
+   "sev": {
+    "P": 4,
+    "E": 1,
+    "A": 3,
+    "R": 3
+   },
+   "notes": "ETA-PR-01 end state 'Large flash fire – prolonged release'. cond = (1 − H1) x (1 − H4).",
+   "barrierIds": [
+    "b000058",
+    "b000059"
+   ],
+   "key": "FF"
+  },
+  {
+   "id": "q000071",
+   "name": "Vapour cloud explosion – blast damage, multiple fatalities",
+   "cond": 0.27,
+   "sev": {
+    "P": 5,
+    "E": 2,
+    "A": 5,
+    "R": 5
+   },
+   "notes": "ETA-PR-01 end state 'Vapour cloud explosion'. cond = (1 − H1) x H4.",
+   "barrierIds": [
+    "b000058",
+    "b000059"
+   ],
+   "key": "VCE"
+  },
+  {
+   "id": "q000072",
+   "name": "Cold burns to the operator from liquid propane",
+   "cond": 0.05,
+   "sev": {
+    "P": 3,
+    "E": 1,
+    "A": 1,
+    "R": 1
+   },
+   "notes": "Not modelled in ETA-PR-01",
+   "barrierIds": [
+    "b000061"
+   ],
+   "key": "COLD"
+  }
+ ],
+ "barriers": [
+  {
+   "id": "b000051",
+   "name": "Overfill protection – LAH with operator response and LAHH trip closing ROV-11/21/31",
+   "type": "Active human-hardware",
+   "pfd": 0.003877,
+   "source": "ft",
+   "ftId": "f000049",
+   "gateId": "g000005",
+   "status": "Available",
+   "degradeFactor": 10,
+   "owner": "Instrument engineer",
+   "performance": "Unloading stopped before 85 % fill",
+   "verification": "Six-monthly trip test (R-004)",
+   "critical": "Yes",
+   "notes": "PFDavg from fault tree FT-PR-01 gate G-002. HAZOP safeguards LT-11/21/31 (N01-06).",
+   "key": "OVERFILL"
+  },
+  {
+   "id": "b000052",
+   "name": "Unloading arm / hose inspection, annual pressure test and pre-transfer leak test",
+   "type": "Continuous / procedural",
+   "pfd": 0.1,
+   "source": "manual",
+   "ftId": "",
+   "gateId": "",
+   "status": "Available",
+   "degradeFactor": 10,
+   "owner": "Mechanical engineer",
+   "performance": "No hose fails in service",
+   "verification": "Inspection records",
+   "critical": "",
+   "notes": "HAZOP N01-09",
+   "key": "HOSEINSP"
+  },
+  {
+   "id": "b000053",
+   "name": "Tanker brake interlock and wheel chocks",
+   "type": "Active hardware",
+   "pfd": 0.1,
+   "source": "manual",
+   "ftId": "",
+   "gateId": "",
+   "status": "Available",
+   "degradeFactor": 10,
+   "owner": "Area owner",
+   "performance": "Tanker cannot move while connected",
+   "verification": "Monthly function check",
+   "critical": "",
+   "notes": "HAZOP N01-10 (R-006)",
+   "key": "BRAKE"
+  },
+  {
+   "id": "b000054",
+   "name": "Emergency release coupling ERC-1 with self-closing valves",
+   "type": "Passive hardware",
+   "pfd": 0.1,
+   "source": "manual",
+   "ftId": "",
+   "gateId": "",
+   "status": "Available",
+   "degradeFactor": 10,
+   "owner": "Mechanical engineer",
+   "performance": "Arm separates with both sides closed",
+   "verification": "Annual inspection",
+   "critical": "",
+   "notes": "HAZOP safeguard ERC-1 (N01-10, R-006)",
+   "key": "ERCB"
+  },
+  {
+   "id": "b000055",
+   "name": "Gasket control, bolt-torque procedure and leak survey",
+   "type": "Continuous / procedural",
+   "pfd": 0.1,
+   "source": "manual",
+   "ftId": "",
+   "gateId": "",
+   "status": "Available",
+   "degradeFactor": 10,
+   "owner": "Maintenance planner",
+   "performance": "Joints made to procedure",
+   "verification": "Annual leak survey",
+   "critical": "",
+   "notes": "HAZOP N02-08",
+   "key": "GASKET"
+  },
+  {
+   "id": "b000056",
+   "name": "Low-temperature carbon steel rated to −45 °C (no brittle fracture on auto-refrigeration)",
+   "type": "Passive hardware",
+   "pfd": 0.01,
+   "source": "manual",
+   "ftId": "",
+   "gateId": "",
+   "status": "Available",
+   "degradeFactor": 10,
+   "owner": "Mechanical engineer",
+   "performance": "Material suitable for −45 °C",
+   "verification": "Material certificates; R-007 verification",
+   "critical": "",
+   "notes": "HAZOP N01-08 (R-007)",
+   "key": "MDMTB"
+  },
+  {
+   "id": "b000057",
+   "name": "Crash barriers around the bullets and the unloading arm; vehicle-movement plan",
+   "type": "Passive hardware",
+   "pfd": 0.1,
+   "source": "manual",
+   "ftId": "",
+   "gateId": "",
+   "status": "Available",
+   "degradeFactor": 10,
+   "owner": "Area owner",
+   "performance": "No vehicle can strike the equipment",
+   "verification": "Annual inspection",
+   "critical": "",
+   "notes": "HAZOP N01-01 (R-016)",
+   "key": "CRASHB"
+  },
+  {
+   "id": "b000058",
+   "name": "Gas detection and ESD isolation (GLD-1/2/3, UCP-1, ESD-1, ROV-1 / ROV-11)",
+   "type": "Active hardware",
+   "pfd": 0.039254,
+   "source": "ft",
+   "ftId": "f000050",
+   "gateId": "g000031",
+   "status": "Available",
+   "degradeFactor": 10,
+   "owner": "Instrument engineer",
+   "performance": "Release detected and isolated within 1 minute",
+   "verification": "Quarterly detector bump tests; annual ROV full-stroke tests",
+   "critical": "Yes",
+   "notes": "PFDavg from fault tree FT-PR-03 gate G-001 = event tree ETA-PR-01 heading H2. HAZOP safeguard UCP-1 (N01-09, N02-08).",
+   "key": "ESD"
+  },
+  {
+   "id": "b000059",
+   "name": "Ignition source control – Ex equipment, hot-work permits, vehicle control",
+   "type": "Continuous / procedural",
+   "pfd": 0.1,
+   "source": "manual",
+   "ftId": "",
+   "gateId": "",
+   "status": "Available",
+   "degradeFactor": 10,
+   "owner": "Area owner",
+   "performance": "No ignition source in the zoned area",
+   "verification": "Ex inspection; PTW audits",
+   "critical": "",
+   "notes": "= event tree ETA-PR-01 heading H3 (delayed ignition). HAZOP N01-03.",
+   "key": "IGN"
+  },
+  {
+   "id": "b000060",
+   "name": "Sprinkler / deluge cooling of the bullets and tanker prevents a BLEVE",
+   "type": "Active hardware",
+   "pfd": 0.1,
+   "source": "manual",
+   "ftId": "",
+   "gateId": "",
+   "status": "Available",
+   "degradeFactor": 10,
+   "owner": "Fire officer",
+   "performance": "10 l/min/m2 on exposed shells within 2 minutes",
+   "verification": "Annual flow test (R-009)",
+   "critical": "Yes",
+   "notes": "= event tree ETA-PR-01 heading H5. HAZOP N01-07 (R-009).",
+   "key": "COOL"
+  },
+  {
+   "id": "b000061",
+   "name": "Cryogenic gloves, face shield and training for connecting / disconnecting",
+   "type": "Active human",
+   "pfd": 0.1,
+   "source": "manual",
+   "ftId": "",
+   "gateId": "",
+   "status": "Available",
+   "degradeFactor": 10,
+   "owner": "Area owner",
+   "performance": "No skin contact with liquid propane",
+   "verification": "Supervision",
+   "critical": "",
+   "notes": "HAZOP N01-08",
+   "key": "PPE"
+  }
+ ],
+ "efs": [
+  {
+   "id": "x000073",
+   "barrierId": "b000051",
+   "name": "Same level transmitter for the alarm and the trip (common cause)",
+   "notes": "",
+   "controls": [
+    {
+     "id": "y000074",
+     "name": "Independent high-high level switch (R-004)",
+     "type": "Active hardware",
+     "owner": "Instrument engineer"
+    }
+   ]
+  },
+  {
+   "id": "x000075",
+   "barrierId": "b000058",
+   "name": "Detectors mounted too high for heavy propane vapour",
+   "notes": "",
+   "controls": [
+    {
+     "id": "y000076",
+     "name": "Relocate GLD-1/2/3 at low level (R-008)",
+     "type": "Passive hardware",
+     "owner": "Instrument engineer"
+    }
+   ]
+  },
+  {
+   "id": "x000077",
+   "barrierId": "b000060",
+   "name": "Sprinklers started manually only – too late",
+   "notes": "",
+   "controls": [
+    {
+     "id": "y000078",
+     "name": "Automatic start on fire detection (R-009)",
+     "type": "Active hardware",
+     "owner": "Fire officer"
+    }
+   ]
+  },
+  {
+   "id": "x000079",
+   "barrierId": "b000059",
+   "name": "Tanker engine running during unloading",
+   "notes": "",
+   "controls": [
+    {
+     "id": "y000080",
+     "name": "Unloading checklist – engine off, keys held by the operator (OP-PR-010)",
+     "type": "Active human",
+     "owner": "Area owner"
+    }
+   ]
+  }
+ ],
+ "fts": [
+  {
+   "id": "f000049",
+   "name": "FT-PR-01 – Overfill protection",
+   "project": {
+    "app": "Fault Tree & PFD Calculator",
+    "schema": 1,
+    "title": "FT-PR-01 – Storage bullet overfilled during unloading (propane storage example)",
+    "description": "Top event: a bullet T-1/T-2/T-3 is filled liquid-full during tanker unloading, so liquid propane reaches the relief valves PSV-11/21/31. Demand = unloading continues past the 85 % fill limit (gate G-006); protection = high-level alarm LAH with operator response and the high-high trip LAHH closing ROV-11/21/31 (gate G-002). As in the source design, both use the same level transmitter LT-11/21/31 – event BE-004 is a common cause (R-004). Gate G-002 is the overfill barrier of bow tie BT-PR-01 (threat T1). HAZOP N01-06; FMECA S01. Illustrative data from the toolkit's data library – replace with site / vendor data before use. Propane storage and dilution worked example (HAZOP HZ-EX-PR-001).",
+    "modified": "2026-11-12T16:00:00.000Z",
+    "top": "g000001",
+    "gates": [
+     {
+      "id": "g000001",
+      "code": "G-001",
+      "name": "Bullet overfilled to liquid relief during unloading",
+      "type": "AND",
+      "k": 2,
+      "children": [
+       {
+        "kind": "g",
+        "id": "g000002"
+       },
+       {
+        "kind": "g",
+        "id": "g000005"
+       }
+      ],
+      "collapsed": false
+     },
+     {
+      "id": "g000002",
+      "code": "G-006",
+      "name": "Demand: unloading continues past the 85 % fill limit",
+      "type": "OR",
+      "k": 2,
+      "children": [
+       {
+        "kind": "e",
+        "id": "e000003"
+       },
+       {
+        "kind": "e",
+        "id": "e000004"
+       }
+      ],
+      "collapsed": false
+     },
+     {
+      "id": "g000005",
+      "code": "G-002",
+      "name": "Overfill protection fails on demand (LAH + operator and LAHH trip)",
+      "type": "OR",
+      "k": 2,
+      "children": [
+       {
+        "kind": "e",
+        "id": "e000006"
+       },
+       {
+        "kind": "g",
+        "id": "g000007"
+       }
+      ],
+      "collapsed": false
+     },
+     {
+      "id": "g000007",
+      "code": "G-003",
+      "name": "Alarm response and trip both fail",
+      "type": "AND",
+      "k": 2,
+      "children": [
+       {
+        "kind": "g",
+        "id": "g000008"
+       },
+       {
+        "kind": "g",
+        "id": "g000011"
+       }
+      ],
+      "collapsed": false
+     },
+     {
+      "id": "g000008",
+      "code": "G-004",
+      "name": "High-level alarm LAH not acted on",
+      "type": "OR",
+      "k": 2,
+      "children": [
+       {
+        "kind": "e",
+        "id": "e000009"
+       },
+       {
+        "kind": "e",
+        "id": "e000010"
+       }
+      ],
+      "collapsed": false
+     },
+     {
+      "id": "g000011",
+      "code": "G-005",
+      "name": "High-high level trip LAHH fails to close ROV-11",
+      "type": "OR",
+      "k": 2,
+      "children": [
+       {
+        "kind": "e",
+        "id": "e000012"
+       },
+       {
+        "kind": "e",
+        "id": "e000013"
+       },
+       {
+        "kind": "e",
+        "id": "e000014"
+       },
+       {
+        "kind": "e",
+        "id": "e000015"
+       }
+      ],
+      "collapsed": false
+     }
+    ],
+    "events": [
+     {
+      "id": "e000003",
+      "code": "BE-001",
+      "name": "Delivery larger than the free volume of the bullet – ullage not checked",
+      "model": "freq",
+      "q": 0.01,
+      "lamDU": 1e-06,
+      "lamDD": 0,
+      "TI": 8760,
+      "MTTR": 8,
+      "lam": 1e-06,
+      "freq": 0.45,
+      "house": true,
+      "ef": 3,
+      "ccf": "",
+      "undeveloped": false,
+      "notes": "150 deliveries / yr x 3E-3 (omit a step, no check-off – library item hep-omit-nocheck); checklist R-005"
+     },
+     {
+      "id": "e000004",
+      "code": "BE-002",
+      "name": "Level transmitter LT-11 reads low (drift / stuck float) – operator unaware",
+      "model": "freq",
+      "q": 0.01,
+      "lamDU": 1e-06,
+      "lamDD": 0,
+      "TI": 8760,
+      "MTTR": 8,
+      "lam": 1e-06,
+      "freq": 0.05,
+      "house": true,
+      "ef": 3,
+      "ccf": "",
+      "undeveloped": false,
+      "notes": "Revealed failures of the level gauge per year – illustrative"
+     },
+     {
+      "id": "e000006",
+      "code": "BE-004",
+      "name": "Level transmitter LT-11 fails dangerous – defeats both the alarm and the trip",
+      "model": "tested",
+      "q": 0.01,
+      "lamDU": 6e-07,
+      "lamDD": 1.5e-06,
+      "TI": 8760,
+      "MTTR": 24,
+      "lam": 1e-06,
+      "freq": 0.1,
+      "house": true,
+      "ef": 3,
+      "ccf": "",
+      "undeveloped": false,
+      "notes": "Common cause in the source design: same transmitter for LAH and LAHH (R-004); FMECA S01 LT-11",
+      "lib": {
+       "g": "rate",
+       "id": "lr-lt-radar",
+       "note": ""
+      }
+     },
+     {
+      "id": "e000009",
+      "code": "BE-005",
+      "name": "Operator does not stop the transfer on the high-level alarm",
+      "model": "prob",
+      "q": 0.1,
+      "lamDU": 1e-06,
+      "lamDD": 0,
+      "TI": 8760,
+      "MTTR": 8,
+      "lam": 1e-06,
+      "freq": 0.1,
+      "house": true,
+      "ef": 3,
+      "ccf": "",
+      "undeveloped": false,
+      "notes": "Operator in attendance throughout unloading (OP-PR-010)",
+      "lib": {
+       "g": "ipl",
+       "id": "ipl-op10",
+       "note": ""
+      }
+     },
+     {
+      "id": "e000010",
+      "code": "BE-006",
+      "name": "High-level alarm not annunciated (horn / beacon / HMI)",
+      "model": "prob",
+      "q": 0.01,
+      "lamDU": 1e-06,
+      "lamDD": 0,
+      "TI": 8760,
+      "MTTR": 8,
+      "lam": 1e-06,
+      "freq": 0.1,
+      "house": true,
+      "ef": 3,
+      "ccf": "",
+      "undeveloped": false,
+      "notes": "",
+      "lib": {
+       "g": "equip",
+       "id": "eq-alarm",
+       "note": ""
+      }
+     },
+     {
+      "id": "e000012",
+      "code": "BE-007",
+      "name": "Tank inlet valve ROV-11 fails to close",
+      "model": "tested",
+      "q": 0.01,
+      "lamDU": 2e-06,
+      "lamDD": 0,
+      "TI": 8760,
+      "MTTR": 24,
+      "lam": 1e-06,
+      "freq": 0.1,
+      "house": true,
+      "ef": 3,
+      "ccf": "",
+      "undeveloped": false,
+      "notes": "Annual full-stroke test; FMECA S01 ROV-11",
+      "lib": {
+       "g": "rate",
+       "id": "lr-esdv",
+       "note": ""
+      }
+     },
+     {
+      "id": "e000013",
+      "code": "BE-008",
+      "name": "ROV-11 solenoid valve fails to vent",
+      "model": "tested",
+      "q": 0.01,
+      "lamDU": 3e-07,
+      "lamDD": 0,
+      "TI": 8760,
+      "MTTR": 8,
+      "lam": 1e-06,
+      "freq": 0.1,
+      "house": true,
+      "ef": 3,
+      "ccf": "",
+      "undeveloped": false,
+      "notes": "",
+      "lib": {
+       "g": "rate",
+       "id": "lr-sov",
+       "note": ""
+      }
+     },
+     {
+      "id": "e000014",
+      "code": "BE-009",
+      "name": "Logic solver UCP-1 fails dangerous",
+      "model": "tested",
+      "q": 0.01,
+      "lamDU": 5e-08,
+      "lamDD": 0,
+      "TI": 8760,
+      "MTTR": 8,
+      "lam": 1e-06,
+      "freq": 0.1,
+      "house": true,
+      "ef": 3,
+      "ccf": "",
+      "undeveloped": false,
+      "notes": "FMECA S01 UCP-1",
+      "lib": {
+       "g": "rate",
+       "id": "lr-plc",
+       "note": ""
+      }
+     },
+     {
+      "id": "e000015",
+      "code": "BE-010",
+      "name": "Trip bypassed for unloading and not reinstated",
+      "model": "prob",
+      "q": 0.001,
+      "lamDU": 1e-06,
+      "lamDD": 0,
+      "TI": 8760,
+      "MTTR": 8,
+      "lam": 1e-06,
+      "freq": 0.1,
+      "house": true,
+      "ef": 10,
+      "ccf": "",
+      "undeveloped": false,
+      "notes": "Bypass management; HAZOP N01-06"
+     }
+    ],
+    "ccf": [],
+    "libOver": {},
+    "siteLib": [],
+    "settings": {
+     "mission": 8760,
+     "points": 400,
+     "maxOrder": 8,
+     "cutoff": 1e-15,
+     "maxCS": 20000,
+     "mcSamples": 2000,
+     "demandMode": "low"
+    }
+   }
+  },
+  {
+   "id": "f000050",
+   "name": "FT-PR-03 – Gas detection and ESD",
+   "project": {
+    "app": "Fault Tree & PFD Calculator",
+    "schema": 1,
+    "title": "FT-PR-03 – Propane release at the unloading bay not isolated (propane storage example)",
+    "description": "Top event (gate G-001): a propane release at the unloading bay or tank farm is not isolated – neither gas detection GLD-1/2/3 (1oo3) through logic UCP-1 nor the operator's manual ESD-1 initiates, or ROV-1 / ROV-11 fail to close. PFDavg of G-001 is heading H2 of event tree ETA-PR-01 and the ESD barrier of bow tie BT-PR-01. HAZOP N01-09, N02-08; FMECA S01. Illustrative data from the toolkit's data library – replace with site / vendor data before use. Propane storage and dilution worked example (HAZOP HZ-EX-PR-001).",
+    "modified": "2026-11-12T16:00:00.000Z",
+    "top": "g000031",
+    "gates": [
+     {
+      "id": "g000031",
+      "code": "G-001",
+      "name": "Propane release at the unloading bay not isolated (ESD fails on demand)",
+      "type": "OR",
+      "k": 2,
+      "children": [
+       {
+        "kind": "g",
+        "id": "g000033"
+       },
+       {
+        "kind": "g",
+        "id": "g000044"
+       },
+       {
+        "kind": "e",
+        "id": "e000048"
+       }
+      ],
+      "collapsed": false
+     },
+     {
+      "id": "g000033",
+      "code": "G-002",
+      "name": "ESD not initiated (automatic and manual both fail)",
+      "type": "AND",
+      "k": 2,
+      "children": [
+       {
+        "kind": "g",
+        "id": "g000034"
+       },
+       {
+        "kind": "g",
+        "id": "g000041"
+       }
+      ],
+      "collapsed": false
+     },
+     {
+      "id": "g000034",
+      "code": "G-003",
+      "name": "Automatic initiation fails",
+      "type": "OR",
+      "k": 2,
+      "children": [
+       {
+        "kind": "g",
+        "id": "g000035"
+       },
+       {
+        "kind": "e",
+        "id": "e000039"
+       },
+       {
+        "kind": "e",
+        "id": "e000040"
+       }
+      ],
+      "collapsed": false
+     },
+     {
+      "id": "g000035",
+      "code": "G-006",
+      "name": "All three gas detectors fail (1oo3)",
+      "type": "AND",
+      "k": 2,
+      "children": [
+       {
+        "kind": "e",
+        "id": "e000036"
+       },
+       {
+        "kind": "e",
+        "id": "e000037"
+       },
+       {
+        "kind": "e",
+        "id": "e000038"
+       }
+      ],
+      "collapsed": false
+     },
+     {
+      "id": "g000041",
+      "code": "G-004",
+      "name": "Manual ESD not initiated",
+      "type": "OR",
+      "k": 2,
+      "children": [
+       {
+        "kind": "e",
+        "id": "e000042"
+       },
+       {
+        "kind": "e",
+        "id": "e000043"
+       }
+      ],
+      "collapsed": false
+     },
+     {
+      "id": "g000044",
+      "code": "G-005",
+      "name": "Remote-operated valves fail to isolate",
+      "type": "OR",
+      "k": 2,
+      "children": [
+       {
+        "kind": "e",
+        "id": "e000045"
+       },
+       {
+        "kind": "e",
+        "id": "e000046"
+       },
+       {
+        "kind": "e",
+        "id": "e000047"
+       }
+      ],
+      "collapsed": false
+     }
+    ],
+    "events": [
+     {
+      "id": "e000036",
+      "code": "BE-001",
+      "name": "Gas leak detector GLD-1 fails to detect",
+      "model": "tested",
+      "q": 0.01,
+      "lamDU": 1e-06,
+      "lamDD": 0,
+      "TI": 2190,
+      "MTTR": 24,
+      "lam": 1e-06,
+      "freq": 0.1,
+      "house": true,
+      "ef": 3,
+      "ccf": "c000032",
+      "undeveloped": false,
+      "notes": "Quarterly bump test; FMECA S01 GLD-1",
+      "lib": {
+       "g": "rate",
+       "id": "lr-gd-cat",
+       "note": ""
+      }
+     },
+     {
+      "id": "e000037",
+      "code": "BE-002",
+      "name": "Gas leak detector GLD-2 fails to detect",
+      "model": "tested",
+      "q": 0.01,
+      "lamDU": 1e-06,
+      "lamDD": 0,
+      "TI": 2190,
+      "MTTR": 24,
+      "lam": 1e-06,
+      "freq": 0.1,
+      "house": true,
+      "ef": 3,
+      "ccf": "c000032",
+      "undeveloped": false,
+      "notes": "Quarterly bump test; FMECA S01 GLD-2",
+      "lib": {
+       "g": "rate",
+       "id": "lr-gd-cat",
+       "note": ""
+      }
+     },
+     {
+      "id": "e000038",
+      "code": "BE-003",
+      "name": "Gas leak detector GLD-3 fails to detect",
+      "model": "tested",
+      "q": 0.01,
+      "lamDU": 1e-06,
+      "lamDD": 0,
+      "TI": 2190,
+      "MTTR": 24,
+      "lam": 1e-06,
+      "freq": 0.1,
+      "house": true,
+      "ef": 3,
+      "ccf": "c000032",
+      "undeveloped": false,
+      "notes": "Quarterly bump test; FMECA S01 GLD-3",
+      "lib": {
+       "g": "rate",
+       "id": "lr-gd-cat",
+       "note": ""
+      }
+     },
+     {
+      "id": "e000039",
+      "code": "BE-004",
+      "name": "Logic solver UCP-1 fails dangerous",
+      "model": "tested",
+      "q": 0.01,
+      "lamDU": 5e-08,
+      "lamDD": 0,
+      "TI": 8760,
+      "MTTR": 8,
+      "lam": 1e-06,
+      "freq": 0.1,
+      "house": true,
+      "ef": 3,
+      "ccf": "",
+      "undeveloped": false,
+      "notes": "",
+      "lib": {
+       "g": "rate",
+       "id": "lr-plc",
+       "note": ""
+      }
+     },
+     {
+      "id": "e000040",
+      "code": "BE-005",
+      "name": "Heavy propane cloud does not reach the detectors (mounted too high)",
+      "model": "prob",
+      "q": 0.2,
+      "lamDU": 1e-06,
+      "lamDD": 0,
+      "TI": 8760,
+      "MTTR": 8,
+      "lam": 1e-06,
+      "freq": 0.1,
+      "house": true,
+      "ef": 3,
+      "ccf": "",
+      "undeveloped": true,
+      "notes": "Detector mounting height – R-008"
+     },
+     {
+      "id": "e000042",
+      "code": "BE-006",
+      "name": "Operator at the bay does not press ESD-1 in time",
+      "model": "prob",
+      "q": 0.1,
+      "lamDU": 1e-06,
+      "lamDD": 0,
+      "TI": 8760,
+      "MTTR": 8,
+      "lam": 1e-06,
+      "freq": 0.1,
+      "house": true,
+      "ef": 3,
+      "ccf": "",
+      "undeveloped": false,
+      "notes": "Operator in attendance during unloading; drills R-017",
+      "lib": {
+       "g": "ipl",
+       "id": "ipl-op10",
+       "note": ""
+      }
+     },
+     {
+      "id": "e000043",
+      "code": "BE-007",
+      "name": "Manual ESD push-button circuit ESD-1 fails",
+      "model": "tested",
+      "q": 0.01,
+      "lamDU": 5e-08,
+      "lamDD": 0,
+      "TI": 8760,
+      "MTTR": 8,
+      "lam": 1e-06,
+      "freq": 0.1,
+      "house": true,
+      "ef": 3,
+      "ccf": "",
+      "undeveloped": false,
+      "notes": "",
+      "lib": {
+       "g": "rate",
+       "id": "lr-relay-logic",
+       "note": ""
+      }
+     },
+     {
+      "id": "e000045",
+      "code": "BE-008",
+      "name": "Unloading valve ROV-1 fails to close",
+      "model": "tested",
+      "q": 0.01,
+      "lamDU": 2e-06,
+      "lamDD": 0,
+      "TI": 8760,
+      "MTTR": 24,
+      "lam": 1e-06,
+      "freq": 0.1,
+      "house": true,
+      "ef": 3,
+      "ccf": "",
+      "undeveloped": false,
+      "notes": "FMECA S01 ROV-1",
+      "lib": {
+       "g": "rate",
+       "id": "lr-esdv",
+       "note": ""
+      }
+     },
+     {
+      "id": "e000046",
+      "code": "BE-009",
+      "name": "Tank inlet valve ROV-11 fails to close",
+      "model": "tested",
+      "q": 0.01,
+      "lamDU": 2e-06,
+      "lamDD": 0,
+      "TI": 8760,
+      "MTTR": 24,
+      "lam": 1e-06,
+      "freq": 0.1,
+      "house": true,
+      "ef": 3,
+      "ccf": "",
+      "undeveloped": false,
+      "notes": "",
+      "lib": {
+       "g": "rate",
+       "id": "lr-esdv",
+       "note": ""
+      }
+     },
+     {
+      "id": "e000047",
+      "code": "BE-010",
+      "name": "ROV solenoid / instrument air fails to vent",
+      "model": "tested",
+      "q": 0.01,
+      "lamDU": 3e-07,
+      "lamDD": 0,
+      "TI": 8760,
+      "MTTR": 8,
+      "lam": 1e-06,
+      "freq": 0.1,
+      "house": true,
+      "ef": 3,
+      "ccf": "",
+      "undeveloped": false,
+      "notes": "",
+      "lib": {
+       "g": "rate",
+       "id": "lr-sov",
+       "note": ""
+      }
+     },
+     {
+      "id": "e000048",
+      "code": "BE-011",
+      "name": "ESD in bypass / detectors inhibited",
+      "model": "prob",
+      "q": 0.001,
+      "lamDU": 1e-06,
+      "lamDD": 0,
+      "TI": 8760,
+      "MTTR": 8,
+      "lam": 1e-06,
+      "freq": 0.1,
+      "house": true,
+      "ef": 10,
+      "ccf": "",
+      "undeveloped": false,
+      "notes": "Bypass management"
+     }
+    ],
+    "ccf": [
+     {
+      "id": "c000032",
+      "code": "CCF-001",
+      "name": "Gas leak detectors GLD-1/2/3",
+      "beta": 0.1,
+      "betaD": ""
+     }
+    ],
+    "libOver": {},
+    "siteLib": [],
+    "settings": {
+     "mission": 8760,
+     "points": 400,
+     "maxOrder": 8,
+     "cutoff": 1e-15,
+     "maxCS": 20000,
+     "mcSamples": 2000,
+     "demandMode": "low"
+    }
+   }
+  }
+ ],
+ "matrix": {
+  "sev": [
+   "Negligible",
+   "Minor",
+   "Moderate",
+   "Major",
+   "Catastrophic"
+  ],
+  "lik": [
+   "Rare",
+   "Unlikely",
+   "Possible",
+   "Likely",
+   "Frequent"
+  ],
+  "likBands": [
+   0.0001,
+   0.001,
+   0.01,
+   0.1
+  ],
+  "bands": {
+   "Medium": 5,
+   "High": 10,
+   "Very High": 20
+  },
+  "tol": [
+   "",
+   "",
+   "1",
+   "0.01",
+   "1e-4"
+  ]
+ },
+ "settings": {
+  "health": false
+ }
+}

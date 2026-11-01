@@ -1,0 +1,2990 @@
+[
+ {
+  "group": "A. Apps",
+  "check": "fta app boots headless without script errors",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "group": "A. Apps",
+  "check": "fta app: no runtime errors while loading the example files",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "group": "A. Apps",
+  "check": "Ammonia unit - FT-AM-01 Refrigeration overpressure.fta.json opens in its app",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "group": "A. Apps",
+  "check": "Ammonia unit - FT-AM-01 Refrigeration overpressure.fta.json renders in its app",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "group": "A. Apps",
+  "check": "Ammonia unit - FT-AM-02 Converter over-temperature.fta.json opens in its app",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "group": "A. Apps",
+  "check": "Ammonia unit - FT-AM-02 Converter over-temperature.fta.json renders in its app",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "group": "A. Apps",
+  "check": "Ammonia unit - FT-AM-03 Ammonia detection and ESD.fta.json opens in its app",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "group": "A. Apps",
+  "check": "Ammonia unit - FT-AM-03 Ammonia detection and ESD.fta.json renders in its app",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "group": "A. Apps",
+  "check": "eta app boots headless without script errors",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "group": "A. Apps",
+  "check": "eta app: no runtime errors while loading the example files",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "group": "A. Apps",
+  "check": "Ammonia unit - ETA-AM-01 Liquid ammonia release.eta.json opens in its app",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "group": "A. Apps",
+  "check": "Ammonia unit - ETA-AM-01 Liquid ammonia release.eta.json renders in its app",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "group": "A. Apps",
+  "check": "Ammonia unit - ETA-AM-02 Synthesis gas release.eta.json opens in its app",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "group": "A. Apps",
+  "check": "Ammonia unit - ETA-AM-02 Synthesis gas release.eta.json renders in its app",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "group": "A. Apps",
+  "check": "bowtie app boots headless without script errors",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "group": "A. Apps",
+  "check": "bowtie app: no runtime errors while loading the example files",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "group": "A. Apps",
+  "check": "Ammonia unit - BT-AM-01 Ammonia loss of containment.bowtie.json opens in its app",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "group": "A. Apps",
+  "check": "Ammonia unit - BT-AM-01 Ammonia loss of containment.bowtie.json renders in its app",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "group": "A. Apps",
+  "check": "Ammonia unit - BT-AM-02 Synthesis gas loss of containment.bowtie.json opens in its app",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "group": "A. Apps",
+  "check": "Ammonia unit - BT-AM-02 Synthesis gas loss of containment.bowtie.json renders in its app",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "group": "A. Apps",
+  "check": "hazop app boots headless without script errors",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "group": "A. Apps",
+  "check": "hazop app: no runtime errors while loading the example files",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "group": "A. Apps",
+  "check": "Ammonia unit - HAZOP HZ-EX-AM-001.hazop.json opens in its app",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "group": "A. Apps",
+  "check": "Ammonia unit - HAZOP HZ-EX-AM-001.hazop.json renders in its app",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "group": "A. Apps",
+  "check": "Ammonia unit - FT-AM-01 Refrigeration overpressure.fta.json: calculation has no warnings",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "group": "A. Apps",
+  "check": "Ammonia unit - FT-AM-02 Converter over-temperature.fta.json: calculation has no warnings",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "group": "A. Apps",
+  "check": "Ammonia unit - FT-AM-03 Ammonia detection and ESD.fta.json: calculation has no warnings",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "group": "A. Apps",
+  "check": "Ammonia unit - ETA-AM-01 Liquid ammonia release.eta.json: no warnings (FT gates linked, every end state categorised)",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "group": "A. Apps",
+  "check": "Ammonia unit - ETA-AM-01 Liquid ammonia release.eta.json: sequence frequencies add up to the initiating frequency",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "group": "A. Apps",
+  "check": "Ammonia unit - ETA-AM-02 Synthesis gas release.eta.json: no warnings (FT gates linked, every end state categorised)",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "group": "A. Apps",
+  "check": "Ammonia unit - ETA-AM-02 Synthesis gas release.eta.json: sequence frequencies add up to the initiating frequency",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "group": "A. Apps",
+  "check": "Ammonia unit - BT-AM-01 Ammonia loss of containment.bowtie.json: no warnings (FT gates linked, every threat / consequence has a barrier)",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "group": "A. Apps",
+  "check": "Ammonia unit - BT-AM-02 Synthesis gas loss of containment.bowtie.json: no warnings (FT gates linked, every threat / consequence has a barrier)",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "group": "A. Apps",
+  "check": "HAZOP file: integrity check finds no orphaned records",
+  "pass": true,
+  "detail": "0"
+ },
+ {
+  "group": "B. Numbers",
+  "check": "ETA1 H1 = FT3 gate G-001 PFDavg",
+  "pass": true,
+  "detail": "0.029433435227563687 vs 0.029433435227563687"
+ },
+ {
+  "group": "B. Numbers",
+  "check": "ETA1 H1 is live-linked to the fault tree (source = ft)",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "group": "B. Numbers",
+  "check": "BT1 barrier REFOP = FT1 gate G-002 PFDavg",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "group": "B. Numbers",
+  "check": "BT1 barrier REFOP is live-linked to its fault tree (source = ft)",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "group": "B. Numbers",
+  "check": "BT1 barrier ESD = FT3 gate G-001 PFDavg",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "group": "B. Numbers",
+  "check": "BT1 barrier ESD is live-linked to its fault tree (source = ft)",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "group": "B. Numbers",
+  "check": "BT2 barrier CONVPROT = FT2 gate G-002 PFDavg",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "group": "B. Numbers",
+  "check": "BT2 barrier CONVPROT is live-linked to its fault tree (source = ft)",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "group": "B. Numbers",
+  "check": "Fault tree embedded in Ammonia unit - ETA-AM-01 Liquid ammonia release.eta.json is identical to Ammonia unit - FT-AM-03 Ammonia detection and ESD.fta.json",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "group": "B. Numbers",
+  "check": "Fault tree embedded in Ammonia unit - BT-AM-01 Ammonia loss of containment.bowtie.json is identical to Ammonia unit - FT-AM-01 Refrigeration overpressure.fta.json",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "group": "B. Numbers",
+  "check": "Fault tree embedded in Ammonia unit - BT-AM-01 Ammonia loss of containment.bowtie.json is identical to Ammonia unit - FT-AM-03 Ammonia detection and ESD.fta.json",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "group": "B. Numbers",
+  "check": "Fault tree embedded in Ammonia unit - BT-AM-02 Synthesis gas loss of containment.bowtie.json is identical to Ammonia unit - FT-AM-02 Converter over-temperature.fta.json",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "group": "B. Numbers",
+  "check": "ETA1 initiating frequency = BT1 top-event frequency",
+  "pass": true,
+  "detail": "0.007512378 vs 0.0075123780465798555"
+ },
+ {
+  "group": "B. Numbers",
+  "check": "ETA2 initiating frequency = BT2 top-event frequency",
+  "pass": true,
+  "detail": "0.009603647 vs 0.009603646566941744"
+ },
+ {
+  "group": "B. Numbers",
+  "check": "BT1 consequence 'TOXON' residual = ETA1 end state 'Prolonged release knocked down by the water curtain \u2013 on-site injuries'",
+  "pass": true,
+  "detail": "1.548E-4 vs 1.548E-4"
+ },
+ {
+  "group": "B. Numbers",
+  "check": "BT1 consequence 'TOXOCC' residual = ETA1 end state 'Toxic cloud over occupied areas \u2013 people shelter, serious injuries'",
+  "pass": true,
+  "detail": "1.194E-5 vs 1.194E-5"
+ },
+ {
+  "group": "B. Numbers",
+  "check": "BT1 consequence 'TOXOFF' residual = ETA1 end state 'Toxic cloud \u2013 fatalities on and off site'",
+  "pass": true,
+  "detail": "1.327E-6 vs 1.327E-6"
+ },
+ {
+  "group": "B. Numbers",
+  "check": "BT2 consequence 'JET' residual = ETA2 end state 'Prolonged jet fire \u2013 escalation to the loop'",
+  "pass": true,
+  "detail": "2.881E-4 vs 2.881E-4"
+ },
+ {
+  "group": "B. Numbers",
+  "check": "BT2 consequence 'FF' residual = ETA2 end state 'Large flash fire \u2013 prolonged release'",
+  "pass": true,
+  "detail": "1.210E-4 vs 1.210E-4"
+ },
+ {
+  "group": "B. Numbers",
+  "check": "BT2 consequence 'VCE' residual = ETA2 end state 'Vapour cloud explosion \u2013 blast damage, multiple fatalities'",
+  "pass": true,
+  "detail": "8.067E-5 vs 8.067E-5"
+ },
+ {
+  "group": "B. Numbers",
+  "check": "BT1 threat T1 frequency = FT1 demand gate G-006",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "group": "B. Numbers",
+  "check": "BT1 threat T1 contribution = FT1 top frequency x threat condition",
+  "pass": true,
+  "detail": "2.378E-6 vs 2.378E-6"
+ },
+ {
+  "group": "B. Numbers",
+  "check": "BT2 threat T1 frequency = FT2 demand gate G-006",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "group": "B. Numbers",
+  "check": "BT2 threat T1 contribution = FT2 top frequency x threat condition",
+  "pass": true,
+  "detail": "5.354E-3 vs 5.354E-3"
+ },
+ {
+  "group": "B. Numbers",
+  "check": "ETA-AM-01 H2 = BT-AM-01 barrier 'water-spray curtain'",
+  "pass": true,
+  "detail": "0.3 vs 0.3"
+ },
+ {
+  "group": "B. Numbers",
+  "check": "ETA-AM-01 H4 = BT-AM-01 barrier 'toxic-gas refuge'",
+  "pass": true,
+  "detail": "0.1 vs 0.1"
+ },
+ {
+  "group": "B. Numbers",
+  "check": "BT-AM-01 'TOXOFF' condition = ETA-AM-01 H3",
+  "pass": true,
+  "detail": "0.2 vs 0.2"
+ },
+ {
+  "group": "B. Numbers",
+  "check": "BT-AM-01 'TOXON' condition = 1 \u2212 ETA-AM-01 H2",
+  "pass": true,
+  "detail": "0.7 vs 0.7"
+ },
+ {
+  "group": "B. Numbers",
+  "check": "ETA-AM-02 H2 = BT-AM-02 barrier 'unit ESD'",
+  "pass": true,
+  "detail": "0.1 vs 0.1"
+ },
+ {
+  "group": "B. Numbers",
+  "check": "ETA-AM-02 H3 = BT-AM-02 barrier 'ignition source control'",
+  "pass": true,
+  "detail": "0.3 vs 0.3"
+ },
+ {
+  "group": "B. Numbers",
+  "check": "BT-AM-02 'JET' condition = ETA-AM-02 H1",
+  "pass": true,
+  "detail": "0.3 vs 0.3"
+ },
+ {
+  "group": "B. Numbers",
+  "check": "BT-AM-02 'VCE' condition = (1 \u2212 ETA H1) x H4",
+  "pass": true,
+  "detail": "0.28 vs 0.27999999999999997"
+ },
+ {
+  "group": "B. Numbers",
+  "check": "ETA1 catastrophic target (0.0001 /yr) = BT1 tolerable frequency for severity 5",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "group": "B. Numbers",
+  "check": "ETA2 catastrophic target (0.0001 /yr) = BT2 tolerable frequency for severity 5",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "group": "B. Numbers",
+  "check": "HAZOP N03-03 likelihood after safeguards (4) matches the calculated FT2_TOP = 1.8E-2 /yr",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "group": "B. Numbers",
+  "check": "HAZOP N04-01 likelihood after safeguards (1) matches the calculated FT1_TOP = 2.4E-6 /yr",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "group": "B. Numbers",
+  "check": "R-008 quotes FT2_TOP, FT2_PFD as the apps calculate them",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "group": "B. Numbers",
+  "check": "R-011 quotes FT1_TOP, FT1_PFD as the apps calculate them",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "group": "B. Numbers",
+  "check": "R-012 quotes FT3_PFD as the apps calculate them",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "group": "B. Numbers",
+  "check": "R-013 quotes ETA1_C5 as the apps calculate them",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "group": "B. Numbers",
+  "check": "R-019 quotes ETA2_C5 as the apps calculate them",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "group": "B. Numbers",
+  "check": "HAZOP texts quote FT1_TOP = 2.4E-6 exactly as the apps calculate it",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "group": "B. Numbers",
+  "check": "HAZOP texts quote FT1_PFD = 1.1E-5 exactly as the apps calculate it",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "group": "B. Numbers",
+  "check": "HAZOP texts quote FT2_TOP = 1.8E-2 exactly as the apps calculate it",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "group": "B. Numbers",
+  "check": "HAZOP texts quote FT2_PFD = 5.1E-2 exactly as the apps calculate it",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "group": "B. Numbers",
+  "check": "HAZOP texts quote FT3_PFD = 2.9E-2 exactly as the apps calculate it",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "group": "B. Numbers",
+  "check": "HAZOP texts quote ETA1_C5 = 1.3E-6 exactly as the apps calculate it",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "group": "B. Numbers",
+  "check": "HAZOP texts quote ETA2_C5 = 8.1E-5 exactly as the apps calculate it",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "group": "B. Numbers",
+  "check": "Ammonia unit - FT-AM-01 Refrigeration overpressure.fta.json BE-001 uses library item ie-cw (checked)",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "group": "B. Numbers",
+  "check": "Ammonia unit - FT-AM-01 Refrigeration overpressure.fta.json BE-004 uses library item ipl-op10 (checked)",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "group": "B. Numbers",
+  "check": "Ammonia unit - FT-AM-01 Refrigeration overpressure.fta.json BE-005 uses library item lr-pt (typical)",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "group": "B. Numbers",
+  "check": "Ammonia unit - FT-AM-01 Refrigeration overpressure.fta.json BE-006 uses library item lr-pt (typical)",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "group": "B. Numbers",
+  "check": "Ammonia unit - FT-AM-01 Refrigeration overpressure.fta.json BE-007 uses library item lr-plc (typical)",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "group": "B. Numbers",
+  "check": "Ammonia unit - FT-AM-01 Refrigeration overpressure.fta.json BE-008 uses library item lr-esdv (typical)",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "group": "B. Numbers",
+  "check": "Ammonia unit - FT-AM-01 Refrigeration overpressure.fta.json BE-010 uses library item perd-prv-open (checked)",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "group": "B. Numbers",
+  "check": "Ammonia unit - FT-AM-02 Converter over-temperature.fta.json BE-001 uses library item ie-bpcs (checked)",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "group": "B. Numbers",
+  "check": "Ammonia unit - FT-AM-02 Converter over-temperature.fta.json BE-004 uses library item ipl-op10 (checked)",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "group": "B. Numbers",
+  "check": "Ammonia unit - FT-AM-02 Converter over-temperature.fta.json BE-005 uses library item lr-tt (typical)",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "group": "B. Numbers",
+  "check": "Ammonia unit - FT-AM-02 Converter over-temperature.fta.json BE-006 uses library item lr-tt (typical)",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "group": "B. Numbers",
+  "check": "Ammonia unit - FT-AM-02 Converter over-temperature.fta.json BE-007 uses library item lr-plc (typical)",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "group": "B. Numbers",
+  "check": "Ammonia unit - FT-AM-02 Converter over-temperature.fta.json BE-008 uses library item lr-esdv (typical)",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "group": "B. Numbers",
+  "check": "Ammonia unit - FT-AM-03 Ammonia detection and ESD.fta.json BE-001 uses library item lr-gd-cat (typical)",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "group": "B. Numbers",
+  "check": "Ammonia unit - FT-AM-03 Ammonia detection and ESD.fta.json BE-002 uses library item lr-gd-cat (typical)",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "group": "B. Numbers",
+  "check": "Ammonia unit - FT-AM-03 Ammonia detection and ESD.fta.json BE-003 uses library item lr-gd-cat (typical)",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "group": "B. Numbers",
+  "check": "Ammonia unit - FT-AM-03 Ammonia detection and ESD.fta.json BE-004 uses library item lr-plc (typical)",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "group": "B. Numbers",
+  "check": "Ammonia unit - FT-AM-03 Ammonia detection and ESD.fta.json BE-006 uses library item ipl-op10 (checked)",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "group": "B. Numbers",
+  "check": "Ammonia unit - FT-AM-03 Ammonia detection and ESD.fta.json BE-007 uses library item lr-relay-logic (typical)",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "group": "B. Numbers",
+  "check": "Ammonia unit - FT-AM-03 Ammonia detection and ESD.fta.json BE-008 uses library item lr-esdv (typical)",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "group": "B. Numbers",
+  "check": "Ammonia unit - FT-AM-03 Ammonia detection and ESD.fta.json BE-009 uses library item lr-esdv (typical)",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "group": "B. Numbers",
+  "check": "Ammonia unit - FT-AM-03 Ammonia detection and ESD.fta.json BE-010 uses library item lr-sov (typical)",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "group": "C. References",
+  "check": "FT-AM-01 exists as 'Ammonia unit - FT-AM-01 Refrigeration overpressure.fta.json'",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "group": "C. References",
+  "check": "FT-AM-02 exists as 'Ammonia unit - FT-AM-02 Converter over-temperature.fta.json'",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "group": "C. References",
+  "check": "FT-AM-03 exists as 'Ammonia unit - FT-AM-03 Ammonia detection and ESD.fta.json'",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "group": "C. References",
+  "check": "ETA-AM-01 exists as 'Ammonia unit - ETA-AM-01 Liquid ammonia release.eta.json'",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "group": "C. References",
+  "check": "ETA-AM-02 exists as 'Ammonia unit - ETA-AM-02 Synthesis gas release.eta.json'",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "group": "C. References",
+  "check": "BT-AM-01 exists as 'Ammonia unit - BT-AM-01 Ammonia loss of containment.bowtie.json'",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "group": "C. References",
+  "check": "BT-AM-02 exists as 'Ammonia unit - BT-AM-02 Synthesis gas loss of containment.bowtie.json'",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "group": "C. References",
+  "check": "HZ-EX-AM-001 exists as 'Ammonia unit - HAZOP HZ-EX-AM-001.hazop.json'",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "group": "C. References",
+  "check": "FM-EX-AM-001 exists as 'Ammonia unit - FMECA_Workbook.xlsx'",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "group": "C. References",
+  "check": "HI-EX-AM-001 exists as 'Ammonia unit - HAZID_Register.xlsx'",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "group": "C. References",
+  "check": "Ammonia unit - FT-AM-01 Refrigeration overpressure.fta.json: every FT / ETA / BT code it mentions exists (2 codes)",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "group": "C. References",
+  "check": "Ammonia unit - FT-AM-01 Refrigeration overpressure.fta.json: every HAZOP deviation reference resolves (2 refs)",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "group": "C. References",
+  "check": "Ammonia unit - FT-AM-01 Refrigeration overpressure.fta.json: every recommendation reference resolves (1 refs)",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "group": "C. References",
+  "check": "Ammonia unit - FT-AM-01 Refrigeration overpressure.fta.json: every FMECA system reference resolves (1 refs)",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "group": "C. References",
+  "check": "Ammonia unit - FT-AM-02 Converter over-temperature.fta.json: every FT / ETA / BT code it mentions exists (2 codes)",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "group": "C. References",
+  "check": "Ammonia unit - FT-AM-02 Converter over-temperature.fta.json: every HAZOP deviation reference resolves (1 refs)",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "group": "C. References",
+  "check": "Ammonia unit - FT-AM-02 Converter over-temperature.fta.json: every recommendation reference resolves (2 refs)",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "group": "C. References",
+  "check": "Ammonia unit - FT-AM-02 Converter over-temperature.fta.json: every FMECA system reference resolves (1 refs)",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "group": "C. References",
+  "check": "Ammonia unit - FT-AM-03 Ammonia detection and ESD.fta.json: every FT / ETA / BT code it mentions exists (3 codes)",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "group": "C. References",
+  "check": "Ammonia unit - FT-AM-03 Ammonia detection and ESD.fta.json: every HAZOP deviation reference resolves (2 refs)",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "group": "C. References",
+  "check": "Ammonia unit - FT-AM-03 Ammonia detection and ESD.fta.json: every recommendation reference resolves (1 refs)",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "group": "C. References",
+  "check": "Ammonia unit - FT-AM-03 Ammonia detection and ESD.fta.json: every FMECA system reference resolves (1 refs)",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "group": "C. References",
+  "check": "Ammonia unit - ETA-AM-01 Liquid ammonia release.eta.json: every FT / ETA / BT code it mentions exists (3 codes)",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "group": "C. References",
+  "check": "Ammonia unit - ETA-AM-01 Liquid ammonia release.eta.json: every HAZOP deviation reference resolves (2 refs)",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "group": "C. References",
+  "check": "Ammonia unit - ETA-AM-01 Liquid ammonia release.eta.json: every recommendation reference resolves (2 refs)",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "group": "C. References",
+  "check": "Ammonia unit - ETA-AM-01 Liquid ammonia release.eta.json: every FMECA system reference resolves (1 refs)",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "group": "C. References",
+  "check": "Ammonia unit - ETA-AM-01 Liquid ammonia release.eta.json: FT-AM-03 G-001 exists in Ammonia unit - FT-AM-03 Ammonia detection and ESD.fta.json",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "group": "C. References",
+  "check": "Ammonia unit - ETA-AM-02 Synthesis gas release.eta.json: every FT / ETA / BT code it mentions exists (2 codes)",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "group": "C. References",
+  "check": "Ammonia unit - ETA-AM-02 Synthesis gas release.eta.json: every HAZOP deviation reference resolves (2 refs)",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "group": "C. References",
+  "check": "Ammonia unit - ETA-AM-02 Synthesis gas release.eta.json: every recommendation reference resolves (0 refs)",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "group": "C. References",
+  "check": "Ammonia unit - ETA-AM-02 Synthesis gas release.eta.json: every FMECA system reference resolves (0 refs)",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "group": "C. References",
+  "check": "Ammonia unit - BT-AM-01 Ammonia loss of containment.bowtie.json: every FT / ETA / BT code it mentions exists (4 codes)",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "group": "C. References",
+  "check": "Ammonia unit - BT-AM-01 Ammonia loss of containment.bowtie.json: every HAZOP deviation reference resolves (8 refs)",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "group": "C. References",
+  "check": "Ammonia unit - BT-AM-01 Ammonia loss of containment.bowtie.json: every recommendation reference resolves (6 refs)",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "group": "C. References",
+  "check": "Ammonia unit - BT-AM-01 Ammonia loss of containment.bowtie.json: every FMECA system reference resolves (1 refs)",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "group": "C. References",
+  "check": "Ammonia unit - BT-AM-01 Ammonia loss of containment.bowtie.json: FT-AM-01 G-006 exists in Ammonia unit - FT-AM-01 Refrigeration overpressure.fta.json",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "group": "C. References",
+  "check": "Ammonia unit - BT-AM-01 Ammonia loss of containment.bowtie.json: FT-AM-01 G-002 exists in Ammonia unit - FT-AM-01 Refrigeration overpressure.fta.json",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "group": "C. References",
+  "check": "Ammonia unit - BT-AM-01 Ammonia loss of containment.bowtie.json: FT-AM-03 G-001 exists in Ammonia unit - FT-AM-03 Ammonia detection and ESD.fta.json",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "group": "C. References",
+  "check": "Ammonia unit - BT-AM-01 Ammonia loss of containment.bowtie.json: FT-AM-01 G-006 exists in Ammonia unit - FT-AM-01 Refrigeration overpressure.fta.json",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "group": "C. References",
+  "check": "Ammonia unit - BT-AM-01 Ammonia loss of containment.bowtie.json: FT-AM-01 G-002 exists in Ammonia unit - FT-AM-01 Refrigeration overpressure.fta.json",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "group": "C. References",
+  "check": "Ammonia unit - BT-AM-01 Ammonia loss of containment.bowtie.json: FT-AM-03 G-001 exists in Ammonia unit - FT-AM-03 Ammonia detection and ESD.fta.json",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "group": "C. References",
+  "check": "Ammonia unit - BT-AM-02 Synthesis gas loss of containment.bowtie.json: every FT / ETA / BT code it mentions exists (3 codes)",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "group": "C. References",
+  "check": "Ammonia unit - BT-AM-02 Synthesis gas loss of containment.bowtie.json: every HAZOP deviation reference resolves (6 refs)",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "group": "C. References",
+  "check": "Ammonia unit - BT-AM-02 Synthesis gas loss of containment.bowtie.json: every recommendation reference resolves (4 refs)",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "group": "C. References",
+  "check": "Ammonia unit - BT-AM-02 Synthesis gas loss of containment.bowtie.json: every FMECA system reference resolves (1 refs)",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "group": "C. References",
+  "check": "Ammonia unit - BT-AM-02 Synthesis gas loss of containment.bowtie.json: FT-AM-02 G-006 exists in Ammonia unit - FT-AM-02 Converter over-temperature.fta.json",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "group": "C. References",
+  "check": "Ammonia unit - BT-AM-02 Synthesis gas loss of containment.bowtie.json: FT-AM-02 G-002 exists in Ammonia unit - FT-AM-02 Converter over-temperature.fta.json",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "group": "C. References",
+  "check": "Ammonia unit - BT-AM-02 Synthesis gas loss of containment.bowtie.json: FT-AM-02 G-006 exists in Ammonia unit - FT-AM-02 Converter over-temperature.fta.json",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "group": "C. References",
+  "check": "Ammonia unit - BT-AM-02 Synthesis gas loss of containment.bowtie.json: FT-AM-02 G-002 exists in Ammonia unit - FT-AM-02 Converter over-temperature.fta.json",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "group": "C. References",
+  "check": "Ammonia unit - HAZOP HZ-EX-AM-001.hazop.json: every FT / ETA / BT code it mentions exists (7 codes)",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "group": "C. References",
+  "check": "Ammonia unit - HAZOP HZ-EX-AM-001.hazop.json: every HAZOP deviation reference resolves (42 refs)",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "group": "C. References",
+  "check": "Ammonia unit - HAZOP HZ-EX-AM-001.hazop.json: every recommendation reference resolves (20 refs)",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "group": "C. References",
+  "check": "Ammonia unit - HAZOP HZ-EX-AM-001.hazop.json: every FMECA system reference resolves (0 refs)",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "group": "C. References",
+  "check": "Ammonia unit - HAZOP_Study_Workbook.xlsx: every FT / ETA / BT code it mentions exists (7 codes)",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "group": "C. References",
+  "check": "Ammonia unit - HAZOP_Study_Workbook.xlsx: every HAZOP deviation reference resolves (42 refs)",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "group": "C. References",
+  "check": "Ammonia unit - HAZOP_Study_Workbook.xlsx: every recommendation reference resolves (20 refs)",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "group": "C. References",
+  "check": "Ammonia unit - HAZOP_Study_Workbook.xlsx: every FMECA system reference resolves (0 refs)",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "group": "C. References",
+  "check": "Ammonia unit - FMECA_Workbook.xlsx: every FT / ETA / BT code it mentions exists (4 codes)",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "group": "C. References",
+  "check": "Ammonia unit - FMECA_Workbook.xlsx: every HAZOP deviation reference resolves (14 refs)",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "group": "C. References",
+  "check": "Ammonia unit - FMECA_Workbook.xlsx: every recommendation reference resolves (9 refs)",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "group": "C. References",
+  "check": "Ammonia unit - FMECA_Workbook.xlsx: every FMECA system reference resolves (0 refs)",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "group": "C. References",
+  "check": "Ammonia unit - FMECA_Workbook.xlsx: FT-AM-02 BE-006 exists in Ammonia unit - FT-AM-02 Converter over-temperature.fta.json",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "group": "C. References",
+  "check": "Ammonia unit - FMECA_Workbook.xlsx: FT-AM-02 BE-008 exists in Ammonia unit - FT-AM-02 Converter over-temperature.fta.json",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "group": "C. References",
+  "check": "Ammonia unit - FMECA_Workbook.xlsx: FT-AM-01 BE-006 exists in Ammonia unit - FT-AM-01 Refrigeration overpressure.fta.json",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "group": "C. References",
+  "check": "Ammonia unit - FMECA_Workbook.xlsx: FT-AM-01 BE-010 exists in Ammonia unit - FT-AM-01 Refrigeration overpressure.fta.json",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "group": "C. References",
+  "check": "Ammonia unit - HAZID_Register.xlsx: every FT / ETA / BT code it mentions exists (7 codes)",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "group": "C. References",
+  "check": "Ammonia unit - HAZID_Register.xlsx: every HAZOP deviation reference resolves (23 refs)",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "group": "C. References",
+  "check": "Ammonia unit - HAZID_Register.xlsx: every recommendation reference resolves (18 refs)",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "group": "C. References",
+  "check": "Ammonia unit - HAZID_Register.xlsx: every FMECA system reference resolves (0 refs)",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "group": "C. References",
+  "check": "Every HAZOP recommendation is linked to at least one deviation",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "group": "C. References",
+  "check": "HAZOP N01-01 complete (causes, consequence, safeguards, risk before / after; risk not increased)",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "group": "C. References",
+  "check": "HAZOP N01-02 complete (causes, consequence, safeguards, risk before / after; risk not increased)",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "group": "C. References",
+  "check": "HAZOP N01-03 complete (causes, consequence, safeguards, risk before / after; risk not increased)",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "group": "C. References",
+  "check": "HAZOP N01-04 complete (causes, consequence, safeguards, risk before / after; risk not increased)",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "group": "C. References",
+  "check": "HAZOP N01-05 complete (causes, consequence, safeguards, risk before / after; risk not increased)",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "group": "C. References",
+  "check": "HAZOP N01-06 complete (causes, consequence, safeguards, risk before / after; risk not increased)",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "group": "C. References",
+  "check": "HAZOP N01-07 complete (causes, consequence, safeguards, risk before / after; risk not increased)",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "group": "C. References",
+  "check": "HAZOP N01-08 complete (causes, consequence, safeguards, risk before / after; risk not increased)",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "group": "C. References",
+  "check": "HAZOP N01-09 complete (causes, consequence, safeguards, risk before / after; risk not increased)",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "group": "C. References",
+  "check": "HAZOP N02-01 complete (causes, consequence, safeguards, risk before / after; risk not increased)",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "group": "C. References",
+  "check": "HAZOP N02-02 complete (causes, consequence, safeguards, risk before / after; risk not increased)",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "group": "C. References",
+  "check": "HAZOP N02-03 complete (causes, consequence, safeguards, risk before / after; risk not increased)",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "group": "C. References",
+  "check": "HAZOP N02-04 complete (causes, consequence, safeguards, risk before / after; risk not increased)",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "group": "C. References",
+  "check": "HAZOP N02-05 complete (causes, consequence, safeguards, risk before / after; risk not increased)",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "group": "C. References",
+  "check": "HAZOP N02-06 complete (causes, consequence, safeguards, risk before / after; risk not increased)",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "group": "C. References",
+  "check": "HAZOP N02-07 complete (causes, consequence, safeguards, risk before / after; risk not increased)",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "group": "C. References",
+  "check": "HAZOP N02-08 complete (causes, consequence, safeguards, risk before / after; risk not increased)",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "group": "C. References",
+  "check": "HAZOP N03-01 complete (causes, consequence, safeguards, risk before / after; risk not increased)",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "group": "C. References",
+  "check": "HAZOP N03-02 complete (causes, consequence, safeguards, risk before / after; risk not increased)",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "group": "C. References",
+  "check": "HAZOP N03-03 complete (causes, consequence, safeguards, risk before / after; risk not increased)",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "group": "C. References",
+  "check": "HAZOP N03-04 complete (causes, consequence, safeguards, risk before / after; risk not increased)",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "group": "C. References",
+  "check": "HAZOP N03-05 complete (causes, consequence, safeguards, risk before / after; risk not increased)",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "group": "C. References",
+  "check": "HAZOP N03-06 complete (causes, consequence, safeguards, risk before / after; risk not increased)",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "group": "C. References",
+  "check": "HAZOP N03-07 complete (causes, consequence, safeguards, risk before / after; risk not increased)",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "group": "C. References",
+  "check": "HAZOP N03-08 complete (causes, consequence, safeguards, risk before / after; risk not increased)",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "group": "C. References",
+  "check": "HAZOP N03-09 complete (causes, consequence, safeguards, risk before / after; risk not increased)",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "group": "C. References",
+  "check": "HAZOP N04-01 complete (causes, consequence, safeguards, risk before / after; risk not increased)",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "group": "C. References",
+  "check": "HAZOP N04-02 complete (causes, consequence, safeguards, risk before / after; risk not increased)",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "group": "C. References",
+  "check": "HAZOP N04-03 complete (causes, consequence, safeguards, risk before / after; risk not increased)",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "group": "C. References",
+  "check": "HAZOP N04-04 complete (causes, consequence, safeguards, risk before / after; risk not increased)",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "group": "C. References",
+  "check": "HAZOP N04-05 complete (causes, consequence, safeguards, risk before / after; risk not increased)",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "group": "C. References",
+  "check": "HAZOP N04-06 complete (causes, consequence, safeguards, risk before / after; risk not increased)",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "group": "C. References",
+  "check": "HAZOP N04-07 complete (causes, consequence, safeguards, risk before / after; risk not increased)",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "group": "C. References",
+  "check": "HAZOP N04-08 complete (causes, consequence, safeguards, risk before / after; risk not increased)",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "group": "C. References",
+  "check": "HAZOP N04-09 complete (causes, consequence, safeguards, risk before / after; risk not increased)",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "group": "C. References",
+  "check": "HAZOP N05-01 complete (causes, consequence, safeguards, risk before / after; risk not increased)",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "group": "C. References",
+  "check": "HAZOP N05-02 complete (causes, consequence, safeguards, risk before / after; risk not increased)",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "group": "C. References",
+  "check": "HAZOP N05-03 complete (causes, consequence, safeguards, risk before / after; risk not increased)",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "group": "C. References",
+  "check": "HAZOP N05-04 complete (causes, consequence, safeguards, risk before / after; risk not increased)",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "group": "C. References",
+  "check": "HAZOP N05-05 complete (causes, consequence, safeguards, risk before / after; risk not increased)",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "group": "C. References",
+  "check": "HAZOP N05-06 complete (causes, consequence, safeguards, risk before / after; risk not increased)",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "group": "C. References",
+  "check": "HAZOP N05-07 complete (causes, consequence, safeguards, risk before / after; risk not increased)",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "group": "C. References",
+  "check": "Every HAZOP node has PSI documents linked",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "group": "C. References",
+  "check": "Every HAZOP node is covered by a study session",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "group": "C. References",
+  "check": "FMECA systems map one-to-one to the HAZOP nodes with the same names",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "group": "C. References",
+  "check": "FMECA S01 FFSLL-1201 \u2192 HAZOP N01-01 exists and belongs to node N01",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "group": "C. References",
+  "check": "FMECA S01 101-B \u2192 HAZOP N01-04 exists and belongs to node N01",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "group": "C. References",
+  "check": "FMECA S01 XV-1201 \u2192 HAZOP N01-01 exists and belongs to node N01",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "group": "C. References",
+  "check": "FMECA S02 BSLL-1200 \u2192 HAZOP N02-01 exists and belongs to node N02",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "group": "C. References",
+  "check": "FMECA S02 XV-1220A \u2192 HAZOP N02-06 exists and belongs to node N02",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "group": "C. References",
+  "check": "FMECA S02 PV-1001B \u2192 HAZOP N02-02 exists and belongs to node N02",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "group": "C. References",
+  "check": "FMECA S03 TSHH-1396 \u2192 HAZOP N03-03 exists and belongs to node N03",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "group": "C. References",
+  "check": "FMECA S03 103-J \u2192 HAZOP N03-02 exists and belongs to node N03",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "group": "C. References",
+  "check": "FMECA S03 123-C1 \u2192 HAZOP N03-06 exists and belongs to node N03",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "group": "C. References",
+  "check": "FMECA S03 XV-1250A \u2192 HAZOP N03-03 exists and belongs to node N03",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "group": "C. References",
+  "check": "FMECA S04 PSHH-1110 \u2192 HAZOP N04-01 exists and belongs to node N04",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "group": "C. References",
+  "check": "FMECA S04 PSV-1109 \u2192 HAZOP N04-01 exists and belongs to node N04",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "group": "C. References",
+  "check": "FMECA S04 127-C \u2192 HAZOP N04-06 exists and belongs to node N04",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "group": "C. References",
+  "check": "FMECA S04 AT-1801A \u2192 HAZOP N04-07 exists and belongs to node N04",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "group": "C. References",
+  "check": "FMECA S04 LSHH-1214 \u2192 HAZOP N04-02 exists and belongs to node N04",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "group": "C. References",
+  "check": "FMECA S05 PV-1033A \u2192 HAZOP N05-02 exists and belongs to node N05",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "group": "C. References",
+  "check": "FMECA S05 161-J \u2192 HAZOP N05-06 exists and belongs to node N05",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "group": "D. Tags",
+  "check": "Equipment register tags are unique",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "group": "D. Tags",
+  "check": "Ammonia unit - FT-AM-01 Refrigeration overpressure.fta.json: every equipment tag in the basic events is in the FMECA equipment register (7 tags)",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "group": "D. Tags",
+  "check": "Ammonia unit - FT-AM-02 Converter over-temperature.fta.json: every equipment tag in the basic events is in the FMECA equipment register (5 tags)",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "group": "D. Tags",
+  "check": "Ammonia unit - FT-AM-03 Ammonia detection and ESD.fta.json: every equipment tag in the basic events is in the FMECA equipment register (7 tags)",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "group": "D. Tags",
+  "check": "Ammonia unit - BT-AM-01 Ammonia loss of containment.bowtie.json: every tag in barrier names / notes is defined in the HAZOP or FMECA (11 tags)",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "group": "D. Tags",
+  "check": "BT1 barrier 'Refrigeration overpressure protection \u2013 ' \u2192 HAZOP safeguard tag(s) PSHH-1110 in the register",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "group": "D. Tags",
+  "check": "BT1 barrier 'Column relief valve PSV-1033 sized for g' \u2192 HAZOP safeguard tag(s) PSV-1033 in the register",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "group": "D. Tags",
+  "check": "BT1 barrier 'Ammonia detection and ESD (AT-1801A/B/C,' \u2192 HAZOP safeguard tag(s) AT-1801A in the register",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "group": "D. Tags",
+  "check": "Ammonia unit - BT-AM-02 Synthesis gas loss of containment.bowtie.json: every tag in barrier names / notes is defined in the HAZOP or FMECA (9 tags)",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "group": "D. Tags",
+  "check": "BT2 barrier 'Converter over-temperature protection \u2013 ' \u2192 HAZOP safeguard tag(s) TSHH-1396 in the register",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "group": "D. Tags",
+  "check": "BT2 barrier 'Seal-gas low-low pressure trip PSLL-1155' \u2192 HAZOP safeguard tag(s) PSLL-1155 in the register",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "group": "D. Tags",
+  "check": "BT2 barrier 'Synthesis loop relief valve PSV-1018' \u2192 HAZOP safeguard tag(s) PSV-1018 in the register",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "group": "D. Tags",
+  "check": "BT2 barrier 'Unit ESD and emergency depressurisation ' \u2192 HAZOP safeguard tag(s) UCP-1000 in the register",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "group": "D. Tags",
+  "check": "FMECA S01 row tag FFSLL-1201 is in the equipment register under S01",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "group": "D. Tags",
+  "check": "FMECA S01 row tag 101-B is in the equipment register under S01",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "group": "D. Tags",
+  "check": "FMECA S01 row tag XV-1201 is in the equipment register under S01",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "group": "D. Tags",
+  "check": "FMECA S02 row tag BSLL-1200 is in the equipment register under S02",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "group": "D. Tags",
+  "check": "FMECA S02 row tag XV-1220A is in the equipment register under S02",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "group": "D. Tags",
+  "check": "FMECA S02 row tag PV-1001B is in the equipment register under S02",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "group": "D. Tags",
+  "check": "FMECA S03 row tag TSHH-1396 is in the equipment register under S03",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "group": "D. Tags",
+  "check": "FMECA S03 row tag 103-J is in the equipment register under S03",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "group": "D. Tags",
+  "check": "FMECA S03 row tag 123-C1 is in the equipment register under S03",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "group": "D. Tags",
+  "check": "FMECA S03 row tag XV-1250A is in the equipment register under S03",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "group": "D. Tags",
+  "check": "FMECA S04 row tag PSHH-1110 is in the equipment register under S04",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "group": "D. Tags",
+  "check": "FMECA S04 row tag PSV-1109 is in the equipment register under S04",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "group": "D. Tags",
+  "check": "FMECA S04 row tag 127-C is in the equipment register under S04",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "group": "D. Tags",
+  "check": "FMECA S04 row tag AT-1801A is in the equipment register under S04",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "group": "D. Tags",
+  "check": "FMECA S04 row tag LSHH-1214 is in the equipment register under S04",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "group": "D. Tags",
+  "check": "FMECA S05 row tag PV-1033A is in the equipment register under S05",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "group": "D. Tags",
+  "check": "FMECA S05 row tag 161-J is in the equipment register under S05",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "group": "D. Tags",
+  "check": "HAZOP safeguard register: every tag is defined (51 tags)",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "group": "D. Tags",
+  "check": "HAZOP causes / consequences / comments: every tag is defined (26 tags)",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "group": "D. Tags",
+  "check": "HAZOP IPL PSHH1110 (PSHH-1110) is the barrier 'Refrigeration overpressure protection ' in BT1",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "group": "D. Tags",
+  "check": "HAZOP IPL PSV1109 (PSV-1109) is the barrier 'Refrigeration overpressure protection ' in BT1",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "group": "D. Tags",
+  "check": "HAZOP IPL NH3DET (AT-1801A) is the barrier 'Ammonia detection and ESD (AT-1801A/B/' in BT1",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "group": "D. Tags",
+  "check": "HAZOP IPL ESDGAS (UCP-1000) is the barrier 'Unit ESD and emergency depressurisatio' in BT2",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "group": "D. Tags",
+  "check": "HAZOP IPL TSHH1396 (TSHH-1396) is the barrier 'Converter over-temperature protection ' in BT2",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "group": "D. Tags",
+  "check": "HAZOP IPL PSV1033 (PSV-1033) is the barrier 'Column relief valve PSV-1033 sized for' in BT1",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "group": "D. Tags",
+  "check": "HAZOP IPL PSV1018 (PSV-1018) is the barrier 'Synthesis loop relief valve PSV-1018' in BT2",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "group": "E. Workbooks",
+  "check": "Ammonia unit - HAZOP_Study_Workbook.xlsx recalculates in LibreOffice with no formula errors (9101 formulas)",
+  "pass": true,
+  "detail": "{\"status\": \"success\", \"total_errors\": 0, \"error_summary\": {}, \"total_formulas\": 9101}"
+ },
+ {
+  "group": "E. Workbooks",
+  "check": "Ammonia unit - FMECA_Workbook.xlsx recalculates in LibreOffice with no formula errors (9210 formulas)",
+  "pass": true,
+  "detail": "{\"status\": \"success\", \"total_errors\": 0, \"error_summary\": {}, \"total_formulas\": 9210}"
+ },
+ {
+  "group": "E. Workbooks",
+  "check": "Ammonia unit - HAZID_Register.xlsx recalculates in LibreOffice with no formula errors (44 formulas)",
+  "pass": true,
+  "detail": "{\"status\": \"success\", \"total_errors\": 0, \"error_summary\": {}, \"total_formulas\": 44}"
+ },
+ {
+  "group": "E. Workbooks",
+  "check": "HAZOP workbook: cover shows 5 nodes",
+  "pass": true,
+  "detail": "5"
+ },
+ {
+  "group": "E. Workbooks",
+  "check": "HAZOP workbook Node 01 is 'N01' with the node details",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "group": "E. Workbooks",
+  "check": "HAZOP workbook Node 01 has the same 9 deviations as the app",
+  "pass": true,
+  "detail": "9 vs 9"
+ },
+ {
+  "group": "E. Workbooks",
+  "check": "HAZOP workbook N01-01 = app (parameter/guideword valid, 2 causes, 3 safeguards, risk 12 \u2192 4)",
+  "pass": true,
+  "detail": "row 14: ['Flow', 'NO', 12, 2, 4]"
+ },
+ {
+  "group": "E. Workbooks",
+  "check": "HAZOP workbook N01-02 = app (parameter/guideword valid, 2 causes, 2 safeguards, risk 9 \u2192 6)",
+  "pass": true,
+  "detail": "row 15: ['Flow', 'MORE', 9, 1, 6]"
+ },
+ {
+  "group": "E. Workbooks",
+  "check": "HAZOP workbook N01-03 = app (parameter/guideword valid, 2 causes, 2 safeguards, risk 8 \u2192 4)",
+  "pass": true,
+  "detail": "row 16: ['Flow', 'REVERSE', 8, 1, 4]"
+ },
+ {
+  "group": "E. Workbooks",
+  "check": "HAZOP workbook N01-04 = app (parameter/guideword valid, 3 causes, 3 safeguards, risk 12 \u2192 8)",
+  "pass": true,
+  "detail": "row 17: ['Temperature', 'MORE', 12, 1, 8]"
+ },
+ {
+  "group": "E. Workbooks",
+  "check": "HAZOP workbook N01-05 = app (parameter/guideword valid, 2 causes, 1 safeguards, risk 8 \u2192 4)",
+  "pass": true,
+  "detail": "row 18: ['Pressure', 'MORE', 8, 1, 4]"
+ },
+ {
+  "group": "E. Workbooks",
+  "check": "HAZOP workbook N01-06 = app (parameter/guideword valid, 2 causes, 2 safeguards, risk 12 \u2192 8)",
+  "pass": true,
+  "detail": "row 19: ['Flow', 'MORE', 12, 1, 8]"
+ },
+ {
+  "group": "E. Workbooks",
+  "check": "HAZOP workbook N01-07 = app (parameter/guideword valid, 2 causes, 1 safeguards, risk 6 \u2192 4)",
+  "pass": true,
+  "detail": "row 20: ['Composition', 'AS WELL AS', 6, 0, 4]"
+ },
+ {
+  "group": "E. Workbooks",
+  "check": "HAZOP workbook N01-08 = app (parameter/guideword valid, 2 causes, 2 safeguards, risk 9 \u2192 6)",
+  "pass": true,
+  "detail": "row 21: ['Utilities / services', 'LOSS OF', 9, 1, 6]"
+ },
+ {
+  "group": "E. Workbooks",
+  "check": "HAZOP workbook N01-09 = app (parameter/guideword valid, 1 causes, 2 safeguards, risk 8 \u2192 4)",
+  "pass": true,
+  "detail": "row 22: ['Start-up', 'REVIEW', 8, 2, 4]"
+ },
+ {
+  "group": "E. Workbooks",
+  "check": "HAZOP workbook Node 02 is 'N02' with the node details",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "group": "E. Workbooks",
+  "check": "HAZOP workbook Node 02 has the same 8 deviations as the app",
+  "pass": true,
+  "detail": "8 vs 8"
+ },
+ {
+  "group": "E. Workbooks",
+  "check": "HAZOP workbook N02-01 = app (parameter/guideword valid, 3 causes, 3 safeguards, risk 15 \u2192 5)",
+  "pass": true,
+  "detail": "row 14: ['Flow', 'NO', 15, 2, 5]"
+ },
+ {
+  "group": "E. Workbooks",
+  "check": "HAZOP workbook N02-02 = app (parameter/guideword valid, 2 causes, 2 safeguards, risk 15 \u2192 5)",
+  "pass": true,
+  "detail": "row 15: ['Pressure', 'MORE', 15, 2, 5]"
+ },
+ {
+  "group": "E. Workbooks",
+  "check": "HAZOP workbook N02-03 = app (parameter/guideword valid, 2 causes, 1 safeguards, risk 12 \u2192 8)",
+  "pass": true,
+  "detail": "row 16: ['Pressure', 'LESS', 12, 1, 8]"
+ },
+ {
+  "group": "E. Workbooks",
+  "check": "HAZOP workbook N02-04 = app (parameter/guideword valid, 2 causes, 2 safeguards, risk 9 \u2192 6)",
+  "pass": true,
+  "detail": "row 17: ['Composition', 'AS WELL AS', 9, 0, 6]"
+ },
+ {
+  "group": "E. Workbooks",
+  "check": "HAZOP workbook N02-05 = app (parameter/guideword valid, 2 causes, 1 safeguards, risk 12 \u2192 8)",
+  "pass": true,
+  "detail": "row 18: ['Utilities / services', 'LOSS OF', 12, 1, 8]"
+ },
+ {
+  "group": "E. Workbooks",
+  "check": "HAZOP workbook N02-06 = app (parameter/guideword valid, 2 causes, 2 safeguards, risk 15 \u2192 10)",
+  "pass": true,
+  "detail": "row 19: ['Start-up', 'REVIEW', 15, 1, 10]"
+ },
+ {
+  "group": "E. Workbooks",
+  "check": "HAZOP workbook N02-07 = app (parameter/guideword valid, 2 causes, 1 safeguards, risk 9 \u2192 6)",
+  "pass": true,
+  "detail": "row 20: ['Level', 'MORE', 9, 0, 6]"
+ },
+ {
+  "group": "E. Workbooks",
+  "check": "HAZOP workbook N02-08 = app (parameter/guideword valid, 2 causes, 2 safeguards, risk 12 \u2192 8)",
+  "pass": true,
+  "detail": "row 21: ['Fire and explosion', 'REVIEW', 12, 0, 8]"
+ },
+ {
+  "group": "E. Workbooks",
+  "check": "HAZOP workbook Node 03 is 'N03' with the node details",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "group": "E. Workbooks",
+  "check": "HAZOP workbook Node 03 has the same 9 deviations as the app",
+  "pass": true,
+  "detail": "9 vs 9"
+ },
+ {
+  "group": "E. Workbooks",
+  "check": "HAZOP workbook N03-01 = app (parameter/guideword valid, 3 causes, 2 safeguards, risk 9 \u2192 6)",
+  "pass": true,
+  "detail": "row 14: ['Flow', 'NO', 9, 1, 6]"
+ },
+ {
+  "group": "E. Workbooks",
+  "check": "HAZOP workbook N03-02 = app (parameter/guideword valid, 2 causes, 2 safeguards, risk 12 \u2192 8)",
+  "pass": true,
+  "detail": "row 15: ['Flow', 'LESS', 12, 0, 8]"
+ },
+ {
+  "group": "E. Workbooks",
+  "check": "HAZOP workbook N03-03 = app (parameter/guideword valid, 3 causes, 3 safeguards, risk 20 \u2192 20)",
+  "pass": true,
+  "detail": "row 16: ['Temperature', 'MORE', 20, 2, 20]"
+ },
+ {
+  "group": "E. Workbooks",
+  "check": "HAZOP workbook N03-04 = app (parameter/guideword valid, 3 causes, 3 safeguards, risk 15 \u2192 5)",
+  "pass": true,
+  "detail": "row 17: ['Pressure', 'MORE', 15, 1, 5]"
+ },
+ {
+  "group": "E. Workbooks",
+  "check": "HAZOP workbook N03-05 = app (parameter/guideword valid, 2 causes, 1 safeguards, risk 9 \u2192 6)",
+  "pass": true,
+  "detail": "row 18: ['Composition', 'AS WELL AS', 9, 0, 6]"
+ },
+ {
+  "group": "E. Workbooks",
+  "check": "HAZOP workbook N03-06 = app (parameter/guideword valid, 2 causes, 1 safeguards, risk 10 \u2192 5)",
+  "pass": true,
+  "detail": "row 19: ['Corrosion / erosion', 'MORE', 10, 1, 5]"
+ },
+ {
+  "group": "E. Workbooks",
+  "check": "HAZOP workbook N03-07 = app (parameter/guideword valid, 1 causes, 2 safeguards, risk 8 \u2192 4)",
+  "pass": true,
+  "detail": "row 20: ['Flow', 'REVERSE', 8, 1, 4]"
+ },
+ {
+  "group": "E. Workbooks",
+  "check": "HAZOP workbook N03-08 = app (parameter/guideword valid, 2 causes, 2 safeguards, risk 15 \u2192 10)",
+  "pass": true,
+  "detail": "row 21: ['Fire and explosion', 'REVIEW', 15, 1, 10]"
+ },
+ {
+  "group": "E. Workbooks",
+  "check": "HAZOP workbook N03-09 = app (parameter/guideword valid, 2 causes, 1 safeguards, risk 12 \u2192 8)",
+  "pass": true,
+  "detail": "row 22: ['Start-up', 'REVIEW', 12, 1, 8]"
+ },
+ {
+  "group": "E. Workbooks",
+  "check": "HAZOP workbook Node 04 is 'N04' with the node details",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "group": "E. Workbooks",
+  "check": "HAZOP workbook Node 04 has the same 9 deviations as the app",
+  "pass": true,
+  "detail": "9 vs 9"
+ },
+ {
+  "group": "E. Workbooks",
+  "check": "HAZOP workbook N04-01 = app (parameter/guideword valid, 3 causes, 4 safeguards, risk 20 \u2192 5)",
+  "pass": true,
+  "detail": "row 14: ['Pressure', 'MORE', 20, 3, 5]"
+ },
+ {
+  "group": "E. Workbooks",
+  "check": "HAZOP workbook N04-02 = app (parameter/guideword valid, 2 causes, 2 safeguards, risk 12 \u2192 8)",
+  "pass": true,
+  "detail": "row 15: ['Level', 'MORE', 12, 1, 8]"
+ },
+ {
+  "group": "E. Workbooks",
+  "check": "HAZOP workbook N04-03 = app (parameter/guideword valid, 2 causes, 2 safeguards, risk 9 \u2192 6)",
+  "pass": true,
+  "detail": "row 16: ['Pressure', 'LESS', 9, 1, 6]"
+ },
+ {
+  "group": "E. Workbooks",
+  "check": "HAZOP workbook N04-04 = app (parameter/guideword valid, 1 causes, 1 safeguards, risk 9 \u2192 6)",
+  "pass": true,
+  "detail": "row 17: ['Flow', 'LESS', 9, 0, 6]"
+ },
+ {
+  "group": "E. Workbooks",
+  "check": "HAZOP workbook N04-05 = app (parameter/guideword valid, 2 causes, 1 safeguards, risk 10 \u2192 5)",
+  "pass": true,
+  "detail": "row 18: ['Temperature', 'LESS', 10, 1, 5]"
+ },
+ {
+  "group": "E. Workbooks",
+  "check": "HAZOP workbook N04-06 = app (parameter/guideword valid, 2 causes, 2 safeguards, risk 12 \u2192 8)",
+  "pass": true,
+  "detail": "row 19: ['Utilities / services', 'LOSS OF', 12, 1, 8]"
+ },
+ {
+  "group": "E. Workbooks",
+  "check": "HAZOP workbook N04-07 = app (parameter/guideword valid, 3 causes, 4 safeguards, risk 15 \u2192 10)",
+  "pass": true,
+  "detail": "row 20: ['Toxicity', 'REVIEW', 15, 1, 10]"
+ },
+ {
+  "group": "E. Workbooks",
+  "check": "HAZOP workbook N04-08 = app (parameter/guideword valid, 2 causes, 2 safeguards, risk 12 \u2192 8)",
+  "pass": true,
+  "detail": "row 21: ['Maintenance', 'INADEQUATE', 12, 0, 8]"
+ },
+ {
+  "group": "E. Workbooks",
+  "check": "HAZOP workbook N04-09 = app (parameter/guideword valid, 1 causes, 1 safeguards, risk 9 \u2192 6)",
+  "pass": true,
+  "detail": "row 22: ['Relief', 'INADEQUATE', 9, 0, 6]"
+ },
+ {
+  "group": "E. Workbooks",
+  "check": "HAZOP workbook Node 05 is 'N05' with the node details",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "group": "E. Workbooks",
+  "check": "HAZOP workbook Node 05 has the same 7 deviations as the app",
+  "pass": true,
+  "detail": "7 vs 7"
+ },
+ {
+  "group": "E. Workbooks",
+  "check": "HAZOP workbook N05-01 = app (parameter/guideword valid, 2 causes, 1 safeguards, risk 9 \u2192 6)",
+  "pass": true,
+  "detail": "row 14: ['Flow', 'NO', 9, 0, 6]"
+ },
+ {
+  "group": "E. Workbooks",
+  "check": "HAZOP workbook N05-02 = app (parameter/guideword valid, 2 causes, 3 safeguards, risk 15 \u2192 10)",
+  "pass": true,
+  "detail": "row 15: ['Pressure', 'MORE', 15, 2, 10]"
+ },
+ {
+  "group": "E. Workbooks",
+  "check": "HAZOP workbook N05-03 = app (parameter/guideword valid, 2 causes, 1 safeguards, risk 9 \u2192 6)",
+  "pass": true,
+  "detail": "row 16: ['Level', 'MORE', 9, 0, 6]"
+ },
+ {
+  "group": "E. Workbooks",
+  "check": "HAZOP workbook N05-04 = app (parameter/guideword valid, 1 causes, 2 safeguards, risk 10 \u2192 5)",
+  "pass": true,
+  "detail": "row 17: ['Level', 'LESS', 10, 2, 5]"
+ },
+ {
+  "group": "E. Workbooks",
+  "check": "HAZOP workbook N05-05 = app (parameter/guideword valid, 1 causes, 2 safeguards, risk 9 \u2192 6)",
+  "pass": true,
+  "detail": "row 18: ['Temperature', 'MORE', 9, 1, 6]"
+ },
+ {
+  "group": "E. Workbooks",
+  "check": "HAZOP workbook N05-06 = app (parameter/guideword valid, 2 causes, 2 safeguards, risk 12 \u2192 8)",
+  "pass": true,
+  "detail": "row 19: ['Toxicity', 'REVIEW', 12, 0, 8]"
+ },
+ {
+  "group": "E. Workbooks",
+  "check": "HAZOP workbook N05-07 = app (parameter/guideword valid, 1 causes, 1 safeguards, risk 9 \u2192 6)",
+  "pass": true,
+  "detail": "row 20: ['Utilities / services', 'LOSS OF', 9, 0, 6]"
+ },
+ {
+  "group": "E. Workbooks",
+  "check": "FMECA workbook: cover shows 5 systems and 43 equipment items",
+  "pass": true,
+  "detail": "5 / 43"
+ },
+ {
+  "group": "E. Workbooks",
+  "check": "FMECA S01-01 FFSLL-1201: type from register, component + failure mode valid, RPN 162, AP M",
+  "pass": true,
+  "detail": "['S01-01', 'FFSLL-1201', 'Instrument \u2013 transmitter / switch', 162, 'M']"
+ },
+ {
+  "group": "E. Workbooks",
+  "check": "FMECA S01-02 101-B: type from register, component + failure mode valid, RPN 128, AP M",
+  "pass": true,
+  "detail": "['S01-02', '101-B', 'Burner / combustion system', 128, 'M']"
+ },
+ {
+  "group": "E. Workbooks",
+  "check": "FMECA S01-03 XV-1201: type from register, component + failure mode valid, RPN 162, AP M",
+  "pass": true,
+  "detail": "['S01-03', 'XV-1201', 'Isolation / ESD valve', 162, 'M']"
+ },
+ {
+  "group": "E. Workbooks",
+  "check": "FMECA S02-01 BSLL-1200: type from register, component + failure mode valid, RPN 180, AP M",
+  "pass": true,
+  "detail": "['S02-01', 'BSLL-1200', 'Instrument \u2013 transmitter / switch', 180, 'M']"
+ },
+ {
+  "group": "E. Workbooks",
+  "check": "FMECA S02-02 XV-1220A: type from register, component + failure mode valid, RPN 180, AP M",
+  "pass": true,
+  "detail": "['S02-02', 'XV-1220A', 'Isolation / ESD valve', 180, 'M']"
+ },
+ {
+  "group": "E. Workbooks",
+  "check": "FMECA S02-03 PV-1001B: type from register, component + failure mode valid, RPN 96, AP M",
+  "pass": true,
+  "detail": "['S02-03', 'PV-1001B', 'Control valve', 96, 'M']"
+ },
+ {
+  "group": "E. Workbooks",
+  "check": "FMECA S03-01 TSHH-1396: type from register, component + failure mode valid, RPN 180, AP M",
+  "pass": true,
+  "detail": "['S03-01', 'TSHH-1396', 'Instrument \u2013 transmitter / switch', 180, 'M']"
+ },
+ {
+  "group": "E. Workbooks",
+  "check": "FMECA S03-02 103-J: type from register, component + failure mode valid, RPN 120, AP L",
+  "pass": true,
+  "detail": "['S03-02', '103-J', 'Centrifugal compressor', 120, 'L']"
+ },
+ {
+  "group": "E. Workbooks",
+  "check": "FMECA S03-03 123-C1: type from register, component + failure mode valid, RPN 120, AP M",
+  "pass": true,
+  "detail": "['S03-03', '123-C1', 'Shell & tube heat exchanger', 120, 'M']"
+ },
+ {
+  "group": "E. Workbooks",
+  "check": "FMECA S03-04 XV-1250A: type from register, component + failure mode valid, RPN 162, AP M",
+  "pass": true,
+  "detail": "['S03-04', 'XV-1250A', 'Isolation / ESD valve', 162, 'M']"
+ },
+ {
+  "group": "E. Workbooks",
+  "check": "FMECA S04-01 PSHH-1110: type from register, component + failure mode valid, RPN 162, AP M",
+  "pass": true,
+  "detail": "['S04-01', 'PSHH-1110', 'Instrument \u2013 transmitter / switch', 162, 'M']"
+ },
+ {
+  "group": "E. Workbooks",
+  "check": "FMECA S04-02 PSV-1109: type from register, component + failure mode valid, RPN 120, AP M",
+  "pass": true,
+  "detail": "['S04-02', 'PSV-1109', 'Pressure relief device (PSV / rupture disc)', 120, 'M']"
+ },
+ {
+  "group": "E. Workbooks",
+  "check": "FMECA S04-03 127-C: type from register, component + failure mode valid, RPN 72, AP L",
+  "pass": true,
+  "detail": "['S04-03', '127-C', 'Shell & tube heat exchanger', 72, 'L']"
+ },
+ {
+  "group": "E. Workbooks",
+  "check": "FMECA S04-04 AT-1801A: type from register, component + failure mode valid, RPN 128, AP M",
+  "pass": true,
+  "detail": "['S04-04', 'AT-1801A', 'Analyser / gas detector', 128, 'M']"
+ },
+ {
+  "group": "E. Workbooks",
+  "check": "FMECA S04-05 LSHH-1214: type from register, component + failure mode valid, RPN 144, AP M",
+  "pass": true,
+  "detail": "['S04-05', 'LSHH-1214', 'Instrument \u2013 transmitter / switch', 144, 'M']"
+ },
+ {
+  "group": "E. Workbooks",
+  "check": "FMECA S05-01 PV-1033A: type from register, component + failure mode valid, RPN 90, AP L",
+  "pass": true,
+  "detail": "['S05-01', 'PV-1033A', 'Control valve', 90, 'L']"
+ },
+ {
+  "group": "E. Workbooks",
+  "check": "FMECA S05-02 161-J: type from register, component + failure mode valid, RPN 128, AP M",
+  "pass": true,
+  "detail": "['S05-02', '161-J', 'Centrifugal pump', 128, 'M']"
+ },
+ {
+  "group": "E. Workbooks",
+  "check": "FMECA Summary counts all 17 failure modes",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "group": "E. Workbooks",
+  "check": "Ammonia unit - HAZOP_Study_Workbook_Macro.xlsm keeps the template's VBA project unchanged",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "group": "E. Workbooks",
+  "check": "Ammonia unit - FMECA_Workbook_Macro.xlsm keeps the template's VBA project unchanged",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "group": "E. Workbooks",
+  "check": "HAZOP macro workbook Node 01: 9 deviations and IPL tags as the app",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "group": "E. Workbooks",
+  "check": "HAZOP macro workbook Node 02: 8 deviations and IPL tags as the app",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "group": "E. Workbooks",
+  "check": "HAZOP macro workbook Node 03: 9 deviations and IPL tags as the app",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "group": "E. Workbooks",
+  "check": "HAZOP macro workbook Node 04: 9 deviations and IPL tags as the app",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "group": "E. Workbooks",
+  "check": "HAZOP macro workbook Node 05: 7 deviations and IPL tags as the app",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "group": "G. HAZID",
+  "check": "HAZID register has all 22 hazards",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "group": "G. HAZID",
+  "check": "HZD-01 risk score 12 and rank High calculated by the workbook",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "group": "G. HAZID",
+  "check": "HZD-01 (High) is sent to a further study",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "group": "G. HAZID",
+  "check": "HZD-01 further-study reference N01-01 resolves",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "group": "G. HAZID",
+  "check": "HZD-01 further-study reference N01-04 resolves",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "group": "G. HAZID",
+  "check": "HZD-01 recommendation R-001 exists in the HAZOP",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "group": "G. HAZID",
+  "check": "HZD-01 recommendation R-002 exists in the HAZOP",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "group": "G. HAZID",
+  "check": "HZD-02 risk score 12 and rank High calculated by the workbook",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "group": "G. HAZID",
+  "check": "HZD-02 (High) is sent to a further study",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "group": "G. HAZID",
+  "check": "HZD-02 further-study reference N01-06 resolves",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "group": "G. HAZID",
+  "check": "HZD-02 recommendation R-003 exists in the HAZOP",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "group": "G. HAZID",
+  "check": "HZD-03 risk score 15 and rank High calculated by the workbook",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "group": "G. HAZID",
+  "check": "HZD-03 (High) is sent to a further study",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "group": "G. HAZID",
+  "check": "HZD-03 further-study reference N02-01 resolves",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "group": "G. HAZID",
+  "check": "HZD-03 further-study reference N02-06 resolves",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "group": "G. HAZID",
+  "check": "HZD-03 recommendation R-004 exists in the HAZOP",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "group": "G. HAZID",
+  "check": "HZD-04 risk score 12 and rank High calculated by the workbook",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "group": "G. HAZID",
+  "check": "HZD-04 (High) is sent to a further study",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "group": "G. HAZID",
+  "check": "HZD-04 further-study reference N02-08 resolves",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "group": "G. HAZID",
+  "check": "HZD-05 risk score 9 and rank Medium calculated by the workbook",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "group": "G. HAZID",
+  "check": "HZD-05 further-study reference N02-04 resolves",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "group": "G. HAZID",
+  "check": "HZD-05 recommendation R-005 exists in the HAZOP",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "group": "G. HAZID",
+  "check": "HZD-06 risk score 15 and rank High calculated by the workbook",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "group": "G. HAZID",
+  "check": "HZD-06 (High) is sent to a further study",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "group": "G. HAZID",
+  "check": "HZD-06 further-study reference N03-08 resolves",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "group": "G. HAZID",
+  "check": "HZD-06 recommendation R-019 exists in the HAZOP",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "group": "G. HAZID",
+  "check": "HZD-07 risk score 20 and rank Very High calculated by the workbook",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "group": "G. HAZID",
+  "check": "HZD-07 (Very High) is sent to a further study",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "group": "G. HAZID",
+  "check": "HZD-07 further-study reference N03-03 resolves",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "group": "G. HAZID",
+  "check": "HZD-07 recommendation R-008 exists in the HAZOP",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "group": "G. HAZID",
+  "check": "HZD-08 risk score 15 and rank High calculated by the workbook",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "group": "G. HAZID",
+  "check": "HZD-08 (High) is sent to a further study",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "group": "G. HAZID",
+  "check": "HZD-08 further-study reference N03-04 resolves",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "group": "G. HAZID",
+  "check": "HZD-08 recommendation R-009 exists in the HAZOP",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "group": "G. HAZID",
+  "check": "HZD-09 risk score 10 and rank High calculated by the workbook",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "group": "G. HAZID",
+  "check": "HZD-09 (High) is sent to a further study",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "group": "G. HAZID",
+  "check": "HZD-09 further-study reference N03-06 resolves",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "group": "G. HAZID",
+  "check": "HZD-09 recommendation R-010 exists in the HAZOP",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "group": "G. HAZID",
+  "check": "HZD-10 risk score 12 and rank High calculated by the workbook",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "group": "G. HAZID",
+  "check": "HZD-10 (High) is sent to a further study",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "group": "G. HAZID",
+  "check": "HZD-10 further-study reference N03-02 resolves",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "group": "G. HAZID",
+  "check": "HZD-10 recommendation R-006 exists in the HAZOP",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "group": "G. HAZID",
+  "check": "HZD-10 recommendation R-007 exists in the HAZOP",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "group": "G. HAZID",
+  "check": "HZD-11 risk score 15 and rank High calculated by the workbook",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "group": "G. HAZID",
+  "check": "HZD-11 (High) is sent to a further study",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "group": "G. HAZID",
+  "check": "HZD-11 further-study reference N04-01 resolves",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "group": "G. HAZID",
+  "check": "HZD-11 further-study reference N04-07 resolves",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "group": "G. HAZID",
+  "check": "HZD-11 recommendation R-011 exists in the HAZOP",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "group": "G. HAZID",
+  "check": "HZD-11 recommendation R-012 exists in the HAZOP",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "group": "G. HAZID",
+  "check": "HZD-11 recommendation R-013 exists in the HAZOP",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "group": "G. HAZID",
+  "check": "HZD-12 risk score 20 and rank Very High calculated by the workbook",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "group": "G. HAZID",
+  "check": "HZD-12 (Very High) is sent to a further study",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "group": "G. HAZID",
+  "check": "HZD-12 further-study reference N04-01 resolves",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "group": "G. HAZID",
+  "check": "HZD-12 recommendation R-011 exists in the HAZOP",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "group": "G. HAZID",
+  "check": "HZD-12 recommendation R-015 exists in the HAZOP",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "group": "G. HAZID",
+  "check": "HZD-13 risk score 10 and rank High calculated by the workbook",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "group": "G. HAZID",
+  "check": "HZD-13 (High) is sent to a further study",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "group": "G. HAZID",
+  "check": "HZD-13 further-study reference N04-05 resolves",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "group": "G. HAZID",
+  "check": "HZD-13 recommendation R-014 exists in the HAZOP",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "group": "G. HAZID",
+  "check": "HZD-14 risk score 12 and rank High calculated by the workbook",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "group": "G. HAZID",
+  "check": "HZD-14 (High) is sent to a further study",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "group": "G. HAZID",
+  "check": "HZD-14 further-study reference N04-02 resolves",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "group": "G. HAZID",
+  "check": "HZD-15 risk score 12 and rank High calculated by the workbook",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "group": "G. HAZID",
+  "check": "HZD-15 (High) is sent to a further study",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "group": "G. HAZID",
+  "check": "HZD-15 further-study reference N04-08 resolves",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "group": "G. HAZID",
+  "check": "HZD-16 risk score 15 and rank High calculated by the workbook",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "group": "G. HAZID",
+  "check": "HZD-16 (High) is sent to a further study",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "group": "G. HAZID",
+  "check": "HZD-16 further-study reference N05-02 resolves",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "group": "G. HAZID",
+  "check": "HZD-16 further-study reference N05-04 resolves",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "group": "G. HAZID",
+  "check": "HZD-16 recommendation R-018 exists in the HAZOP",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "group": "G. HAZID",
+  "check": "HZD-17 risk score 12 and rank High calculated by the workbook",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "group": "G. HAZID",
+  "check": "HZD-17 (High) is sent to a further study",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "group": "G. HAZID",
+  "check": "HZD-17 further-study reference N05-06 resolves",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "group": "G. HAZID",
+  "check": "HZD-17 recommendation R-012 exists in the HAZOP",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "group": "G. HAZID",
+  "check": "HZD-18 risk score 10 and rank High calculated by the workbook",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "group": "G. HAZID",
+  "check": "HZD-18 (High) is sent to a further study",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "group": "G. HAZID",
+  "check": "HZD-18 recommendation R-016 exists in the HAZOP",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "group": "G. HAZID",
+  "check": "HZD-19 risk score 9 and rank Medium calculated by the workbook",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "group": "G. HAZID",
+  "check": "HZD-19 further-study reference N01-08 resolves",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "group": "G. HAZID",
+  "check": "HZD-19 further-study reference N05-07 resolves",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "group": "G. HAZID",
+  "check": "HZD-20 risk score 6 and rank Medium calculated by the workbook",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "group": "G. HAZID",
+  "check": "HZD-21 risk score 9 and rank Medium calculated by the workbook",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "group": "G. HAZID",
+  "check": "HZD-21 further-study reference N04-09 resolves",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "group": "G. HAZID",
+  "check": "HZD-21 further-study reference N02-04 resolves",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "group": "G. HAZID",
+  "check": "HZD-21 recommendation R-005 exists in the HAZOP",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "group": "G. HAZID",
+  "check": "HZD-22 risk score 6 and rank Medium calculated by the workbook",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "group": "G. HAZID",
+  "check": "Every HAZOP node is reached from the HAZID",
+  "pass": true,
+  "detail": "{'N02', 'N03', 'N05', 'N01', 'N04'}"
+ },
+ {
+  "group": "F. Report",
+  "check": "Report refers to FT-AM-01",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "group": "F. Report",
+  "check": "Report refers to FT-AM-02",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "group": "F. Report",
+  "check": "Report refers to FT-AM-03",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "group": "F. Report",
+  "check": "Report refers to ETA-AM-01",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "group": "F. Report",
+  "check": "Report refers to ETA-AM-02",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "group": "F. Report",
+  "check": "Report refers to BT-AM-01",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "group": "F. Report",
+  "check": "Report refers to BT-AM-02",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "group": "F. Report",
+  "check": "Report refers to HZ-EX-AM-001",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "group": "F. Report",
+  "check": "Report refers to FM-EX-AM-001",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "group": "F. Report",
+  "check": "Report refers to HI-EX-AM-001",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "group": "F. Report",
+  "check": "Report quotes FT1_TOP = 2.4E-6 as calculated by the apps",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "group": "F. Report",
+  "check": "Report quotes FT1_PFD = 1.1E-5 as calculated by the apps",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "group": "F. Report",
+  "check": "Report quotes FT2_TOP = 1.8E-2 as calculated by the apps",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "group": "F. Report",
+  "check": "Report quotes FT2_PFD = 5.1E-2 as calculated by the apps",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "group": "F. Report",
+  "check": "Report quotes FT3_PFD = 2.9E-2 as calculated by the apps",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "group": "F. Report",
+  "check": "Report quotes ETA1_C5 = 1.3E-6 as calculated by the apps",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "group": "F. Report",
+  "check": "Report quotes ETA2_C5 = 8.1E-5 as calculated by the apps",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "group": "F. Report",
+  "check": "Report lists every recommendation (20 of 20)",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "group": "F. Report",
+  "check": "Report covers every HAZOP deviation",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "group": "F. Report",
+  "check": "Report quotes ETA1 end state 'Release isolated and knocked down \u2013 mino' = 5.1E-3 /yr",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "group": "F. Report",
+  "check": "Report quotes ETA1 end state 'Release isolated \u2013 short-lived cloud, on' = 2.2E-3 /yr",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "group": "F. Report",
+  "check": "Report quotes ETA1 end state 'Prolonged release knocked down by the wa' = 1.5E-4 /yr",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "group": "F. Report",
+  "check": "Report quotes ETA1 end state 'Prolonged release drifts away from occup' = 5.3E-5 /yr",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "group": "F. Report",
+  "check": "Report quotes ETA1 end state 'Toxic cloud over occupied areas \u2013 people' = 1.2E-5 /yr",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "group": "F. Report",
+  "check": "Report quotes ETA1 end state 'Toxic cloud \u2013 fatalities on and off site' = 1.3E-6 /yr",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "group": "F. Report",
+  "check": "Report quotes ETA2 end state 'Release isolated \u2013 hydrogen disperses wi' = 4.2E-3 /yr",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "group": "F. Report",
+  "check": "Report quotes ETA2 end state 'Small flash fire \u2013 isolated inventory' = 1.8E-3 /yr",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "group": "F. Report",
+  "check": "Report quotes ETA2 end state 'Prolonged release disperses without igni' = 4.7E-4 /yr",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "group": "F. Report",
+  "check": "Report quotes ETA2 end state 'Large flash fire \u2013 prolonged release' = 1.2E-4 /yr",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "group": "F. Report",
+  "check": "Report quotes ETA2 end state 'Vapour cloud explosion \u2013 blast damage, m' = 8.1E-5 /yr",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "group": "F. Report",
+  "check": "Report quotes ETA2 end state 'Jet fire \u2013 isolated quickly, local damag' = 2.6E-3 /yr",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "group": "F. Report",
+  "check": "Report quotes ETA2 end state 'Prolonged jet fire \u2013 escalation to the l' = 2.9E-4 /yr",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "group": "F. Report",
+  "check": "Report lists HAZID item HZD-01",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "group": "F. Report",
+  "check": "Report lists HAZID item HZD-02",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "group": "F. Report",
+  "check": "Report lists HAZID item HZD-03",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "group": "F. Report",
+  "check": "Report lists HAZID item HZD-04",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "group": "F. Report",
+  "check": "Report lists HAZID item HZD-05",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "group": "F. Report",
+  "check": "Report lists HAZID item HZD-06",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "group": "F. Report",
+  "check": "Report lists HAZID item HZD-07",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "group": "F. Report",
+  "check": "Report lists HAZID item HZD-08",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "group": "F. Report",
+  "check": "Report lists HAZID item HZD-09",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "group": "F. Report",
+  "check": "Report lists HAZID item HZD-10",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "group": "F. Report",
+  "check": "Report lists HAZID item HZD-11",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "group": "F. Report",
+  "check": "Report lists HAZID item HZD-12",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "group": "F. Report",
+  "check": "Report lists HAZID item HZD-13",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "group": "F. Report",
+  "check": "Report lists HAZID item HZD-14",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "group": "F. Report",
+  "check": "Report lists HAZID item HZD-15",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "group": "F. Report",
+  "check": "Report lists HAZID item HZD-16",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "group": "F. Report",
+  "check": "Report lists HAZID item HZD-17",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "group": "F. Report",
+  "check": "Report lists HAZID item HZD-18",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "group": "F. Report",
+  "check": "Report lists HAZID item HZD-19",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "group": "F. Report",
+  "check": "Report lists HAZID item HZD-20",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "group": "F. Report",
+  "check": "Report lists HAZID item HZD-21",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "group": "F. Report",
+  "check": "Report lists HAZID item HZD-22",
+  "pass": true,
+  "detail": ""
+ }
+]

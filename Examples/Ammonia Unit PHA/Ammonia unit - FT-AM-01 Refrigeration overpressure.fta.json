@@ -1,0 +1,373 @@
+{
+ "app": "Fault Tree & PFD Calculator",
+ "schema": 1,
+ "title": "FT-AM-01 – Ammonia refrigeration receiver over-pressured beyond design (ammonia unit example)",
+ "description": "Top event: condenser 127-C / receiver 149-D pressure exceeds design because condensing is lost (demand gate G-006) and the alarm PAH-1009 with operator response, the discharge trip PSHH-1110 and relief valve PSV-1109 all fail (gate G-002). PSHH-1110 shares its transmitter with PIC-1009 in the design reviewed (BE-009, R-011): one fault blinds the alarm and the trip, but not PSV-1109. Gate G-002 is the barrier of bow tie BT-AM-01 threat T1. HAZOP N04-01; FMECA S04. Illustrative data from the toolkit's data library – replace with site / vendor data before use. Ammonia unit worked example (HAZOP HZ-EX-AM-001).",
+ "modified": "2026-11-24T16:00:00.000Z",
+ "top": "g000001",
+ "gates": [
+  {
+   "id": "g000001",
+   "code": "G-001",
+   "name": "Refrigerant receiver 149-D over-pressured beyond design",
+   "type": "AND",
+   "k": 2,
+   "children": [
+    {
+     "kind": "g",
+     "id": "g000002"
+    },
+    {
+     "kind": "g",
+     "id": "g000006"
+    }
+   ],
+   "collapsed": false
+  },
+  {
+   "id": "g000002",
+   "code": "G-006",
+   "name": "Demand: condensing lost – refrigerant pressure rises",
+   "type": "OR",
+   "k": 2,
+   "children": [
+    {
+     "kind": "e",
+     "id": "e000003"
+    },
+    {
+     "kind": "e",
+     "id": "e000004"
+    },
+    {
+     "kind": "e",
+     "id": "e000005"
+    }
+   ],
+   "collapsed": false
+  },
+  {
+   "id": "g000006",
+   "code": "G-002",
+   "name": "Overpressure protection fails (alarm + operator, PSHH-1110 trip, PSV-1109)",
+   "type": "AND",
+   "k": 2,
+   "children": [
+    {
+     "kind": "g",
+     "id": "g000007"
+    },
+    {
+     "kind": "e",
+     "id": "e000017"
+    }
+   ],
+   "collapsed": false
+  },
+  {
+   "id": "g000007",
+   "code": "G-007",
+   "name": "Alarm response and PSHH-1110 trip both fail",
+   "type": "OR",
+   "k": 2,
+   "children": [
+    {
+     "kind": "e",
+     "id": "e000008"
+    },
+    {
+     "kind": "g",
+     "id": "g000009"
+    }
+   ],
+   "collapsed": false
+  },
+  {
+   "id": "g000009",
+   "code": "G-003",
+   "name": "Alarm response and trip fail independently",
+   "type": "AND",
+   "k": 2,
+   "children": [
+    {
+     "kind": "g",
+     "id": "g000010"
+    },
+    {
+     "kind": "g",
+     "id": "g000013"
+    }
+   ],
+   "collapsed": false
+  },
+  {
+   "id": "g000010",
+   "code": "G-004",
+   "name": "PAH-1009 not acted on",
+   "type": "OR",
+   "k": 2,
+   "children": [
+    {
+     "kind": "e",
+     "id": "e000011"
+    },
+    {
+     "kind": "e",
+     "id": "e000012"
+    }
+   ],
+   "collapsed": false
+  },
+  {
+   "id": "g000013",
+   "code": "G-005",
+   "name": "High-high discharge trip PSHH-1110 fails to stop 105-J",
+   "type": "OR",
+   "k": 2,
+   "children": [
+    {
+     "kind": "e",
+     "id": "e000014"
+    },
+    {
+     "kind": "e",
+     "id": "e000015"
+    },
+    {
+     "kind": "e",
+     "id": "e000016"
+    }
+   ],
+   "collapsed": false
+  }
+ ],
+ "events": [
+  {
+   "id": "e000003",
+   "code": "BE-001",
+   "name": "Loss of cooling water to condenser 127-C",
+   "model": "freq",
+   "q": 0.01,
+   "lamDU": 1e-06,
+   "lamDD": 0,
+   "TI": 8760,
+   "MTTR": 8,
+   "lam": 1e-06,
+   "freq": 0.1,
+   "house": true,
+   "ef": 3,
+   "ccf": "",
+   "undeveloped": false,
+   "notes": "CCPS LOPA Table 5.1 cooling-water failure; HAZOP N04-06",
+   "lib": {
+    "g": "freq",
+    "id": "ie-cw",
+    "note": ""
+   }
+  },
+  {
+   "id": "e000004",
+   "code": "BE-002",
+   "name": "Non-condensables accumulate in condenser 127-C",
+   "model": "freq",
+   "q": 0.01,
+   "lamDU": 1e-06,
+   "lamDD": 0,
+   "TI": 8760,
+   "MTTR": 8,
+   "lam": 1e-06,
+   "freq": 0.1,
+   "house": true,
+   "ef": 3,
+   "ccf": "",
+   "undeveloped": false,
+   "notes": "Purge not operated – illustrative"
+  },
+  {
+   "id": "e000005",
+   "code": "BE-003",
+   "name": "Receiver outlet / discharge valve left closed after maintenance",
+   "model": "freq",
+   "q": 0.01,
+   "lamDU": 1e-06,
+   "lamDD": 0,
+   "TI": 8760,
+   "MTTR": 8,
+   "lam": 1e-06,
+   "freq": 0.02,
+   "house": true,
+   "ef": 3,
+   "ccf": "",
+   "undeveloped": false,
+   "notes": "Line-up error – illustrative"
+  },
+  {
+   "id": "e000008",
+   "code": "BE-009",
+   "name": "PSHH-1110 and PIC-1009 share one pressure transmitter – both blind",
+   "model": "prob",
+   "q": 0.05,
+   "lamDU": 1e-06,
+   "lamDD": 0,
+   "TI": 8760,
+   "MTTR": 8,
+   "lam": 1e-06,
+   "freq": 0.1,
+   "house": true,
+   "ef": 3,
+   "ccf": "",
+   "undeveloped": false,
+   "notes": "Common cause in the design reviewed (R-011); does not affect PSV-1109"
+  },
+  {
+   "id": "e000011",
+   "code": "BE-004",
+   "name": "Operator does not unload 105-J on the high-pressure alarm PAH-1009",
+   "model": "prob",
+   "q": 0.1,
+   "lamDU": 1e-06,
+   "lamDD": 0,
+   "TI": 8760,
+   "MTTR": 8,
+   "lam": 1e-06,
+   "freq": 0.1,
+   "house": true,
+   "ef": 3,
+   "ccf": "",
+   "undeveloped": false,
+   "notes": "CCPS LOPA Table 6.5",
+   "lib": {
+    "g": "ipl",
+    "id": "ipl-op10",
+    "note": ""
+   }
+  },
+  {
+   "id": "e000012",
+   "code": "BE-005",
+   "name": "Pressure transmitter of PIC-1009 / PAH-1009 fails",
+   "model": "tested",
+   "q": 0.01,
+   "lamDU": 3e-07,
+   "lamDD": 1e-06,
+   "TI": 8760,
+   "MTTR": 8,
+   "lam": 1e-06,
+   "freq": 0.1,
+   "house": true,
+   "ef": 3,
+   "ccf": "",
+   "undeveloped": false,
+   "notes": "FMECA S04 PIC-1009",
+   "lib": {
+    "g": "rate",
+    "id": "lr-pt",
+    "note": ""
+   }
+  },
+  {
+   "id": "e000014",
+   "code": "BE-006",
+   "name": "Pressure transmitter of PSHH-1110 fails dangerous",
+   "model": "tested",
+   "q": 0.01,
+   "lamDU": 3e-07,
+   "lamDD": 1e-06,
+   "TI": 8760,
+   "MTTR": 8,
+   "lam": 1e-06,
+   "freq": 0.1,
+   "house": true,
+   "ef": 3,
+   "ccf": "",
+   "undeveloped": false,
+   "notes": "FMECA S04 PSHH-1110",
+   "lib": {
+    "g": "rate",
+    "id": "lr-pt",
+    "note": ""
+   }
+  },
+  {
+   "id": "e000015",
+   "code": "BE-007",
+   "name": "Logic solver UCP-1000 fails dangerous",
+   "model": "tested",
+   "q": 0.01,
+   "lamDU": 5e-08,
+   "lamDD": 0,
+   "TI": 8760,
+   "MTTR": 8,
+   "lam": 1e-06,
+   "freq": 0.1,
+   "house": true,
+   "ef": 3,
+   "ccf": "",
+   "undeveloped": false,
+   "notes": "",
+   "lib": {
+    "g": "rate",
+    "id": "lr-plc",
+    "note": ""
+   }
+  },
+  {
+   "id": "e000016",
+   "code": "BE-008",
+   "name": "Turbine trip valve of 105-J fails to close",
+   "model": "tested",
+   "q": 0.01,
+   "lamDU": 2e-06,
+   "lamDD": 0,
+   "TI": 8760,
+   "MTTR": 24,
+   "lam": 1e-06,
+   "freq": 0.1,
+   "house": true,
+   "ef": 3,
+   "ccf": "",
+   "undeveloped": false,
+   "notes": "FMECA S04 105-J",
+   "lib": {
+    "g": "rate",
+    "id": "lr-esdv",
+    "note": ""
+   }
+  },
+  {
+   "id": "e000017",
+   "code": "BE-010",
+   "name": "Relief valve PSV-1109 fails to open on demand",
+   "model": "prob",
+   "q": 0.000212,
+   "lamDU": 1e-06,
+   "lamDD": 0,
+   "TI": 8760,
+   "MTTR": 8,
+   "lam": 1e-06,
+   "freq": 0.1,
+   "house": true,
+   "ef": 3,
+   "ccf": "",
+   "undeveloped": false,
+   "notes": "CCPS PERD (1989) mean; FMECA S04 PSV-1109",
+   "lib": {
+    "g": "equip",
+    "id": "perd-prv-open",
+    "note": ""
+   }
+  }
+ ],
+ "ccf": [],
+ "libOver": {},
+ "siteLib": [],
+ "settings": {
+  "mission": 8760,
+  "points": 400,
+  "maxOrder": 8,
+  "cutoff": 1e-15,
+  "maxCS": 20000,
+  "mcSamples": 2000,
+  "demandMode": "low"
+ }
+}

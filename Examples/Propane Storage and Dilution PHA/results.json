@@ -1,0 +1,382 @@
+{
+ "values": {
+  "FT1_TOP": 0.001938672898290428,
+  "FT1_PFD": 0.00387734584118038,
+  "FT1_DEM": 0.5,
+  "FT2_TOP": 0.012262108789226383,
+  "FT2_PFD": 0.01751729773975731,
+  "FT2_DEM": 0.6999999999999988,
+  "FT3_PFD": 0.03925361110738972,
+  "FT3_RRF": 25.475363203253014,
+  "BT1_TOP": 0.00834867292059019,
+  "BT1_JET": 2.9494400407887862e-05,
+  "BT1_BLEVE": 3.2771556008764293e-06,
+  "BT1_FF": 2.0646080285521505e-05,
+  "BT1_VCE": 8.84832012236636e-06,
+  "BT1_COLD": 4.1743364602950956e-05,
+  "BT2_TOP": 0.007631054208915058,
+  "BT2_EXPL": 7.631054208915058e-05,
+  "BT2_DEFL": 0.0007631054208915058,
+  "ETA1_C5": 1.2125475838576293e-05,
+  "ETA1_C4": 5.0140481170328995e-05,
+  "ETA1_C3": 0.0008020957436795235,
+  "ETA1_C2": 0.0007218861693115712
+ },
+ "files": {
+  "hazop": "Propane storage - HAZOP HZ-EX-PR-001.hazop.json",
+  "FT1": "Propane storage - FT-PR-01 Bullet overfill.fta.json",
+  "FT2": "Propane storage - FT-PR-02 Flammable propane-air mixture.fta.json",
+  "FT3": "Propane storage - FT-PR-03 Gas detection and ESD.fta.json",
+  "ETA1": "Propane storage - ETA-PR-01 Major propane release.eta.json",
+  "BT1": "Propane storage - BT-PR-01 Loss of containment.bowtie.json",
+  "BT2": "Propane storage - BT-PR-02 Propane-air ignition.bowtie.json",
+  "hz_xlsx": "Propane storage - HAZOP_Study_Workbook.xlsx",
+  "hz_xlsm": "Propane storage - HAZOP_Study_Workbook_Macro.xlsm",
+  "fm_xlsx": "Propane storage - FMECA_Workbook.xlsx",
+  "fm_xlsm": "Propane storage - FMECA_Workbook_Macro.xlsm",
+  "hi_xlsx": "Propane storage - HAZID_Register.xlsx",
+  "results": "results.json"
+ },
+ "constants": {
+  "P_IMM": 0.1,
+  "P_DEL": 0.1,
+  "P_VCE": 0.3,
+  "P_BLEVE": 0.1,
+  "P_IGN_INT": 0.5
+ },
+ "ft": {
+  "FT1": {
+   "top": "G-001",
+   "freq": 0.001938672898290428,
+   "pTime": 0.001938672898290428,
+   "gates": {
+    "G-001": 0.00193867292059019,
+    "G-006": 0.5,
+    "G-002": 0.00387734584118038,
+    "G-003": 0.0012221634825697015,
+    "G-004": 0.10900000000000068,
+    "G-005": 0.011212509014400936
+   },
+   "warn": []
+  },
+  "FT2": {
+   "top": "G-001",
+   "freq": 0.012262108789226383,
+   "pTime": 0.012262108789226383,
+   "gates": {
+    "G-001": 0.012262108417830118,
+    "G-006": 0.6999999999999988,
+    "G-002": 0.01751729773975731,
+    "G-003": 0.1594233535951265,
+    "G-004": 0.10978345189620395
+   },
+   "warn": []
+  },
+  "FT3": {
+   "top": "G-001",
+   "freq": null,
+   "pTime": 0.0392536104702983,
+   "gates": {
+    "G-001": 0.03925361110738972,
+    "G-002": 0.02006575384525738,
+    "G-003": 0.20026274877869885,
+    "G-006": 0.00010949391662739854,
+    "G-004": 0.10019707122667566,
+    "G-005": 0.01859973156063512
+   },
+   "warn": []
+  }
+ },
+ "eta": {
+  "ETA1": {
+   "ie": 0.008348673,
+   "warn": [],
+   "headingP": [
+    0.1,
+    0.03925361110738972,
+    0.1,
+    0.3,
+    0.1
+   ],
+   "cats": {
+    "C1": 0.006762425129999999,
+    "C2": 0.0007218861693115712,
+    "C3": 0.0008020957436795235,
+    "C4": 5.0140481170328995e-05,
+    "C5": 1.2125475838576293e-05
+   },
+   "leaves": [
+    {
+     "label": "Release isolated \u2013 propane disperses without ignition",
+     "f": 0.00649697552380414
+    },
+    {
+     "label": "Small flash fire \u2013 isolated inventory",
+     "f": 0.0007218861693115712
+    },
+    {
+     "label": "Prolonged release disperses without ignition \u2013 area evacuated",
+     "f": 0.00026544960619585936
+    },
+    {
+     "label": "Large flash fire \u2013 prolonged release",
+     "f": 2.0646080481900172e-05
+    },
+    {
+     "label": "Vapour cloud explosion \u2013 blast damage, multiple fatalities",
+     "f": 8.848320206528646e-06
+    },
+    {
+     "label": "Jet fire \u2013 isolated quickly, local damage",
+     "f": 0.0008020957436795235
+    },
+    {
+     "label": "Prolonged jet fire \u2013 cooling prevents BLEVE",
+     "f": 2.9494400688428823e-05
+    },
+    {
+     "label": "BLEVE \u2013 fireball, fragments, multiple fatalities",
+     "f": 3.277155632047647e-06
+    }
+   ]
+  }
+ },
+ "bt": {
+  "BT1": {
+   "top": 0.00834867292059019,
+   "topRaw": 0.5740000000000001,
+   "warn": [],
+   "threats": [
+    {
+     "name": "Bullet overfilled during unloading (liquid to the relief valves)",
+     "key": "T1",
+     "f": 0.00193867292059019,
+     "raw": 0.5
+    },
+    {
+     "name": "Unloading arm / hose failure during transfer",
+     "key": "T2",
+     "f": 0.003,
+     "raw": 0.03
+    },
+    {
+     "name": "Tanker drive-away while still connected",
+     "key": "T3",
+     "f": 0.00010000000000000002,
+     "raw": 0.01
+    },
+    {
+     "name": "Flange, gasket or pump-seal leak on the liquid lines",
+     "key": "T4",
+     "f": 0.003,
+     "raw": 0.03
+    },
+    {
+     "name": "Brittle fracture after auto-refrigeration (rapid depressurisation)",
+     "key": "T5",
+     "f": 1e-05,
+     "raw": 0.001
+    },
+    {
+     "name": "Vehicle impact on the arm, bullets or liquid lines",
+     "key": "T6",
+     "f": 0.00030000000000000003,
+     "raw": 0.003
+    }
+   ],
+   "cons": [
+    {
+     "name": "Prolonged jet fire at the bay \u2013 flame impingement, no BLEVE",
+     "key": "JET",
+     "res": 2.9494400407887862e-05,
+     "inh": 0.051660000000000005,
+     "S": 4,
+     "Lr": 1,
+     "rankR": "Low",
+     "tol": "0.01"
+    },
+    {
+     "name": "BLEVE of the tanker or a bullet \u2013 fireball and fragments",
+     "key": "BLEVE",
+     "res": 3.2771556008764293e-06,
+     "inh": 0.05740000000000001,
+     "S": 5,
+     "Lr": 1,
+     "rankR": "Medium",
+     "tol": "1e-4"
+    },
+    {
+     "name": "Large flash fire from a prolonged release",
+     "key": "FF",
+     "res": 2.0646080285521505e-05,
+     "inh": 0.36162000000000005,
+     "S": 4,
+     "Lr": 1,
+     "rankR": "Low",
+     "tol": "0.01"
+    },
+    {
+     "name": "Vapour cloud explosion \u2013 blast damage, multiple fatalities",
+     "key": "VCE",
+     "res": 8.84832012236636e-06,
+     "inh": 0.15498000000000003,
+     "S": 5,
+     "Lr": 1,
+     "rankR": "Medium",
+     "tol": "1e-4"
+    },
+    {
+     "name": "Cold burns to the operator from liquid propane",
+     "key": "COLD",
+     "res": 4.1743364602950956e-05,
+     "inh": 0.028700000000000003,
+     "S": 3,
+     "Lr": 1,
+     "rankR": "Low",
+     "tol": "1"
+    }
+   ],
+   "barriers": [
+    {
+     "id": "b000051",
+     "name": "Overfill protection \u2013 LAH with operator response and LAHH trip closing ROV-11/21/31",
+     "pfd": 0.00387734584118038
+    },
+    {
+     "id": "b000052",
+     "name": "Unloading arm / hose inspection, annual pressure test and pre-transfer leak test",
+     "pfd": 0.1
+    },
+    {
+     "id": "b000053",
+     "name": "Tanker brake interlock and wheel chocks",
+     "pfd": 0.1
+    },
+    {
+     "id": "b000054",
+     "name": "Emergency release coupling ERC-1 with self-closing valves",
+     "pfd": 0.1
+    },
+    {
+     "id": "b000055",
+     "name": "Gasket control, bolt-torque procedure and leak survey",
+     "pfd": 0.1
+    },
+    {
+     "id": "b000056",
+     "name": "Low-temperature carbon steel rated to \u221245 \u00b0C (no brittle fracture on auto-refrigeration)",
+     "pfd": 0.01
+    },
+    {
+     "id": "b000057",
+     "name": "Crash barriers around the bullets and the unloading arm; vehicle-movement plan",
+     "pfd": 0.1
+    },
+    {
+     "id": "b000058",
+     "name": "Gas detection and ESD isolation (GLD-1/2/3, UCP-1, ESD-1, ROV-1 / ROV-11)",
+     "pfd": 0.03925361110738972
+    },
+    {
+     "id": "b000059",
+     "name": "Ignition source control \u2013 Ex equipment, hot-work permits, vehicle control",
+     "pfd": 0.1
+    },
+    {
+     "id": "b000060",
+     "name": "Sprinkler / deluge cooling of the bullets and tanker prevents a BLEVE",
+     "pfd": 0.1
+    },
+    {
+     "id": "b000061",
+     "name": "Cryogenic gloves, face shield and training for connecting / disconnecting",
+     "pfd": 0.1
+    }
+   ]
+  },
+  "BT2": {
+   "top": 0.007631054208915058,
+   "topRaw": 0.49999999999999994,
+   "warn": [],
+   "threats": [
+    {
+     "name": "Propane\u2013air mixture enters the flammable range (propane lost, air continues)",
+     "key": "T1",
+     "f": 0.0061310542089150575,
+     "raw": 0.35
+    },
+    {
+     "name": "Start-up with air in the mixer, surge tank or header",
+     "key": "T2",
+     "f": 0.0010000000000000002,
+     "raw": 0.1
+    },
+    {
+     "name": "Flashback from a burner into the header",
+     "key": "T3",
+     "f": 0.0005000000000000001,
+     "raw": 0.05
+    }
+   ],
+   "cons": [
+    {
+     "name": "Surge tank / header ruptures \u2013 explosion near the furnace building",
+     "key": "EXPL",
+     "res": 7.631054208915058e-05,
+     "inh": 0.49999999999999994,
+     "S": 5,
+     "Lr": 1,
+     "rankR": "Medium",
+     "tol": "1e-4"
+    },
+    {
+     "name": "Deflagration vented by EP-01 \u2013 damage to the mixing station, outage",
+     "key": "DEFL",
+     "res": 0.0007631054208915058,
+     "inh": 0.49999999999999994,
+     "S": 4,
+     "Lr": 2,
+     "rankR": "Medium",
+     "tol": "0.01"
+    }
+   ],
+   "barriers": [
+    {
+     "id": "b000082",
+     "name": "Mixture protection \u2013 PSLL-01 trip and calorimeter trip AT-01",
+     "pfd": 0.01751729773975731
+    },
+    {
+     "id": "b000083",
+     "name": "Start-up procedure OP-PR-020 \u2013 N2 purge, propane before air",
+     "pfd": 0.1
+    },
+    {
+     "id": "b000084",
+     "name": "Mixture verified on AT-01 before the users are opened",
+     "pfd": 0.1
+    },
+    {
+     "id": "b000085",
+     "name": "In-line flame arrester FA-01 on the propane\u2013air header",
+     "pfd": 0.1
+    },
+    {
+     "id": "b000086",
+     "name": "Explosion vent panel EP-01 on surge tank ST-01",
+     "pfd": 0.01
+    },
+    {
+     "id": "b000087",
+     "name": "Users' burner management \u2013 low fuel pressure and flame-failure trips",
+     "pfd": 0.1
+    },
+    {
+     "id": "b000088",
+     "name": "No personnel at the mixing station during start-up and mixture changes",
+     "pfd": 0.1
+    }
+   ]
+  }
+ }
+}

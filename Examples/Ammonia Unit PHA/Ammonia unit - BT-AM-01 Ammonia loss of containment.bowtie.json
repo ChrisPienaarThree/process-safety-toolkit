@@ -1,0 +1,1180 @@
+{
+ "app": "Bow Tie Analysis",
+ "schema": 1,
+ "title": "BT-AM-01 – Loss of containment of liquid ammonia from the refrigeration and recovery systems (ammonia unit example)",
+ "description": "Threat T1 frequency = FT-AM-01 demand gate G-006 with the overpressure barrier = FT-AM-01 gate G-002 (its contribution equals the FT-AM-01 top event). The ESD barrier = FT-AM-03 gate G-001. The top-event frequency is the initiating frequency of event tree ETA-AM-01, and consequences TOXON, TOXOCC and TOXOFF reproduce its end states. HAZOP N04, N05; FMECA S04, S05. Illustrative data.",
+ "modified": "2026-11-24T16:00:00.000Z",
+ "hazard": "Liquid ammonia (refrigerant inventory about 120 t, −33 to +40 °C, up to 20 barg) – toxic, IDLH 300 ppm",
+ "top": "Loss of containment of liquid ammonia from the refrigeration or recovery system",
+ "threats": [
+  {
+   "id": "t000063",
+   "name": "Refrigerant system over-pressured (loss of condensing)",
+   "freq": 0.22,
+   "cond": 1,
+   "notes": "Frequency = FT-AM-01 gate G-006. HAZOP N04-01.",
+   "barrierIds": [
+    "b000053"
+   ],
+   "key": "T1"
+  },
+  {
+   "id": "t000064",
+   "name": "Refrigerant or reflux pump seal failure",
+   "freq": 0.1,
+   "cond": 0.3,
+   "notes": "Library ie15-seal-fail (CCPS IE & IPL Data Table 4.14). HAZOP N04-07, N05-06.",
+   "barrierIds": [
+    "b000054"
+   ],
+   "key": "T2"
+  },
+  {
+   "id": "t000065",
+   "name": "Flange, gasket or small-bore fitting failure",
+   "freq": 0.01,
+   "cond": 1,
+   "notes": "Library ie-gasket (CCPS LOPA Table 5.1). HAZOP N04-07.",
+   "barrierIds": [
+    "b000055"
+   ],
+   "key": "T3"
+  },
+  {
+   "id": "t000066",
+   "name": "Brittle fracture after auto-refrigeration",
+   "freq": 0.01,
+   "cond": 0.1,
+   "notes": "HAZOP N04-05",
+   "barrierIds": [
+    "b000056"
+   ],
+   "key": "T4"
+  },
+  {
+   "id": "t000067",
+   "name": "Line break during maintenance with ammonia inside",
+   "freq": 0.5,
+   "cond": 0.05,
+   "notes": "HAZOP N04-08",
+   "barrierIds": [
+    "b000057"
+   ],
+   "key": "T5"
+  },
+  {
+   "id": "t000068",
+   "name": "Gas blow-by into the distillation column 160-C (let-down fails open)",
+   "freq": 0.1,
+   "cond": 1,
+   "notes": "Library ie-bpcs. HAZOP N05-02, N05-04.",
+   "barrierIds": [
+    "b000058"
+   ],
+   "key": "T6"
+  }
+ ],
+ "consequences": [
+  {
+   "id": "q000069",
+   "name": "Prolonged release knocked down by the water curtain – on-site injuries",
+   "cond": 0.7,
+   "sev": {
+    "P": 3,
+    "E": 2,
+    "A": 3,
+    "R": 3
+   },
+   "notes": "ETA-AM-01 end state 'Prolonged release knocked down by the water curtain – on-site injuries'. cond = 1 − H2.",
+   "barrierIds": [
+    "b000059"
+   ],
+   "key": "TOXON"
+  },
+  {
+   "id": "q000070",
+   "name": "Toxic cloud over occupied areas – people shelter, serious injuries",
+   "cond": 0.054,
+   "sev": {
+    "P": 4,
+    "E": 3,
+    "A": 3,
+    "R": 4
+   },
+   "notes": "ETA-AM-01 end state 'Toxic cloud over occupied areas – people shelter, serious injuries'. cond = H2 x H3 x (1 − H4).",
+   "barrierIds": [
+    "b000059"
+   ],
+   "key": "TOXOCC"
+  },
+  {
+   "id": "q000071",
+   "name": "Toxic cloud – fatalities on and off site",
+   "cond": 0.2,
+   "sev": {
+    "P": 5,
+    "E": 4,
+    "A": 4,
+    "R": 5
+   },
+   "notes": "ETA-AM-01 end state 'Toxic cloud – fatalities on and off site'. cond = H3.",
+   "barrierIds": [
+    "b000059",
+    "b000060",
+    "b000061"
+   ],
+   "key": "TOXOFF"
+  },
+  {
+   "id": "q000072",
+   "name": "Chemical burns to the operator at the leak",
+   "cond": 0.05,
+   "sev": {
+    "P": 3,
+    "E": 1,
+    "A": 1,
+    "R": 1
+   },
+   "notes": "Not modelled in ETA-AM-01",
+   "barrierIds": [
+    "b000062"
+   ],
+   "key": "BURN"
+  }
+ ],
+ "barriers": [
+  {
+   "id": "b000053",
+   "name": "Refrigeration overpressure protection – PAH-1009 + operator, PSHH-1110 trip and PSV-1109",
+   "type": "Active human-hardware",
+   "pfd": 1.1e-05,
+   "source": "ft",
+   "ftId": "f000051",
+   "gateId": "g000006",
+   "status": "Available",
+   "degradeFactor": 10,
+   "owner": "Instrument / SIS engineer",
+   "performance": "Receiver never above 20 barg",
+   "verification": "Annual trip test; PSV-1109 bench test every 2 years",
+   "critical": "Yes",
+   "notes": "PFDavg from fault tree FT-AM-01 gate G-002. HAZOP safeguards PSHH-1110 (N04-01).",
+   "key": "REFOP"
+  },
+  {
+   "id": "b000054",
+   "name": "Double mechanical seals with seal-pot alarm on the refrigerant pumps",
+   "type": "Passive hardware",
+   "pfd": 0.1,
+   "source": "manual",
+   "ftId": "",
+   "gateId": "",
+   "status": "Available",
+   "degradeFactor": 10,
+   "owner": "Rotating equipment engineer",
+   "performance": "Primary seal failure contained",
+   "verification": "Monthly seal-pot check",
+   "critical": "",
+   "notes": "HAZOP N04-07",
+   "key": "SEALS"
+  },
+  {
+   "id": "b000055",
+   "name": "Gasket control, bolt torque and small-bore bracing",
+   "type": "Continuous / procedural",
+   "pfd": 0.1,
+   "source": "manual",
+   "ftId": "",
+   "gateId": "",
+   "status": "Available",
+   "degradeFactor": 10,
+   "owner": "Maintenance planner",
+   "performance": "Joints made to procedure",
+   "verification": "Annual leak survey",
+   "critical": "",
+   "notes": "HAZOP N04-07",
+   "key": "GASKET"
+  },
+  {
+   "id": "b000056",
+   "name": "Low-temperature steel rated to −33 °C",
+   "type": "Passive hardware",
+   "pfd": 0.01,
+   "source": "manual",
+   "ftId": "",
+   "gateId": "",
+   "status": "Available",
+   "degradeFactor": 10,
+   "owner": "Materials engineer",
+   "performance": "No brittle fracture on auto-refrigeration",
+   "verification": "Material records (R-014)",
+   "critical": "",
+   "notes": "HAZOP N04-05",
+   "key": "LTDESB"
+  },
+  {
+   "id": "b000057",
+   "name": "Permit-to-work with positive isolation and closed draining",
+   "type": "Active human",
+   "pfd": 0.1,
+   "source": "manual",
+   "ftId": "",
+   "gateId": "",
+   "status": "Available",
+   "degradeFactor": 10,
+   "owner": "Area owner",
+   "performance": "No line break with ammonia inside",
+   "verification": "PTW audits",
+   "critical": "",
+   "notes": "HAZOP N04-08",
+   "key": "PTWB"
+  },
+  {
+   "id": "b000058",
+   "name": "Column relief valve PSV-1033 sized for gas blow-by",
+   "type": "Passive hardware",
+   "pfd": 0.01,
+   "source": "manual",
+   "ftId": "",
+   "gateId": "",
+   "status": "Available",
+   "degradeFactor": 10,
+   "owner": "Process engineer",
+   "performance": "Column never above 20 barg",
+   "verification": "Bench test",
+   "critical": "Yes",
+   "notes": "Library ipl-prv (CCPS). HAZOP safeguard PSV-1033 (N05-02, R-018).",
+   "key": "PSVCOL"
+  },
+  {
+   "id": "b000059",
+   "name": "Ammonia detection and ESD (AT-1801A/B/C, UCP-1000, HS-1000, XV-1290 / XV-1801)",
+   "type": "Active hardware",
+   "pfd": 0.029433,
+   "source": "ft",
+   "ftId": "f000052",
+   "gateId": "g000033",
+   "status": "Available",
+   "degradeFactor": 10,
+   "owner": "Instrument / SIS engineer",
+   "performance": "Release isolated within 2 minutes",
+   "verification": "Quarterly detector bump tests; annual valve tests",
+   "critical": "Yes",
+   "notes": "PFDavg from fault tree FT-AM-03 gate G-001 = event tree ETA-AM-01 heading H1. HAZOP safeguard AT-1801A (N04-07).",
+   "key": "ESD"
+  },
+  {
+   "id": "b000060",
+   "name": "Water-spray curtain knocks down the ammonia vapour",
+   "type": "Active hardware",
+   "pfd": 0.3,
+   "source": "manual",
+   "ftId": "",
+   "gateId": "",
+   "status": "Available",
+   "degradeFactor": 10,
+   "owner": "Fire officer",
+   "performance": "Curtain running within 2 minutes",
+   "verification": "Annual flow test (R-013)",
+   "critical": "",
+   "notes": "= event tree ETA-AM-01 heading H2. HAZOP N04-07.",
+   "key": "WC"
+  },
+  {
+   "id": "b000061",
+   "name": "Toxic-gas refuge, HVAC trip and escape sets – people shelter in time",
+   "type": "Active human",
+   "pfd": 0.1,
+   "source": "manual",
+   "ftId": "",
+   "gateId": "",
+   "status": "Available",
+   "degradeFactor": 10,
+   "owner": "HSE / process safety",
+   "performance": "Everyone in refuge within 5 minutes",
+   "verification": "Annual drill (R-016)",
+   "critical": "",
+   "notes": "= event tree ETA-AM-01 heading H4. HAZOP N04-07.",
+   "key": "SHELTER"
+  },
+  {
+   "id": "b000062",
+   "name": "Ammonia PPE – respirators, gas-tight suits, eyewash and showers",
+   "type": "Active human",
+   "pfd": 0.1,
+   "source": "manual",
+   "ftId": "",
+   "gateId": "",
+   "status": "Available",
+   "degradeFactor": 10,
+   "owner": "Area owner",
+   "performance": "No unprotected exposure",
+   "verification": "Supervision",
+   "critical": "",
+   "notes": "HAZOP N04-08",
+   "key": "PPEB"
+  }
+ ],
+ "efs": [
+  {
+   "id": "x000073",
+   "barrierId": "b000053",
+   "name": "PSHH-1110 on the PIC-1009 transmitter (common cause)",
+   "notes": "",
+   "controls": [
+    {
+     "id": "y000074",
+     "name": "Independent transmitter for PSHH-1110 (R-011)",
+     "type": "Active hardware",
+     "owner": "Instrument / SIS engineer"
+    }
+   ]
+  },
+  {
+   "id": "x000075",
+   "barrierId": "b000060",
+   "name": "Water curtain started manually only",
+   "notes": "",
+   "controls": [
+    {
+     "id": "y000076",
+     "name": "Automatic start on ammonia detection (R-013)",
+     "type": "Active hardware",
+     "owner": "Fire officer"
+    }
+   ]
+  },
+  {
+   "id": "x000077",
+   "barrierId": "b000061",
+   "name": "Control-room HVAC not tripped on ammonia",
+   "notes": "",
+   "controls": [
+    {
+     "id": "y000078",
+     "name": "HVAC trip on ammonia at the air intake (R-016)",
+     "type": "Active hardware",
+     "owner": "HSE / process safety"
+    }
+   ]
+  }
+ ],
+ "fts": [
+  {
+   "id": "f000051",
+   "name": "FT-AM-01 – Refrigeration overpressure protection",
+   "project": {
+    "app": "Fault Tree & PFD Calculator",
+    "schema": 1,
+    "title": "FT-AM-01 – Ammonia refrigeration receiver over-pressured beyond design (ammonia unit example)",
+    "description": "Top event: condenser 127-C / receiver 149-D pressure exceeds design because condensing is lost (demand gate G-006) and the alarm PAH-1009 with operator response, the discharge trip PSHH-1110 and relief valve PSV-1109 all fail (gate G-002). PSHH-1110 shares its transmitter with PIC-1009 in the design reviewed (BE-009, R-011): one fault blinds the alarm and the trip, but not PSV-1109. Gate G-002 is the barrier of bow tie BT-AM-01 threat T1. HAZOP N04-01; FMECA S04. Illustrative data from the toolkit's data library – replace with site / vendor data before use. Ammonia unit worked example (HAZOP HZ-EX-AM-001).",
+    "modified": "2026-11-24T16:00:00.000Z",
+    "top": "g000001",
+    "gates": [
+     {
+      "id": "g000001",
+      "code": "G-001",
+      "name": "Refrigerant receiver 149-D over-pressured beyond design",
+      "type": "AND",
+      "k": 2,
+      "children": [
+       {
+        "kind": "g",
+        "id": "g000002"
+       },
+       {
+        "kind": "g",
+        "id": "g000006"
+       }
+      ],
+      "collapsed": false
+     },
+     {
+      "id": "g000002",
+      "code": "G-006",
+      "name": "Demand: condensing lost – refrigerant pressure rises",
+      "type": "OR",
+      "k": 2,
+      "children": [
+       {
+        "kind": "e",
+        "id": "e000003"
+       },
+       {
+        "kind": "e",
+        "id": "e000004"
+       },
+       {
+        "kind": "e",
+        "id": "e000005"
+       }
+      ],
+      "collapsed": false
+     },
+     {
+      "id": "g000006",
+      "code": "G-002",
+      "name": "Overpressure protection fails (alarm + operator, PSHH-1110 trip, PSV-1109)",
+      "type": "AND",
+      "k": 2,
+      "children": [
+       {
+        "kind": "g",
+        "id": "g000007"
+       },
+       {
+        "kind": "e",
+        "id": "e000017"
+       }
+      ],
+      "collapsed": false
+     },
+     {
+      "id": "g000007",
+      "code": "G-007",
+      "name": "Alarm response and PSHH-1110 trip both fail",
+      "type": "OR",
+      "k": 2,
+      "children": [
+       {
+        "kind": "e",
+        "id": "e000008"
+       },
+       {
+        "kind": "g",
+        "id": "g000009"
+       }
+      ],
+      "collapsed": false
+     },
+     {
+      "id": "g000009",
+      "code": "G-003",
+      "name": "Alarm response and trip fail independently",
+      "type": "AND",
+      "k": 2,
+      "children": [
+       {
+        "kind": "g",
+        "id": "g000010"
+       },
+       {
+        "kind": "g",
+        "id": "g000013"
+       }
+      ],
+      "collapsed": false
+     },
+     {
+      "id": "g000010",
+      "code": "G-004",
+      "name": "PAH-1009 not acted on",
+      "type": "OR",
+      "k": 2,
+      "children": [
+       {
+        "kind": "e",
+        "id": "e000011"
+       },
+       {
+        "kind": "e",
+        "id": "e000012"
+       }
+      ],
+      "collapsed": false
+     },
+     {
+      "id": "g000013",
+      "code": "G-005",
+      "name": "High-high discharge trip PSHH-1110 fails to stop 105-J",
+      "type": "OR",
+      "k": 2,
+      "children": [
+       {
+        "kind": "e",
+        "id": "e000014"
+       },
+       {
+        "kind": "e",
+        "id": "e000015"
+       },
+       {
+        "kind": "e",
+        "id": "e000016"
+       }
+      ],
+      "collapsed": false
+     }
+    ],
+    "events": [
+     {
+      "id": "e000003",
+      "code": "BE-001",
+      "name": "Loss of cooling water to condenser 127-C",
+      "model": "freq",
+      "q": 0.01,
+      "lamDU": 1e-06,
+      "lamDD": 0,
+      "TI": 8760,
+      "MTTR": 8,
+      "lam": 1e-06,
+      "freq": 0.1,
+      "house": true,
+      "ef": 3,
+      "ccf": "",
+      "undeveloped": false,
+      "notes": "CCPS LOPA Table 5.1 cooling-water failure; HAZOP N04-06",
+      "lib": {
+       "g": "freq",
+       "id": "ie-cw",
+       "note": ""
+      }
+     },
+     {
+      "id": "e000004",
+      "code": "BE-002",
+      "name": "Non-condensables accumulate in condenser 127-C",
+      "model": "freq",
+      "q": 0.01,
+      "lamDU": 1e-06,
+      "lamDD": 0,
+      "TI": 8760,
+      "MTTR": 8,
+      "lam": 1e-06,
+      "freq": 0.1,
+      "house": true,
+      "ef": 3,
+      "ccf": "",
+      "undeveloped": false,
+      "notes": "Purge not operated – illustrative"
+     },
+     {
+      "id": "e000005",
+      "code": "BE-003",
+      "name": "Receiver outlet / discharge valve left closed after maintenance",
+      "model": "freq",
+      "q": 0.01,
+      "lamDU": 1e-06,
+      "lamDD": 0,
+      "TI": 8760,
+      "MTTR": 8,
+      "lam": 1e-06,
+      "freq": 0.02,
+      "house": true,
+      "ef": 3,
+      "ccf": "",
+      "undeveloped": false,
+      "notes": "Line-up error – illustrative"
+     },
+     {
+      "id": "e000008",
+      "code": "BE-009",
+      "name": "PSHH-1110 and PIC-1009 share one pressure transmitter – both blind",
+      "model": "prob",
+      "q": 0.05,
+      "lamDU": 1e-06,
+      "lamDD": 0,
+      "TI": 8760,
+      "MTTR": 8,
+      "lam": 1e-06,
+      "freq": 0.1,
+      "house": true,
+      "ef": 3,
+      "ccf": "",
+      "undeveloped": false,
+      "notes": "Common cause in the design reviewed (R-011); does not affect PSV-1109"
+     },
+     {
+      "id": "e000011",
+      "code": "BE-004",
+      "name": "Operator does not unload 105-J on the high-pressure alarm PAH-1009",
+      "model": "prob",
+      "q": 0.1,
+      "lamDU": 1e-06,
+      "lamDD": 0,
+      "TI": 8760,
+      "MTTR": 8,
+      "lam": 1e-06,
+      "freq": 0.1,
+      "house": true,
+      "ef": 3,
+      "ccf": "",
+      "undeveloped": false,
+      "notes": "CCPS LOPA Table 6.5",
+      "lib": {
+       "g": "ipl",
+       "id": "ipl-op10",
+       "note": ""
+      }
+     },
+     {
+      "id": "e000012",
+      "code": "BE-005",
+      "name": "Pressure transmitter of PIC-1009 / PAH-1009 fails",
+      "model": "tested",
+      "q": 0.01,
+      "lamDU": 3e-07,
+      "lamDD": 1e-06,
+      "TI": 8760,
+      "MTTR": 8,
+      "lam": 1e-06,
+      "freq": 0.1,
+      "house": true,
+      "ef": 3,
+      "ccf": "",
+      "undeveloped": false,
+      "notes": "FMECA S04 PIC-1009",
+      "lib": {
+       "g": "rate",
+       "id": "lr-pt",
+       "note": ""
+      }
+     },
+     {
+      "id": "e000014",
+      "code": "BE-006",
+      "name": "Pressure transmitter of PSHH-1110 fails dangerous",
+      "model": "tested",
+      "q": 0.01,
+      "lamDU": 3e-07,
+      "lamDD": 1e-06,
+      "TI": 8760,
+      "MTTR": 8,
+      "lam": 1e-06,
+      "freq": 0.1,
+      "house": true,
+      "ef": 3,
+      "ccf": "",
+      "undeveloped": false,
+      "notes": "FMECA S04 PSHH-1110",
+      "lib": {
+       "g": "rate",
+       "id": "lr-pt",
+       "note": ""
+      }
+     },
+     {
+      "id": "e000015",
+      "code": "BE-007",
+      "name": "Logic solver UCP-1000 fails dangerous",
+      "model": "tested",
+      "q": 0.01,
+      "lamDU": 5e-08,
+      "lamDD": 0,
+      "TI": 8760,
+      "MTTR": 8,
+      "lam": 1e-06,
+      "freq": 0.1,
+      "house": true,
+      "ef": 3,
+      "ccf": "",
+      "undeveloped": false,
+      "notes": "",
+      "lib": {
+       "g": "rate",
+       "id": "lr-plc",
+       "note": ""
+      }
+     },
+     {
+      "id": "e000016",
+      "code": "BE-008",
+      "name": "Turbine trip valve of 105-J fails to close",
+      "model": "tested",
+      "q": 0.01,
+      "lamDU": 2e-06,
+      "lamDD": 0,
+      "TI": 8760,
+      "MTTR": 24,
+      "lam": 1e-06,
+      "freq": 0.1,
+      "house": true,
+      "ef": 3,
+      "ccf": "",
+      "undeveloped": false,
+      "notes": "FMECA S04 105-J",
+      "lib": {
+       "g": "rate",
+       "id": "lr-esdv",
+       "note": ""
+      }
+     },
+     {
+      "id": "e000017",
+      "code": "BE-010",
+      "name": "Relief valve PSV-1109 fails to open on demand",
+      "model": "prob",
+      "q": 0.000212,
+      "lamDU": 1e-06,
+      "lamDD": 0,
+      "TI": 8760,
+      "MTTR": 8,
+      "lam": 1e-06,
+      "freq": 0.1,
+      "house": true,
+      "ef": 3,
+      "ccf": "",
+      "undeveloped": false,
+      "notes": "CCPS PERD (1989) mean; FMECA S04 PSV-1109",
+      "lib": {
+       "g": "equip",
+       "id": "perd-prv-open",
+       "note": ""
+      }
+     }
+    ],
+    "ccf": [],
+    "libOver": {},
+    "siteLib": [],
+    "settings": {
+     "mission": 8760,
+     "points": 400,
+     "maxOrder": 8,
+     "cutoff": 1e-15,
+     "maxCS": 20000,
+     "mcSamples": 2000,
+     "demandMode": "low"
+    }
+   }
+  },
+  {
+   "id": "f000052",
+   "name": "FT-AM-03 – Ammonia detection and ESD",
+   "project": {
+    "app": "Fault Tree & PFD Calculator",
+    "schema": 1,
+    "title": "FT-AM-03 – Ammonia release at the refrigeration area not isolated (ammonia unit example)",
+    "description": "Top event (gate G-001): an ammonia release at the receiver 149-D or the refrigerant pumps is not isolated – neither detectors AT-1801A/B/C (1oo3) through UCP-1000 nor the control-room operator (HS-1000) initiate, or XV-1290 / XV-1801 fail to close. PFDavg of G-001 is heading H1 of event tree ETA-AM-01 and the ESD barrier of bow tie BT-AM-01. HAZOP N04-07, N05-06; FMECA S04. Illustrative data from the toolkit's data library – replace with site / vendor data before use. Ammonia unit worked example (HAZOP HZ-EX-AM-001).",
+    "modified": "2026-11-24T16:00:00.000Z",
+    "top": "g000033",
+    "gates": [
+     {
+      "id": "g000033",
+      "code": "G-001",
+      "name": "Ammonia release at the refrigeration area not isolated (ESD fails on demand)",
+      "type": "OR",
+      "k": 2,
+      "children": [
+       {
+        "kind": "g",
+        "id": "g000035"
+       },
+       {
+        "kind": "g",
+        "id": "g000046"
+       },
+       {
+        "kind": "e",
+        "id": "e000050"
+       }
+      ],
+      "collapsed": false
+     },
+     {
+      "id": "g000035",
+      "code": "G-002",
+      "name": "ESD not initiated (automatic and manual both fail)",
+      "type": "AND",
+      "k": 2,
+      "children": [
+       {
+        "kind": "g",
+        "id": "g000036"
+       },
+       {
+        "kind": "g",
+        "id": "g000043"
+       }
+      ],
+      "collapsed": false
+     },
+     {
+      "id": "g000036",
+      "code": "G-003",
+      "name": "Automatic initiation fails",
+      "type": "OR",
+      "k": 2,
+      "children": [
+       {
+        "kind": "g",
+        "id": "g000037"
+       },
+       {
+        "kind": "e",
+        "id": "e000041"
+       },
+       {
+        "kind": "e",
+        "id": "e000042"
+       }
+      ],
+      "collapsed": false
+     },
+     {
+      "id": "g000037",
+      "code": "G-006",
+      "name": "All three ammonia detectors fail (1oo3)",
+      "type": "AND",
+      "k": 2,
+      "children": [
+       {
+        "kind": "e",
+        "id": "e000038"
+       },
+       {
+        "kind": "e",
+        "id": "e000039"
+       },
+       {
+        "kind": "e",
+        "id": "e000040"
+       }
+      ],
+      "collapsed": false
+     },
+     {
+      "id": "g000043",
+      "code": "G-004",
+      "name": "Manual ESD not initiated",
+      "type": "OR",
+      "k": 2,
+      "children": [
+       {
+        "kind": "e",
+        "id": "e000044"
+       },
+       {
+        "kind": "e",
+        "id": "e000045"
+       }
+      ],
+      "collapsed": false
+     },
+     {
+      "id": "g000046",
+      "code": "G-005",
+      "name": "Isolation valves fail to close",
+      "type": "OR",
+      "k": 2,
+      "children": [
+       {
+        "kind": "e",
+        "id": "e000047"
+       },
+       {
+        "kind": "e",
+        "id": "e000048"
+       },
+       {
+        "kind": "e",
+        "id": "e000049"
+       }
+      ],
+      "collapsed": false
+     }
+    ],
+    "events": [
+     {
+      "id": "e000038",
+      "code": "BE-001",
+      "name": "Ammonia detector AT-1801A fails to detect",
+      "model": "tested",
+      "q": 0.01,
+      "lamDU": 1e-06,
+      "lamDD": 0,
+      "TI": 2190,
+      "MTTR": 24,
+      "lam": 1e-06,
+      "freq": 0.1,
+      "house": true,
+      "ef": 3,
+      "ccf": "c000034",
+      "undeveloped": false,
+      "notes": "Quarterly bump test; FMECA S04 AT-1801A",
+      "lib": {
+       "g": "rate",
+       "id": "lr-gd-cat",
+       "note": ""
+      }
+     },
+     {
+      "id": "e000039",
+      "code": "BE-002",
+      "name": "Ammonia detector AT-1801B fails to detect",
+      "model": "tested",
+      "q": 0.01,
+      "lamDU": 1e-06,
+      "lamDD": 0,
+      "TI": 2190,
+      "MTTR": 24,
+      "lam": 1e-06,
+      "freq": 0.1,
+      "house": true,
+      "ef": 3,
+      "ccf": "c000034",
+      "undeveloped": false,
+      "notes": "Quarterly bump test; FMECA S04 AT-1801B",
+      "lib": {
+       "g": "rate",
+       "id": "lr-gd-cat",
+       "note": ""
+      }
+     },
+     {
+      "id": "e000040",
+      "code": "BE-003",
+      "name": "Ammonia detector AT-1801C fails to detect",
+      "model": "tested",
+      "q": 0.01,
+      "lamDU": 1e-06,
+      "lamDD": 0,
+      "TI": 2190,
+      "MTTR": 24,
+      "lam": 1e-06,
+      "freq": 0.1,
+      "house": true,
+      "ef": 3,
+      "ccf": "c000034",
+      "undeveloped": false,
+      "notes": "Quarterly bump test; FMECA S04 AT-1801C",
+      "lib": {
+       "g": "rate",
+       "id": "lr-gd-cat",
+       "note": ""
+      }
+     },
+     {
+      "id": "e000041",
+      "code": "BE-004",
+      "name": "Logic solver UCP-1000 fails dangerous",
+      "model": "tested",
+      "q": 0.01,
+      "lamDU": 5e-08,
+      "lamDD": 0,
+      "TI": 8760,
+      "MTTR": 8,
+      "lam": 1e-06,
+      "freq": 0.1,
+      "house": true,
+      "ef": 3,
+      "ccf": "",
+      "undeveloped": false,
+      "notes": "",
+      "lib": {
+       "g": "rate",
+       "id": "lr-plc",
+       "note": ""
+      }
+     },
+     {
+      "id": "e000042",
+      "code": "BE-005",
+      "name": "Release not reaching the detectors (location / wind)",
+      "model": "prob",
+      "q": 0.1,
+      "lamDU": 1e-06,
+      "lamDD": 0,
+      "TI": 8760,
+      "MTTR": 8,
+      "lam": 1e-06,
+      "freq": 0.1,
+      "house": true,
+      "ef": 3,
+      "ccf": "",
+      "undeveloped": true,
+      "notes": "Detector mapping – R-012"
+     },
+     {
+      "id": "e000044",
+      "code": "BE-006",
+      "name": "Control-room operator does not initiate ESD on the ammonia alarm",
+      "model": "prob",
+      "q": 0.1,
+      "lamDU": 1e-06,
+      "lamDD": 0,
+      "TI": 8760,
+      "MTTR": 8,
+      "lam": 1e-06,
+      "freq": 0.1,
+      "house": true,
+      "ef": 3,
+      "ccf": "",
+      "undeveloped": false,
+      "notes": "",
+      "lib": {
+       "g": "ipl",
+       "id": "ipl-op10",
+       "note": ""
+      }
+     },
+     {
+      "id": "e000045",
+      "code": "BE-007",
+      "name": "Manual ESD circuit HS-1000 fails",
+      "model": "tested",
+      "q": 0.01,
+      "lamDU": 5e-08,
+      "lamDD": 0,
+      "TI": 8760,
+      "MTTR": 8,
+      "lam": 1e-06,
+      "freq": 0.1,
+      "house": true,
+      "ef": 3,
+      "ccf": "",
+      "undeveloped": false,
+      "notes": "",
+      "lib": {
+       "g": "rate",
+       "id": "lr-relay-logic",
+       "note": ""
+      }
+     },
+     {
+      "id": "e000047",
+      "code": "BE-008",
+      "name": "Receiver outlet valve XV-1290 fails to close",
+      "model": "tested",
+      "q": 0.01,
+      "lamDU": 2e-06,
+      "lamDD": 0,
+      "TI": 8760,
+      "MTTR": 24,
+      "lam": 1e-06,
+      "freq": 0.1,
+      "house": true,
+      "ef": 3,
+      "ccf": "",
+      "undeveloped": false,
+      "notes": "FMECA S04 XV-1290",
+      "lib": {
+       "g": "rate",
+       "id": "lr-esdv",
+       "note": ""
+      }
+     },
+     {
+      "id": "e000048",
+      "code": "BE-009",
+      "name": "Boil-off valve XV-1801 fails to close",
+      "model": "tested",
+      "q": 0.01,
+      "lamDU": 2e-06,
+      "lamDD": 0,
+      "TI": 8760,
+      "MTTR": 24,
+      "lam": 1e-06,
+      "freq": 0.1,
+      "house": true,
+      "ef": 3,
+      "ccf": "",
+      "undeveloped": false,
+      "notes": "",
+      "lib": {
+       "g": "rate",
+       "id": "lr-esdv",
+       "note": ""
+      }
+     },
+     {
+      "id": "e000049",
+      "code": "BE-010",
+      "name": "Solenoid / instrument air fails to vent",
+      "model": "tested",
+      "q": 0.01,
+      "lamDU": 3e-07,
+      "lamDD": 0,
+      "TI": 8760,
+      "MTTR": 8,
+      "lam": 1e-06,
+      "freq": 0.1,
+      "house": true,
+      "ef": 3,
+      "ccf": "",
+      "undeveloped": false,
+      "notes": "",
+      "lib": {
+       "g": "rate",
+       "id": "lr-sov",
+       "note": ""
+      }
+     },
+     {
+      "id": "e000050",
+      "code": "BE-011",
+      "name": "ESD in bypass / detectors inhibited",
+      "model": "prob",
+      "q": 0.001,
+      "lamDU": 1e-06,
+      "lamDD": 0,
+      "TI": 8760,
+      "MTTR": 8,
+      "lam": 1e-06,
+      "freq": 0.1,
+      "house": true,
+      "ef": 10,
+      "ccf": "",
+      "undeveloped": false,
+      "notes": "Bypass management"
+     }
+    ],
+    "ccf": [
+     {
+      "id": "c000034",
+      "code": "CCF-001",
+      "name": "Ammonia detectors AT-1801A/B/C",
+      "beta": 0.1,
+      "betaD": ""
+     }
+    ],
+    "libOver": {},
+    "siteLib": [],
+    "settings": {
+     "mission": 8760,
+     "points": 400,
+     "maxOrder": 8,
+     "cutoff": 1e-15,
+     "maxCS": 20000,
+     "mcSamples": 2000,
+     "demandMode": "low"
+    }
+   }
+  }
+ ],
+ "matrix": {
+  "sev": [
+   "Negligible",
+   "Minor",
+   "Moderate",
+   "Major",
+   "Catastrophic"
+  ],
+  "lik": [
+   "Rare",
+   "Unlikely",
+   "Possible",
+   "Likely",
+   "Frequent"
+  ],
+  "likBands": [
+   0.0001,
+   0.001,
+   0.01,
+   0.1
+  ],
+  "bands": {
+   "Medium": 5,
+   "High": 10,
+   "Very High": 20
+  },
+  "tol": [
+   "",
+   "",
+   "1",
+   "0.01",
+   "1e-4"
+  ]
+ },
+ "settings": {
+  "health": false
+ }
+}

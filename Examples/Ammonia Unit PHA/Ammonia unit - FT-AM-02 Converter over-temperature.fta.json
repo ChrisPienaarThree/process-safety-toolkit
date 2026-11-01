@@ -1,0 +1,332 @@
+{
+ "app": "Fault Tree & PFD Calculator",
+ "schema": 1,
+ "title": "FT-AM-02 – Uncontrolled over-temperature of the ammonia converter 105-D (ammonia unit example)",
+ "description": "Top event: the catalyst temperature of 105-D rises above the design limit (demand gate G-006) and both the operator response to TAH-1383 and the high-high trip TSHH-1396 (closes converter feed XV-1250A and trips 103-J) fail (gate G-002). As reviewed, the alarm and the trip use the same bed thermocouple (BE-010, R-008). Gate G-002 is the barrier of bow tie BT-AM-02 threat T1. HAZOP N03-03; FMECA S03. Illustrative data from the toolkit's data library – replace with site / vendor data before use. Ammonia unit worked example (HAZOP HZ-EX-AM-001).",
+ "modified": "2026-11-24T16:00:00.000Z",
+ "top": "g000018",
+ "gates": [
+  {
+   "id": "g000018",
+   "code": "G-001",
+   "name": "Converter 105-D catalyst above design temperature – uncontrolled",
+   "type": "AND",
+   "k": 2,
+   "children": [
+    {
+     "kind": "g",
+     "id": "g000019"
+    },
+    {
+     "kind": "g",
+     "id": "g000023"
+    }
+   ],
+   "collapsed": false
+  },
+  {
+   "id": "g000019",
+   "code": "G-006",
+   "name": "Demand: converter temperature excursion",
+   "type": "OR",
+   "k": 2,
+   "children": [
+    {
+     "kind": "e",
+     "id": "e000020"
+    },
+    {
+     "kind": "e",
+     "id": "e000021"
+    },
+    {
+     "kind": "e",
+     "id": "e000022"
+    }
+   ],
+   "collapsed": false
+  },
+  {
+   "id": "g000023",
+   "code": "G-002",
+   "name": "Over-temperature protection fails (TAH-1383 + operator and TSHH-1396 trip)",
+   "type": "OR",
+   "k": 2,
+   "children": [
+    {
+     "kind": "e",
+     "id": "e000024"
+    },
+    {
+     "kind": "g",
+     "id": "g000025"
+    }
+   ],
+   "collapsed": false
+  },
+  {
+   "id": "g000025",
+   "code": "G-003",
+   "name": "Operator response and trip both fail",
+   "type": "AND",
+   "k": 2,
+   "children": [
+    {
+     "kind": "g",
+     "id": "g000026"
+    },
+    {
+     "kind": "g",
+     "id": "g000029"
+    }
+   ],
+   "collapsed": false
+  },
+  {
+   "id": "g000026",
+   "code": "G-004",
+   "name": "TAH-1383 not acted on",
+   "type": "OR",
+   "k": 2,
+   "children": [
+    {
+     "kind": "e",
+     "id": "e000027"
+    },
+    {
+     "kind": "e",
+     "id": "e000028"
+    }
+   ],
+   "collapsed": false
+  },
+  {
+   "id": "g000029",
+   "code": "G-005",
+   "name": "TSHH-1396 trip fails",
+   "type": "OR",
+   "k": 2,
+   "children": [
+    {
+     "kind": "e",
+     "id": "e000030"
+    },
+    {
+     "kind": "e",
+     "id": "e000031"
+    },
+    {
+     "kind": "e",
+     "id": "e000032"
+    }
+   ],
+   "collapsed": false
+  }
+ ],
+ "events": [
+  {
+   "id": "e000020",
+   "code": "BE-001",
+   "name": "Quench / bypass temperature control loop fails",
+   "model": "freq",
+   "q": 0.01,
+   "lamDU": 1e-06,
+   "lamDD": 0,
+   "TI": 8760,
+   "MTTR": 8,
+   "lam": 1e-06,
+   "freq": 0.1,
+   "house": true,
+   "ef": 3,
+   "ccf": "",
+   "undeveloped": false,
+   "notes": "CCPS LOPA Table 5.1 BPCS loop failure",
+   "lib": {
+    "g": "freq",
+    "id": "ie-bpcs",
+    "note": ""
+   }
+  },
+  {
+   "id": "e000021",
+   "code": "BE-002",
+   "name": "H2 / N2 ratio upset from the front end",
+   "model": "freq",
+   "q": 0.01,
+   "lamDU": 1e-06,
+   "lamDD": 0,
+   "TI": 8760,
+   "MTTR": 8,
+   "lam": 1e-06,
+   "freq": 0.2,
+   "house": true,
+   "ef": 3,
+   "ccf": "",
+   "undeveloped": false,
+   "notes": "Illustrative"
+  },
+  {
+   "id": "e000022",
+   "code": "BE-003",
+   "name": "Start-up heater 102-B over-fires without loop circulation",
+   "model": "freq",
+   "q": 0.01,
+   "lamDU": 1e-06,
+   "lamDD": 0,
+   "TI": 8760,
+   "MTTR": 8,
+   "lam": 1e-06,
+   "freq": 0.05,
+   "house": true,
+   "ef": 3,
+   "ccf": "",
+   "undeveloped": false,
+   "notes": "Start-ups x HEP – illustrative; R-020"
+  },
+  {
+   "id": "e000024",
+   "code": "BE-010",
+   "name": "TAH-1383 and TSHH-1396 on the same bed thermocouple – both blind",
+   "model": "prob",
+   "q": 0.05,
+   "lamDU": 1e-06,
+   "lamDD": 0,
+   "TI": 8760,
+   "MTTR": 8,
+   "lam": 1e-06,
+   "freq": 0.1,
+   "house": true,
+   "ef": 3,
+   "ccf": "",
+   "undeveloped": false,
+   "notes": "Common cause in the design reviewed (R-008)"
+  },
+  {
+   "id": "e000027",
+   "code": "BE-004",
+   "name": "Operator does not reduce the converter temperature on TAH-1383",
+   "model": "prob",
+   "q": 0.1,
+   "lamDU": 1e-06,
+   "lamDD": 0,
+   "TI": 8760,
+   "MTTR": 8,
+   "lam": 1e-06,
+   "freq": 0.1,
+   "house": true,
+   "ef": 3,
+   "ccf": "",
+   "undeveloped": false,
+   "notes": "CCPS LOPA Table 6.5",
+   "lib": {
+    "g": "ipl",
+    "id": "ipl-op10",
+    "note": ""
+   }
+  },
+  {
+   "id": "e000028",
+   "code": "BE-005",
+   "name": "Bed temperature indication TAH-1383 fails",
+   "model": "tested",
+   "q": 0.01,
+   "lamDU": 3e-07,
+   "lamDD": 8e-07,
+   "TI": 8760,
+   "MTTR": 8,
+   "lam": 1e-06,
+   "freq": 0.1,
+   "house": true,
+   "ef": 3,
+   "ccf": "",
+   "undeveloped": false,
+   "notes": "",
+   "lib": {
+    "g": "rate",
+    "id": "lr-tt",
+    "note": ""
+   }
+  },
+  {
+   "id": "e000030",
+   "code": "BE-006",
+   "name": "Bed thermocouple of TSHH-1396 fails dangerous",
+   "model": "tested",
+   "q": 0.01,
+   "lamDU": 3e-07,
+   "lamDD": 8e-07,
+   "TI": 8760,
+   "MTTR": 8,
+   "lam": 1e-06,
+   "freq": 0.1,
+   "house": true,
+   "ef": 3,
+   "ccf": "",
+   "undeveloped": false,
+   "notes": "FMECA S03 TSHH-1396",
+   "lib": {
+    "g": "rate",
+    "id": "lr-tt",
+    "note": ""
+   }
+  },
+  {
+   "id": "e000031",
+   "code": "BE-007",
+   "name": "Logic solver UCP-1000 fails dangerous",
+   "model": "tested",
+   "q": 0.01,
+   "lamDU": 5e-08,
+   "lamDD": 0,
+   "TI": 8760,
+   "MTTR": 8,
+   "lam": 1e-06,
+   "freq": 0.1,
+   "house": true,
+   "ef": 3,
+   "ccf": "",
+   "undeveloped": false,
+   "notes": "",
+   "lib": {
+    "g": "rate",
+    "id": "lr-plc",
+    "note": ""
+   }
+  },
+  {
+   "id": "e000032",
+   "code": "BE-008",
+   "name": "Converter feed shut-off XV-1250A fails to close",
+   "model": "tested",
+   "q": 0.01,
+   "lamDU": 2e-06,
+   "lamDD": 0,
+   "TI": 8760,
+   "MTTR": 24,
+   "lam": 1e-06,
+   "freq": 0.1,
+   "house": true,
+   "ef": 3,
+   "ccf": "",
+   "undeveloped": false,
+   "notes": "FMECA S03 XV-1250A",
+   "lib": {
+    "g": "rate",
+    "id": "lr-esdv",
+    "note": ""
+   }
+  }
+ ],
+ "ccf": [],
+ "libOver": {},
+ "siteLib": [],
+ "settings": {
+  "mission": 8760,
+  "points": 400,
+  "maxOrder": 8,
+  "cutoff": 1e-15,
+  "maxCS": 20000,
+  "mcSamples": 2000,
+  "demandMode": "low"
+ }
+}

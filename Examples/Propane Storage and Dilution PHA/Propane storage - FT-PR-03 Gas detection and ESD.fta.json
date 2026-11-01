@@ -1,0 +1,399 @@
+{
+ "app": "Fault Tree & PFD Calculator",
+ "schema": 1,
+ "title": "FT-PR-03 – Propane release at the unloading bay not isolated (propane storage example)",
+ "description": "Top event (gate G-001): a propane release at the unloading bay or tank farm is not isolated – neither gas detection GLD-1/2/3 (1oo3) through logic UCP-1 nor the operator's manual ESD-1 initiates, or ROV-1 / ROV-11 fail to close. PFDavg of G-001 is heading H2 of event tree ETA-PR-01 and the ESD barrier of bow tie BT-PR-01. HAZOP N01-09, N02-08; FMECA S01. Illustrative data from the toolkit's data library – replace with site / vendor data before use. Propane storage and dilution worked example (HAZOP HZ-EX-PR-001).",
+ "modified": "2026-11-12T16:00:00.000Z",
+ "top": "g000031",
+ "gates": [
+  {
+   "id": "g000031",
+   "code": "G-001",
+   "name": "Propane release at the unloading bay not isolated (ESD fails on demand)",
+   "type": "OR",
+   "k": 2,
+   "children": [
+    {
+     "kind": "g",
+     "id": "g000033"
+    },
+    {
+     "kind": "g",
+     "id": "g000044"
+    },
+    {
+     "kind": "e",
+     "id": "e000048"
+    }
+   ],
+   "collapsed": false
+  },
+  {
+   "id": "g000033",
+   "code": "G-002",
+   "name": "ESD not initiated (automatic and manual both fail)",
+   "type": "AND",
+   "k": 2,
+   "children": [
+    {
+     "kind": "g",
+     "id": "g000034"
+    },
+    {
+     "kind": "g",
+     "id": "g000041"
+    }
+   ],
+   "collapsed": false
+  },
+  {
+   "id": "g000034",
+   "code": "G-003",
+   "name": "Automatic initiation fails",
+   "type": "OR",
+   "k": 2,
+   "children": [
+    {
+     "kind": "g",
+     "id": "g000035"
+    },
+    {
+     "kind": "e",
+     "id": "e000039"
+    },
+    {
+     "kind": "e",
+     "id": "e000040"
+    }
+   ],
+   "collapsed": false
+  },
+  {
+   "id": "g000035",
+   "code": "G-006",
+   "name": "All three gas detectors fail (1oo3)",
+   "type": "AND",
+   "k": 2,
+   "children": [
+    {
+     "kind": "e",
+     "id": "e000036"
+    },
+    {
+     "kind": "e",
+     "id": "e000037"
+    },
+    {
+     "kind": "e",
+     "id": "e000038"
+    }
+   ],
+   "collapsed": false
+  },
+  {
+   "id": "g000041",
+   "code": "G-004",
+   "name": "Manual ESD not initiated",
+   "type": "OR",
+   "k": 2,
+   "children": [
+    {
+     "kind": "e",
+     "id": "e000042"
+    },
+    {
+     "kind": "e",
+     "id": "e000043"
+    }
+   ],
+   "collapsed": false
+  },
+  {
+   "id": "g000044",
+   "code": "G-005",
+   "name": "Remote-operated valves fail to isolate",
+   "type": "OR",
+   "k": 2,
+   "children": [
+    {
+     "kind": "e",
+     "id": "e000045"
+    },
+    {
+     "kind": "e",
+     "id": "e000046"
+    },
+    {
+     "kind": "e",
+     "id": "e000047"
+    }
+   ],
+   "collapsed": false
+  }
+ ],
+ "events": [
+  {
+   "id": "e000036",
+   "code": "BE-001",
+   "name": "Gas leak detector GLD-1 fails to detect",
+   "model": "tested",
+   "q": 0.01,
+   "lamDU": 1e-06,
+   "lamDD": 0,
+   "TI": 2190,
+   "MTTR": 24,
+   "lam": 1e-06,
+   "freq": 0.1,
+   "house": true,
+   "ef": 3,
+   "ccf": "c000032",
+   "undeveloped": false,
+   "notes": "Quarterly bump test; FMECA S01 GLD-1",
+   "lib": {
+    "g": "rate",
+    "id": "lr-gd-cat",
+    "note": ""
+   }
+  },
+  {
+   "id": "e000037",
+   "code": "BE-002",
+   "name": "Gas leak detector GLD-2 fails to detect",
+   "model": "tested",
+   "q": 0.01,
+   "lamDU": 1e-06,
+   "lamDD": 0,
+   "TI": 2190,
+   "MTTR": 24,
+   "lam": 1e-06,
+   "freq": 0.1,
+   "house": true,
+   "ef": 3,
+   "ccf": "c000032",
+   "undeveloped": false,
+   "notes": "Quarterly bump test; FMECA S01 GLD-2",
+   "lib": {
+    "g": "rate",
+    "id": "lr-gd-cat",
+    "note": ""
+   }
+  },
+  {
+   "id": "e000038",
+   "code": "BE-003",
+   "name": "Gas leak detector GLD-3 fails to detect",
+   "model": "tested",
+   "q": 0.01,
+   "lamDU": 1e-06,
+   "lamDD": 0,
+   "TI": 2190,
+   "MTTR": 24,
+   "lam": 1e-06,
+   "freq": 0.1,
+   "house": true,
+   "ef": 3,
+   "ccf": "c000032",
+   "undeveloped": false,
+   "notes": "Quarterly bump test; FMECA S01 GLD-3",
+   "lib": {
+    "g": "rate",
+    "id": "lr-gd-cat",
+    "note": ""
+   }
+  },
+  {
+   "id": "e000039",
+   "code": "BE-004",
+   "name": "Logic solver UCP-1 fails dangerous",
+   "model": "tested",
+   "q": 0.01,
+   "lamDU": 5e-08,
+   "lamDD": 0,
+   "TI": 8760,
+   "MTTR": 8,
+   "lam": 1e-06,
+   "freq": 0.1,
+   "house": true,
+   "ef": 3,
+   "ccf": "",
+   "undeveloped": false,
+   "notes": "",
+   "lib": {
+    "g": "rate",
+    "id": "lr-plc",
+    "note": ""
+   }
+  },
+  {
+   "id": "e000040",
+   "code": "BE-005",
+   "name": "Heavy propane cloud does not reach the detectors (mounted too high)",
+   "model": "prob",
+   "q": 0.2,
+   "lamDU": 1e-06,
+   "lamDD": 0,
+   "TI": 8760,
+   "MTTR": 8,
+   "lam": 1e-06,
+   "freq": 0.1,
+   "house": true,
+   "ef": 3,
+   "ccf": "",
+   "undeveloped": true,
+   "notes": "Detector mounting height – R-008"
+  },
+  {
+   "id": "e000042",
+   "code": "BE-006",
+   "name": "Operator at the bay does not press ESD-1 in time",
+   "model": "prob",
+   "q": 0.1,
+   "lamDU": 1e-06,
+   "lamDD": 0,
+   "TI": 8760,
+   "MTTR": 8,
+   "lam": 1e-06,
+   "freq": 0.1,
+   "house": true,
+   "ef": 3,
+   "ccf": "",
+   "undeveloped": false,
+   "notes": "Operator in attendance during unloading; drills R-017",
+   "lib": {
+    "g": "ipl",
+    "id": "ipl-op10",
+    "note": ""
+   }
+  },
+  {
+   "id": "e000043",
+   "code": "BE-007",
+   "name": "Manual ESD push-button circuit ESD-1 fails",
+   "model": "tested",
+   "q": 0.01,
+   "lamDU": 5e-08,
+   "lamDD": 0,
+   "TI": 8760,
+   "MTTR": 8,
+   "lam": 1e-06,
+   "freq": 0.1,
+   "house": true,
+   "ef": 3,
+   "ccf": "",
+   "undeveloped": false,
+   "notes": "",
+   "lib": {
+    "g": "rate",
+    "id": "lr-relay-logic",
+    "note": ""
+   }
+  },
+  {
+   "id": "e000045",
+   "code": "BE-008",
+   "name": "Unloading valve ROV-1 fails to close",
+   "model": "tested",
+   "q": 0.01,
+   "lamDU": 2e-06,
+   "lamDD": 0,
+   "TI": 8760,
+   "MTTR": 24,
+   "lam": 1e-06,
+   "freq": 0.1,
+   "house": true,
+   "ef": 3,
+   "ccf": "",
+   "undeveloped": false,
+   "notes": "FMECA S01 ROV-1",
+   "lib": {
+    "g": "rate",
+    "id": "lr-esdv",
+    "note": ""
+   }
+  },
+  {
+   "id": "e000046",
+   "code": "BE-009",
+   "name": "Tank inlet valve ROV-11 fails to close",
+   "model": "tested",
+   "q": 0.01,
+   "lamDU": 2e-06,
+   "lamDD": 0,
+   "TI": 8760,
+   "MTTR": 24,
+   "lam": 1e-06,
+   "freq": 0.1,
+   "house": true,
+   "ef": 3,
+   "ccf": "",
+   "undeveloped": false,
+   "notes": "",
+   "lib": {
+    "g": "rate",
+    "id": "lr-esdv",
+    "note": ""
+   }
+  },
+  {
+   "id": "e000047",
+   "code": "BE-010",
+   "name": "ROV solenoid / instrument air fails to vent",
+   "model": "tested",
+   "q": 0.01,
+   "lamDU": 3e-07,
+   "lamDD": 0,
+   "TI": 8760,
+   "MTTR": 8,
+   "lam": 1e-06,
+   "freq": 0.1,
+   "house": true,
+   "ef": 3,
+   "ccf": "",
+   "undeveloped": false,
+   "notes": "",
+   "lib": {
+    "g": "rate",
+    "id": "lr-sov",
+    "note": ""
+   }
+  },
+  {
+   "id": "e000048",
+   "code": "BE-011",
+   "name": "ESD in bypass / detectors inhibited",
+   "model": "prob",
+   "q": 0.001,
+   "lamDU": 1e-06,
+   "lamDD": 0,
+   "TI": 8760,
+   "MTTR": 8,
+   "lam": 1e-06,
+   "freq": 0.1,
+   "house": true,
+   "ef": 10,
+   "ccf": "",
+   "undeveloped": false,
+   "notes": "Bypass management"
+  }
+ ],
+ "ccf": [
+  {
+   "id": "c000032",
+   "code": "CCF-001",
+   "name": "Gas leak detectors GLD-1/2/3",
+   "beta": 0.1,
+   "betaD": ""
+  }
+ ],
+ "libOver": {},
+ "siteLib": [],
+ "settings": {
+  "mission": 8760,
+  "points": 400,
+  "maxOrder": 8,
+  "cutoff": 1e-15,
+  "maxCS": 20000,
+  "mcSamples": 2000,
+  "demandMode": "low"
+ }
+}

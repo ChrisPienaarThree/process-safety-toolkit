@@ -1,0 +1,515 @@
+Ammonia unit – reforming, synthesis, refrigeration and purge recovery – cross-link test results
+Run 01 Nov 2026 22:25 · 498 checks · 498 passed · 0 failed
+
+
+A. Apps
+  PASS  fta app boots headless without script errors
+  PASS  fta app: no runtime errors while loading the example files
+  PASS  Ammonia unit - FT-AM-01 Refrigeration overpressure.fta.json opens in its app
+  PASS  Ammonia unit - FT-AM-01 Refrigeration overpressure.fta.json renders in its app
+  PASS  Ammonia unit - FT-AM-02 Converter over-temperature.fta.json opens in its app
+  PASS  Ammonia unit - FT-AM-02 Converter over-temperature.fta.json renders in its app
+  PASS  Ammonia unit - FT-AM-03 Ammonia detection and ESD.fta.json opens in its app
+  PASS  Ammonia unit - FT-AM-03 Ammonia detection and ESD.fta.json renders in its app
+  PASS  eta app boots headless without script errors
+  PASS  eta app: no runtime errors while loading the example files
+  PASS  Ammonia unit - ETA-AM-01 Liquid ammonia release.eta.json opens in its app
+  PASS  Ammonia unit - ETA-AM-01 Liquid ammonia release.eta.json renders in its app
+  PASS  Ammonia unit - ETA-AM-02 Synthesis gas release.eta.json opens in its app
+  PASS  Ammonia unit - ETA-AM-02 Synthesis gas release.eta.json renders in its app
+  PASS  bowtie app boots headless without script errors
+  PASS  bowtie app: no runtime errors while loading the example files
+  PASS  Ammonia unit - BT-AM-01 Ammonia loss of containment.bowtie.json opens in its app
+  PASS  Ammonia unit - BT-AM-01 Ammonia loss of containment.bowtie.json renders in its app
+  PASS  Ammonia unit - BT-AM-02 Synthesis gas loss of containment.bowtie.json opens in its app
+  PASS  Ammonia unit - BT-AM-02 Synthesis gas loss of containment.bowtie.json renders in its app
+  PASS  hazop app boots headless without script errors
+  PASS  hazop app: no runtime errors while loading the example files
+  PASS  Ammonia unit - HAZOP HZ-EX-AM-001.hazop.json opens in its app
+  PASS  Ammonia unit - HAZOP HZ-EX-AM-001.hazop.json renders in its app
+  PASS  Ammonia unit - FT-AM-01 Refrigeration overpressure.fta.json: calculation has no warnings
+  PASS  Ammonia unit - FT-AM-02 Converter over-temperature.fta.json: calculation has no warnings
+  PASS  Ammonia unit - FT-AM-03 Ammonia detection and ESD.fta.json: calculation has no warnings
+  PASS  Ammonia unit - ETA-AM-01 Liquid ammonia release.eta.json: no warnings (FT gates linked, every end state categorised)
+  PASS  Ammonia unit - ETA-AM-01 Liquid ammonia release.eta.json: sequence frequencies add up to the initiating frequency
+  PASS  Ammonia unit - ETA-AM-02 Synthesis gas release.eta.json: no warnings (FT gates linked, every end state categorised)
+  PASS  Ammonia unit - ETA-AM-02 Synthesis gas release.eta.json: sequence frequencies add up to the initiating frequency
+  PASS  Ammonia unit - BT-AM-01 Ammonia loss of containment.bowtie.json: no warnings (FT gates linked, every threat / consequence has a barrier)
+  PASS  Ammonia unit - BT-AM-02 Synthesis gas loss of containment.bowtie.json: no warnings (FT gates linked, every threat / consequence has a barrier)
+  PASS  HAZOP file: integrity check finds no orphaned records
+
+B. Numbers
+  PASS  ETA1 H1 = FT3 gate G-001 PFDavg
+  PASS  ETA1 H1 is live-linked to the fault tree (source = ft)
+  PASS  BT1 barrier REFOP = FT1 gate G-002 PFDavg
+  PASS  BT1 barrier REFOP is live-linked to its fault tree (source = ft)
+  PASS  BT1 barrier ESD = FT3 gate G-001 PFDavg
+  PASS  BT1 barrier ESD is live-linked to its fault tree (source = ft)
+  PASS  BT2 barrier CONVPROT = FT2 gate G-002 PFDavg
+  PASS  BT2 barrier CONVPROT is live-linked to its fault tree (source = ft)
+  PASS  Fault tree embedded in Ammonia unit - ETA-AM-01 Liquid ammonia release.eta.json is identical to Ammonia unit - FT-AM-03 Ammonia detection and ESD.fta.json
+  PASS  Fault tree embedded in Ammonia unit - BT-AM-01 Ammonia loss of containment.bowtie.json is identical to Ammonia unit - FT-AM-01 Refrigeration overpressure.fta.json
+  PASS  Fault tree embedded in Ammonia unit - BT-AM-01 Ammonia loss of containment.bowtie.json is identical to Ammonia unit - FT-AM-03 Ammonia detection and ESD.fta.json
+  PASS  Fault tree embedded in Ammonia unit - BT-AM-02 Synthesis gas loss of containment.bowtie.json is identical to Ammonia unit - FT-AM-02 Converter over-temperature.fta.json
+  PASS  ETA1 initiating frequency = BT1 top-event frequency
+  PASS  ETA2 initiating frequency = BT2 top-event frequency
+  PASS  BT1 consequence 'TOXON' residual = ETA1 end state 'Prolonged release knocked down by the water curtain – on-site injuries'
+  PASS  BT1 consequence 'TOXOCC' residual = ETA1 end state 'Toxic cloud over occupied areas – people shelter, serious injuries'
+  PASS  BT1 consequence 'TOXOFF' residual = ETA1 end state 'Toxic cloud – fatalities on and off site'
+  PASS  BT2 consequence 'JET' residual = ETA2 end state 'Prolonged jet fire – escalation to the loop'
+  PASS  BT2 consequence 'FF' residual = ETA2 end state 'Large flash fire – prolonged release'
+  PASS  BT2 consequence 'VCE' residual = ETA2 end state 'Vapour cloud explosion – blast damage, multiple fatalities'
+  PASS  BT1 threat T1 frequency = FT1 demand gate G-006
+  PASS  BT1 threat T1 contribution = FT1 top frequency x threat condition
+  PASS  BT2 threat T1 frequency = FT2 demand gate G-006
+  PASS  BT2 threat T1 contribution = FT2 top frequency x threat condition
+  PASS  ETA-AM-01 H2 = BT-AM-01 barrier 'water-spray curtain'
+  PASS  ETA-AM-01 H4 = BT-AM-01 barrier 'toxic-gas refuge'
+  PASS  BT-AM-01 'TOXOFF' condition = ETA-AM-01 H3
+  PASS  BT-AM-01 'TOXON' condition = 1 − ETA-AM-01 H2
+  PASS  ETA-AM-02 H2 = BT-AM-02 barrier 'unit ESD'
+  PASS  ETA-AM-02 H3 = BT-AM-02 barrier 'ignition source control'
+  PASS  BT-AM-02 'JET' condition = ETA-AM-02 H1
+  PASS  BT-AM-02 'VCE' condition = (1 − ETA H1) x H4
+  PASS  ETA1 catastrophic target (0.0001 /yr) = BT1 tolerable frequency for severity 5
+  PASS  ETA2 catastrophic target (0.0001 /yr) = BT2 tolerable frequency for severity 5
+  PASS  HAZOP N03-03 likelihood after safeguards (4) matches the calculated FT2_TOP = 1.8E-2 /yr
+  PASS  HAZOP N04-01 likelihood after safeguards (1) matches the calculated FT1_TOP = 2.4E-6 /yr
+  PASS  R-008 quotes FT2_TOP, FT2_PFD as the apps calculate them
+  PASS  R-011 quotes FT1_TOP, FT1_PFD as the apps calculate them
+  PASS  R-012 quotes FT3_PFD as the apps calculate them
+  PASS  R-013 quotes ETA1_C5 as the apps calculate them
+  PASS  R-019 quotes ETA2_C5 as the apps calculate them
+  PASS  HAZOP texts quote FT1_TOP = 2.4E-6 exactly as the apps calculate it
+  PASS  HAZOP texts quote FT1_PFD = 1.1E-5 exactly as the apps calculate it
+  PASS  HAZOP texts quote FT2_TOP = 1.8E-2 exactly as the apps calculate it
+  PASS  HAZOP texts quote FT2_PFD = 5.1E-2 exactly as the apps calculate it
+  PASS  HAZOP texts quote FT3_PFD = 2.9E-2 exactly as the apps calculate it
+  PASS  HAZOP texts quote ETA1_C5 = 1.3E-6 exactly as the apps calculate it
+  PASS  HAZOP texts quote ETA2_C5 = 8.1E-5 exactly as the apps calculate it
+  PASS  Ammonia unit - FT-AM-01 Refrigeration overpressure.fta.json BE-001 uses library item ie-cw (checked)
+  PASS  Ammonia unit - FT-AM-01 Refrigeration overpressure.fta.json BE-004 uses library item ipl-op10 (checked)
+  PASS  Ammonia unit - FT-AM-01 Refrigeration overpressure.fta.json BE-005 uses library item lr-pt (typical)
+  PASS  Ammonia unit - FT-AM-01 Refrigeration overpressure.fta.json BE-006 uses library item lr-pt (typical)
+  PASS  Ammonia unit - FT-AM-01 Refrigeration overpressure.fta.json BE-007 uses library item lr-plc (typical)
+  PASS  Ammonia unit - FT-AM-01 Refrigeration overpressure.fta.json BE-008 uses library item lr-esdv (typical)
+  PASS  Ammonia unit - FT-AM-01 Refrigeration overpressure.fta.json BE-010 uses library item perd-prv-open (checked)
+  PASS  Ammonia unit - FT-AM-02 Converter over-temperature.fta.json BE-001 uses library item ie-bpcs (checked)
+  PASS  Ammonia unit - FT-AM-02 Converter over-temperature.fta.json BE-004 uses library item ipl-op10 (checked)
+  PASS  Ammonia unit - FT-AM-02 Converter over-temperature.fta.json BE-005 uses library item lr-tt (typical)
+  PASS  Ammonia unit - FT-AM-02 Converter over-temperature.fta.json BE-006 uses library item lr-tt (typical)
+  PASS  Ammonia unit - FT-AM-02 Converter over-temperature.fta.json BE-007 uses library item lr-plc (typical)
+  PASS  Ammonia unit - FT-AM-02 Converter over-temperature.fta.json BE-008 uses library item lr-esdv (typical)
+  PASS  Ammonia unit - FT-AM-03 Ammonia detection and ESD.fta.json BE-001 uses library item lr-gd-cat (typical)
+  PASS  Ammonia unit - FT-AM-03 Ammonia detection and ESD.fta.json BE-002 uses library item lr-gd-cat (typical)
+  PASS  Ammonia unit - FT-AM-03 Ammonia detection and ESD.fta.json BE-003 uses library item lr-gd-cat (typical)
+  PASS  Ammonia unit - FT-AM-03 Ammonia detection and ESD.fta.json BE-004 uses library item lr-plc (typical)
+  PASS  Ammonia unit - FT-AM-03 Ammonia detection and ESD.fta.json BE-006 uses library item ipl-op10 (checked)
+  PASS  Ammonia unit - FT-AM-03 Ammonia detection and ESD.fta.json BE-007 uses library item lr-relay-logic (typical)
+  PASS  Ammonia unit - FT-AM-03 Ammonia detection and ESD.fta.json BE-008 uses library item lr-esdv (typical)
+  PASS  Ammonia unit - FT-AM-03 Ammonia detection and ESD.fta.json BE-009 uses library item lr-esdv (typical)
+  PASS  Ammonia unit - FT-AM-03 Ammonia detection and ESD.fta.json BE-010 uses library item lr-sov (typical)
+
+C. References
+  PASS  FT-AM-01 exists as 'Ammonia unit - FT-AM-01 Refrigeration overpressure.fta.json'
+  PASS  FT-AM-02 exists as 'Ammonia unit - FT-AM-02 Converter over-temperature.fta.json'
+  PASS  FT-AM-03 exists as 'Ammonia unit - FT-AM-03 Ammonia detection and ESD.fta.json'
+  PASS  ETA-AM-01 exists as 'Ammonia unit - ETA-AM-01 Liquid ammonia release.eta.json'
+  PASS  ETA-AM-02 exists as 'Ammonia unit - ETA-AM-02 Synthesis gas release.eta.json'
+  PASS  BT-AM-01 exists as 'Ammonia unit - BT-AM-01 Ammonia loss of containment.bowtie.json'
+  PASS  BT-AM-02 exists as 'Ammonia unit - BT-AM-02 Synthesis gas loss of containment.bowtie.json'
+  PASS  HZ-EX-AM-001 exists as 'Ammonia unit - HAZOP HZ-EX-AM-001.hazop.json'
+  PASS  FM-EX-AM-001 exists as 'Ammonia unit - FMECA_Workbook.xlsx'
+  PASS  HI-EX-AM-001 exists as 'Ammonia unit - HAZID_Register.xlsx'
+  PASS  Ammonia unit - FT-AM-01 Refrigeration overpressure.fta.json: every FT / ETA / BT code it mentions exists (2 codes)
+  PASS  Ammonia unit - FT-AM-01 Refrigeration overpressure.fta.json: every HAZOP deviation reference resolves (2 refs)
+  PASS  Ammonia unit - FT-AM-01 Refrigeration overpressure.fta.json: every recommendation reference resolves (1 refs)
+  PASS  Ammonia unit - FT-AM-01 Refrigeration overpressure.fta.json: every FMECA system reference resolves (1 refs)
+  PASS  Ammonia unit - FT-AM-02 Converter over-temperature.fta.json: every FT / ETA / BT code it mentions exists (2 codes)
+  PASS  Ammonia unit - FT-AM-02 Converter over-temperature.fta.json: every HAZOP deviation reference resolves (1 refs)
+  PASS  Ammonia unit - FT-AM-02 Converter over-temperature.fta.json: every recommendation reference resolves (2 refs)
+  PASS  Ammonia unit - FT-AM-02 Converter over-temperature.fta.json: every FMECA system reference resolves (1 refs)
+  PASS  Ammonia unit - FT-AM-03 Ammonia detection and ESD.fta.json: every FT / ETA / BT code it mentions exists (3 codes)
+  PASS  Ammonia unit - FT-AM-03 Ammonia detection and ESD.fta.json: every HAZOP deviation reference resolves (2 refs)
+  PASS  Ammonia unit - FT-AM-03 Ammonia detection and ESD.fta.json: every recommendation reference resolves (1 refs)
+  PASS  Ammonia unit - FT-AM-03 Ammonia detection and ESD.fta.json: every FMECA system reference resolves (1 refs)
+  PASS  Ammonia unit - ETA-AM-01 Liquid ammonia release.eta.json: every FT / ETA / BT code it mentions exists (3 codes)
+  PASS  Ammonia unit - ETA-AM-01 Liquid ammonia release.eta.json: every HAZOP deviation reference resolves (2 refs)
+  PASS  Ammonia unit - ETA-AM-01 Liquid ammonia release.eta.json: every recommendation reference resolves (2 refs)
+  PASS  Ammonia unit - ETA-AM-01 Liquid ammonia release.eta.json: every FMECA system reference resolves (1 refs)
+  PASS  Ammonia unit - ETA-AM-01 Liquid ammonia release.eta.json: FT-AM-03 G-001 exists in Ammonia unit - FT-AM-03 Ammonia detection and ESD.fta.json
+  PASS  Ammonia unit - ETA-AM-02 Synthesis gas release.eta.json: every FT / ETA / BT code it mentions exists (2 codes)
+  PASS  Ammonia unit - ETA-AM-02 Synthesis gas release.eta.json: every HAZOP deviation reference resolves (2 refs)
+  PASS  Ammonia unit - ETA-AM-02 Synthesis gas release.eta.json: every recommendation reference resolves (0 refs)
+  PASS  Ammonia unit - ETA-AM-02 Synthesis gas release.eta.json: every FMECA system reference resolves (0 refs)
+  PASS  Ammonia unit - BT-AM-01 Ammonia loss of containment.bowtie.json: every FT / ETA / BT code it mentions exists (4 codes)
+  PASS  Ammonia unit - BT-AM-01 Ammonia loss of containment.bowtie.json: every HAZOP deviation reference resolves (8 refs)
+  PASS  Ammonia unit - BT-AM-01 Ammonia loss of containment.bowtie.json: every recommendation reference resolves (6 refs)
+  PASS  Ammonia unit - BT-AM-01 Ammonia loss of containment.bowtie.json: every FMECA system reference resolves (1 refs)
+  PASS  Ammonia unit - BT-AM-01 Ammonia loss of containment.bowtie.json: FT-AM-01 G-006 exists in Ammonia unit - FT-AM-01 Refrigeration overpressure.fta.json
+  PASS  Ammonia unit - BT-AM-01 Ammonia loss of containment.bowtie.json: FT-AM-01 G-002 exists in Ammonia unit - FT-AM-01 Refrigeration overpressure.fta.json
+  PASS  Ammonia unit - BT-AM-01 Ammonia loss of containment.bowtie.json: FT-AM-03 G-001 exists in Ammonia unit - FT-AM-03 Ammonia detection and ESD.fta.json
+  PASS  Ammonia unit - BT-AM-01 Ammonia loss of containment.bowtie.json: FT-AM-01 G-006 exists in Ammonia unit - FT-AM-01 Refrigeration overpressure.fta.json
+  PASS  Ammonia unit - BT-AM-01 Ammonia loss of containment.bowtie.json: FT-AM-01 G-002 exists in Ammonia unit - FT-AM-01 Refrigeration overpressure.fta.json
+  PASS  Ammonia unit - BT-AM-01 Ammonia loss of containment.bowtie.json: FT-AM-03 G-001 exists in Ammonia unit - FT-AM-03 Ammonia detection and ESD.fta.json
+  PASS  Ammonia unit - BT-AM-02 Synthesis gas loss of containment.bowtie.json: every FT / ETA / BT code it mentions exists (3 codes)
+  PASS  Ammonia unit - BT-AM-02 Synthesis gas loss of containment.bowtie.json: every HAZOP deviation reference resolves (6 refs)
+  PASS  Ammonia unit - BT-AM-02 Synthesis gas loss of containment.bowtie.json: every recommendation reference resolves (4 refs)
+  PASS  Ammonia unit - BT-AM-02 Synthesis gas loss of containment.bowtie.json: every FMECA system reference resolves (1 refs)
+  PASS  Ammonia unit - BT-AM-02 Synthesis gas loss of containment.bowtie.json: FT-AM-02 G-006 exists in Ammonia unit - FT-AM-02 Converter over-temperature.fta.json
+  PASS  Ammonia unit - BT-AM-02 Synthesis gas loss of containment.bowtie.json: FT-AM-02 G-002 exists in Ammonia unit - FT-AM-02 Converter over-temperature.fta.json
+  PASS  Ammonia unit - BT-AM-02 Synthesis gas loss of containment.bowtie.json: FT-AM-02 G-006 exists in Ammonia unit - FT-AM-02 Converter over-temperature.fta.json
+  PASS  Ammonia unit - BT-AM-02 Synthesis gas loss of containment.bowtie.json: FT-AM-02 G-002 exists in Ammonia unit - FT-AM-02 Converter over-temperature.fta.json
+  PASS  Ammonia unit - HAZOP HZ-EX-AM-001.hazop.json: every FT / ETA / BT code it mentions exists (7 codes)
+  PASS  Ammonia unit - HAZOP HZ-EX-AM-001.hazop.json: every HAZOP deviation reference resolves (42 refs)
+  PASS  Ammonia unit - HAZOP HZ-EX-AM-001.hazop.json: every recommendation reference resolves (20 refs)
+  PASS  Ammonia unit - HAZOP HZ-EX-AM-001.hazop.json: every FMECA system reference resolves (0 refs)
+  PASS  Ammonia unit - HAZOP_Study_Workbook.xlsx: every FT / ETA / BT code it mentions exists (7 codes)
+  PASS  Ammonia unit - HAZOP_Study_Workbook.xlsx: every HAZOP deviation reference resolves (42 refs)
+  PASS  Ammonia unit - HAZOP_Study_Workbook.xlsx: every recommendation reference resolves (20 refs)
+  PASS  Ammonia unit - HAZOP_Study_Workbook.xlsx: every FMECA system reference resolves (0 refs)
+  PASS  Ammonia unit - FMECA_Workbook.xlsx: every FT / ETA / BT code it mentions exists (4 codes)
+  PASS  Ammonia unit - FMECA_Workbook.xlsx: every HAZOP deviation reference resolves (14 refs)
+  PASS  Ammonia unit - FMECA_Workbook.xlsx: every recommendation reference resolves (9 refs)
+  PASS  Ammonia unit - FMECA_Workbook.xlsx: every FMECA system reference resolves (0 refs)
+  PASS  Ammonia unit - FMECA_Workbook.xlsx: FT-AM-02 BE-006 exists in Ammonia unit - FT-AM-02 Converter over-temperature.fta.json
+  PASS  Ammonia unit - FMECA_Workbook.xlsx: FT-AM-02 BE-008 exists in Ammonia unit - FT-AM-02 Converter over-temperature.fta.json
+  PASS  Ammonia unit - FMECA_Workbook.xlsx: FT-AM-01 BE-006 exists in Ammonia unit - FT-AM-01 Refrigeration overpressure.fta.json
+  PASS  Ammonia unit - FMECA_Workbook.xlsx: FT-AM-01 BE-010 exists in Ammonia unit - FT-AM-01 Refrigeration overpressure.fta.json
+  PASS  Ammonia unit - HAZID_Register.xlsx: every FT / ETA / BT code it mentions exists (7 codes)
+  PASS  Ammonia unit - HAZID_Register.xlsx: every HAZOP deviation reference resolves (23 refs)
+  PASS  Ammonia unit - HAZID_Register.xlsx: every recommendation reference resolves (18 refs)
+  PASS  Ammonia unit - HAZID_Register.xlsx: every FMECA system reference resolves (0 refs)
+  PASS  Every HAZOP recommendation is linked to at least one deviation
+  PASS  HAZOP N01-01 complete (causes, consequence, safeguards, risk before / after; risk not increased)
+  PASS  HAZOP N01-02 complete (causes, consequence, safeguards, risk before / after; risk not increased)
+  PASS  HAZOP N01-03 complete (causes, consequence, safeguards, risk before / after; risk not increased)
+  PASS  HAZOP N01-04 complete (causes, consequence, safeguards, risk before / after; risk not increased)
+  PASS  HAZOP N01-05 complete (causes, consequence, safeguards, risk before / after; risk not increased)
+  PASS  HAZOP N01-06 complete (causes, consequence, safeguards, risk before / after; risk not increased)
+  PASS  HAZOP N01-07 complete (causes, consequence, safeguards, risk before / after; risk not increased)
+  PASS  HAZOP N01-08 complete (causes, consequence, safeguards, risk before / after; risk not increased)
+  PASS  HAZOP N01-09 complete (causes, consequence, safeguards, risk before / after; risk not increased)
+  PASS  HAZOP N02-01 complete (causes, consequence, safeguards, risk before / after; risk not increased)
+  PASS  HAZOP N02-02 complete (causes, consequence, safeguards, risk before / after; risk not increased)
+  PASS  HAZOP N02-03 complete (causes, consequence, safeguards, risk before / after; risk not increased)
+  PASS  HAZOP N02-04 complete (causes, consequence, safeguards, risk before / after; risk not increased)
+  PASS  HAZOP N02-05 complete (causes, consequence, safeguards, risk before / after; risk not increased)
+  PASS  HAZOP N02-06 complete (causes, consequence, safeguards, risk before / after; risk not increased)
+  PASS  HAZOP N02-07 complete (causes, consequence, safeguards, risk before / after; risk not increased)
+  PASS  HAZOP N02-08 complete (causes, consequence, safeguards, risk before / after; risk not increased)
+  PASS  HAZOP N03-01 complete (causes, consequence, safeguards, risk before / after; risk not increased)
+  PASS  HAZOP N03-02 complete (causes, consequence, safeguards, risk before / after; risk not increased)
+  PASS  HAZOP N03-03 complete (causes, consequence, safeguards, risk before / after; risk not increased)
+  PASS  HAZOP N03-04 complete (causes, consequence, safeguards, risk before / after; risk not increased)
+  PASS  HAZOP N03-05 complete (causes, consequence, safeguards, risk before / after; risk not increased)
+  PASS  HAZOP N03-06 complete (causes, consequence, safeguards, risk before / after; risk not increased)
+  PASS  HAZOP N03-07 complete (causes, consequence, safeguards, risk before / after; risk not increased)
+  PASS  HAZOP N03-08 complete (causes, consequence, safeguards, risk before / after; risk not increased)
+  PASS  HAZOP N03-09 complete (causes, consequence, safeguards, risk before / after; risk not increased)
+  PASS  HAZOP N04-01 complete (causes, consequence, safeguards, risk before / after; risk not increased)
+  PASS  HAZOP N04-02 complete (causes, consequence, safeguards, risk before / after; risk not increased)
+  PASS  HAZOP N04-03 complete (causes, consequence, safeguards, risk before / after; risk not increased)
+  PASS  HAZOP N04-04 complete (causes, consequence, safeguards, risk before / after; risk not increased)
+  PASS  HAZOP N04-05 complete (causes, consequence, safeguards, risk before / after; risk not increased)
+  PASS  HAZOP N04-06 complete (causes, consequence, safeguards, risk before / after; risk not increased)
+  PASS  HAZOP N04-07 complete (causes, consequence, safeguards, risk before / after; risk not increased)
+  PASS  HAZOP N04-08 complete (causes, consequence, safeguards, risk before / after; risk not increased)
+  PASS  HAZOP N04-09 complete (causes, consequence, safeguards, risk before / after; risk not increased)
+  PASS  HAZOP N05-01 complete (causes, consequence, safeguards, risk before / after; risk not increased)
+  PASS  HAZOP N05-02 complete (causes, consequence, safeguards, risk before / after; risk not increased)
+  PASS  HAZOP N05-03 complete (causes, consequence, safeguards, risk before / after; risk not increased)
+  PASS  HAZOP N05-04 complete (causes, consequence, safeguards, risk before / after; risk not increased)
+  PASS  HAZOP N05-05 complete (causes, consequence, safeguards, risk before / after; risk not increased)
+  PASS  HAZOP N05-06 complete (causes, consequence, safeguards, risk before / after; risk not increased)
+  PASS  HAZOP N05-07 complete (causes, consequence, safeguards, risk before / after; risk not increased)
+  PASS  Every HAZOP node has PSI documents linked
+  PASS  Every HAZOP node is covered by a study session
+  PASS  FMECA systems map one-to-one to the HAZOP nodes with the same names
+  PASS  FMECA S01 FFSLL-1201 → HAZOP N01-01 exists and belongs to node N01
+  PASS  FMECA S01 101-B → HAZOP N01-04 exists and belongs to node N01
+  PASS  FMECA S01 XV-1201 → HAZOP N01-01 exists and belongs to node N01
+  PASS  FMECA S02 BSLL-1200 → HAZOP N02-01 exists and belongs to node N02
+  PASS  FMECA S02 XV-1220A → HAZOP N02-06 exists and belongs to node N02
+  PASS  FMECA S02 PV-1001B → HAZOP N02-02 exists and belongs to node N02
+  PASS  FMECA S03 TSHH-1396 → HAZOP N03-03 exists and belongs to node N03
+  PASS  FMECA S03 103-J → HAZOP N03-02 exists and belongs to node N03
+  PASS  FMECA S03 123-C1 → HAZOP N03-06 exists and belongs to node N03
+  PASS  FMECA S03 XV-1250A → HAZOP N03-03 exists and belongs to node N03
+  PASS  FMECA S04 PSHH-1110 → HAZOP N04-01 exists and belongs to node N04
+  PASS  FMECA S04 PSV-1109 → HAZOP N04-01 exists and belongs to node N04
+  PASS  FMECA S04 127-C → HAZOP N04-06 exists and belongs to node N04
+  PASS  FMECA S04 AT-1801A → HAZOP N04-07 exists and belongs to node N04
+  PASS  FMECA S04 LSHH-1214 → HAZOP N04-02 exists and belongs to node N04
+  PASS  FMECA S05 PV-1033A → HAZOP N05-02 exists and belongs to node N05
+  PASS  FMECA S05 161-J → HAZOP N05-06 exists and belongs to node N05
+
+D. Tags
+  PASS  Equipment register tags are unique
+  PASS  Ammonia unit - FT-AM-01 Refrigeration overpressure.fta.json: every equipment tag in the basic events is in the FMECA equipment register (7 tags)
+  PASS  Ammonia unit - FT-AM-02 Converter over-temperature.fta.json: every equipment tag in the basic events is in the FMECA equipment register (5 tags)
+  PASS  Ammonia unit - FT-AM-03 Ammonia detection and ESD.fta.json: every equipment tag in the basic events is in the FMECA equipment register (7 tags)
+  PASS  Ammonia unit - BT-AM-01 Ammonia loss of containment.bowtie.json: every tag in barrier names / notes is defined in the HAZOP or FMECA (11 tags)
+  PASS  BT1 barrier 'Refrigeration overpressure protection – ' → HAZOP safeguard tag(s) PSHH-1110 in the register
+  PASS  BT1 barrier 'Column relief valve PSV-1033 sized for g' → HAZOP safeguard tag(s) PSV-1033 in the register
+  PASS  BT1 barrier 'Ammonia detection and ESD (AT-1801A/B/C,' → HAZOP safeguard tag(s) AT-1801A in the register
+  PASS  Ammonia unit - BT-AM-02 Synthesis gas loss of containment.bowtie.json: every tag in barrier names / notes is defined in the HAZOP or FMECA (9 tags)
+  PASS  BT2 barrier 'Converter over-temperature protection – ' → HAZOP safeguard tag(s) TSHH-1396 in the register
+  PASS  BT2 barrier 'Seal-gas low-low pressure trip PSLL-1155' → HAZOP safeguard tag(s) PSLL-1155 in the register
+  PASS  BT2 barrier 'Synthesis loop relief valve PSV-1018' → HAZOP safeguard tag(s) PSV-1018 in the register
+  PASS  BT2 barrier 'Unit ESD and emergency depressurisation ' → HAZOP safeguard tag(s) UCP-1000 in the register
+  PASS  FMECA S01 row tag FFSLL-1201 is in the equipment register under S01
+  PASS  FMECA S01 row tag 101-B is in the equipment register under S01
+  PASS  FMECA S01 row tag XV-1201 is in the equipment register under S01
+  PASS  FMECA S02 row tag BSLL-1200 is in the equipment register under S02
+  PASS  FMECA S02 row tag XV-1220A is in the equipment register under S02
+  PASS  FMECA S02 row tag PV-1001B is in the equipment register under S02
+  PASS  FMECA S03 row tag TSHH-1396 is in the equipment register under S03
+  PASS  FMECA S03 row tag 103-J is in the equipment register under S03
+  PASS  FMECA S03 row tag 123-C1 is in the equipment register under S03
+  PASS  FMECA S03 row tag XV-1250A is in the equipment register under S03
+  PASS  FMECA S04 row tag PSHH-1110 is in the equipment register under S04
+  PASS  FMECA S04 row tag PSV-1109 is in the equipment register under S04
+  PASS  FMECA S04 row tag 127-C is in the equipment register under S04
+  PASS  FMECA S04 row tag AT-1801A is in the equipment register under S04
+  PASS  FMECA S04 row tag LSHH-1214 is in the equipment register under S04
+  PASS  FMECA S05 row tag PV-1033A is in the equipment register under S05
+  PASS  FMECA S05 row tag 161-J is in the equipment register under S05
+  PASS  HAZOP safeguard register: every tag is defined (51 tags)
+  PASS  HAZOP causes / consequences / comments: every tag is defined (26 tags)
+  PASS  HAZOP IPL PSHH1110 (PSHH-1110) is the barrier 'Refrigeration overpressure protection ' in BT1
+  PASS  HAZOP IPL PSV1109 (PSV-1109) is the barrier 'Refrigeration overpressure protection ' in BT1
+  PASS  HAZOP IPL NH3DET (AT-1801A) is the barrier 'Ammonia detection and ESD (AT-1801A/B/' in BT1
+  PASS  HAZOP IPL ESDGAS (UCP-1000) is the barrier 'Unit ESD and emergency depressurisatio' in BT2
+  PASS  HAZOP IPL TSHH1396 (TSHH-1396) is the barrier 'Converter over-temperature protection ' in BT2
+  PASS  HAZOP IPL PSV1033 (PSV-1033) is the barrier 'Column relief valve PSV-1033 sized for' in BT1
+  PASS  HAZOP IPL PSV1018 (PSV-1018) is the barrier 'Synthesis loop relief valve PSV-1018' in BT2
+
+E. Workbooks
+  PASS  Ammonia unit - HAZOP_Study_Workbook.xlsx recalculates in LibreOffice with no formula errors (9101 formulas)
+  PASS  Ammonia unit - FMECA_Workbook.xlsx recalculates in LibreOffice with no formula errors (9210 formulas)
+  PASS  Ammonia unit - HAZID_Register.xlsx recalculates in LibreOffice with no formula errors (44 formulas)
+  PASS  HAZOP workbook: cover shows 5 nodes
+  PASS  HAZOP workbook Node 01 is 'N01' with the node details
+  PASS  HAZOP workbook Node 01 has the same 9 deviations as the app
+  PASS  HAZOP workbook N01-01 = app (parameter/guideword valid, 2 causes, 3 safeguards, risk 12 → 4)
+  PASS  HAZOP workbook N01-02 = app (parameter/guideword valid, 2 causes, 2 safeguards, risk 9 → 6)
+  PASS  HAZOP workbook N01-03 = app (parameter/guideword valid, 2 causes, 2 safeguards, risk 8 → 4)
+  PASS  HAZOP workbook N01-04 = app (parameter/guideword valid, 3 causes, 3 safeguards, risk 12 → 8)
+  PASS  HAZOP workbook N01-05 = app (parameter/guideword valid, 2 causes, 1 safeguards, risk 8 → 4)
+  PASS  HAZOP workbook N01-06 = app (parameter/guideword valid, 2 causes, 2 safeguards, risk 12 → 8)
+  PASS  HAZOP workbook N01-07 = app (parameter/guideword valid, 2 causes, 1 safeguards, risk 6 → 4)
+  PASS  HAZOP workbook N01-08 = app (parameter/guideword valid, 2 causes, 2 safeguards, risk 9 → 6)
+  PASS  HAZOP workbook N01-09 = app (parameter/guideword valid, 1 causes, 2 safeguards, risk 8 → 4)
+  PASS  HAZOP workbook Node 02 is 'N02' with the node details
+  PASS  HAZOP workbook Node 02 has the same 8 deviations as the app
+  PASS  HAZOP workbook N02-01 = app (parameter/guideword valid, 3 causes, 3 safeguards, risk 15 → 5)
+  PASS  HAZOP workbook N02-02 = app (parameter/guideword valid, 2 causes, 2 safeguards, risk 15 → 5)
+  PASS  HAZOP workbook N02-03 = app (parameter/guideword valid, 2 causes, 1 safeguards, risk 12 → 8)
+  PASS  HAZOP workbook N02-04 = app (parameter/guideword valid, 2 causes, 2 safeguards, risk 9 → 6)
+  PASS  HAZOP workbook N02-05 = app (parameter/guideword valid, 2 causes, 1 safeguards, risk 12 → 8)
+  PASS  HAZOP workbook N02-06 = app (parameter/guideword valid, 2 causes, 2 safeguards, risk 15 → 10)
+  PASS  HAZOP workbook N02-07 = app (parameter/guideword valid, 2 causes, 1 safeguards, risk 9 → 6)
+  PASS  HAZOP workbook N02-08 = app (parameter/guideword valid, 2 causes, 2 safeguards, risk 12 → 8)
+  PASS  HAZOP workbook Node 03 is 'N03' with the node details
+  PASS  HAZOP workbook Node 03 has the same 9 deviations as the app
+  PASS  HAZOP workbook N03-01 = app (parameter/guideword valid, 3 causes, 2 safeguards, risk 9 → 6)
+  PASS  HAZOP workbook N03-02 = app (parameter/guideword valid, 2 causes, 2 safeguards, risk 12 → 8)
+  PASS  HAZOP workbook N03-03 = app (parameter/guideword valid, 3 causes, 3 safeguards, risk 20 → 20)
+  PASS  HAZOP workbook N03-04 = app (parameter/guideword valid, 3 causes, 3 safeguards, risk 15 → 5)
+  PASS  HAZOP workbook N03-05 = app (parameter/guideword valid, 2 causes, 1 safeguards, risk 9 → 6)
+  PASS  HAZOP workbook N03-06 = app (parameter/guideword valid, 2 causes, 1 safeguards, risk 10 → 5)
+  PASS  HAZOP workbook N03-07 = app (parameter/guideword valid, 1 causes, 2 safeguards, risk 8 → 4)
+  PASS  HAZOP workbook N03-08 = app (parameter/guideword valid, 2 causes, 2 safeguards, risk 15 → 10)
+  PASS  HAZOP workbook N03-09 = app (parameter/guideword valid, 2 causes, 1 safeguards, risk 12 → 8)
+  PASS  HAZOP workbook Node 04 is 'N04' with the node details
+  PASS  HAZOP workbook Node 04 has the same 9 deviations as the app
+  PASS  HAZOP workbook N04-01 = app (parameter/guideword valid, 3 causes, 4 safeguards, risk 20 → 5)
+  PASS  HAZOP workbook N04-02 = app (parameter/guideword valid, 2 causes, 2 safeguards, risk 12 → 8)
+  PASS  HAZOP workbook N04-03 = app (parameter/guideword valid, 2 causes, 2 safeguards, risk 9 → 6)
+  PASS  HAZOP workbook N04-04 = app (parameter/guideword valid, 1 causes, 1 safeguards, risk 9 → 6)
+  PASS  HAZOP workbook N04-05 = app (parameter/guideword valid, 2 causes, 1 safeguards, risk 10 → 5)
+  PASS  HAZOP workbook N04-06 = app (parameter/guideword valid, 2 causes, 2 safeguards, risk 12 → 8)
+  PASS  HAZOP workbook N04-07 = app (parameter/guideword valid, 3 causes, 4 safeguards, risk 15 → 10)
+  PASS  HAZOP workbook N04-08 = app (parameter/guideword valid, 2 causes, 2 safeguards, risk 12 → 8)
+  PASS  HAZOP workbook N04-09 = app (parameter/guideword valid, 1 causes, 1 safeguards, risk 9 → 6)
+  PASS  HAZOP workbook Node 05 is 'N05' with the node details
+  PASS  HAZOP workbook Node 05 has the same 7 deviations as the app
+  PASS  HAZOP workbook N05-01 = app (parameter/guideword valid, 2 causes, 1 safeguards, risk 9 → 6)
+  PASS  HAZOP workbook N05-02 = app (parameter/guideword valid, 2 causes, 3 safeguards, risk 15 → 10)
+  PASS  HAZOP workbook N05-03 = app (parameter/guideword valid, 2 causes, 1 safeguards, risk 9 → 6)
+  PASS  HAZOP workbook N05-04 = app (parameter/guideword valid, 1 causes, 2 safeguards, risk 10 → 5)
+  PASS  HAZOP workbook N05-05 = app (parameter/guideword valid, 1 causes, 2 safeguards, risk 9 → 6)
+  PASS  HAZOP workbook N05-06 = app (parameter/guideword valid, 2 causes, 2 safeguards, risk 12 → 8)
+  PASS  HAZOP workbook N05-07 = app (parameter/guideword valid, 1 causes, 1 safeguards, risk 9 → 6)
+  PASS  FMECA workbook: cover shows 5 systems and 43 equipment items
+  PASS  FMECA S01-01 FFSLL-1201: type from register, component + failure mode valid, RPN 162, AP M
+  PASS  FMECA S01-02 101-B: type from register, component + failure mode valid, RPN 128, AP M
+  PASS  FMECA S01-03 XV-1201: type from register, component + failure mode valid, RPN 162, AP M
+  PASS  FMECA S02-01 BSLL-1200: type from register, component + failure mode valid, RPN 180, AP M
+  PASS  FMECA S02-02 XV-1220A: type from register, component + failure mode valid, RPN 180, AP M
+  PASS  FMECA S02-03 PV-1001B: type from register, component + failure mode valid, RPN 96, AP M
+  PASS  FMECA S03-01 TSHH-1396: type from register, component + failure mode valid, RPN 180, AP M
+  PASS  FMECA S03-02 103-J: type from register, component + failure mode valid, RPN 120, AP L
+  PASS  FMECA S03-03 123-C1: type from register, component + failure mode valid, RPN 120, AP M
+  PASS  FMECA S03-04 XV-1250A: type from register, component + failure mode valid, RPN 162, AP M
+  PASS  FMECA S04-01 PSHH-1110: type from register, component + failure mode valid, RPN 162, AP M
+  PASS  FMECA S04-02 PSV-1109: type from register, component + failure mode valid, RPN 120, AP M
+  PASS  FMECA S04-03 127-C: type from register, component + failure mode valid, RPN 72, AP L
+  PASS  FMECA S04-04 AT-1801A: type from register, component + failure mode valid, RPN 128, AP M
+  PASS  FMECA S04-05 LSHH-1214: type from register, component + failure mode valid, RPN 144, AP M
+  PASS  FMECA S05-01 PV-1033A: type from register, component + failure mode valid, RPN 90, AP L
+  PASS  FMECA S05-02 161-J: type from register, component + failure mode valid, RPN 128, AP M
+  PASS  FMECA Summary counts all 17 failure modes
+  PASS  Ammonia unit - HAZOP_Study_Workbook_Macro.xlsm keeps the template's VBA project unchanged
+  PASS  Ammonia unit - FMECA_Workbook_Macro.xlsm keeps the template's VBA project unchanged
+  PASS  HAZOP macro workbook Node 01: 9 deviations and IPL tags as the app
+  PASS  HAZOP macro workbook Node 02: 8 deviations and IPL tags as the app
+  PASS  HAZOP macro workbook Node 03: 9 deviations and IPL tags as the app
+  PASS  HAZOP macro workbook Node 04: 9 deviations and IPL tags as the app
+  PASS  HAZOP macro workbook Node 05: 7 deviations and IPL tags as the app
+
+G. HAZID
+  PASS  HAZID register has all 22 hazards
+  PASS  HZD-01 risk score 12 and rank High calculated by the workbook
+  PASS  HZD-01 (High) is sent to a further study
+  PASS  HZD-01 further-study reference N01-01 resolves
+  PASS  HZD-01 further-study reference N01-04 resolves
+  PASS  HZD-01 recommendation R-001 exists in the HAZOP
+  PASS  HZD-01 recommendation R-002 exists in the HAZOP
+  PASS  HZD-02 risk score 12 and rank High calculated by the workbook
+  PASS  HZD-02 (High) is sent to a further study
+  PASS  HZD-02 further-study reference N01-06 resolves
+  PASS  HZD-02 recommendation R-003 exists in the HAZOP
+  PASS  HZD-03 risk score 15 and rank High calculated by the workbook
+  PASS  HZD-03 (High) is sent to a further study
+  PASS  HZD-03 further-study reference N02-01 resolves
+  PASS  HZD-03 further-study reference N02-06 resolves
+  PASS  HZD-03 recommendation R-004 exists in the HAZOP
+  PASS  HZD-04 risk score 12 and rank High calculated by the workbook
+  PASS  HZD-04 (High) is sent to a further study
+  PASS  HZD-04 further-study reference N02-08 resolves
+  PASS  HZD-05 risk score 9 and rank Medium calculated by the workbook
+  PASS  HZD-05 further-study reference N02-04 resolves
+  PASS  HZD-05 recommendation R-005 exists in the HAZOP
+  PASS  HZD-06 risk score 15 and rank High calculated by the workbook
+  PASS  HZD-06 (High) is sent to a further study
+  PASS  HZD-06 further-study reference N03-08 resolves
+  PASS  HZD-06 recommendation R-019 exists in the HAZOP
+  PASS  HZD-07 risk score 20 and rank Very High calculated by the workbook
+  PASS  HZD-07 (Very High) is sent to a further study
+  PASS  HZD-07 further-study reference N03-03 resolves
+  PASS  HZD-07 recommendation R-008 exists in the HAZOP
+  PASS  HZD-08 risk score 15 and rank High calculated by the workbook
+  PASS  HZD-08 (High) is sent to a further study
+  PASS  HZD-08 further-study reference N03-04 resolves
+  PASS  HZD-08 recommendation R-009 exists in the HAZOP
+  PASS  HZD-09 risk score 10 and rank High calculated by the workbook
+  PASS  HZD-09 (High) is sent to a further study
+  PASS  HZD-09 further-study reference N03-06 resolves
+  PASS  HZD-09 recommendation R-010 exists in the HAZOP
+  PASS  HZD-10 risk score 12 and rank High calculated by the workbook
+  PASS  HZD-10 (High) is sent to a further study
+  PASS  HZD-10 further-study reference N03-02 resolves
+  PASS  HZD-10 recommendation R-006 exists in the HAZOP
+  PASS  HZD-10 recommendation R-007 exists in the HAZOP
+  PASS  HZD-11 risk score 15 and rank High calculated by the workbook
+  PASS  HZD-11 (High) is sent to a further study
+  PASS  HZD-11 further-study reference N04-01 resolves
+  PASS  HZD-11 further-study reference N04-07 resolves
+  PASS  HZD-11 recommendation R-011 exists in the HAZOP
+  PASS  HZD-11 recommendation R-012 exists in the HAZOP
+  PASS  HZD-11 recommendation R-013 exists in the HAZOP
+  PASS  HZD-12 risk score 20 and rank Very High calculated by the workbook
+  PASS  HZD-12 (Very High) is sent to a further study
+  PASS  HZD-12 further-study reference N04-01 resolves
+  PASS  HZD-12 recommendation R-011 exists in the HAZOP
+  PASS  HZD-12 recommendation R-015 exists in the HAZOP
+  PASS  HZD-13 risk score 10 and rank High calculated by the workbook
+  PASS  HZD-13 (High) is sent to a further study
+  PASS  HZD-13 further-study reference N04-05 resolves
+  PASS  HZD-13 recommendation R-014 exists in the HAZOP
+  PASS  HZD-14 risk score 12 and rank High calculated by the workbook
+  PASS  HZD-14 (High) is sent to a further study
+  PASS  HZD-14 further-study reference N04-02 resolves
+  PASS  HZD-15 risk score 12 and rank High calculated by the workbook
+  PASS  HZD-15 (High) is sent to a further study
+  PASS  HZD-15 further-study reference N04-08 resolves
+  PASS  HZD-16 risk score 15 and rank High calculated by the workbook
+  PASS  HZD-16 (High) is sent to a further study
+  PASS  HZD-16 further-study reference N05-02 resolves
+  PASS  HZD-16 further-study reference N05-04 resolves
+  PASS  HZD-16 recommendation R-018 exists in the HAZOP
+  PASS  HZD-17 risk score 12 and rank High calculated by the workbook
+  PASS  HZD-17 (High) is sent to a further study
+  PASS  HZD-17 further-study reference N05-06 resolves
+  PASS  HZD-17 recommendation R-012 exists in the HAZOP
+  PASS  HZD-18 risk score 10 and rank High calculated by the workbook
+  PASS  HZD-18 (High) is sent to a further study
+  PASS  HZD-18 recommendation R-016 exists in the HAZOP
+  PASS  HZD-19 risk score 9 and rank Medium calculated by the workbook
+  PASS  HZD-19 further-study reference N01-08 resolves
+  PASS  HZD-19 further-study reference N05-07 resolves
+  PASS  HZD-20 risk score 6 and rank Medium calculated by the workbook
+  PASS  HZD-21 risk score 9 and rank Medium calculated by the workbook
+  PASS  HZD-21 further-study reference N04-09 resolves
+  PASS  HZD-21 further-study reference N02-04 resolves
+  PASS  HZD-21 recommendation R-005 exists in the HAZOP
+  PASS  HZD-22 risk score 6 and rank Medium calculated by the workbook
+  PASS  Every HAZOP node is reached from the HAZID
+
+F. Report
+  PASS  Report refers to FT-AM-01
+  PASS  Report refers to FT-AM-02
+  PASS  Report refers to FT-AM-03
+  PASS  Report refers to ETA-AM-01
+  PASS  Report refers to ETA-AM-02
+  PASS  Report refers to BT-AM-01
+  PASS  Report refers to BT-AM-02
+  PASS  Report refers to HZ-EX-AM-001
+  PASS  Report refers to FM-EX-AM-001
+  PASS  Report refers to HI-EX-AM-001
+  PASS  Report quotes FT1_TOP = 2.4E-6 as calculated by the apps
+  PASS  Report quotes FT1_PFD = 1.1E-5 as calculated by the apps
+  PASS  Report quotes FT2_TOP = 1.8E-2 as calculated by the apps
+  PASS  Report quotes FT2_PFD = 5.1E-2 as calculated by the apps
+  PASS  Report quotes FT3_PFD = 2.9E-2 as calculated by the apps
+  PASS  Report quotes ETA1_C5 = 1.3E-6 as calculated by the apps
+  PASS  Report quotes ETA2_C5 = 8.1E-5 as calculated by the apps
+  PASS  Report lists every recommendation (20 of 20)
+  PASS  Report covers every HAZOP deviation
+  PASS  Report quotes ETA1 end state 'Release isolated and knocked down – mino' = 5.1E-3 /yr
+  PASS  Report quotes ETA1 end state 'Release isolated – short-lived cloud, on' = 2.2E-3 /yr
+  PASS  Report quotes ETA1 end state 'Prolonged release knocked down by the wa' = 1.5E-4 /yr
+  PASS  Report quotes ETA1 end state 'Prolonged release drifts away from occup' = 5.3E-5 /yr
+  PASS  Report quotes ETA1 end state 'Toxic cloud over occupied areas – people' = 1.2E-5 /yr
+  PASS  Report quotes ETA1 end state 'Toxic cloud – fatalities on and off site' = 1.3E-6 /yr
+  PASS  Report quotes ETA2 end state 'Release isolated – hydrogen disperses wi' = 4.2E-3 /yr
+  PASS  Report quotes ETA2 end state 'Small flash fire – isolated inventory' = 1.8E-3 /yr
+  PASS  Report quotes ETA2 end state 'Prolonged release disperses without igni' = 4.7E-4 /yr
+  PASS  Report quotes ETA2 end state 'Large flash fire – prolonged release' = 1.2E-4 /yr
+  PASS  Report quotes ETA2 end state 'Vapour cloud explosion – blast damage, m' = 8.1E-5 /yr
+  PASS  Report quotes ETA2 end state 'Jet fire – isolated quickly, local damag' = 2.6E-3 /yr
+  PASS  Report quotes ETA2 end state 'Prolonged jet fire – escalation to the l' = 2.9E-4 /yr
+  PASS  Report lists HAZID item HZD-01
+  PASS  Report lists HAZID item HZD-02
+  PASS  Report lists HAZID item HZD-03
+  PASS  Report lists HAZID item HZD-04
+  PASS  Report lists HAZID item HZD-05
+  PASS  Report lists HAZID item HZD-06
+  PASS  Report lists HAZID item HZD-07
+  PASS  Report lists HAZID item HZD-08
+  PASS  Report lists HAZID item HZD-09
+  PASS  Report lists HAZID item HZD-10
+  PASS  Report lists HAZID item HZD-11
+  PASS  Report lists HAZID item HZD-12
+  PASS  Report lists HAZID item HZD-13
+  PASS  Report lists HAZID item HZD-14
+  PASS  Report lists HAZID item HZD-15
+  PASS  Report lists HAZID item HZD-16
+  PASS  Report lists HAZID item HZD-17
+  PASS  Report lists HAZID item HZD-18
+  PASS  Report lists HAZID item HZD-19
+  PASS  Report lists HAZID item HZD-20
+  PASS  Report lists HAZID item HZD-21
+  PASS  Report lists HAZID item HZD-22

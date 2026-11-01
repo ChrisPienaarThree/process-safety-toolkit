@@ -166,6 +166,7 @@ body.web .usbonly{display:none!important} body.usb .webonly{display:none!importa
         <h2>Traced through every step</h2>
         <p><b>Hot DRI conveyor fire</b> – the built-in example in all four tools. The HAZOP finds “no flow – stoppage under load”, the fault tree quantifies the N2 fire protection (gate G-002, PFDavg 0.0285), the event tree uses that gate as a heading, and the bow tie uses it as a barrier.</p>
         <p><b>Steel works gas network PHA</b> – a complete worked study: HAZOP (8 nodes, 46 deviations), FMECA, 3 fault trees, 2 event trees and 2 bow ties sharing the same tags, nodes and recommendations, with a 20-page study report and 437 automated consistency checks.</p>
+        <p><b>Propane storage and dilution PHA</b> and <b>Ammonia unit PHA</b> – two more complete studies that start with a HAZID register and run HAZID → HAZOP → FMECA → fault trees → event trees → bow ties. Both are built on published HAZOP case studies, completed and corrected, with a study report each (433 and 498 automated consistency checks).</p>
         <p><button class="mini" data-goto="library#lib-examples" title="List of all example files and which tool opens them">See the example files</button></p>
         <p class="muted small">All example data are illustrative – replace them with site and vendor data before use.</p>
       </article>
@@ -284,6 +285,8 @@ var url = function (p) { return encodeURI(p); };
 var WEB = /^https?:$/.test(location.protocol);
 var GN = 'Examples/Steel Works Gas Network PHA/';
 var GNP = GN + 'Steel works gas network - ';
+var PR = 'Examples/Propane Storage and Dilution PHA/', PRP = PR + 'Propane storage - ';
+var AM = 'Examples/Ammonia Unit PHA/', AMP = AM + 'Ammonia unit - ';
 
 var TOOLS = [
   { id: 'hazop', file: 'Tools/HAZOP Study Manager.html', title: 'HAZOP Study Manager', topic: 'Qualitative · nodes, deviations, safeguards',
@@ -358,7 +361,28 @@ var EXAMPLES = [
   [GNP + 'ETA-GN-02 Reheat furnace flame failure.eta.json', 'eta', 'Reheat furnace flame failure'],
   [GNP + 'BT-GN-01 Loss of containment.bowtie.json', 'bowtie', 'Loss of containment of the gas system'],
   [GNP + 'BT-GN-02 Reheat furnace explosion.bowtie.json', 'bowtie', 'Explosive mixture in the reheat furnace'],
-  [GN + 'Cross-link test results.txt', '', 'The 437 automated consistency checks across all the files']
+  [GN + 'Cross-link test results.txt', '', 'The 437 automated consistency checks across all the files'],
+  [PR + 'PHA Study Report - Propane storage and propane–air dilution system (worked example).pdf', '', 'Propane storage and dilution: HAZID → HAZOP → FMECA → FT → ETA → bow tie (21 pages; Word version alongside)'],
+  [PRP + 'HAZID_Register.xlsx', 'excel', 'HAZID register: 20 hazards, routed to the HAZOP nodes and quantified studies'],
+  [PRP + 'HAZOP HZ-EX-PR-001.hazop.json', 'hazop', '3 nodes, 32 deviations, 17 recommendations (workbooks alongside)'],
+  [PRP + 'FMECA_Workbook.xlsx', 'excel', 'FMECA of the 3 systems, 36 tags (macro version alongside)'],
+  [PRP + 'FT-PR-01 Bullet overfill.fta.json', 'fta', 'Bullet overfill during tanker unloading'],
+  [PRP + 'FT-PR-02 Flammable propane-air mixture.fta.json', 'fta', 'Flammable propane–air mixture in the dilution system'],
+  [PRP + 'FT-PR-03 Gas detection and ESD.fta.json', 'fta', 'Gas detection and ESD on demand'],
+  [PRP + 'ETA-PR-01 Major propane release.eta.json', 'eta', 'Major propane release – jet fire, flash fire, VCE, BLEVE'],
+  [PRP + 'BT-PR-01 Loss of containment.bowtie.json', 'bowtie', 'Loss of containment of propane'],
+  [PRP + 'BT-PR-02 Propane-air ignition.bowtie.json', 'bowtie', 'Ignition in the propane–air mixing station'],
+  [AM + 'PHA Study Report - Ammonia unit – reforming, synthesis, refrigeration and purge recovery (worked example).pdf', '', 'Ammonia unit: HAZID → HAZOP → FMECA → FT → ETA → bow tie (22 pages; Word version alongside)'],
+  [AMP + 'HAZID_Register.xlsx', 'excel', 'HAZID register: 22 hazards, routed to the HAZOP nodes and quantified studies'],
+  [AMP + 'HAZOP HZ-EX-AM-001.hazop.json', 'hazop', '5 nodes, 42 deviations, 20 recommendations (workbooks alongside)'],
+  [AMP + 'FMECA_Workbook.xlsx', 'excel', 'FMECA of the 5 systems, 43 tags (macro version alongside)'],
+  [AMP + 'FT-AM-01 Refrigeration overpressure.fta.json', 'fta', 'Refrigerant receiver over-pressured beyond design'],
+  [AMP + 'FT-AM-02 Converter over-temperature.fta.json', 'fta', 'Uncontrolled ammonia converter over-temperature'],
+  [AMP + 'FT-AM-03 Ammonia detection and ESD.fta.json', 'fta', 'Ammonia detection and ESD on demand'],
+  [AMP + 'ETA-AM-01 Liquid ammonia release.eta.json', 'eta', 'Liquid ammonia release – toxic outcomes'],
+  [AMP + 'ETA-AM-02 Synthesis gas release.eta.json', 'eta', 'Synthesis gas release – jet fire, flash fire, VCE'],
+  [AMP + 'BT-AM-01 Ammonia loss of containment.bowtie.json', 'bowtie', 'Loss of containment of liquid ammonia'],
+  [AMP + 'BT-AM-02 Synthesis gas loss of containment.bowtie.json', 'bowtie', 'Loss of containment of synthesis gas']
 ];
 
 var toolById = function (id) { return TOOLS.filter(function (t) { return t.id === id; })[0]; };

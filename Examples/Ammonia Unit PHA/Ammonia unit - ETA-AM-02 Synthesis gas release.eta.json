@@ -1,0 +1,233 @@
+{
+ "app": "Event Tree Analysis",
+ "schema": 1,
+ "title": "ETA-AM-02 – Synthesis gas release at the synthesis loop (ammonia unit example)",
+ "description": "Initiating event = top event of bow tie BT-AM-02, frequency 9.6E-3 /yr. Hydrogen ignites more easily than natural gas: immediate ignition 0.3, delayed ignition 0.3. End states are reproduced by the bow-tie consequences JET, FF and VCE. HAZOP N03-04, N03-08. Illustrative probabilities.",
+ "modified": "2026-11-24T16:00:00.000Z",
+ "ie": {
+  "name": "Synthesis gas release at the synthesis loop",
+  "freq": 0.009603647,
+  "ef": 3,
+  "notes": "= bow tie BT-AM-02 top-event frequency"
+ },
+ "headings": [
+  {
+   "id": "h000127",
+   "code": "H1",
+   "name": "No immediate ignition",
+   "sLabel": "No immediate ignition",
+   "fLabel": "Immediate ignition",
+   "pFail": 0.3,
+   "ef": 3,
+   "source": "manual",
+   "ftId": "",
+   "gateId": "",
+   "notes": "High-pressure hydrogen ignites easily – illustrative; = BT-AM-02 'JET' condition"
+  },
+  {
+   "id": "h000128",
+   "code": "H2",
+   "name": "Loop isolated and depressurised by ESD",
+   "sLabel": "Isolated",
+   "fLabel": "Not isolated",
+   "pFail": 0.1,
+   "ef": 3,
+   "source": "manual",
+   "ftId": "",
+   "gateId": "",
+   "notes": "= BT-AM-02 barrier 'Unit ESD and emergency depressurisation' (library ipl-sil1)"
+  },
+  {
+   "id": "h000129",
+   "code": "H3",
+   "name": "No delayed ignition",
+   "sLabel": "No ignition",
+   "fLabel": "Delayed ignition",
+   "pFail": 0.3,
+   "ef": 3,
+   "source": "manual",
+   "ftId": "",
+   "gateId": "",
+   "notes": "= BT-AM-02 barrier 'Ignition source control'"
+  },
+  {
+   "id": "h000130",
+   "code": "H4",
+   "name": "No vapour cloud explosion",
+   "sLabel": "Flash fire only",
+   "fLabel": "VCE",
+   "pFail": 0.4,
+   "ef": 3,
+   "source": "manual",
+   "ftId": "",
+   "gateId": "",
+   "notes": "Congested compressor house – illustrative"
+  }
+ ],
+ "root": {
+  "id": "n000155",
+  "h": 0,
+  "mode": "split",
+  "pOv": "",
+  "s": {
+   "id": "n000147",
+   "h": 1,
+   "mode": "split",
+   "pOv": "",
+   "s": {
+    "id": "n000140",
+    "h": 2,
+    "mode": "split",
+    "pOv": "",
+    "s": {
+     "id": "n000137",
+     "h": 3,
+     "mode": "pass",
+     "pOv": "",
+     "n": {
+      "id": "n000136",
+      "leaf": true,
+      "label": "Release isolated – hydrogen disperses without ignition",
+      "cat": "k000131"
+     }
+    },
+    "f": {
+     "id": "n000139",
+     "h": 3,
+     "mode": "pass",
+     "pOv": "",
+     "n": {
+      "id": "n000138",
+      "leaf": true,
+      "label": "Small flash fire – isolated inventory",
+      "cat": "k000132"
+     }
+    }
+   },
+   "f": {
+    "id": "n000146",
+    "h": 2,
+    "mode": "split",
+    "pOv": "",
+    "s": {
+     "id": "n000142",
+     "h": 3,
+     "mode": "pass",
+     "pOv": "",
+     "n": {
+      "id": "n000141",
+      "leaf": true,
+      "label": "Prolonged release disperses without ignition",
+      "cat": "k000131"
+     }
+    },
+    "f": {
+     "id": "n000145",
+     "h": 3,
+     "mode": "split",
+     "pOv": "",
+     "s": {
+      "id": "n000143",
+      "leaf": true,
+      "label": "Large flash fire – prolonged release",
+      "cat": "k000134"
+     },
+     "f": {
+      "id": "n000144",
+      "leaf": true,
+      "label": "Vapour cloud explosion – blast damage, multiple fatalities",
+      "cat": "k000135"
+     }
+    }
+   }
+  },
+  "f": {
+   "id": "n000154",
+   "h": 1,
+   "mode": "split",
+   "pOv": "",
+   "s": {
+    "id": "n000150",
+    "h": 2,
+    "mode": "pass",
+    "pOv": "",
+    "n": {
+     "id": "n000149",
+     "h": 3,
+     "mode": "pass",
+     "pOv": "",
+     "n": {
+      "id": "n000148",
+      "leaf": true,
+      "label": "Jet fire – isolated quickly, local damage",
+      "cat": "k000133"
+     }
+    }
+   },
+   "f": {
+    "id": "n000153",
+    "h": 2,
+    "mode": "pass",
+    "pOv": "",
+    "n": {
+     "id": "n000152",
+     "h": 3,
+     "mode": "pass",
+     "pOv": "",
+     "n": {
+      "id": "n000151",
+      "leaf": true,
+      "label": "Prolonged jet fire – escalation to the loop",
+      "cat": "k000134"
+     }
+    }
+   }
+  }
+ },
+ "cats": [
+  {
+   "id": "k000131",
+   "code": "C1",
+   "name": "Minor – gas released and dispersed",
+   "color": "#e6ee9c",
+   "target": "",
+   "cost": 5
+  },
+  {
+   "id": "k000132",
+   "code": "C2",
+   "name": "Moderate – small flash fire",
+   "color": "#fff59d",
+   "target": 1,
+   "cost": 50
+  },
+  {
+   "id": "k000133",
+   "code": "C3",
+   "name": "Serious – short jet fire",
+   "color": "#ffcc80",
+   "target": 0.1,
+   "cost": 300
+  },
+  {
+   "id": "k000134",
+   "code": "C4",
+   "name": "Major – prolonged jet fire or large flash fire",
+   "color": "#ff8a65",
+   "target": 0.01,
+   "cost": 5000
+  },
+  {
+   "id": "k000135",
+   "code": "C5",
+   "name": "Catastrophic – vapour cloud explosion",
+   "color": "#e57373",
+   "target": 0.0001,
+   "cost": 50000
+  }
+ ],
+ "fts": [],
+ "settings": {
+  "mcSamples": 5000
+ }
+}

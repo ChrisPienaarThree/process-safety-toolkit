@@ -1,0 +1,332 @@
+{
+ "app": "Fault Tree & PFD Calculator",
+ "schema": 1,
+ "title": "FT-PR-01 – Storage bullet overfilled during unloading (propane storage example)",
+ "description": "Top event: a bullet T-1/T-2/T-3 is filled liquid-full during tanker unloading, so liquid propane reaches the relief valves PSV-11/21/31. Demand = unloading continues past the 85 % fill limit (gate G-006); protection = high-level alarm LAH with operator response and the high-high trip LAHH closing ROV-11/21/31 (gate G-002). As in the source design, both use the same level transmitter LT-11/21/31 – event BE-004 is a common cause (R-004). Gate G-002 is the overfill barrier of bow tie BT-PR-01 (threat T1). HAZOP N01-06; FMECA S01. Illustrative data from the toolkit's data library – replace with site / vendor data before use. Propane storage and dilution worked example (HAZOP HZ-EX-PR-001).",
+ "modified": "2026-11-12T16:00:00.000Z",
+ "top": "g000001",
+ "gates": [
+  {
+   "id": "g000001",
+   "code": "G-001",
+   "name": "Bullet overfilled to liquid relief during unloading",
+   "type": "AND",
+   "k": 2,
+   "children": [
+    {
+     "kind": "g",
+     "id": "g000002"
+    },
+    {
+     "kind": "g",
+     "id": "g000005"
+    }
+   ],
+   "collapsed": false
+  },
+  {
+   "id": "g000002",
+   "code": "G-006",
+   "name": "Demand: unloading continues past the 85 % fill limit",
+   "type": "OR",
+   "k": 2,
+   "children": [
+    {
+     "kind": "e",
+     "id": "e000003"
+    },
+    {
+     "kind": "e",
+     "id": "e000004"
+    }
+   ],
+   "collapsed": false
+  },
+  {
+   "id": "g000005",
+   "code": "G-002",
+   "name": "Overfill protection fails on demand (LAH + operator and LAHH trip)",
+   "type": "OR",
+   "k": 2,
+   "children": [
+    {
+     "kind": "e",
+     "id": "e000006"
+    },
+    {
+     "kind": "g",
+     "id": "g000007"
+    }
+   ],
+   "collapsed": false
+  },
+  {
+   "id": "g000007",
+   "code": "G-003",
+   "name": "Alarm response and trip both fail",
+   "type": "AND",
+   "k": 2,
+   "children": [
+    {
+     "kind": "g",
+     "id": "g000008"
+    },
+    {
+     "kind": "g",
+     "id": "g000011"
+    }
+   ],
+   "collapsed": false
+  },
+  {
+   "id": "g000008",
+   "code": "G-004",
+   "name": "High-level alarm LAH not acted on",
+   "type": "OR",
+   "k": 2,
+   "children": [
+    {
+     "kind": "e",
+     "id": "e000009"
+    },
+    {
+     "kind": "e",
+     "id": "e000010"
+    }
+   ],
+   "collapsed": false
+  },
+  {
+   "id": "g000011",
+   "code": "G-005",
+   "name": "High-high level trip LAHH fails to close ROV-11",
+   "type": "OR",
+   "k": 2,
+   "children": [
+    {
+     "kind": "e",
+     "id": "e000012"
+    },
+    {
+     "kind": "e",
+     "id": "e000013"
+    },
+    {
+     "kind": "e",
+     "id": "e000014"
+    },
+    {
+     "kind": "e",
+     "id": "e000015"
+    }
+   ],
+   "collapsed": false
+  }
+ ],
+ "events": [
+  {
+   "id": "e000003",
+   "code": "BE-001",
+   "name": "Delivery larger than the free volume of the bullet – ullage not checked",
+   "model": "freq",
+   "q": 0.01,
+   "lamDU": 1e-06,
+   "lamDD": 0,
+   "TI": 8760,
+   "MTTR": 8,
+   "lam": 1e-06,
+   "freq": 0.45,
+   "house": true,
+   "ef": 3,
+   "ccf": "",
+   "undeveloped": false,
+   "notes": "150 deliveries / yr x 3E-3 (omit a step, no check-off – library item hep-omit-nocheck); checklist R-005"
+  },
+  {
+   "id": "e000004",
+   "code": "BE-002",
+   "name": "Level transmitter LT-11 reads low (drift / stuck float) – operator unaware",
+   "model": "freq",
+   "q": 0.01,
+   "lamDU": 1e-06,
+   "lamDD": 0,
+   "TI": 8760,
+   "MTTR": 8,
+   "lam": 1e-06,
+   "freq": 0.05,
+   "house": true,
+   "ef": 3,
+   "ccf": "",
+   "undeveloped": false,
+   "notes": "Revealed failures of the level gauge per year – illustrative"
+  },
+  {
+   "id": "e000006",
+   "code": "BE-004",
+   "name": "Level transmitter LT-11 fails dangerous – defeats both the alarm and the trip",
+   "model": "tested",
+   "q": 0.01,
+   "lamDU": 6e-07,
+   "lamDD": 1.5e-06,
+   "TI": 8760,
+   "MTTR": 24,
+   "lam": 1e-06,
+   "freq": 0.1,
+   "house": true,
+   "ef": 3,
+   "ccf": "",
+   "undeveloped": false,
+   "notes": "Common cause in the source design: same transmitter for LAH and LAHH (R-004); FMECA S01 LT-11",
+   "lib": {
+    "g": "rate",
+    "id": "lr-lt-radar",
+    "note": ""
+   }
+  },
+  {
+   "id": "e000009",
+   "code": "BE-005",
+   "name": "Operator does not stop the transfer on the high-level alarm",
+   "model": "prob",
+   "q": 0.1,
+   "lamDU": 1e-06,
+   "lamDD": 0,
+   "TI": 8760,
+   "MTTR": 8,
+   "lam": 1e-06,
+   "freq": 0.1,
+   "house": true,
+   "ef": 3,
+   "ccf": "",
+   "undeveloped": false,
+   "notes": "Operator in attendance throughout unloading (OP-PR-010)",
+   "lib": {
+    "g": "ipl",
+    "id": "ipl-op10",
+    "note": ""
+   }
+  },
+  {
+   "id": "e000010",
+   "code": "BE-006",
+   "name": "High-level alarm not annunciated (horn / beacon / HMI)",
+   "model": "prob",
+   "q": 0.01,
+   "lamDU": 1e-06,
+   "lamDD": 0,
+   "TI": 8760,
+   "MTTR": 8,
+   "lam": 1e-06,
+   "freq": 0.1,
+   "house": true,
+   "ef": 3,
+   "ccf": "",
+   "undeveloped": false,
+   "notes": "",
+   "lib": {
+    "g": "equip",
+    "id": "eq-alarm",
+    "note": ""
+   }
+  },
+  {
+   "id": "e000012",
+   "code": "BE-007",
+   "name": "Tank inlet valve ROV-11 fails to close",
+   "model": "tested",
+   "q": 0.01,
+   "lamDU": 2e-06,
+   "lamDD": 0,
+   "TI": 8760,
+   "MTTR": 24,
+   "lam": 1e-06,
+   "freq": 0.1,
+   "house": true,
+   "ef": 3,
+   "ccf": "",
+   "undeveloped": false,
+   "notes": "Annual full-stroke test; FMECA S01 ROV-11",
+   "lib": {
+    "g": "rate",
+    "id": "lr-esdv",
+    "note": ""
+   }
+  },
+  {
+   "id": "e000013",
+   "code": "BE-008",
+   "name": "ROV-11 solenoid valve fails to vent",
+   "model": "tested",
+   "q": 0.01,
+   "lamDU": 3e-07,
+   "lamDD": 0,
+   "TI": 8760,
+   "MTTR": 8,
+   "lam": 1e-06,
+   "freq": 0.1,
+   "house": true,
+   "ef": 3,
+   "ccf": "",
+   "undeveloped": false,
+   "notes": "",
+   "lib": {
+    "g": "rate",
+    "id": "lr-sov",
+    "note": ""
+   }
+  },
+  {
+   "id": "e000014",
+   "code": "BE-009",
+   "name": "Logic solver UCP-1 fails dangerous",
+   "model": "tested",
+   "q": 0.01,
+   "lamDU": 5e-08,
+   "lamDD": 0,
+   "TI": 8760,
+   "MTTR": 8,
+   "lam": 1e-06,
+   "freq": 0.1,
+   "house": true,
+   "ef": 3,
+   "ccf": "",
+   "undeveloped": false,
+   "notes": "FMECA S01 UCP-1",
+   "lib": {
+    "g": "rate",
+    "id": "lr-plc",
+    "note": ""
+   }
+  },
+  {
+   "id": "e000015",
+   "code": "BE-010",
+   "name": "Trip bypassed for unloading and not reinstated",
+   "model": "prob",
+   "q": 0.001,
+   "lamDU": 1e-06,
+   "lamDD": 0,
+   "TI": 8760,
+   "MTTR": 8,
+   "lam": 1e-06,
+   "freq": 0.1,
+   "house": true,
+   "ef": 10,
+   "ccf": "",
+   "undeveloped": false,
+   "notes": "Bypass management; HAZOP N01-06"
+  }
+ ],
+ "ccf": [],
+ "libOver": {},
+ "siteLib": [],
+ "settings": {
+  "mission": 8760,
+  "points": 400,
+  "maxOrder": 8,
+  "cutoff": 1e-15,
+  "maxCS": 20000,
+  "mcSamples": 2000,
+  "demandMode": "low"
+ }
+}

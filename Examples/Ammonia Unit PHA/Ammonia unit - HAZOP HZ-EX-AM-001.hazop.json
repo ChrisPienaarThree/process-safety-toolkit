@@ -1,0 +1,3147 @@
+{
+ "app": "HAZOP Study Manager",
+ "schema": 1,
+ "created": "2026-11-16T06:00:00.000Z",
+ "modified": "2026-11-24T16:00:00.000Z",
+ "study": {
+  "title": "PHA / HAZOP – Ammonia unit: reforming, fuel gas, synthesis, refrigeration and purge recovery (worked example)",
+  "company": "Fertiliser complex (illustrative example)",
+  "unit": "Ammonia unit (about 2 000 t/d) – selected nodes",
+  "project": "PHA of the ammonia unit – selected nodes for training",
+  "type": "HAZOP – detailed design",
+  "docNo": "HZ-EX-AM-001",
+  "rev": "A",
+  "start": "2026-11-16",
+  "end": "2026-11-20",
+  "venue": "Engineering office – HAZOP room",
+  "scope": "Five of the 27 nodes of the ammonia unit: N01 (source node 3) desulfurised feed gas with steam through the mixed-feed preheat coil to the primary reformer 101-B and the secondary reformer 103-D; N02 (source node 23) fuel gas to the primary-reformer arch burners 101-BBA, tunnel burners 101-BBT and superheater burners 101-BBS; N03 (source node 15) synthesis gas compressor 103-J and ammonia converter 105-D; N04 (source node 17) ammonia refrigeration – compressor 105-J, unitized chiller 120-C with flash drums 120-CF1…CF4, condenser 127-C and receiver 149-D; N05 (source node 18) loop purge-gas ammonia recovery with the ammonia distillation column 160-C.",
+  "exclusions": "The other 22 nodes of the source study (front-end, CO shift, CO2 removal, methanator, steam, drains); ammonia storage tanks; urea plant. Licensor proprietary design details.",
+  "basis": "Reform natural gas with steam (steam-to-carbon ratio 3.0) at about 33 barg and 800 °C, make synthesis gas, compress it to about 140 barg and convert it to ammonia in 105-D; condense and refrigerate the product with an ammonia refrigeration system (flash drums 120-CF1/CF2 designed for 15.5 barg and 0.25 bar vacuum – source 15.8 kg/cm2G); recover ammonia from the loop purge. All values are illustrative.",
+  "modes": "Normal operation, start-up (start-up heater 102-B, catalyst reduction), shutdown and depressurisation, compressor trip and restart, maintenance isolation",
+  "facilitator": "A. Facilitator",
+  "scribe": "B. Scribe"
+ },
+ "settings": {
+  "sev": [
+   "Negligible",
+   "Minor",
+   "Moderate",
+   "Major",
+   "Catastrophic"
+  ],
+  "sevDesc": [
+   "First aid; no lost time / minor on-site release / negligible damage",
+   "Medical treatment / reportable release contained on site / minor damage",
+   "Lost-time injury / off-site short-term impact / significant damage",
+   "Single fatality or permanent disability / significant off-site impact / major damage",
+   "Multiple fatalities / major off-site release / loss of unit"
+  ],
+  "lik": [
+   "Rare",
+   "Unlikely",
+   "Possible",
+   "Likely",
+   "Almost certain"
+  ],
+  "likDesc": [
+   "< 1 in 10 000 years",
+   "1 in 1 000 – 10 000 years",
+   "1 in 100 – 1 000 years",
+   "1 in 10 – 100 years",
+   "> 1 in 10 years"
+  ],
+  "grid": [
+   [
+    1,
+    2,
+    3,
+    4,
+    5
+   ],
+   [
+    2,
+    4,
+    6,
+    8,
+    10
+   ],
+   [
+    3,
+    6,
+    9,
+    12,
+    15
+   ],
+   [
+    4,
+    8,
+    12,
+    16,
+    20
+   ],
+   [
+    5,
+    10,
+    15,
+    20,
+    25
+   ]
+  ],
+  "bands": {
+   "Medium": 5,
+   "High": 10,
+   "Very High": 20
+  }
+ },
+ "team": [
+  {
+   "name": "A. Facilitator",
+   "company": "Istec",
+   "role": "Facilitator",
+   "attendance": "Days 1–5",
+   "id": "tm000156"
+  },
+  {
+   "name": "B. Scribe",
+   "company": "Istec",
+   "role": "Scribe",
+   "attendance": "Days 1–5",
+   "id": "tm000157"
+  },
+  {
+   "name": "C. Process",
+   "company": "Owner",
+   "role": "Process engineer (ammonia)",
+   "attendance": "Days 1–5",
+   "id": "tm000158"
+  },
+  {
+   "name": "D. Operations",
+   "company": "Owner",
+   "role": "Ammonia plant shift supervisor",
+   "attendance": "Days 1–5",
+   "id": "tm000159"
+  },
+  {
+   "name": "E. Instrument",
+   "company": "EPC contractor",
+   "role": "Instrument / SIS engineer",
+   "attendance": "Days 1–5",
+   "id": "tm000160"
+  },
+  {
+   "name": "F. Mechanical",
+   "company": "EPC contractor",
+   "role": "Rotating equipment engineer",
+   "attendance": "Days 3–4",
+   "id": "tm000161"
+  },
+  {
+   "name": "G. Safety",
+   "company": "Owner",
+   "role": "HSE / process safety",
+   "attendance": "Days 1–5",
+   "id": "tm000162"
+  },
+  {
+   "name": "H. Process",
+   "company": "EPC contractor",
+   "role": "Process engineer",
+   "attendance": "Days 1–5",
+   "id": "tm000163"
+  },
+  {
+   "name": "I. Vendor",
+   "company": "Compressor vendor",
+   "role": "Compressor specialist",
+   "attendance": "Day 3",
+   "id": "tm000164"
+  }
+ ],
+ "sessions": [
+  {
+   "id": "se000222",
+   "date": "2026-11-16",
+   "time": "08:00 – 16:00",
+   "nodeIds": [
+    "nd000165"
+   ],
+   "attendeeIds": [
+    "tm000156",
+    "tm000157",
+    "tm000158",
+    "tm000159",
+    "tm000160",
+    "tm000161",
+    "tm000162",
+    "tm000163",
+    "tm000164"
+   ],
+   "notes": "Node 3 (primary and secondary reforming) – source worksheet reviewed and risk-ranked; tube rupture and steam-to-carbon trips."
+  },
+  {
+   "id": "se000223",
+   "date": "2026-11-17",
+   "time": "08:00 – 16:00",
+   "nodeIds": [
+    "nd000166"
+   ],
+   "attendeeIds": [
+    "tm000156",
+    "tm000157",
+    "tm000158",
+    "tm000159",
+    "tm000160",
+    "tm000161",
+    "tm000162",
+    "tm000163",
+    "tm000164"
+   ],
+   "notes": "Node 23 (reformer fuel gas and BMS) – firebox explosion and light-off."
+  },
+  {
+   "id": "se000224",
+   "date": "2026-11-18",
+   "time": "08:00 – 16:00",
+   "nodeIds": [
+    "nd000167"
+   ],
+   "attendeeIds": [
+    "tm000156",
+    "tm000157",
+    "tm000158",
+    "tm000159",
+    "tm000160",
+    "tm000161",
+    "tm000162",
+    "tm000163",
+    "tm000164"
+   ],
+   "notes": "Node 15 (syngas compressor and converter) – converter over-temperature referred to FT-AM-02 and BT-AM-02; releases to ETA-AM-02."
+  },
+  {
+   "id": "se000225",
+   "date": "2026-11-19",
+   "time": "08:00 – 16:00",
+   "nodeIds": [
+    "nd000168"
+   ],
+   "attendeeIds": [
+    "tm000156",
+    "tm000157",
+    "tm000158",
+    "tm000159",
+    "tm000160",
+    "tm000161",
+    "tm000162",
+    "tm000163",
+    "tm000164"
+   ],
+   "notes": "Node 17 (refrigeration) – receiver overpressure referred to FT-AM-01; ammonia release to FT-AM-03, ETA-AM-01 and BT-AM-01."
+  },
+  {
+   "id": "se000226",
+   "date": "2026-11-20",
+   "time": "08:00 – 16:00",
+   "nodeIds": [
+    "nd000169"
+   ],
+   "attendeeIds": [
+    "tm000156",
+    "tm000157",
+    "tm000158",
+    "tm000159",
+    "tm000160",
+    "tm000161",
+    "tm000162",
+    "tm000163",
+    "tm000164"
+   ],
+   "notes": "Node 18 (purge-gas recovery) – gas blow-by into 160-C. Study closed; FMECA on 23–24 Nov."
+  }
+ ],
+ "psi": [
+  {
+   "ref": "PSI-01",
+   "category": "Drawings",
+   "docNo": "P&ID-AM-003",
+   "title": "Primary and secondary reformer feed – mixed-feed preheat, 101-B, 103-D (source node 3)",
+   "rev": "A",
+   "status": "Available",
+   "id": "ps000170"
+  },
+  {
+   "ref": "PSI-02",
+   "category": "Drawings",
+   "docNo": "P&ID-AM-023",
+   "title": "Fuel gas to reformer arch, tunnel and superheater burners (source node 23)",
+   "rev": "A",
+   "status": "Available",
+   "id": "ps000172"
+  },
+  {
+   "ref": "PSI-03",
+   "category": "Drawings",
+   "docNo": "P&ID-AM-015",
+   "title": "Synthesis gas compressor 103-J and converter 105-D (source node 15)",
+   "rev": "A",
+   "status": "Available",
+   "id": "ps000174"
+  },
+  {
+   "ref": "PSI-04",
+   "category": "Drawings",
+   "docNo": "P&ID-AM-017",
+   "title": "Ammonia refrigeration – 105-J, 120-C, 127-C, 149-D (source node 17)",
+   "rev": "A",
+   "status": "Available",
+   "id": "ps000176"
+  },
+  {
+   "ref": "PSI-05",
+   "category": "Drawings",
+   "docNo": "P&ID-AM-018",
+   "title": "Loop purge ammonia recovery and distillation column 160-C (source node 18)",
+   "rev": "A",
+   "status": "Available",
+   "id": "ps000178"
+  },
+  {
+   "ref": "PSI-06",
+   "category": "Drawings",
+   "docNo": "C&E-AM-001",
+   "title": "Cause-and-effect diagrams and interlock description",
+   "rev": "A",
+   "status": "Available",
+   "id": "ps000180"
+  },
+  {
+   "ref": "PSI-07",
+   "category": "Process technology",
+   "docNo": "PFD-AM-001",
+   "title": "Process flow diagrams and heat & material balance",
+   "rev": "A",
+   "status": "Available",
+   "id": "ps000186"
+  },
+  {
+   "ref": "PSI-08",
+   "category": "Process technology",
+   "docNo": "BEDD-AM-001",
+   "title": "Basic engineering design data",
+   "rev": "A",
+   "status": "Available",
+   "id": "ps000192"
+  },
+  {
+   "ref": "PSI-09",
+   "category": "Equipment",
+   "docNo": "RLS-AM-001",
+   "title": "Pressure relief load summary and safety-valve data sheets",
+   "rev": "A",
+   "status": "Available",
+   "id": "ps000196"
+  },
+  {
+   "ref": "PSI-10",
+   "category": "Equipment",
+   "docNo": "DS-AM-001",
+   "title": "Equipment and instrument data sheets (major equipment, control valves)",
+   "rev": "A",
+   "status": "Available",
+   "id": "ps000200"
+  },
+  {
+   "ref": "PSI-11",
+   "category": "Equipment",
+   "docNo": "SRS-AM-001",
+   "title": "Safety requirements specification – reformer, converter and refrigeration SIFs",
+   "rev": "A",
+   "status": "Available",
+   "id": "ps000206"
+  },
+  {
+   "ref": "PSI-12",
+   "category": "Hazardous materials",
+   "docNo": "SDS-NH3-01",
+   "title": "Ammonia safety data sheet (toxic, corrosive, flammable 15–28 %)",
+   "rev": "A",
+   "status": "Available",
+   "id": "ps000211"
+  },
+  {
+   "ref": "PSI-13",
+   "category": "Hazardous materials",
+   "docNo": "SDS-SYN-01",
+   "title": "Synthesis gas (H2, N2, CO traces) and natural gas safety data",
+   "rev": "A",
+   "status": "Available",
+   "id": "ps000215"
+  },
+  {
+   "ref": "PSI-14",
+   "category": "Drawings",
+   "docNo": "LAY-AM-001",
+   "title": "Plot plans",
+   "rev": "A",
+   "status": "Available",
+   "id": "ps000219"
+  }
+ ],
+ "psiNodes": [
+  {
+   "id": "pn000171",
+   "psiId": "ps000170",
+   "nodeId": "nd000165"
+  },
+  {
+   "id": "pn000173",
+   "psiId": "ps000172",
+   "nodeId": "nd000166"
+  },
+  {
+   "id": "pn000175",
+   "psiId": "ps000174",
+   "nodeId": "nd000167"
+  },
+  {
+   "id": "pn000177",
+   "psiId": "ps000176",
+   "nodeId": "nd000168"
+  },
+  {
+   "id": "pn000179",
+   "psiId": "ps000178",
+   "nodeId": "nd000169"
+  },
+  {
+   "id": "pn000181",
+   "psiId": "ps000180",
+   "nodeId": "nd000165"
+  },
+  {
+   "id": "pn000182",
+   "psiId": "ps000180",
+   "nodeId": "nd000166"
+  },
+  {
+   "id": "pn000183",
+   "psiId": "ps000180",
+   "nodeId": "nd000167"
+  },
+  {
+   "id": "pn000184",
+   "psiId": "ps000180",
+   "nodeId": "nd000168"
+  },
+  {
+   "id": "pn000185",
+   "psiId": "ps000180",
+   "nodeId": "nd000169"
+  },
+  {
+   "id": "pn000187",
+   "psiId": "ps000186",
+   "nodeId": "nd000165"
+  },
+  {
+   "id": "pn000188",
+   "psiId": "ps000186",
+   "nodeId": "nd000166"
+  },
+  {
+   "id": "pn000189",
+   "psiId": "ps000186",
+   "nodeId": "nd000167"
+  },
+  {
+   "id": "pn000190",
+   "psiId": "ps000186",
+   "nodeId": "nd000168"
+  },
+  {
+   "id": "pn000191",
+   "psiId": "ps000186",
+   "nodeId": "nd000169"
+  },
+  {
+   "id": "pn000193",
+   "psiId": "ps000192",
+   "nodeId": "nd000165"
+  },
+  {
+   "id": "pn000194",
+   "psiId": "ps000192",
+   "nodeId": "nd000167"
+  },
+  {
+   "id": "pn000195",
+   "psiId": "ps000192",
+   "nodeId": "nd000168"
+  },
+  {
+   "id": "pn000197",
+   "psiId": "ps000196",
+   "nodeId": "nd000167"
+  },
+  {
+   "id": "pn000198",
+   "psiId": "ps000196",
+   "nodeId": "nd000168"
+  },
+  {
+   "id": "pn000199",
+   "psiId": "ps000196",
+   "nodeId": "nd000169"
+  },
+  {
+   "id": "pn000201",
+   "psiId": "ps000200",
+   "nodeId": "nd000165"
+  },
+  {
+   "id": "pn000202",
+   "psiId": "ps000200",
+   "nodeId": "nd000166"
+  },
+  {
+   "id": "pn000203",
+   "psiId": "ps000200",
+   "nodeId": "nd000167"
+  },
+  {
+   "id": "pn000204",
+   "psiId": "ps000200",
+   "nodeId": "nd000168"
+  },
+  {
+   "id": "pn000205",
+   "psiId": "ps000200",
+   "nodeId": "nd000169"
+  },
+  {
+   "id": "pn000207",
+   "psiId": "ps000206",
+   "nodeId": "nd000165"
+  },
+  {
+   "id": "pn000208",
+   "psiId": "ps000206",
+   "nodeId": "nd000166"
+  },
+  {
+   "id": "pn000209",
+   "psiId": "ps000206",
+   "nodeId": "nd000167"
+  },
+  {
+   "id": "pn000210",
+   "psiId": "ps000206",
+   "nodeId": "nd000168"
+  },
+  {
+   "id": "pn000212",
+   "psiId": "ps000211",
+   "nodeId": "nd000167"
+  },
+  {
+   "id": "pn000213",
+   "psiId": "ps000211",
+   "nodeId": "nd000168"
+  },
+  {
+   "id": "pn000214",
+   "psiId": "ps000211",
+   "nodeId": "nd000169"
+  },
+  {
+   "id": "pn000216",
+   "psiId": "ps000215",
+   "nodeId": "nd000165"
+  },
+  {
+   "id": "pn000217",
+   "psiId": "ps000215",
+   "nodeId": "nd000166"
+  },
+  {
+   "id": "pn000218",
+   "psiId": "ps000215",
+   "nodeId": "nd000167"
+  },
+  {
+   "id": "pn000220",
+   "psiId": "ps000219",
+   "nodeId": "nd000168"
+  },
+  {
+   "id": "pn000221",
+   "psiId": "ps000219",
+   "nodeId": "nd000169"
+  }
+ ],
+ "nodes": [
+  {
+   "no": "N01",
+   "name": "Source node 3 – Feed gas and steam to the primary reformer 101-B and secondary reformer 103-D",
+   "drawings": "P&ID-AM-003",
+   "status": "Complete",
+   "batteryLimits": "From the desulfurizer outlet via feed control FV-1001 (FIC-1001), steam addition (FIC-1002 / FV-1002, ratio FFI-1001) and the mixed-feed preheat coil 101-BCA1 to the catalyst tubes of 101-B, and with process air to the secondary reformer 103-D; trips XV-1201 (feed) on FFSLL-1201 low steam-to-carbon and FSLL-1201 low steam",
+   "description": "Reform desulfurised natural gas with steam over nickel catalyst at a steam-to-carbon ratio of 3.0, and complete the reforming with process air in 103-D",
+   "designParams": "101-B tubes: design 800 °C metal / 41 barg; TAH-1325 tube outlet; FFSLL-1201 trips at steam-to-carbon 2.5; PSHH-1059 high pressure",
+   "operatingParams": "Inlet 38 barg, outlet 33 barg; reformer outlet 800 °C; 103-D outlet 1 000 °C",
+   "materials": "Natural gas, steam, synthesis gas (H2, CO – flammable, toxic CO), process air",
+   "id": "nd000165"
+  },
+  {
+   "no": "N02",
+   "name": "Source node 23 – Fuel gas to the primary reformer arch burners 101-BBA, tunnel burners 101-BBT and superheater burners 101-BBS",
+   "drawings": "P&ID-AM-023",
+   "status": "Complete",
+   "batteryLimits": "From fuel-gas pressure control PIC-1001B / PV-1001B and PV-1002B through the double block-and-bleed shut-off valves XV-1220A/C and XV-1222A/C (arch), XV-1240A/C (tunnel) and XV-1245A/C (superheater) to the burners; BMS with flame scanners BSLL-1200 / BSLL-1201, PSLL-1221 / PSHH-1221 and PAHH-1226 (firebox pressure)",
+   "description": "Deliver fuel gas to the reformer burners only when the furnace is purged, combustion air is proven and flames are proven, and shut it off on any unsafe condition",
+   "designParams": "Fuel gas header 6 barg design; PSLL-1221 0.3 barg; PSHH-1221 2.5 barg; firebox pressure trip PAHH-1226 (loss of draught)",
+   "operatingParams": "Burner pressure 0.5–2.0 barg; firebox −5 mmWC; about 400 burners",
+   "materials": "Natural gas fuel, purge gas from N05 (H2-rich), flue gas (CO)",
+   "id": "nd000166"
+  },
+  {
+   "no": "N03",
+   "name": "Source node 15 – Synthesis gas compressor 103-J and ammonia converter 105-D",
+   "drawings": "P&ID-AM-015",
+   "status": "Complete",
+   "batteryLimits": "From the syngas compressor suction (PSLL-1155) through 103-J (steam turbine 103-JT, anti-surge FV-1008 / FIC-1008) to the synthesis loop, start-up heater 102-B, converter 105-D with bed temperatures TAH-1383 / TSHH-1396, and the loop exchangers 123-C1 and 124-C1 to the chiller 120-C",
+   "description": "Compress synthesis gas to about 140 barg and convert hydrogen and nitrogen to ammonia over iron catalyst at 380–520 °C without exceeding the loop design",
+   "designParams": "Loop design 160 barg / 400 °C (converter shell); converter catalyst 520 °C max; TSHH-1396 trips 103-J and closes the converter feed; PSV-1018 on the loop at 155 barg",
+   "operatingParams": "Loop 135–145 barg; converter outlet 450 °C; 103-J speed 10 000 rpm",
+   "materials": "Synthesis gas (75 % H2 – extremely flammable, high-temperature hydrogen attack), ammonia (toxic)",
+   "id": "nd000167"
+  },
+  {
+   "no": "N04",
+   "name": "Source node 17 – Ammonia refrigeration: 105-J, unitized chiller 120-C, flash drums 120-CF1…CF4, condenser 127-C, receiver 149-D",
+   "drawings": "P&ID-AM-017",
+   "status": "Complete",
+   "batteryLimits": "From the flash drums 120-CF1/CF2/CF3/CF4 (levels LIC-1015A, LSHH-1214…1217) through the stages of refrigeration compressor 105-J (anti-surge FV-1009…1012) to condenser 127-C and receiver 149-D (PIC-1009, PAH-1009, PAH-1109), and the boil-off from storage via XV-1801",
+   "description": "Refrigerate the synthesis loop and condense product ammonia, keeping the flash drums within their pressure and level limits and liquid out of 105-J",
+   "designParams": "Flash drums 120-CF1/CF2 design 15.5 barg and 0.25 bar vacuum (source 15.8 kg/cm2G); receiver 149-D 20 barg, PSV-1109 at 20 barg; LSHH-1214…1217 trip 105-J; PSHH-1110 high discharge pressure trip; design minimum temperature −33 °C",
+   "operatingParams": "Flash drums −33 to +10 °C; condenser 127-C 16–18 barg; about 4 000 t refrigerant inventory hold-up 120 t",
+   "materials": "Liquid and vapour ammonia (toxic, IDLH 300 ppm, corrosive; flammable 15–28 %)",
+   "id": "nd000168"
+  },
+  {
+   "no": "N05",
+   "name": "Source node 18 – Loop purge-gas ammonia recovery and ammonia distillation column 160-C",
+   "drawings": "P&ID-AM-018",
+   "status": "Complete",
+   "batteryLimits": "From the loop purge (FIC-1027 / FV-1027) through the purge-gas scrubber 124-D (wash water FV-1029) and the ammonia distillation column 160-C (PIC-1033, LIC-1049, reboiler 161-C1, reflux pumps 161-J) to the recovered-ammonia return and the purge gas to the reformer fuel (N02)",
+   "description": "Recover ammonia from the loop purge so that the purge gas sent to fuel is ammonia-free, and return the ammonia to the product",
+   "designParams": "Scrubber 124-D 160 barg; column 160-C 20 barg, PSV-1033 at 20 barg; FAL-1064 low wash-water flow",
+   "operatingParams": "Purge 140 barg reduced to 20 barg; column 18 barg",
+   "materials": "Ammonia (toxic), purge gas (H2, CH4, Ar – flammable), aqueous ammonia",
+   "id": "nd000169"
+  }
+ ],
+ "deviations": [
+  {
+   "nodeId": "nd000165",
+   "seq": 1,
+   "parameter": "Flow",
+   "guideword": "NO",
+   "deviation": "No / low steam flow to the reformer feed",
+   "devAuto": false,
+   "consequence": "Steam-to-carbon ratio falls; carbon deposits on the reformer catalyst and tubes overheat – tube rupture, fire in the 101-B firebox",
+   "sevB": "4",
+   "likB": "3",
+   "sevA": "4",
+   "likA": "1",
+   "comments": "",
+   "id": "dv000289",
+   "ref": "N01-01"
+  },
+  {
+   "nodeId": "nd000165",
+   "seq": 2,
+   "parameter": "Flow",
+   "guideword": "MORE",
+   "deviation": "High feed gas flow",
+   "devAuto": false,
+   "consequence": "Low steam-to-carbon ratio (as N01-01) and under-reforming; higher methane slip downstream",
+   "sevB": "3",
+   "likB": "3",
+   "sevA": "3",
+   "likA": "2",
+   "comments": "",
+   "id": "dv000296",
+   "ref": "N01-02"
+  },
+  {
+   "nodeId": "nd000165",
+   "seq": 3,
+   "parameter": "Flow",
+   "guideword": "REVERSE",
+   "deviation": "Reverse flow of process gas into the steam header",
+   "devAuto": false,
+   "consequence": "Process gas (H2, CO) into the steam system – flammable and toxic gas in the steam header and at steam users",
+   "sevB": "4",
+   "likB": "2",
+   "sevA": "4",
+   "likA": "1",
+   "comments": "",
+   "id": "dv000302",
+   "ref": "N01-03"
+  },
+  {
+   "nodeId": "nd000165",
+   "seq": 4,
+   "parameter": "Temperature",
+   "guideword": "MORE",
+   "deviation": "High reformer tube temperature",
+   "devAuto": false,
+   "consequence": "Tube creep and rupture; release of syngas into the firebox – fire, possible firebox overpressure",
+   "sevB": "4",
+   "likB": "3",
+   "sevA": "4",
+   "likA": "2",
+   "comments": "",
+   "id": "dv000307",
+   "ref": "N01-04"
+  },
+  {
+   "nodeId": "nd000165",
+   "seq": 5,
+   "parameter": "Pressure",
+   "guideword": "MORE",
+   "deviation": "High reformer inlet pressure",
+   "devAuto": false,
+   "consequence": "Reformer tubes and the mixed-feed coil above design",
+   "sevB": "4",
+   "likB": "2",
+   "sevA": "4",
+   "likA": "1",
+   "comments": "",
+   "id": "dv000315",
+   "ref": "N01-05"
+  },
+  {
+   "nodeId": "nd000165",
+   "seq": 6,
+   "parameter": "Flow",
+   "guideword": "MORE",
+   "deviation": "High process-air flow to the secondary reformer 103-D",
+   "devAuto": false,
+   "consequence": "Over-temperature in 103-D (combustion zone) – refractory and shell damage; hot spots on the 103-D shell",
+   "sevB": "4",
+   "likB": "3",
+   "sevA": "4",
+   "likA": "2",
+   "comments": "",
+   "id": "dv000319",
+   "ref": "N01-06"
+  },
+  {
+   "nodeId": "nd000165",
+   "seq": 7,
+   "parameter": "Composition",
+   "guideword": "AS WELL AS",
+   "deviation": "Sulphur slip from the desulfurizer",
+   "devAuto": false,
+   "consequence": "Poisoning of the reformer catalyst – tube hot bands, reduced conversion",
+   "sevB": "2",
+   "likB": "3",
+   "sevA": "2",
+   "likA": "2",
+   "comments": "",
+   "id": "dv000325",
+   "ref": "N01-07"
+  },
+  {
+   "nodeId": "nd000165",
+   "seq": 8,
+   "parameter": "Utilities / services",
+   "guideword": "LOSS OF",
+   "deviation": "Loss of instrument air or power",
+   "devAuto": false,
+   "consequence": "Feed valves fail closed (fail-safe), reformer trips; uncontrolled restart risks low steam-to-carbon",
+   "sevB": "3",
+   "likB": "3",
+   "sevA": "3",
+   "likA": "2",
+   "comments": "",
+   "id": "dv000329",
+   "ref": "N01-08"
+  },
+  {
+   "nodeId": "nd000165",
+   "seq": 9,
+   "parameter": "Start-up",
+   "guideword": "REVIEW",
+   "deviation": "Start-up – steam before feed sequence",
+   "devAuto": false,
+   "consequence": "Carbon formation and tube overheating at start-up",
+   "sevB": "4",
+   "likB": "2",
+   "sevA": "4",
+   "likA": "1",
+   "comments": "",
+   "id": "dv000334",
+   "ref": "N01-09"
+  },
+  {
+   "nodeId": "nd000166",
+   "seq": 1,
+   "parameter": "Flow",
+   "guideword": "NO",
+   "deviation": "Loss of fuel gas – burner flame-out",
+   "devAuto": false,
+   "consequence": "Burners go out; if gas returns with the valves open, unburnt gas accumulates in the 101-B firebox – explosion on relight",
+   "sevB": "5",
+   "likB": "3",
+   "sevA": "5",
+   "likA": "1",
+   "comments": "",
+   "id": "dv000339",
+   "ref": "N02-01"
+  },
+  {
+   "nodeId": "nd000166",
+   "seq": 2,
+   "parameter": "Pressure",
+   "guideword": "MORE",
+   "deviation": "High fuel-gas pressure at the burners",
+   "devAuto": false,
+   "consequence": "Over-firing, flame lift-off and flame-out with gas flowing – firebox explosion; tube overheating",
+   "sevB": "5",
+   "likB": "3",
+   "sevA": "5",
+   "likA": "1",
+   "comments": "",
+   "id": "dv000347",
+   "ref": "N02-02"
+  },
+  {
+   "nodeId": "nd000166",
+   "seq": 3,
+   "parameter": "Pressure",
+   "guideword": "LESS",
+   "deviation": "Low fuel-gas pressure",
+   "devAuto": false,
+   "consequence": "Flame instability, flame-out",
+   "sevB": "4",
+   "likB": "3",
+   "sevA": "4",
+   "likA": "2",
+   "comments": "",
+   "id": "dv000353",
+   "ref": "N02-03"
+  },
+  {
+   "nodeId": "nd000166",
+   "seq": 4,
+   "parameter": "Composition",
+   "guideword": "AS WELL AS",
+   "deviation": "Ammonia or liquids in the fuel gas",
+   "devAuto": false,
+   "consequence": "NOx emissions, burner fouling and flame instability; liquid can extinguish burners",
+   "sevB": "3",
+   "likB": "3",
+   "sevA": "3",
+   "likA": "2",
+   "comments": "",
+   "id": "dv000357",
+   "ref": "N02-04"
+  },
+  {
+   "nodeId": "nd000166",
+   "seq": 5,
+   "parameter": "Utilities / services",
+   "guideword": "LOSS OF",
+   "deviation": "Loss of induced draught (ID fan trip)",
+   "devAuto": false,
+   "consequence": "Firebox goes to positive pressure – flames and flue gas out of the peep holes; burns to operators",
+   "sevB": "4",
+   "likB": "3",
+   "sevA": "4",
+   "likA": "2",
+   "comments": "",
+   "id": "dv000363",
+   "ref": "N02-05"
+  },
+  {
+   "nodeId": "nd000166",
+   "seq": 6,
+   "parameter": "Start-up",
+   "guideword": "REVIEW",
+   "deviation": "Light-off without adequate purge",
+   "devAuto": false,
+   "consequence": "Explosive mixture in the firebox at light-off – firebox explosion",
+   "sevB": "5",
+   "likB": "3",
+   "sevA": "5",
+   "likA": "2",
+   "comments": "",
+   "id": "dv000367",
+   "ref": "N02-06"
+  },
+  {
+   "nodeId": "nd000166",
+   "seq": 7,
+   "parameter": "Level",
+   "guideword": "MORE",
+   "deviation": "High liquid level in the fuel-gas knock-out drum",
+   "devAuto": false,
+   "consequence": "Liquid carry-over to the burners (as N02-04)",
+   "sevB": "3",
+   "likB": "3",
+   "sevA": "3",
+   "likA": "2",
+   "comments": "",
+   "id": "dv000373",
+   "ref": "N02-07"
+  },
+  {
+   "nodeId": "nd000166",
+   "seq": 8,
+   "parameter": "Fire and explosion",
+   "guideword": "REVIEW",
+   "deviation": "Fuel-gas leak at the burner manifold",
+   "devAuto": false,
+   "consequence": "Gas fire on the burner platform; operator burns",
+   "sevB": "4",
+   "likB": "3",
+   "sevA": "4",
+   "likA": "2",
+   "comments": "",
+   "id": "dv000377",
+   "ref": "N02-08"
+  },
+  {
+   "nodeId": "nd000167",
+   "seq": 1,
+   "parameter": "Flow",
+   "guideword": "NO",
+   "deviation": "No flow – 103-J trips",
+   "devAuto": false,
+   "consequence": "Loop circulation stops; converter 105-D heats up if the start-up heater 102-B is firing; plant shutdown",
+   "sevB": "3",
+   "likB": "3",
+   "sevA": "3",
+   "likA": "2",
+   "comments": "",
+   "id": "dv000382",
+   "ref": "N03-01"
+  },
+  {
+   "nodeId": "nd000167",
+   "seq": 2,
+   "parameter": "Flow",
+   "guideword": "LESS",
+   "deviation": "Low suction flow – compressor surge",
+   "devAuto": false,
+   "consequence": "Surge – thrust-bearing and seal damage, possible seal failure and hydrogen release at 103-J",
+   "sevB": "4",
+   "likB": "3",
+   "sevA": "4",
+   "likA": "2",
+   "comments": "",
+   "id": "dv000389",
+   "ref": "N03-02"
+  },
+  {
+   "nodeId": "nd000167",
+   "seq": 3,
+   "parameter": "Temperature",
+   "guideword": "MORE",
+   "deviation": "Converter catalyst over-temperature",
+   "devAuto": false,
+   "consequence": "Catalyst damage; converter shell and outlet exchanger above design temperature – flange leak or rupture, high-temperature hydrogen attack; syngas fire",
+   "sevB": "5",
+   "likB": "4",
+   "sevA": "5",
+   "likA": "4",
+   "comments": "Quantified in fault tree FT-AM-02 (top 1.8E-2 /yr); threat T1 of bow tie BT-AM-02. Likelihood after safeguards from the calculated frequency 1.8E-2 /yr.",
+   "id": "dv000396",
+   "ref": "N03-03"
+  },
+  {
+   "nodeId": "nd000167",
+   "seq": 4,
+   "parameter": "Pressure",
+   "guideword": "MORE",
+   "deviation": "High synthesis loop pressure",
+   "devAuto": false,
+   "consequence": "Loop above design (160 barg) – flange failure, large syngas release",
+   "sevB": "5",
+   "likB": "3",
+   "sevA": "5",
+   "likA": "1",
+   "comments": "",
+   "id": "dv000404",
+   "ref": "N03-04"
+  },
+  {
+   "nodeId": "nd000167",
+   "seq": 5,
+   "parameter": "Composition",
+   "guideword": "AS WELL AS",
+   "deviation": "High inerts / wrong H2:N2 ratio",
+   "devAuto": false,
+   "consequence": "Loop pressure rises; conversion drops; temperature excursions in 105-D",
+   "sevB": "3",
+   "likB": "3",
+   "sevA": "3",
+   "likA": "2",
+   "comments": "",
+   "id": "dv000412",
+   "ref": "N03-05"
+  },
+  {
+   "nodeId": "nd000167",
+   "seq": 6,
+   "parameter": "Corrosion / erosion",
+   "guideword": "MORE",
+   "deviation": "High-temperature hydrogen attack of loop exchangers",
+   "devAuto": false,
+   "consequence": "Sudden failure of 123-C1 / 124-C1 – syngas jet fire",
+   "sevB": "5",
+   "likB": "2",
+   "sevA": "5",
+   "likA": "1",
+   "comments": "",
+   "id": "dv000416",
+   "ref": "N03-06"
+  },
+  {
+   "nodeId": "nd000167",
+   "seq": 7,
+   "parameter": "Flow",
+   "guideword": "REVERSE",
+   "deviation": "Reverse rotation / back-flow on compressor trip",
+   "devAuto": false,
+   "consequence": "Compressor reverse rotation – seal and bearing damage, gas release at the seals",
+   "sevB": "4",
+   "likB": "2",
+   "sevA": "4",
+   "likA": "1",
+   "comments": "",
+   "id": "dv000421",
+   "ref": "N03-07"
+  },
+  {
+   "nodeId": "nd000167",
+   "seq": 8,
+   "parameter": "Fire and explosion",
+   "guideword": "REVIEW",
+   "deviation": "Syngas leak at the compressor or loop flanges",
+   "devAuto": false,
+   "consequence": "Hydrogen-rich jet fire; vapour cloud explosion in the congested compressor house",
+   "sevB": "5",
+   "likB": "3",
+   "sevA": "5",
+   "likA": "2",
+   "comments": "",
+   "id": "dv000425",
+   "ref": "N03-08"
+  },
+  {
+   "nodeId": "nd000167",
+   "seq": 9,
+   "parameter": "Start-up",
+   "guideword": "REVIEW",
+   "deviation": "Start-up heater 102-B firing without loop circulation",
+   "devAuto": false,
+   "consequence": "Converter overheating at start-up",
+   "sevB": "4",
+   "likB": "3",
+   "sevA": "4",
+   "likA": "2",
+   "comments": "",
+   "id": "dv000431",
+   "ref": "N03-09"
+  },
+  {
+   "nodeId": "nd000168",
+   "seq": 1,
+   "parameter": "Pressure",
+   "guideword": "MORE",
+   "deviation": "High pressure in the refrigerant condenser 127-C and receiver 149-D",
+   "devAuto": false,
+   "consequence": "Refrigerant system above design; PSV-1109 lifts to the flare; if relief fails – rupture and large liquid ammonia release (toxic cloud)",
+   "sevB": "5",
+   "likB": "4",
+   "sevA": "5",
+   "likA": "1",
+   "comments": "Quantified in fault tree FT-AM-01 (top 2.4E-6 /yr); threat T1 of bow tie BT-AM-01. Likelihood after safeguards from the calculated frequency 2.4E-6 /yr.",
+   "id": "dv000436",
+   "ref": "N04-01"
+  },
+  {
+   "nodeId": "nd000168",
+   "seq": 2,
+   "parameter": "Level",
+   "guideword": "MORE",
+   "deviation": "High level in a flash drum 120-CF1…CF4",
+   "devAuto": false,
+   "consequence": "Liquid ammonia carried into the 105-J suction – compressor damage, seal failure and ammonia release",
+   "sevB": "4",
+   "likB": "3",
+   "sevA": "4",
+   "likA": "2",
+   "comments": "",
+   "id": "dv000446",
+   "ref": "N04-02"
+  },
+  {
+   "nodeId": "nd000168",
+   "seq": 3,
+   "parameter": "Pressure",
+   "guideword": "LESS",
+   "deviation": "Low pressure / vacuum in flash drums 120-CF1 / 120-CF2",
+   "devAuto": false,
+   "consequence": "Loss of suction to the 105-J stages – compressor damage; vacuum in the flash drums (designed for 0.25 bar vacuum)",
+   "sevB": "3",
+   "likB": "3",
+   "sevA": "3",
+   "likA": "2",
+   "comments": "",
+   "id": "dv000451",
+   "ref": "N04-03"
+  },
+  {
+   "nodeId": "nd000168",
+   "seq": 4,
+   "parameter": "Flow",
+   "guideword": "LESS",
+   "deviation": "Choking of the 105-J suction strainers",
+   "devAuto": false,
+   "consequence": "Loss of suction to a stage of 105-J – surge and compressor damage",
+   "sevB": "3",
+   "likB": "3",
+   "sevA": "3",
+   "likA": "2",
+   "comments": "",
+   "id": "dv000456",
+   "ref": "N04-04"
+  },
+  {
+   "nodeId": "nd000168",
+   "seq": 5,
+   "parameter": "Temperature",
+   "guideword": "LESS",
+   "deviation": "Low temperature – auto-refrigeration on depressurisation",
+   "devAuto": false,
+   "consequence": "Brittle fracture of carbon steel below −33 °C – sudden ammonia release",
+   "sevB": "5",
+   "likB": "2",
+   "sevA": "5",
+   "likA": "1",
+   "comments": "",
+   "id": "dv000461",
+   "ref": "N04-05"
+  },
+  {
+   "nodeId": "nd000168",
+   "seq": 6,
+   "parameter": "Utilities / services",
+   "guideword": "LOSS OF",
+   "deviation": "Loss of cooling water",
+   "devAuto": false,
+   "consequence": "Condenser 127-C pressure rises (as N04-01)",
+   "sevB": "4",
+   "likB": "3",
+   "sevA": "4",
+   "likA": "2",
+   "comments": "",
+   "id": "dv000466",
+   "ref": "N04-06"
+  },
+  {
+   "nodeId": "nd000168",
+   "seq": 7,
+   "parameter": "Toxicity",
+   "guideword": "REVIEW",
+   "deviation": "Ammonia leak from the refrigerant pumps, flanges or receiver",
+   "devAuto": false,
+   "consequence": "Toxic ammonia cloud in the refrigeration area; exposure of operators and, for large releases, people off site",
+   "sevB": "5",
+   "likB": "3",
+   "sevA": "5",
+   "likA": "2",
+   "comments": "",
+   "id": "dv000472",
+   "ref": "N04-07"
+  },
+  {
+   "nodeId": "nd000168",
+   "seq": 8,
+   "parameter": "Maintenance",
+   "guideword": "INADEQUATE",
+   "deviation": "Line break on ammonia service",
+   "devAuto": false,
+   "consequence": "Ammonia spray onto the maintenance crew – chemical burns, inhalation",
+   "sevB": "4",
+   "likB": "3",
+   "sevA": "4",
+   "likA": "2",
+   "comments": "",
+   "id": "dv000483",
+   "ref": "N04-08"
+  },
+  {
+   "nodeId": "nd000168",
+   "seq": 9,
+   "parameter": "Relief",
+   "guideword": "INADEQUATE",
+   "deviation": "Relief discharge of ammonia to the flare",
+   "devAuto": false,
+   "consequence": "Ammonia to the flare – NOx; if the flare is out, toxic ammonia release at height",
+   "sevB": "3",
+   "likB": "3",
+   "sevA": "3",
+   "likA": "2",
+   "comments": "",
+   "id": "dv000488",
+   "ref": "N04-09"
+  },
+  {
+   "nodeId": "nd000169",
+   "seq": 1,
+   "parameter": "Flow",
+   "guideword": "NO",
+   "deviation": "No wash-water flow to the purge-gas scrubber 124-D",
+   "devAuto": false,
+   "consequence": "Ammonia slips into the purge gas to fuel (N02) – NOx and burner problems; ammonia odour around the reformer",
+   "sevB": "3",
+   "likB": "3",
+   "sevA": "3",
+   "likA": "2",
+   "comments": "",
+   "id": "dv000491",
+   "ref": "N05-01"
+  },
+  {
+   "nodeId": "nd000169",
+   "seq": 2,
+   "parameter": "Pressure",
+   "guideword": "MORE",
+   "deviation": "High pressure in the distillation column 160-C",
+   "devAuto": false,
+   "consequence": "Column (20 barg design) over-pressured – rupture and ammonia release",
+   "sevB": "5",
+   "likB": "3",
+   "sevA": "5",
+   "likA": "2",
+   "comments": "",
+   "id": "dv000496",
+   "ref": "N05-02"
+  },
+  {
+   "nodeId": "nd000169",
+   "seq": 3,
+   "parameter": "Level",
+   "guideword": "MORE",
+   "deviation": "High level in column 160-C",
+   "devAuto": false,
+   "consequence": "Liquid ammonia carry-over into the purge gas to fuel",
+   "sevB": "3",
+   "likB": "3",
+   "sevA": "3",
+   "likA": "2",
+   "comments": "",
+   "id": "dv000503",
+   "ref": "N05-03"
+  },
+  {
+   "nodeId": "nd000169",
+   "seq": 4,
+   "parameter": "Level",
+   "guideword": "LESS",
+   "deviation": "Low level in the purge-gas scrubber 124-D",
+   "devAuto": false,
+   "consequence": "Gas blow-by from 140 barg into the low-pressure ammonia return (as N05-02)",
+   "sevB": "5",
+   "likB": "2",
+   "sevA": "5",
+   "likA": "1",
+   "comments": "",
+   "id": "dv000508",
+   "ref": "N05-04"
+  },
+  {
+   "nodeId": "nd000169",
+   "seq": 5,
+   "parameter": "Temperature",
+   "guideword": "MORE",
+   "deviation": "High column bottoms temperature",
+   "devAuto": false,
+   "consequence": "Column pressure rises; water carry-over into the recovered ammonia",
+   "sevB": "3",
+   "likB": "3",
+   "sevA": "3",
+   "likA": "2",
+   "comments": "",
+   "id": "dv000513",
+   "ref": "N05-05"
+  },
+  {
+   "nodeId": "nd000169",
+   "seq": 6,
+   "parameter": "Toxicity",
+   "guideword": "REVIEW",
+   "deviation": "Ammonia leak at the column pumps 161-J",
+   "devAuto": false,
+   "consequence": "Toxic ammonia release at the recovery unit",
+   "sevB": "4",
+   "likB": "3",
+   "sevA": "4",
+   "likA": "2",
+   "comments": "",
+   "id": "dv000517",
+   "ref": "N05-06"
+  },
+  {
+   "nodeId": "nd000169",
+   "seq": 7,
+   "parameter": "Utilities / services",
+   "guideword": "LOSS OF",
+   "deviation": "Power failure",
+   "devAuto": false,
+   "consequence": "Pumps stop, column pressure falls; purge flow to fuel stops – reformer fuel balance upset",
+   "sevB": "3",
+   "likB": "3",
+   "sevA": "3",
+   "likA": "2",
+   "comments": "",
+   "id": "dv000523",
+   "ref": "N05-07"
+  }
+ ],
+ "causes": [
+  {
+   "id": "cz000290",
+   "deviationId": "dv000289",
+   "seq": 1,
+   "text": "Steam supply failure (boiler trip, FV-1002 closes)"
+  },
+  {
+   "id": "cz000291",
+   "deviationId": "dv000289",
+   "seq": 2,
+   "text": "FIC-1002 transmitter fails high"
+  },
+  {
+   "id": "cz000297",
+   "deviationId": "dv000296",
+   "seq": 1,
+   "text": "FV-1001 fails open"
+  },
+  {
+   "id": "cz000298",
+   "deviationId": "dv000296",
+   "seq": 2,
+   "text": "FIC-1001 setpoint error"
+  },
+  {
+   "id": "cz000303",
+   "deviationId": "dv000302",
+   "seq": 1,
+   "text": "Steam pressure lower than reformer pressure (steam trip)"
+  },
+  {
+   "id": "cz000304",
+   "deviationId": "dv000302",
+   "seq": 2,
+   "text": "Non-return valve passing"
+  },
+  {
+   "id": "cz000308",
+   "deviationId": "dv000307",
+   "seq": 1,
+   "text": "Over-firing (fuel gas PV-1001B fails open)"
+  },
+  {
+   "id": "cz000309",
+   "deviationId": "dv000307",
+   "seq": 2,
+   "text": "Flow maldistribution / plugged tubes"
+  },
+  {
+   "id": "cz000310",
+   "deviationId": "dv000307",
+   "seq": 3,
+   "text": "Carbon formation (low steam)"
+  },
+  {
+   "id": "cz000316",
+   "deviationId": "dv000315",
+   "seq": 1,
+   "text": "Downstream blockage / 103-D outlet valve closed"
+  },
+  {
+   "id": "cz000317",
+   "deviationId": "dv000315",
+   "seq": 2,
+   "text": "Feed compressor over-speed"
+  },
+  {
+   "id": "cz000320",
+   "deviationId": "dv000319",
+   "seq": 1,
+   "text": "Process-air control valve fails open"
+  },
+  {
+   "id": "cz000321",
+   "deviationId": "dv000319",
+   "seq": 2,
+   "text": "Air compressor surge recovery"
+  },
+  {
+   "id": "cz000326",
+   "deviationId": "dv000325",
+   "seq": 1,
+   "text": "Spent desulfurizer bed"
+  },
+  {
+   "id": "cz000327",
+   "deviationId": "dv000325",
+   "seq": 2,
+   "text": "Hydrotreater upset"
+  },
+  {
+   "id": "cz000330",
+   "deviationId": "dv000329",
+   "seq": 1,
+   "text": "Instrument-air compressor trip"
+  },
+  {
+   "id": "cz000331",
+   "deviationId": "dv000329",
+   "seq": 2,
+   "text": "Power failure"
+  },
+  {
+   "id": "cz000335",
+   "deviationId": "dv000334",
+   "seq": 1,
+   "text": "Feed introduced before steam flow is established"
+  },
+  {
+   "id": "cz000340",
+   "deviationId": "dv000339",
+   "seq": 1,
+   "text": "Fuel-gas supply failure"
+  },
+  {
+   "id": "cz000341",
+   "deviationId": "dv000339",
+   "seq": 2,
+   "text": "PV-1001B closes"
+  },
+  {
+   "id": "cz000342",
+   "deviationId": "dv000339",
+   "seq": 3,
+   "text": "Liquid slug in the fuel gas"
+  },
+  {
+   "id": "cz000348",
+   "deviationId": "dv000347",
+   "seq": 1,
+   "text": "PV-1001B fails open"
+  },
+  {
+   "id": "cz000349",
+   "deviationId": "dv000347",
+   "seq": 2,
+   "text": "Purge gas from N05 at high pressure"
+  },
+  {
+   "id": "cz000354",
+   "deviationId": "dv000353",
+   "seq": 1,
+   "text": "Supply drop"
+  },
+  {
+   "id": "cz000355",
+   "deviationId": "dv000353",
+   "seq": 2,
+   "text": "Fuel-gas filter blocked"
+  },
+  {
+   "id": "cz000358",
+   "deviationId": "dv000357",
+   "seq": 1,
+   "text": "Ammonia carry-over in purge gas from N05"
+  },
+  {
+   "id": "cz000359",
+   "deviationId": "dv000357",
+   "seq": 2,
+   "text": "Condensate in the fuel header"
+  },
+  {
+   "id": "cz000364",
+   "deviationId": "dv000363",
+   "seq": 1,
+   "text": "ID fan trip"
+  },
+  {
+   "id": "cz000365",
+   "deviationId": "dv000363",
+   "seq": 2,
+   "text": "Damper closes"
+  },
+  {
+   "id": "cz000368",
+   "deviationId": "dv000367",
+   "seq": 1,
+   "text": "Purge timer bypassed"
+  },
+  {
+   "id": "cz000369",
+   "deviationId": "dv000367",
+   "seq": 2,
+   "text": "Fuel valves passing into the cold firebox"
+  },
+  {
+   "id": "cz000374",
+   "deviationId": "dv000373",
+   "seq": 1,
+   "text": "Condensate accumulation"
+  },
+  {
+   "id": "cz000375",
+   "deviationId": "dv000373",
+   "seq": 2,
+   "text": "Drain blocked"
+  },
+  {
+   "id": "cz000378",
+   "deviationId": "dv000377",
+   "seq": 1,
+   "text": "Flange / flexible hose failure at a burner"
+  },
+  {
+   "id": "cz000379",
+   "deviationId": "dv000377",
+   "seq": 2,
+   "text": "Valve gland leak"
+  },
+  {
+   "id": "cz000383",
+   "deviationId": "dv000382",
+   "seq": 1,
+   "text": "Turbine 103-JT trip"
+  },
+  {
+   "id": "cz000384",
+   "deviationId": "dv000382",
+   "seq": 2,
+   "text": "Seal-gas failure (PSLL-1155)"
+  },
+  {
+   "id": "cz000385",
+   "deviationId": "dv000382",
+   "seq": 3,
+   "text": "Surge"
+  },
+  {
+   "id": "cz000390",
+   "deviationId": "dv000389",
+   "seq": 1,
+   "text": "Suction strainer choking (source)"
+  },
+  {
+   "id": "cz000391",
+   "deviationId": "dv000389",
+   "seq": 2,
+   "text": "Anti-surge valve FV-1008 fails closed"
+  },
+  {
+   "id": "cz000397",
+   "deviationId": "dv000396",
+   "seq": 1,
+   "text": "Loss of quench / bypass control"
+  },
+  {
+   "id": "cz000398",
+   "deviationId": "dv000396",
+   "seq": 2,
+   "text": "High H2 / N2 ratio"
+  },
+  {
+   "id": "cz000399",
+   "deviationId": "dv000396",
+   "seq": 3,
+   "text": "Start-up heater 102-B over-firing"
+  },
+  {
+   "id": "cz000405",
+   "deviationId": "dv000404",
+   "seq": 1,
+   "text": "Blocked outlet / loss of refrigeration (N04)"
+  },
+  {
+   "id": "cz000406",
+   "deviationId": "dv000404",
+   "seq": 2,
+   "text": "High inerts – purge closed"
+  },
+  {
+   "id": "cz000407",
+   "deviationId": "dv000404",
+   "seq": 3,
+   "text": "103-J over-speed"
+  },
+  {
+   "id": "cz000413",
+   "deviationId": "dv000412",
+   "seq": 1,
+   "text": "Purge flow low (N05)"
+  },
+  {
+   "id": "cz000414",
+   "deviationId": "dv000412",
+   "seq": 2,
+   "text": "Front-end upset"
+  },
+  {
+   "id": "cz000417",
+   "deviationId": "dv000416",
+   "seq": 1,
+   "text": "Operation above the Nelson-curve limit"
+  },
+  {
+   "id": "cz000418",
+   "deviationId": "dv000416",
+   "seq": 2,
+   "text": "Material mix-up"
+  },
+  {
+   "id": "cz000422",
+   "deviationId": "dv000421",
+   "seq": 1,
+   "text": "Discharge check valve fails to close"
+  },
+  {
+   "id": "cz000426",
+   "deviationId": "dv000425",
+   "seq": 1,
+   "text": "Seal failure"
+  },
+  {
+   "id": "cz000427",
+   "deviationId": "dv000425",
+   "seq": 2,
+   "text": "Flange leak on hot hydrogen service"
+  },
+  {
+   "id": "cz000432",
+   "deviationId": "dv000431",
+   "seq": 1,
+   "text": "102-B lit before 103-J runs"
+  },
+  {
+   "id": "cz000433",
+   "deviationId": "dv000431",
+   "seq": 2,
+   "text": "103-J trips during heat-up"
+  },
+  {
+   "id": "cz000437",
+   "deviationId": "dv000436",
+   "seq": 1,
+   "text": "Loss of cooling water to 127-C"
+  },
+  {
+   "id": "cz000438",
+   "deviationId": "dv000436",
+   "seq": 2,
+   "text": "Non-condensables accumulation"
+  },
+  {
+   "id": "cz000439",
+   "deviationId": "dv000436",
+   "seq": 3,
+   "text": "Discharge valve closed"
+  },
+  {
+   "id": "cz000447",
+   "deviationId": "dv000446",
+   "seq": 1,
+   "text": "LV-1015A fails open"
+  },
+  {
+   "id": "cz000448",
+   "deviationId": "dv000446",
+   "seq": 2,
+   "text": "Load change"
+  },
+  {
+   "id": "cz000452",
+   "deviationId": "dv000451",
+   "seq": 1,
+   "text": "No / low vapour flow (source)"
+  },
+  {
+   "id": "cz000453",
+   "deviationId": "dv000451",
+   "seq": 2,
+   "text": "Loss of boil-off from storage – XV-1801 closes"
+  },
+  {
+   "id": "cz000457",
+   "deviationId": "dv000456",
+   "seq": 1,
+   "text": "Strainer fouling (source)"
+  },
+  {
+   "id": "cz000462",
+   "deviationId": "dv000461",
+   "seq": 1,
+   "text": "Rapid depressurisation of a liquid-full section"
+  },
+  {
+   "id": "cz000463",
+   "deviationId": "dv000461",
+   "seq": 2,
+   "text": "Ammonia flashing through a passing valve"
+  },
+  {
+   "id": "cz000467",
+   "deviationId": "dv000466",
+   "seq": 1,
+   "text": "Cooling-water pump trip"
+  },
+  {
+   "id": "cz000468",
+   "deviationId": "dv000466",
+   "seq": 2,
+   "text": "Cooling-tower failure"
+  },
+  {
+   "id": "cz000473",
+   "deviationId": "dv000472",
+   "seq": 1,
+   "text": "Pump seal failure"
+  },
+  {
+   "id": "cz000474",
+   "deviationId": "dv000472",
+   "seq": 2,
+   "text": "Flange gasket failure"
+  },
+  {
+   "id": "cz000475",
+   "deviationId": "dv000472",
+   "seq": 3,
+   "text": "Small-bore fitting fatigue"
+  },
+  {
+   "id": "cz000484",
+   "deviationId": "dv000483",
+   "seq": 1,
+   "text": "Incomplete draining / isolation"
+  },
+  {
+   "id": "cz000485",
+   "deviationId": "dv000483",
+   "seq": 2,
+   "text": "Trapped liquid between valves"
+  },
+  {
+   "id": "cz000489",
+   "deviationId": "dv000488",
+   "seq": 1,
+   "text": "PSV-1109 lifts on overpressure"
+  },
+  {
+   "id": "cz000492",
+   "deviationId": "dv000491",
+   "seq": 1,
+   "text": "Wash-water pump trip"
+  },
+  {
+   "id": "cz000493",
+   "deviationId": "dv000491",
+   "seq": 2,
+   "text": "FV-1029 closes"
+  },
+  {
+   "id": "cz000497",
+   "deviationId": "dv000496",
+   "seq": 1,
+   "text": "Purge let-down PV-1033A fails open – gas blow-by from 140 barg"
+  },
+  {
+   "id": "cz000498",
+   "deviationId": "dv000496",
+   "seq": 2,
+   "text": "Reboiler 161-C1 over-heating"
+  },
+  {
+   "id": "cz000504",
+   "deviationId": "dv000503",
+   "seq": 1,
+   "text": "LV-1049 fails closed"
+  },
+  {
+   "id": "cz000505",
+   "deviationId": "dv000503",
+   "seq": 2,
+   "text": "Reflux pump 161-J trip"
+  },
+  {
+   "id": "cz000509",
+   "deviationId": "dv000508",
+   "seq": 1,
+   "text": "LV-1027 fails open"
+  },
+  {
+   "id": "cz000514",
+   "deviationId": "dv000513",
+   "seq": 1,
+   "text": "Reboiler steam control fails open"
+  },
+  {
+   "id": "cz000518",
+   "deviationId": "dv000517",
+   "seq": 1,
+   "text": "Seal failure"
+  },
+  {
+   "id": "cz000519",
+   "deviationId": "dv000517",
+   "seq": 2,
+   "text": "Flange leak"
+  },
+  {
+   "id": "cz000524",
+   "deviationId": "dv000523",
+   "seq": 1,
+   "text": "Grid failure"
+  }
+ ],
+ "safeguards": [
+  {
+   "tag": "FFSLL-1201",
+   "description": "Low steam-to-carbon ratio trip FFSLL-1201 closes feed valve XV-1201 (source)",
+   "type": "SIF / SIS trip",
+   "iplCandidate": "Yes",
+   "notes": "",
+   "id": "sg000227",
+   "key": "FFSLL1201"
+  },
+  {
+   "tag": "FSLL-1201",
+   "description": "Low-low steam flow trip FSLL-1201 to the reformer feed trip (source)",
+   "type": "SIF / SIS trip",
+   "iplCandidate": "Yes",
+   "notes": "",
+   "id": "sg000228",
+   "key": "FSLL1201"
+  },
+  {
+   "tag": "TAH-1325",
+   "description": "Reformer tube outlet temperature high alarm TAH-1325 with operator response",
+   "type": "Alarm with operator response",
+   "iplCandidate": "No",
+   "notes": "",
+   "id": "sg000229",
+   "key": "TAH1325"
+  },
+  {
+   "tag": "",
+   "description": "Reformer tube-wall temperature surveys (IR pyrometer) and tube creep inspection at each turnaround",
+   "type": "Inspection / maintenance / testing",
+   "iplCandidate": "No",
+   "notes": "",
+   "id": "sg000230",
+   "key": "TUBEINSP"
+  },
+  {
+   "tag": "FIC-1001",
+   "description": "Feed flow control FIC-1001 with ratio station FFI-1001",
+   "type": "BPCS control loop",
+   "iplCandidate": "No",
+   "notes": "",
+   "id": "sg000231",
+   "key": "FEEDCTRL"
+  },
+  {
+   "tag": "PSHH-1059",
+   "description": "High-high reformer inlet pressure trip PSHH-1059 (source)",
+   "type": "SIF / SIS trip",
+   "iplCandidate": "Yes",
+   "notes": "",
+   "id": "sg000232",
+   "key": "PSHH1059"
+  },
+  {
+   "tag": "FFSHH-1203",
+   "description": "High process-air-to-steam ratio trip FFSHH-1203 closes the process air (source)",
+   "type": "SIF / SIS trip",
+   "iplCandidate": "Yes",
+   "notes": "",
+   "id": "sg000233",
+   "key": "AIRTRIP"
+  },
+  {
+   "tag": "",
+   "description": "Non-return valves on the steam, process-air and feed lines (source)",
+   "type": "Mechanical device (check valve, RO, limiter)",
+   "iplCandidate": "No",
+   "notes": "",
+   "id": "sg000234",
+   "key": "NRV"
+  },
+  {
+   "tag": "BSLL-1200",
+   "description": "Reformer BMS: flame scanners BSLL-1200 / BSLL-1201 shut the arch-burner valves XV-1220A/C and XV-1222A/C on flame failure",
+   "type": "SIF / SIS trip",
+   "iplCandidate": "Yes",
+   "notes": "",
+   "id": "sg000235",
+   "key": "BMS"
+  },
+  {
+   "tag": "PSLL-1221",
+   "description": "Low-low fuel gas pressure trip PSLL-1221 (source)",
+   "type": "SIF / SIS trip",
+   "iplCandidate": "Yes",
+   "notes": "",
+   "id": "sg000236",
+   "key": "PSLL1221"
+  },
+  {
+   "tag": "PSHH-1221",
+   "description": "High-high fuel gas pressure trip PSHH-1221 (source)",
+   "type": "SIF / SIS trip",
+   "iplCandidate": "Yes",
+   "notes": "",
+   "id": "sg000237",
+   "key": "PSHH1221"
+  },
+  {
+   "tag": "PAHH-1226",
+   "description": "Firebox pressure high-high trip PAHH-1226 on loss of induced draught (source)",
+   "type": "SIF / SIS trip",
+   "iplCandidate": "Yes",
+   "notes": "",
+   "id": "sg000238",
+   "key": "PAHH1226"
+  },
+  {
+   "tag": "",
+   "description": "BMS purge interlock – furnace purged with proven air flow before light-off",
+   "type": "SIF / SIS trip",
+   "iplCandidate": "Yes",
+   "notes": "",
+   "id": "sg000239",
+   "key": "PURGE"
+  },
+  {
+   "tag": "",
+   "description": "Burner light-off procedure and checklist",
+   "type": "Procedure / administrative control",
+   "iplCandidate": "No",
+   "notes": "",
+   "id": "sg000240",
+   "key": "LIGHTOFF"
+  },
+  {
+   "tag": "",
+   "description": "Fuel-gas knock-out drum with high-level alarm LAH-1299",
+   "type": "Mechanical device (check valve, RO, limiter)",
+   "iplCandidate": "No",
+   "notes": "",
+   "id": "sg000241",
+   "key": "KOD"
+  },
+  {
+   "tag": "FV-1008",
+   "description": "Anti-surge control FIC-1008 / FV-1008 on 103-J (source)",
+   "type": "BPCS control loop",
+   "iplCandidate": "No",
+   "notes": "",
+   "id": "sg000242",
+   "key": "ANTISURGE"
+  },
+  {
+   "tag": "PSLL-1155",
+   "description": "Seal-gas and suction low-low pressure trip PSLL-1155 on 103-J (source)",
+   "type": "SIF / SIS trip",
+   "iplCandidate": "Yes",
+   "notes": "",
+   "id": "sg000243",
+   "key": "SEALGAS"
+  },
+  {
+   "tag": "TSHH-1396",
+   "description": "Converter high-high catalyst temperature trip TSHH-1396: trips 103-J and closes the converter feed (source TAH-1383 / TSHH-1396)",
+   "type": "SIF / SIS trip",
+   "iplCandidate": "Yes",
+   "notes": "",
+   "id": "sg000244",
+   "key": "TSHH1396"
+  },
+  {
+   "tag": "TAH-1383",
+   "description": "Converter bed temperature alarm TAH-1383 with operator response",
+   "type": "Alarm with operator response",
+   "iplCandidate": "Yes",
+   "notes": "",
+   "id": "sg000245",
+   "key": "TAH1383"
+  },
+  {
+   "tag": "PSV-1018",
+   "description": "Synthesis loop relief valve PSV-1018 at 155 barg to the flare",
+   "type": "Relief device (PSV / rupture disc / vent)",
+   "iplCandidate": "Yes",
+   "notes": "",
+   "id": "sg000246",
+   "key": "PSV1018"
+  },
+  {
+   "tag": "",
+   "description": "Loop equipment designed for 160 barg; materials selected per the Nelson curves (hydrogen service)",
+   "type": "Inherent design",
+   "iplCandidate": "Yes",
+   "notes": "",
+   "id": "sg000247",
+   "key": "LOOPDES"
+  },
+  {
+   "tag": "AT-1000",
+   "description": "Loop gas analyser AT-1000 (H2 / N2 ratio, inerts) with alarms",
+   "type": "Alarm with operator response",
+   "iplCandidate": "No",
+   "notes": "",
+   "id": "sg000248",
+   "key": "AT1000"
+  },
+  {
+   "tag": "HV-1019",
+   "description": "Remote depressurisation of the synthesis loop to the flare via HV-1019",
+   "type": "Emergency response / mitigation",
+   "iplCandidate": "No",
+   "notes": "",
+   "id": "sg000249",
+   "key": "BLOWDOWN"
+  },
+  {
+   "tag": "LSHH-1214",
+   "description": "High-high level trips LSHH-1214…1217 on the flash drums 120-CF1…CF4 trip 105-J (source)",
+   "type": "SIF / SIS trip",
+   "iplCandidate": "Yes",
+   "notes": "",
+   "id": "sg000250",
+   "key": "LSHH"
+  },
+  {
+   "tag": "LIC-1015A",
+   "description": "Flash-drum level control LIC-1015A / LV-1015A with LAH / LAL alarms (source)",
+   "type": "BPCS control loop",
+   "iplCandidate": "No",
+   "notes": "",
+   "id": "sg000251",
+   "key": "LIC1015"
+  },
+  {
+   "tag": "PAH-1009",
+   "description": "Refrigerant pressure alarm PAH-1009 / PAH-1109 with operator response (source)",
+   "type": "Alarm with operator response",
+   "iplCandidate": "Yes",
+   "notes": "",
+   "id": "sg000252",
+   "key": "PAH1009"
+  },
+  {
+   "tag": "PSHH-1110",
+   "description": "105-J discharge high-high pressure trip PSHH-1110",
+   "type": "SIF / SIS trip",
+   "iplCandidate": "Yes",
+   "notes": "",
+   "id": "sg000253",
+   "key": "PSHH1110"
+  },
+  {
+   "tag": "PSV-1109",
+   "description": "Receiver 149-D relief valve PSV-1109 at 20 barg to the flare",
+   "type": "Relief device (PSV / rupture disc / vent)",
+   "iplCandidate": "Yes",
+   "notes": "",
+   "id": "sg000254",
+   "key": "PSV1109"
+  },
+  {
+   "tag": "120-CF1",
+   "description": "Flash drums 120-CF1/CF2 designed for 0.25 bar vacuum (source)",
+   "type": "Inherent design",
+   "iplCandidate": "Yes",
+   "notes": "",
+   "id": "sg000255",
+   "key": "VACDES"
+  },
+  {
+   "tag": "",
+   "description": "Refrigeration circuit in low-temperature carbon steel rated to −33 °C",
+   "type": "Inherent design",
+   "iplCandidate": "Yes",
+   "notes": "",
+   "id": "sg000256",
+   "key": "LTDES"
+  },
+  {
+   "tag": "",
+   "description": "Differential-pressure indication across the 105-J suction strainers (source recommendation)",
+   "type": "Alarm with operator response",
+   "iplCandidate": "No",
+   "notes": "",
+   "id": "sg000257",
+   "key": "STRAINER"
+  },
+  {
+   "tag": "",
+   "description": "Cooling-water low-flow alarm at condenser 127-C",
+   "type": "Alarm with operator response",
+   "iplCandidate": "No",
+   "notes": "",
+   "id": "sg000258",
+   "key": "CWALARM"
+  },
+  {
+   "tag": "AT-1801A",
+   "description": "Ammonia detectors AT-1801A/B/C (1oo3) at the refrigeration area and pump bay with ESD of XV-1801 and the receiver outlet XV-1290 (logic UCP-1000)",
+   "type": "SIF / SIS trip",
+   "iplCandidate": "Yes",
+   "notes": "",
+   "id": "sg000259",
+   "key": "NH3DET"
+  },
+  {
+   "tag": "",
+   "description": "Fixed water-spray curtain around the receiver 149-D and the refrigerant pumps",
+   "type": "Emergency response / mitigation",
+   "iplCandidate": "No",
+   "notes": "",
+   "id": "sg000260",
+   "key": "WATERCURTAIN"
+  },
+  {
+   "tag": "",
+   "description": "Toxic-gas refuge (control room positive pressure, HVAC trip on ammonia), escape sets and wind socks",
+   "type": "Emergency response / mitigation",
+   "iplCandidate": "No",
+   "notes": "",
+   "id": "sg000261",
+   "key": "SHELTER"
+  },
+  {
+   "tag": "",
+   "description": "Ammonia PPE: full-face respirators, gas-tight suits for line breaking, eyewash and safety showers",
+   "type": "Procedure / administrative control",
+   "iplCandidate": "No",
+   "notes": "",
+   "id": "sg000262",
+   "key": "PPE"
+  },
+  {
+   "tag": "",
+   "description": "Permit-to-work with positive isolation, draining to closed system and gas test before line break",
+   "type": "Procedure / administrative control",
+   "iplCandidate": "No",
+   "notes": "",
+   "id": "sg000263",
+   "key": "PTW"
+  },
+  {
+   "tag": "FAL-1064",
+   "description": "Wash-water flow control and low-flow alarm FAL-1064 on the purge-gas scrubber 124-D (source)",
+   "type": "Alarm with operator response",
+   "iplCandidate": "No",
+   "notes": "",
+   "id": "sg000264",
+   "key": "SCRUB"
+  },
+  {
+   "tag": "PIC-1033",
+   "description": "Column pressure control PIC-1033 with PAH-1033 (source)",
+   "type": "BPCS control loop",
+   "iplCandidate": "No",
+   "notes": "",
+   "id": "sg000265",
+   "key": "PIC1033"
+  },
+  {
+   "tag": "PSV-1033",
+   "description": "Column 160-C relief valve PSV-1033 at 20 barg",
+   "type": "Relief device (PSV / rupture disc / vent)",
+   "iplCandidate": "Yes",
+   "notes": "",
+   "id": "sg000266",
+   "key": "PSV1033"
+  },
+  {
+   "tag": "PV-1033A",
+   "description": "Purge let-down valve PV-1033A with downstream relief sized for gas blow-by",
+   "type": "Relief device (PSV / rupture disc / vent)",
+   "iplCandidate": "Yes",
+   "notes": "",
+   "id": "sg000267",
+   "key": "LETDOWN"
+  },
+  {
+   "tag": "UCP-1000",
+   "description": "Unit ESD and emergency depressurisation (logic UCP-1000)",
+   "type": "SIF / SIS trip",
+   "iplCandidate": "Yes",
+   "notes": "",
+   "id": "sg000268",
+   "key": "ESDGAS"
+  }
+ ],
+ "devSafeguards": [
+  {
+   "id": "ds000292",
+   "deviationId": "dv000289",
+   "safeguardId": "sg000228",
+   "ipl": true,
+   "seq": 1
+  },
+  {
+   "id": "ds000293",
+   "deviationId": "dv000289",
+   "safeguardId": "sg000227",
+   "ipl": true,
+   "seq": 2
+  },
+  {
+   "id": "ds000294",
+   "deviationId": "dv000289",
+   "safeguardId": "sg000229",
+   "ipl": false,
+   "seq": 3
+  },
+  {
+   "id": "ds000299",
+   "deviationId": "dv000296",
+   "safeguardId": "sg000227",
+   "ipl": true,
+   "seq": 1
+  },
+  {
+   "id": "ds000300",
+   "deviationId": "dv000296",
+   "safeguardId": "sg000231",
+   "ipl": false,
+   "seq": 2
+  },
+  {
+   "id": "ds000305",
+   "deviationId": "dv000302",
+   "safeguardId": "sg000234",
+   "ipl": false,
+   "seq": 1
+  },
+  {
+   "id": "ds000306",
+   "deviationId": "dv000302",
+   "safeguardId": "sg000228",
+   "ipl": true,
+   "seq": 2
+  },
+  {
+   "id": "ds000311",
+   "deviationId": "dv000307",
+   "safeguardId": "sg000229",
+   "ipl": false,
+   "seq": 1
+  },
+  {
+   "id": "ds000312",
+   "deviationId": "dv000307",
+   "safeguardId": "sg000230",
+   "ipl": false,
+   "seq": 2
+  },
+  {
+   "id": "ds000313",
+   "deviationId": "dv000307",
+   "safeguardId": "sg000237",
+   "ipl": true,
+   "seq": 3
+  },
+  {
+   "id": "ds000318",
+   "deviationId": "dv000315",
+   "safeguardId": "sg000232",
+   "ipl": true,
+   "seq": 1
+  },
+  {
+   "id": "ds000322",
+   "deviationId": "dv000319",
+   "safeguardId": "sg000233",
+   "ipl": true,
+   "seq": 1
+  },
+  {
+   "id": "ds000323",
+   "deviationId": "dv000319",
+   "safeguardId": "sg000234",
+   "ipl": false,
+   "seq": 2
+  },
+  {
+   "id": "ds000328",
+   "deviationId": "dv000325",
+   "safeguardId": "sg000230",
+   "ipl": false,
+   "seq": 1
+  },
+  {
+   "id": "ds000332",
+   "deviationId": "dv000329",
+   "safeguardId": "sg000227",
+   "ipl": true,
+   "seq": 1
+  },
+  {
+   "id": "ds000333",
+   "deviationId": "dv000329",
+   "safeguardId": "sg000234",
+   "ipl": false,
+   "seq": 2
+  },
+  {
+   "id": "ds000336",
+   "deviationId": "dv000334",
+   "safeguardId": "sg000228",
+   "ipl": true,
+   "seq": 1
+  },
+  {
+   "id": "ds000337",
+   "deviationId": "dv000334",
+   "safeguardId": "sg000227",
+   "ipl": true,
+   "seq": 2
+  },
+  {
+   "id": "ds000343",
+   "deviationId": "dv000339",
+   "safeguardId": "sg000236",
+   "ipl": true,
+   "seq": 1
+  },
+  {
+   "id": "ds000344",
+   "deviationId": "dv000339",
+   "safeguardId": "sg000235",
+   "ipl": true,
+   "seq": 2
+  },
+  {
+   "id": "ds000345",
+   "deviationId": "dv000339",
+   "safeguardId": "sg000241",
+   "ipl": false,
+   "seq": 3
+  },
+  {
+   "id": "ds000350",
+   "deviationId": "dv000347",
+   "safeguardId": "sg000237",
+   "ipl": true,
+   "seq": 1
+  },
+  {
+   "id": "ds000351",
+   "deviationId": "dv000347",
+   "safeguardId": "sg000235",
+   "ipl": true,
+   "seq": 2
+  },
+  {
+   "id": "ds000356",
+   "deviationId": "dv000353",
+   "safeguardId": "sg000236",
+   "ipl": true,
+   "seq": 1
+  },
+  {
+   "id": "ds000360",
+   "deviationId": "dv000357",
+   "safeguardId": "sg000241",
+   "ipl": false,
+   "seq": 1
+  },
+  {
+   "id": "ds000361",
+   "deviationId": "dv000357",
+   "safeguardId": "sg000264",
+   "ipl": false,
+   "seq": 2
+  },
+  {
+   "id": "ds000366",
+   "deviationId": "dv000363",
+   "safeguardId": "sg000238",
+   "ipl": true,
+   "seq": 1
+  },
+  {
+   "id": "ds000370",
+   "deviationId": "dv000367",
+   "safeguardId": "sg000239",
+   "ipl": true,
+   "seq": 1
+  },
+  {
+   "id": "ds000371",
+   "deviationId": "dv000367",
+   "safeguardId": "sg000240",
+   "ipl": false,
+   "seq": 2
+  },
+  {
+   "id": "ds000376",
+   "deviationId": "dv000373",
+   "safeguardId": "sg000241",
+   "ipl": false,
+   "seq": 1
+  },
+  {
+   "id": "ds000380",
+   "deviationId": "dv000377",
+   "safeguardId": "sg000263",
+   "ipl": false,
+   "seq": 1
+  },
+  {
+   "id": "ds000381",
+   "deviationId": "dv000377",
+   "safeguardId": "sg000262",
+   "ipl": false,
+   "seq": 2
+  },
+  {
+   "id": "ds000386",
+   "deviationId": "dv000382",
+   "safeguardId": "sg000243",
+   "ipl": true,
+   "seq": 1
+  },
+  {
+   "id": "ds000387",
+   "deviationId": "dv000382",
+   "safeguardId": "sg000242",
+   "ipl": false,
+   "seq": 2
+  },
+  {
+   "id": "ds000392",
+   "deviationId": "dv000389",
+   "safeguardId": "sg000242",
+   "ipl": false,
+   "seq": 1
+  },
+  {
+   "id": "ds000393",
+   "deviationId": "dv000389",
+   "safeguardId": "sg000257",
+   "ipl": false,
+   "seq": 2
+  },
+  {
+   "id": "ds000400",
+   "deviationId": "dv000396",
+   "safeguardId": "sg000244",
+   "ipl": true,
+   "seq": 1
+  },
+  {
+   "id": "ds000401",
+   "deviationId": "dv000396",
+   "safeguardId": "sg000245",
+   "ipl": true,
+   "seq": 2
+  },
+  {
+   "id": "ds000402",
+   "deviationId": "dv000396",
+   "safeguardId": "sg000247",
+   "ipl": false,
+   "seq": 3
+  },
+  {
+   "id": "ds000408",
+   "deviationId": "dv000404",
+   "safeguardId": "sg000246",
+   "ipl": true,
+   "seq": 1
+  },
+  {
+   "id": "ds000409",
+   "deviationId": "dv000404",
+   "safeguardId": "sg000248",
+   "ipl": false,
+   "seq": 2
+  },
+  {
+   "id": "ds000410",
+   "deviationId": "dv000404",
+   "safeguardId": "sg000249",
+   "ipl": false,
+   "seq": 3
+  },
+  {
+   "id": "ds000415",
+   "deviationId": "dv000412",
+   "safeguardId": "sg000248",
+   "ipl": false,
+   "seq": 1
+  },
+  {
+   "id": "ds000419",
+   "deviationId": "dv000416",
+   "safeguardId": "sg000247",
+   "ipl": true,
+   "seq": 1
+  },
+  {
+   "id": "ds000423",
+   "deviationId": "dv000421",
+   "safeguardId": "sg000234",
+   "ipl": false,
+   "seq": 1
+  },
+  {
+   "id": "ds000424",
+   "deviationId": "dv000421",
+   "safeguardId": "sg000243",
+   "ipl": true,
+   "seq": 2
+  },
+  {
+   "id": "ds000428",
+   "deviationId": "dv000425",
+   "safeguardId": "sg000268",
+   "ipl": true,
+   "seq": 1
+  },
+  {
+   "id": "ds000429",
+   "deviationId": "dv000425",
+   "safeguardId": "sg000249",
+   "ipl": false,
+   "seq": 2
+  },
+  {
+   "id": "ds000434",
+   "deviationId": "dv000431",
+   "safeguardId": "sg000244",
+   "ipl": true,
+   "seq": 1
+  },
+  {
+   "id": "ds000440",
+   "deviationId": "dv000436",
+   "safeguardId": "sg000252",
+   "ipl": true,
+   "seq": 1
+  },
+  {
+   "id": "ds000441",
+   "deviationId": "dv000436",
+   "safeguardId": "sg000253",
+   "ipl": true,
+   "seq": 2
+  },
+  {
+   "id": "ds000442",
+   "deviationId": "dv000436",
+   "safeguardId": "sg000254",
+   "ipl": true,
+   "seq": 3
+  },
+  {
+   "id": "ds000443",
+   "deviationId": "dv000436",
+   "safeguardId": "sg000258",
+   "ipl": false,
+   "seq": 4
+  },
+  {
+   "id": "ds000449",
+   "deviationId": "dv000446",
+   "safeguardId": "sg000250",
+   "ipl": true,
+   "seq": 1
+  },
+  {
+   "id": "ds000450",
+   "deviationId": "dv000446",
+   "safeguardId": "sg000251",
+   "ipl": false,
+   "seq": 2
+  },
+  {
+   "id": "ds000454",
+   "deviationId": "dv000451",
+   "safeguardId": "sg000255",
+   "ipl": true,
+   "seq": 1
+  },
+  {
+   "id": "ds000455",
+   "deviationId": "dv000451",
+   "safeguardId": "sg000242",
+   "ipl": false,
+   "seq": 2
+  },
+  {
+   "id": "ds000458",
+   "deviationId": "dv000456",
+   "safeguardId": "sg000257",
+   "ipl": false,
+   "seq": 1
+  },
+  {
+   "id": "ds000464",
+   "deviationId": "dv000461",
+   "safeguardId": "sg000256",
+   "ipl": true,
+   "seq": 1
+  },
+  {
+   "id": "ds000469",
+   "deviationId": "dv000466",
+   "safeguardId": "sg000258",
+   "ipl": false,
+   "seq": 1
+  },
+  {
+   "id": "ds000470",
+   "deviationId": "dv000466",
+   "safeguardId": "sg000253",
+   "ipl": true,
+   "seq": 2
+  },
+  {
+   "id": "ds000476",
+   "deviationId": "dv000472",
+   "safeguardId": "sg000259",
+   "ipl": true,
+   "seq": 1
+  },
+  {
+   "id": "ds000477",
+   "deviationId": "dv000472",
+   "safeguardId": "sg000260",
+   "ipl": false,
+   "seq": 2
+  },
+  {
+   "id": "ds000478",
+   "deviationId": "dv000472",
+   "safeguardId": "sg000261",
+   "ipl": false,
+   "seq": 3
+  },
+  {
+   "id": "ds000479",
+   "deviationId": "dv000472",
+   "safeguardId": "sg000262",
+   "ipl": false,
+   "seq": 4
+  },
+  {
+   "id": "ds000486",
+   "deviationId": "dv000483",
+   "safeguardId": "sg000263",
+   "ipl": false,
+   "seq": 1
+  },
+  {
+   "id": "ds000487",
+   "deviationId": "dv000483",
+   "safeguardId": "sg000262",
+   "ipl": false,
+   "seq": 2
+  },
+  {
+   "id": "ds000490",
+   "deviationId": "dv000488",
+   "safeguardId": "sg000254",
+   "ipl": false,
+   "seq": 1
+  },
+  {
+   "id": "ds000494",
+   "deviationId": "dv000491",
+   "safeguardId": "sg000264",
+   "ipl": false,
+   "seq": 1
+  },
+  {
+   "id": "ds000499",
+   "deviationId": "dv000496",
+   "safeguardId": "sg000266",
+   "ipl": true,
+   "seq": 1
+  },
+  {
+   "id": "ds000500",
+   "deviationId": "dv000496",
+   "safeguardId": "sg000267",
+   "ipl": true,
+   "seq": 2
+  },
+  {
+   "id": "ds000501",
+   "deviationId": "dv000496",
+   "safeguardId": "sg000265",
+   "ipl": false,
+   "seq": 3
+  },
+  {
+   "id": "ds000506",
+   "deviationId": "dv000503",
+   "safeguardId": "sg000265",
+   "ipl": false,
+   "seq": 1
+  },
+  {
+   "id": "ds000510",
+   "deviationId": "dv000508",
+   "safeguardId": "sg000267",
+   "ipl": true,
+   "seq": 1
+  },
+  {
+   "id": "ds000511",
+   "deviationId": "dv000508",
+   "safeguardId": "sg000266",
+   "ipl": true,
+   "seq": 2
+  },
+  {
+   "id": "ds000515",
+   "deviationId": "dv000513",
+   "safeguardId": "sg000265",
+   "ipl": false,
+   "seq": 1
+  },
+  {
+   "id": "ds000516",
+   "deviationId": "dv000513",
+   "safeguardId": "sg000266",
+   "ipl": true,
+   "seq": 2
+  },
+  {
+   "id": "ds000520",
+   "deviationId": "dv000517",
+   "safeguardId": "sg000259",
+   "ipl": false,
+   "seq": 1
+  },
+  {
+   "id": "ds000521",
+   "deviationId": "dv000517",
+   "safeguardId": "sg000262",
+   "ipl": false,
+   "seq": 2
+  },
+  {
+   "id": "ds000525",
+   "deviationId": "dv000523",
+   "safeguardId": "sg000268",
+   "ipl": false,
+   "seq": 1
+  }
+ ],
+ "recs": [
+  {
+   "no": "R-001",
+   "text": "Confirm that the low steam-to-carbon trip FFSLL-1201 and the low steam trip FSLL-1201 are independent of the ratio controller FFI-1001 (separate transmitters) and SIL-assessed.",
+   "responsible": "Instrument / SIS engineer",
+   "priority": "High",
+   "dueDate": "2027-03-31",
+   "status": "Open",
+   "closeout": "",
+   "closeDate": "",
+   "id": "rc000269"
+  },
+  {
+   "no": "R-002",
+   "text": "Install tube-wall temperature monitoring (fixed IR scanners) on the primary reformer 101-B and add tube-wall limits to the operating window.",
+   "responsible": "Process engineer",
+   "priority": "Medium",
+   "dueDate": "2027-06-30",
+   "status": "Open",
+   "closeout": "",
+   "closeDate": "",
+   "id": "rc000270"
+  },
+  {
+   "no": "R-003",
+   "text": "Review the process-air trip FFSHH-1203 response time against the secondary reformer 103-D over-temperature scenario.",
+   "responsible": "Process engineer",
+   "priority": "Medium",
+   "dueDate": "2027-06-30",
+   "status": "Open",
+   "closeout": "",
+   "closeDate": "",
+   "id": "rc000271"
+  },
+  {
+   "no": "R-004",
+   "text": "Verify the reformer BMS flame-failure function against IEC 61511 (scanners per burner row, proof-test interval) – the arch burners 101-BBA run at low turndown during start-up.",
+   "responsible": "Instrument / SIS engineer",
+   "priority": "High",
+   "dueDate": "2027-03-31",
+   "status": "Open",
+   "closeout": "",
+   "closeDate": "",
+   "id": "rc000272"
+  },
+  {
+   "no": "R-005",
+   "text": "Route the purge gas from N05 to the reformer fuel only through the knock-out drum with an ammonia analyser and automatic diversion to the flare on high ammonia.",
+   "responsible": "Process engineer",
+   "priority": "Medium",
+   "dueDate": "2027-06-30",
+   "status": "Open",
+   "closeout": "",
+   "closeDate": "",
+   "id": "rc000273"
+  },
+  {
+   "no": "R-006",
+   "text": "Provide differential-pressure indication across the suction strainers of 103-J and 105-J (source recommendation 89).",
+   "responsible": "Process engineer",
+   "priority": "Medium",
+   "dueDate": "2027-06-30",
+   "status": "Open",
+   "closeout": "",
+   "closeDate": "",
+   "id": "rc000274"
+  },
+  {
+   "no": "R-007",
+   "text": "Consult the compressor vendor on the response to suction-strainer choking leading to low suction pressure (source recommendation 104).",
+   "responsible": "Rotating equipment engineer",
+   "priority": "Medium",
+   "dueDate": "2027-06-30",
+   "status": "Open",
+   "closeout": "",
+   "closeDate": "",
+   "id": "rc000275"
+  },
+  {
+   "no": "R-008",
+   "text": "Upgrade the converter over-temperature protection: fault tree FT-AM-02 gives an uncontrolled over-temperature frequency of 1.8E-2 /yr with protection PFDavg 5.1E-2; add a second independent bed thermocouple to TSHH-1396 (1oo2) and a six-monthly trip test.",
+   "responsible": "Instrument / SIS engineer",
+   "priority": "High",
+   "dueDate": "2027-03-31",
+   "status": "Open",
+   "closeout": "",
+   "closeDate": "",
+   "id": "rc000276"
+  },
+  {
+   "no": "R-009",
+   "text": "Confirm the loop relief PSV-1018 is sized for the start-up heater 102-B fire case and for blocked outlet with 103-J at maximum speed.",
+   "responsible": "Process engineer",
+   "priority": "High",
+   "dueDate": "2027-03-31",
+   "status": "Open",
+   "closeout": "",
+   "closeDate": "",
+   "id": "rc000277"
+  },
+  {
+   "no": "R-010",
+   "text": "Carry out a high-temperature hydrogen attack (HTHA) review of the loop exchangers 123-C1 / 124-C1 against the current Nelson curves.",
+   "responsible": "Materials engineer",
+   "priority": "High",
+   "dueDate": "2027-03-31",
+   "status": "Open",
+   "closeout": "",
+   "closeDate": "",
+   "id": "rc000278"
+  },
+  {
+   "no": "R-011",
+   "text": "Refrigeration overpressure: fault tree FT-AM-01 gives 2.4E-6 /yr with protection PFDavg 1.1E-5, but almost all of the credit is PSV-1109 – every demand ends as an ammonia relief to flare because the alarm and the trip share one transmitter; make PSHH-1110 independent of PIC-1009 and add an automatic start of the standby cooling-water pump.",
+   "responsible": "Instrument / SIS engineer",
+   "priority": "High",
+   "dueDate": "2027-03-31",
+   "status": "Open",
+   "closeout": "",
+   "closeDate": "",
+   "id": "rc000279"
+  },
+  {
+   "no": "R-012",
+   "text": "Verify the ammonia detection and ESD (FT-AM-03 PFDavg 2.9E-2): detectors at the receiver 149-D, the refrigerant pumps and the compressor house, 1oo3 with automatic isolation of XV-1290.",
+   "responsible": "Instrument / SIS engineer",
+   "priority": "High",
+   "dueDate": "2027-03-31",
+   "status": "Open",
+   "closeout": "",
+   "closeDate": "",
+   "id": "rc000280"
+  },
+  {
+   "no": "R-013",
+   "text": "Extend the water-spray curtain to the refrigerant pump bay and test it annually; event tree ETA-AM-01 gives 1.3E-6 /yr for off-site toxic impact.",
+   "responsible": "Fire officer",
+   "priority": "High",
+   "dueDate": "2027-03-31",
+   "status": "Open",
+   "closeout": "",
+   "closeDate": "",
+   "id": "rc000281"
+  },
+  {
+   "no": "R-014",
+   "text": "Confirm all refrigeration piping and the flash drums are rated for −33 °C including depressurisation (auto-refrigeration of ammonia).",
+   "responsible": "Materials engineer",
+   "priority": "Medium",
+   "dueDate": "2027-06-30",
+   "status": "Open",
+   "closeout": "",
+   "closeDate": "",
+   "id": "rc000282"
+  },
+  {
+   "no": "R-015",
+   "text": "Add a low-low cooling-water flow trip at condenser 127-C that unloads 105-J before PSV-1109 lifts.",
+   "responsible": "Process engineer",
+   "priority": "Medium",
+   "dueDate": "2027-06-30",
+   "status": "Open",
+   "closeout": "",
+   "closeDate": "",
+   "id": "rc000283"
+  },
+  {
+   "no": "R-016",
+   "text": "Provide a toxic-gas refuge procedure and annual drill for the ammonia area; confirm HVAC trip on ammonia at the control room.",
+   "responsible": "HSE / process safety",
+   "priority": "High",
+   "dueDate": "2027-03-31",
+   "status": "Open",
+   "closeout": "",
+   "closeDate": "",
+   "id": "rc000284"
+  },
+  {
+   "no": "R-017",
+   "text": "Add high-level protection LAH-1049 / LSHH on column 160-C to prevent liquid ammonia carry-over into the purge gas to fuel.",
+   "responsible": "Process engineer",
+   "priority": "Medium",
+   "dueDate": "2027-06-30",
+   "status": "Open",
+   "closeout": "",
+   "closeDate": "",
+   "id": "rc000285"
+  },
+  {
+   "no": "R-018",
+   "text": "Confirm that the purge let-down PV-1033A fail-open (gas blow-by) case is covered by PSV-1033 (160 barg into a 20 barg column).",
+   "responsible": "Process engineer",
+   "priority": "High",
+   "dueDate": "2027-03-31",
+   "status": "Open",
+   "closeout": "",
+   "closeDate": "",
+   "id": "rc000286"
+  },
+  {
+   "no": "R-019",
+   "text": "Syngas release outcomes: event tree ETA-AM-02 gives 8.1E-5 /yr for a vapour cloud explosion at the synthesis loop; review congestion and the remote depressurisation HV-1019 response time.",
+   "responsible": "Process engineer",
+   "priority": "High",
+   "dueDate": "2027-03-31",
+   "status": "Open",
+   "closeout": "",
+   "closeDate": "",
+   "id": "rc000287"
+  },
+  {
+   "no": "R-020",
+   "text": "Add a start-up permissive: 102-B start-up heater may only fire with proven loop circulation (103-J running) – overheating of the converter at start-up.",
+   "responsible": "Instrument / SIS engineer",
+   "priority": "Medium",
+   "dueDate": "2027-06-30",
+   "status": "Open",
+   "closeout": "",
+   "closeDate": "",
+   "id": "rc000288"
+  }
+ ],
+ "devRecs": [
+  {
+   "id": "dr000295",
+   "deviationId": "dv000289",
+   "recId": "rc000269"
+  },
+  {
+   "id": "dr000301",
+   "deviationId": "dv000296",
+   "recId": "rc000269"
+  },
+  {
+   "id": "dr000314",
+   "deviationId": "dv000307",
+   "recId": "rc000270"
+  },
+  {
+   "id": "dr000324",
+   "deviationId": "dv000319",
+   "recId": "rc000271"
+  },
+  {
+   "id": "dr000338",
+   "deviationId": "dv000334",
+   "recId": "rc000269"
+  },
+  {
+   "id": "dr000346",
+   "deviationId": "dv000339",
+   "recId": "rc000272"
+  },
+  {
+   "id": "dr000352",
+   "deviationId": "dv000347",
+   "recId": "rc000272"
+  },
+  {
+   "id": "dr000362",
+   "deviationId": "dv000357",
+   "recId": "rc000273"
+  },
+  {
+   "id": "dr000372",
+   "deviationId": "dv000367",
+   "recId": "rc000272"
+  },
+  {
+   "id": "dr000388",
+   "deviationId": "dv000382",
+   "recId": "rc000288"
+  },
+  {
+   "id": "dr000394",
+   "deviationId": "dv000389",
+   "recId": "rc000274"
+  },
+  {
+   "id": "dr000395",
+   "deviationId": "dv000389",
+   "recId": "rc000275"
+  },
+  {
+   "id": "dr000403",
+   "deviationId": "dv000396",
+   "recId": "rc000276"
+  },
+  {
+   "id": "dr000411",
+   "deviationId": "dv000404",
+   "recId": "rc000277"
+  },
+  {
+   "id": "dr000420",
+   "deviationId": "dv000416",
+   "recId": "rc000278"
+  },
+  {
+   "id": "dr000430",
+   "deviationId": "dv000425",
+   "recId": "rc000287"
+  },
+  {
+   "id": "dr000435",
+   "deviationId": "dv000431",
+   "recId": "rc000288"
+  },
+  {
+   "id": "dr000444",
+   "deviationId": "dv000436",
+   "recId": "rc000279"
+  },
+  {
+   "id": "dr000445",
+   "deviationId": "dv000436",
+   "recId": "rc000283"
+  },
+  {
+   "id": "dr000459",
+   "deviationId": "dv000456",
+   "recId": "rc000274"
+  },
+  {
+   "id": "dr000460",
+   "deviationId": "dv000456",
+   "recId": "rc000275"
+  },
+  {
+   "id": "dr000465",
+   "deviationId": "dv000461",
+   "recId": "rc000282"
+  },
+  {
+   "id": "dr000471",
+   "deviationId": "dv000466",
+   "recId": "rc000283"
+  },
+  {
+   "id": "dr000480",
+   "deviationId": "dv000472",
+   "recId": "rc000280"
+  },
+  {
+   "id": "dr000481",
+   "deviationId": "dv000472",
+   "recId": "rc000281"
+  },
+  {
+   "id": "dr000482",
+   "deviationId": "dv000472",
+   "recId": "rc000284"
+  },
+  {
+   "id": "dr000495",
+   "deviationId": "dv000491",
+   "recId": "rc000273"
+  },
+  {
+   "id": "dr000502",
+   "deviationId": "dv000496",
+   "recId": "rc000286"
+  },
+  {
+   "id": "dr000507",
+   "deviationId": "dv000503",
+   "recId": "rc000285"
+  },
+  {
+   "id": "dr000512",
+   "deviationId": "dv000508",
+   "recId": "rc000286"
+  },
+  {
+   "id": "dr000522",
+   "deviationId": "dv000517",
+   "recId": "rc000280"
+  }
+ ],
+ "customCauses": []
+}

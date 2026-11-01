@@ -1,0 +1,2761 @@
+{
+ "app": "HAZOP Study Manager",
+ "schema": 1,
+ "created": "2026-11-09T06:00:00.000Z",
+ "modified": "2026-11-12T16:00:00.000Z",
+ "study": {
+  "title": "PHA / HAZOP – Propane storage and propane–air dilution system (worked example)",
+  "company": "Integrated steel works (illustrative example)",
+  "unit": "Utilities – LPG (propane) storage, vaporisation and propane–air (SNG) dilution",
+  "project": "PHA revalidation – propane storage and dilution system",
+  "type": "HAZOP – revalidation",
+  "docNo": "HZ-EX-PR-001",
+  "rev": "A",
+  "start": "2026-11-09",
+  "end": "2026-11-11",
+  "venue": "Utilities training room",
+  "scope": "Propane from the road-tanker connection at the unloading bay (node 301: unloading arm, vapour compressors C-01/C-02/C-03, liquid line via ROV-1 and inlet valves ROV-11/21/31 to the three storage bullets T-1/T-2/T-3), the liquid draw-off, pumps P-01/P-02, vaporisers VAP-01/VAP-02 and regulator PCV-01 to the 1.5 barg vapour header and the steel-works consumers (node 302), and the propane–air mixing station MX-01 with air blowers B-01/B-02, ratio control and surge tank ST-01 supplying propane–air to the reheat-furnace and ladle-preheater burners (node 303).",
+  "exclusions": "Road tanker itself (owned by the supplier); burner internals and burner management at the users; fire-water pump house; electrical substation. Propane deliveries on public roads.",
+  "basis": "Receive propane from 20 t road tankers (tanker design 20.6 barg) without overfilling or overpressuring the bullets (design 17.5 barg, design minimum temperature −45 °C, maximum fill 85 % of volume); vaporise propane and deliver vapour at 1.5 barg; blend it with air to a propane–air mixture of about 55 % propane (well above the upper flammable limit of 9.5 %) at 0.8 barg. Source pressures in kg/cm² are converted to barg. All values are illustrative.",
+  "modes": "Tanker unloading (about 150 deliveries a year), normal supply, vaporiser change-over, start-up of the mixing station after a shutdown, maintenance isolation and gas-free, power failure and restart",
+  "facilitator": "A. Facilitator",
+  "scribe": "B. Scribe"
+ },
+ "settings": {
+  "sev": [
+   "Negligible",
+   "Minor",
+   "Moderate",
+   "Major",
+   "Catastrophic"
+  ],
+  "sevDesc": [
+   "First aid; no lost time / minor on-site release / negligible damage",
+   "Medical treatment / reportable release contained on site / minor damage",
+   "Lost-time injury / off-site short-term impact / significant damage",
+   "Single fatality or permanent disability / significant off-site impact / major damage",
+   "Multiple fatalities / major off-site release / loss of unit"
+  ],
+  "lik": [
+   "Rare",
+   "Unlikely",
+   "Possible",
+   "Likely",
+   "Almost certain"
+  ],
+  "likDesc": [
+   "< 1 in 10 000 years",
+   "1 in 1 000 – 10 000 years",
+   "1 in 100 – 1 000 years",
+   "1 in 10 – 100 years",
+   "> 1 in 10 years"
+  ],
+  "grid": [
+   [
+    1,
+    2,
+    3,
+    4,
+    5
+   ],
+   [
+    2,
+    4,
+    6,
+    8,
+    10
+   ],
+   [
+    3,
+    6,
+    9,
+    12,
+    15
+   ],
+   [
+    4,
+    8,
+    12,
+    16,
+    20
+   ],
+   [
+    5,
+    10,
+    15,
+    20,
+    25
+   ]
+  ],
+  "bands": {
+   "Medium": 5,
+   "High": 10,
+   "Very High": 20
+  }
+ },
+ "team": [
+  {
+   "name": "A. Facilitator",
+   "company": "Istec",
+   "role": "Facilitator",
+   "attendance": "Days 1–3",
+   "id": "tm000137"
+  },
+  {
+   "name": "B. Scribe",
+   "company": "Istec",
+   "role": "Scribe",
+   "attendance": "Days 1–3",
+   "id": "tm000138"
+  },
+  {
+   "name": "C. Process",
+   "company": "Utilities",
+   "role": "Process engineer",
+   "attendance": "Days 1–3",
+   "id": "tm000139"
+  },
+  {
+   "name": "D. Operator",
+   "company": "Utilities",
+   "role": "LPG plant operator",
+   "attendance": "Days 1–3",
+   "id": "tm000140"
+  },
+  {
+   "name": "E. Instrument",
+   "company": "Maintenance",
+   "role": "Instrument / control engineer",
+   "attendance": "Days 1–3",
+   "id": "tm000141"
+  },
+  {
+   "name": "F. Mechanical",
+   "company": "Maintenance",
+   "role": "Mechanical engineer",
+   "attendance": "Days 1–2",
+   "id": "tm000142"
+  },
+  {
+   "name": "G. Safety",
+   "company": "HSE",
+   "role": "HSE / process safety",
+   "attendance": "Days 1–3",
+   "id": "tm000143"
+  },
+  {
+   "name": "H. Furnace",
+   "company": "Rolling mill",
+   "role": "Furnace operations representative",
+   "attendance": "Day 3",
+   "id": "tm000144"
+  },
+  {
+   "name": "I. Supplier",
+   "company": "LPG supplier",
+   "role": "Tanker operations representative",
+   "attendance": "Day 1",
+   "id": "tm000145"
+  }
+ ],
+ "sessions": [
+  {
+   "id": "se000188",
+   "date": "2026-11-09",
+   "time": "08:00 – 16:00",
+   "nodeIds": [
+    "nd000146"
+   ],
+   "attendeeIds": [
+    "tm000137",
+    "tm000138",
+    "tm000139",
+    "tm000140",
+    "tm000141",
+    "tm000142",
+    "tm000143",
+    "tm000144",
+    "tm000145"
+   ],
+   "notes": "Node 301 (tanker to storage) – source worksheet reviewed, completed and corrected; overfill referred to FT-PR-01, releases to BT-PR-01 / ETA-PR-01."
+  },
+  {
+   "id": "se000189",
+   "date": "2026-11-10",
+   "time": "08:00 – 16:00",
+   "nodeIds": [
+    "nd000147"
+   ],
+   "attendeeIds": [
+    "tm000137",
+    "tm000138",
+    "tm000139",
+    "tm000140",
+    "tm000141",
+    "tm000142",
+    "tm000143",
+    "tm000144",
+    "tm000145"
+   ],
+   "notes": "Node 302 (supply to consumers) – pumps, vaporisers, regulator."
+  },
+  {
+   "id": "se000190",
+   "date": "2026-11-11",
+   "time": "08:00 – 16:00",
+   "nodeIds": [
+    "nd000148"
+   ],
+   "attendeeIds": [
+    "tm000137",
+    "tm000138",
+    "tm000139",
+    "tm000140",
+    "tm000141",
+    "tm000142",
+    "tm000143",
+    "tm000144",
+    "tm000145"
+   ],
+   "notes": "Node 303 (propane dilution) – flammable-mixture scenario referred to FT-PR-02 and BT-PR-02. Study closed; FMECA on 12 Nov."
+  }
+ ],
+ "psi": [
+  {
+   "ref": "PSI-01",
+   "category": "Drawings",
+   "docNo": "P&ID-PR-301",
+   "title": "Propane storage system – tanker to storage (node 301)",
+   "rev": "A",
+   "status": "Available",
+   "id": "ps000149"
+  },
+  {
+   "ref": "PSI-02",
+   "category": "Drawings",
+   "docNo": "P&ID-PR-302",
+   "title": "Supply of propane to consumers – pumps, vaporisers, PCV-01 (node 302)",
+   "rev": "A",
+   "status": "Available",
+   "id": "ps000151"
+  },
+  {
+   "ref": "PSI-03",
+   "category": "Drawings",
+   "docNo": "P&ID-PR-303",
+   "title": "Propane dilution system – mixer MX-01, blowers B-01/B-02, ST-01 (node 303)",
+   "rev": "A",
+   "status": "Available",
+   "id": "ps000153"
+  },
+  {
+   "ref": "PSI-04",
+   "category": "Drawings",
+   "docNo": "C&E-PR-001",
+   "title": "ESD / F&G cause-and-effect chart",
+   "rev": "A",
+   "status": "Available",
+   "id": "ps000155"
+  },
+  {
+   "ref": "PSI-05",
+   "category": "Drawings",
+   "docNo": "HAC-PR-001",
+   "title": "Hazardous area classification – LPG installation",
+   "rev": "A",
+   "status": "Available",
+   "id": "ps000159"
+  },
+  {
+   "ref": "PSI-06",
+   "category": "Drawings",
+   "docNo": "LAY-PR-001",
+   "title": "Plot plan with separation distances and sprinkler coverage",
+   "rev": "A",
+   "status": "Available",
+   "id": "ps000163"
+  },
+  {
+   "ref": "PSI-07",
+   "category": "Process technology",
+   "docNo": "DB-PR-001",
+   "title": "Design basis – pressures, temperatures, fill limits, propane–air ratio",
+   "rev": "A",
+   "status": "Available",
+   "id": "ps000166"
+  },
+  {
+   "ref": "PSI-08",
+   "category": "Equipment",
+   "docNo": "RS-PR-001",
+   "title": "Relief study – bullets (fire case), vaporisers, surge tank",
+   "rev": "A",
+   "status": "Available",
+   "id": "ps000170"
+  },
+  {
+   "ref": "PSI-09",
+   "category": "Equipment",
+   "docNo": "SRS-PR-001",
+   "title": "Safety requirements specification – overfill trip and propane–air ratio trip",
+   "rev": "A",
+   "status": "Available",
+   "id": "ps000174"
+  },
+  {
+   "ref": "PSI-10",
+   "category": "Hazardous materials",
+   "docNo": "SDS-PROP-01",
+   "title": "Propane safety data sheet (extremely flammable, liquefied gas, cold burns)",
+   "rev": "A",
+   "status": "Available",
+   "id": "ps000177"
+  },
+  {
+   "ref": "PSI-11",
+   "category": "Procedures",
+   "docNo": "OP-PR-010",
+   "title": "Tanker unloading procedure and checklist",
+   "rev": "A",
+   "status": "Available",
+   "id": "ps000179"
+  },
+  {
+   "ref": "PSI-12",
+   "category": "Procedures",
+   "docNo": "OP-PR-020",
+   "title": "Mixing station start-up / shutdown and purge procedure",
+   "rev": "A",
+   "status": "Available",
+   "id": "ps000181"
+  },
+  {
+   "ref": "PSI-13",
+   "category": "Previous studies",
+   "docNo": "HZ-PR-2017",
+   "title": "Previous HAZOP of the propane storage system (node 301 only) and actions",
+   "rev": "A",
+   "status": "Available",
+   "id": "ps000183"
+  },
+  {
+   "ref": "PSI-14",
+   "category": "Previous studies",
+   "docNo": "INC-PR-LOG",
+   "title": "LPG incident / near-miss log (last 5 years)",
+   "rev": "A",
+   "status": "Available",
+   "id": "ps000185"
+  }
+ ],
+ "psiNodes": [
+  {
+   "id": "pn000150",
+   "psiId": "ps000149",
+   "nodeId": "nd000146"
+  },
+  {
+   "id": "pn000152",
+   "psiId": "ps000151",
+   "nodeId": "nd000147"
+  },
+  {
+   "id": "pn000154",
+   "psiId": "ps000153",
+   "nodeId": "nd000148"
+  },
+  {
+   "id": "pn000156",
+   "psiId": "ps000155",
+   "nodeId": "nd000146"
+  },
+  {
+   "id": "pn000157",
+   "psiId": "ps000155",
+   "nodeId": "nd000147"
+  },
+  {
+   "id": "pn000158",
+   "psiId": "ps000155",
+   "nodeId": "nd000148"
+  },
+  {
+   "id": "pn000160",
+   "psiId": "ps000159",
+   "nodeId": "nd000146"
+  },
+  {
+   "id": "pn000161",
+   "psiId": "ps000159",
+   "nodeId": "nd000147"
+  },
+  {
+   "id": "pn000162",
+   "psiId": "ps000159",
+   "nodeId": "nd000148"
+  },
+  {
+   "id": "pn000164",
+   "psiId": "ps000163",
+   "nodeId": "nd000146"
+  },
+  {
+   "id": "pn000165",
+   "psiId": "ps000163",
+   "nodeId": "nd000147"
+  },
+  {
+   "id": "pn000167",
+   "psiId": "ps000166",
+   "nodeId": "nd000146"
+  },
+  {
+   "id": "pn000168",
+   "psiId": "ps000166",
+   "nodeId": "nd000147"
+  },
+  {
+   "id": "pn000169",
+   "psiId": "ps000166",
+   "nodeId": "nd000148"
+  },
+  {
+   "id": "pn000171",
+   "psiId": "ps000170",
+   "nodeId": "nd000146"
+  },
+  {
+   "id": "pn000172",
+   "psiId": "ps000170",
+   "nodeId": "nd000147"
+  },
+  {
+   "id": "pn000173",
+   "psiId": "ps000170",
+   "nodeId": "nd000148"
+  },
+  {
+   "id": "pn000175",
+   "psiId": "ps000174",
+   "nodeId": "nd000146"
+  },
+  {
+   "id": "pn000176",
+   "psiId": "ps000174",
+   "nodeId": "nd000148"
+  },
+  {
+   "id": "pn000178",
+   "psiId": "ps000177",
+   "nodeId": "nd000146"
+  },
+  {
+   "id": "pn000180",
+   "psiId": "ps000179",
+   "nodeId": "nd000146"
+  },
+  {
+   "id": "pn000182",
+   "psiId": "ps000181",
+   "nodeId": "nd000148"
+  },
+  {
+   "id": "pn000184",
+   "psiId": "ps000183",
+   "nodeId": "nd000146"
+  },
+  {
+   "id": "pn000186",
+   "psiId": "ps000185",
+   "nodeId": "nd000146"
+  },
+  {
+   "id": "pn000187",
+   "psiId": "ps000185",
+   "nodeId": "nd000147"
+  }
+ ],
+ "nodes": [
+  {
+   "no": "N01",
+   "name": "Node 301 – Road tanker unloading to propane storage T-1/T-2/T-3",
+   "drawings": "P&ID-PR-301",
+   "status": "Complete",
+   "batteryLimits": "From the road-tanker liquid and vapour couplings (unloading arm with emergency release coupling ERC-1) via liquid line ROV-1 and the tank inlet valves ROV-11/21/31 to bullets T-1/T-2/T-3; vapour return by compressors C-01/C-02/C-03 from the bullets to the tanker",
+   "description": "Transfer liquid propane from a 20 t road tanker into one storage bullet at a time by vapour compression, without overfilling, overpressure or release",
+   "designParams": "Bullets T-1/T-2/T-3: 3 x 60 m3, design 17.5 barg, design min. temperature −45 °C, PSV-11/21/31 at 17.5 barg; tanker design 20.6 barg (source: 21 kg/cm2); compressor trip at 20.6 barg; maximum fill 85 % (LT-11/21/31 LAH 80 %, LAHH 85 % → closes ROV-11/21/31)",
+   "operatingParams": "Unloading 60–90 min per delivery, about 150 deliveries a year; storage 5–12 barg depending on ambient temperature",
+   "materials": "Propane (extremely flammable liquefied gas; boiling point −42 °C; vapour denser than air; flammable 2.1–9.5 %)",
+   "id": "nd000146"
+  },
+  {
+   "no": "N02",
+   "name": "Node 302 – Supply of propane to consumers (pumps, vaporisers, PCV-01)",
+   "drawings": "P&ID-PR-302",
+   "status": "Complete",
+   "batteryLimits": "From the bullet outlet valves ROV-12/22/32 via pumps P-01/P-02 to water-bath vaporisers VAP-01/VAP-02, pressure regulator PCV-01 (with slam-shut SSV-01) to the 1.5 barg vapour header and the steel-works consumers",
+   "description": "Draw liquid propane from storage, vaporise it completely and deliver dry vapour at 1.5 barg to the users and the mixing station",
+   "designParams": "Liquid lines 25 barg design; vaporisers 25 barg (liquid side), PSV-02 at 20 barg; vapour header 3.5 barg design; PSV-03 at 3.0 barg; TSL-01 low vapour outlet temperature trip at 10 °C; LSH-01 high liquid level in vaporiser trip",
+   "operatingParams": "Liquid 8–12 barg; vapour 1.4–1.6 barg, 20–40 °C; up to 1 200 kg/h propane",
+   "materials": "Propane liquid and vapour; hot water in the vaporiser baths",
+   "id": "nd000147"
+  },
+  {
+   "no": "N03",
+   "name": "Node 303 – Propane dilution system (propane–air mixing station)",
+   "drawings": "P&ID-PR-303",
+   "status": "Complete",
+   "batteryLimits": "From the propane vapour header (XV-01) and the air blowers B-01/B-02 (XV-02) through the venturi mixer MX-01 with ratio controller FFIC-01 and calorimeter AT-01 to surge tank ST-01 and the propane–air header to the reheat-furnace and ladle-preheater burners",
+   "description": "Blend propane vapour with air to a propane–air mixture of 55 % propane (Wobbe index matched to natural gas, above the upper flammable limit) at 0.8 barg, and never let the mixture approach the flammable range",
+   "designParams": "Mixer and surge tank ST-01 3.5 barg design, PSV-04 at 2.0 barg; explosion vent panel EP-01 on ST-01; flame arrester FA-01 on the propane–air header; PSLL-01 low propane pressure trip stops B-01/B-02 and closes XV-01/XV-02",
+   "operatingParams": "Propane–air 0.8 barg, 50–60 % propane, 300–2 500 Nm3/h",
+   "materials": "Propane vapour; air; propane–air mixture (flammable if propane falls below about 10 % in air)",
+   "id": "nd000148"
+  }
+ ],
+ "deviations": [
+  {
+   "nodeId": "nd000146",
+   "seq": 1,
+   "parameter": "Flow",
+   "guideword": "NO",
+   "deviation": "No / less flow – compressor malfunction",
+   "devAuto": false,
+   "consequence": "Low or no filling rate into the storage tank (source); longer tanker stay at the bay increases the exposure time for drive-away and traffic impact",
+   "sevB": "2",
+   "likB": "4",
+   "sevA": "2",
+   "likA": "3",
+   "comments": "Source deviation 'No / less flow – compressor malfunction'.",
+   "id": "dv000252",
+   "ref": "N01-01"
+  },
+  {
+   "nodeId": "nd000146",
+   "seq": 2,
+   "parameter": "Flow",
+   "guideword": "NO",
+   "deviation": "No flow – ROV-1 stuck closed while the compressor runs",
+   "devAuto": false,
+   "consequence": "No filling of the storage tank; pressure rises in the tanker as the compressor keeps pushing vapour (source) – tanker relief valve may lift at the bay",
+   "sevB": "4",
+   "likB": "3",
+   "sevA": "4",
+   "likA": "2",
+   "comments": "Source safeguards: compressor trip at 21 kg/cm2 (20.6 barg), tanker designed for 21 kg/cm2, pressure gauge and tanker PSV. Source remark: include PSV testing in the maintenance schedule (R-003).",
+   "id": "dv000257",
+   "ref": "N01-02"
+  },
+  {
+   "nodeId": "nd000146",
+   "seq": 3,
+   "parameter": "Flow",
+   "guideword": "MORE",
+   "deviation": "More flow – high pressure difference between tanker and tank",
+   "devAuto": false,
+   "consequence": "Static charge generated in the line during liquid filling (source); spark discharge at an unbonded flange can ignite a small leak",
+   "sevB": "4",
+   "likB": "3",
+   "sevA": "4",
+   "likA": "2",
+   "comments": "Source recommendation no. 1 (earthing jumpers at every flange) is R-001.",
+   "id": "dv000264",
+   "ref": "N01-03"
+  },
+  {
+   "nodeId": "nd000146",
+   "seq": 4,
+   "parameter": "Pressure",
+   "guideword": "MORE",
+   "deviation": "Higher pressure in the bullet during unloading",
+   "devAuto": false,
+   "consequence": "Bullet pressure towards the 17.5 barg relief setting; PSV-11/21/31 lift and vent propane vapour; flammable cloud at the tank farm",
+   "sevB": "4",
+   "likB": "3",
+   "sevA": "4",
+   "likA": "2",
+   "comments": "",
+   "id": "dv000270",
+   "ref": "N01-04"
+  },
+  {
+   "nodeId": "nd000146",
+   "seq": 5,
+   "parameter": "Pressure",
+   "guideword": "LESS",
+   "deviation": "Lower pressure",
+   "devAuto": false,
+   "consequence": "No hazard to the bullets – propane vapour pressure stays above atmospheric down to −42 °C; slower unloading only",
+   "sevB": "1",
+   "likB": "3",
+   "sevA": "1",
+   "likA": "3",
+   "comments": "Source entry 'covered in less flow'.",
+   "id": "dv000278",
+   "ref": "N01-05"
+  },
+  {
+   "nodeId": "nd000146",
+   "seq": 6,
+   "parameter": "Level",
+   "guideword": "MORE",
+   "deviation": "Higher level in storage tank T-1/T-2/T-3 (overfill)",
+   "devAuto": false,
+   "consequence": "Source: tank pressurisation. Correctly: the bullet fills liquid-full; liquid propane reaches the relief valves – liquid relief and a large two-phase release at the tank farm; hydraulic overpressure of the liquid-full bullet as it warms",
+   "sevB": "5",
+   "likB": "4",
+   "sevA": "5",
+   "likA": "3",
+   "comments": "The source credited only the LT closing the ROV, whose transmitter is also the gauge the operator uses – not independent. Quantified in fault tree FT-PR-01 (top 1.9E-3 /yr); overfill is threat T1 of bow tie BT-PR-01. Likelihood after safeguards from the calculated frequency 1.9E-3 /yr.",
+   "id": "dv000282",
+   "ref": "N01-06"
+  },
+  {
+   "nodeId": "nd000146",
+   "seq": 7,
+   "parameter": "Temperature",
+   "guideword": "MORE",
+   "deviation": "Higher temperature – external fire",
+   "devAuto": false,
+   "consequence": "Fire and explosion hazard; high pressure (source); flame impingement on the vapour space of a bullet or tanker weakens the shell – BLEVE with fireball and fragments",
+   "sevB": "5",
+   "likB": "2",
+   "sevA": "5",
+   "likA": "1",
+   "comments": "Source safeguards: PRV-01, gauges, gas detectors GLD-1/2/3, water sprinklers for the tanks and the unloading station, PSV. BLEVE is an end state of event tree ETA-PR-01.",
+   "id": "dv000292",
+   "ref": "N01-07"
+  },
+  {
+   "nodeId": "nd000146",
+   "seq": 8,
+   "parameter": "Temperature",
+   "guideword": "LESS",
+   "deviation": "Lower temperature – auto-refrigeration",
+   "devAuto": false,
+   "consequence": "Source: 'no issue'. Correctly: carbon steel below its minimum design temperature becomes brittle; a pressurised bullet or line can fail by brittle fracture – sudden large release; cold burns to operators",
+   "sevB": "5",
+   "likB": "2",
+   "sevA": "5",
+   "likA": "1",
+   "comments": "Corrected source entry. Brittle fracture is threat T5 of bow tie BT-PR-01.",
+   "id": "dv000303",
+   "ref": "N01-08"
+  },
+  {
+   "nodeId": "nd000146",
+   "seq": 9,
+   "parameter": "Flow",
+   "guideword": "AS WELL AS",
+   "deviation": "Release during transfer – hose / arm failure",
+   "devAuto": false,
+   "consequence": "Liquid propane release at the unloading bay at up to 10 barg; large flammable cloud (heavier than air); jet fire if ignited; exposure of the tanker",
+   "sevB": "5",
+   "likB": "3",
+   "sevA": "5",
+   "likA": "2",
+   "comments": "Not in the source worksheet. Threat T2 of bow tie BT-PR-01; isolation by fault tree FT-PR-03.",
+   "id": "dv000309",
+   "ref": "N01-09"
+  },
+  {
+   "nodeId": "nd000146",
+   "seq": 10,
+   "parameter": "Flow",
+   "guideword": "REVERSE",
+   "deviation": "Tanker drive-away while still connected",
+   "devAuto": false,
+   "consequence": "Arm or hose pulled apart – liquid release from both the tanker and the plant side; severe if the excess-flow valves do not close",
+   "sevB": "5",
+   "likB": "3",
+   "sevA": "5",
+   "likA": "2",
+   "comments": "Not in the source worksheet. Threat T3 of bow tie BT-PR-01.",
+   "id": "dv000317",
+   "ref": "N01-10"
+  },
+  {
+   "nodeId": "nd000146",
+   "seq": 11,
+   "parameter": "Composition",
+   "guideword": "AS WELL AS",
+   "deviation": "Impurity / concentration",
+   "devAuto": false,
+   "consequence": "Source: not applicable. Water can freeze in regulators and drains; butane raises the dew point – liquid in the vapour header (see N02)",
+   "sevB": "2",
+   "likB": "3",
+   "sevA": "2",
+   "likA": "2",
+   "comments": "Source entries 'Concentration – NA' and 'Impurity – NA' reviewed: a delivery-quality check was added to the checklist.",
+   "id": "dv000324",
+   "ref": "N01-11"
+  },
+  {
+   "nodeId": "nd000146",
+   "seq": 12,
+   "parameter": "Utilities / services",
+   "guideword": "LOSS OF",
+   "deviation": "Utility failure – power",
+   "devAuto": false,
+   "consequence": "No transfer of propane from tanker to storage tank; compressors C-01/C-02/C-03 stop (source). All ROVs and SVs close (source) – safe state, but the gas detection and ESD are lost if the UPS fails",
+   "sevB": "3",
+   "likB": "3",
+   "sevA": "3",
+   "likA": "2",
+   "comments": "Source recommendation no. 2 (diesel generator for back-up power) is R-002.",
+   "id": "dv000330",
+   "ref": "N01-12"
+  },
+  {
+   "nodeId": "nd000146",
+   "seq": 13,
+   "parameter": "Maintenance",
+   "guideword": "INADEQUATE",
+   "deviation": "Maintenance – opening equipment that still contains propane",
+   "devAuto": false,
+   "consequence": "Propane release at the point of work; flash fire; cold burns",
+   "sevB": "4",
+   "likB": "3",
+   "sevA": "4",
+   "likA": "2",
+   "comments": "",
+   "id": "dv000336",
+   "ref": "N01-13"
+  },
+  {
+   "nodeId": "nd000147",
+   "seq": 1,
+   "parameter": "Flow",
+   "guideword": "NO",
+   "deviation": "No liquid flow to the vaporisers",
+   "devAuto": false,
+   "consequence": "Loss of propane vapour to the users and the mixing station; burners trip on low pressure; at the mixer, air may continue – see N03-01",
+   "sevB": "3",
+   "likB": "4",
+   "sevA": "3",
+   "likA": "3",
+   "comments": "",
+   "id": "dv000341",
+   "ref": "N02-01"
+  },
+  {
+   "nodeId": "nd000147",
+   "seq": 2,
+   "parameter": "Flow",
+   "guideword": "LESS",
+   "deviation": "Pump cavitation / loss of suction",
+   "devAuto": false,
+   "consequence": "Pump dry running – seal failure and liquid propane leak at the pump",
+   "sevB": "4",
+   "likB": "3",
+   "sevA": "4",
+   "likA": "2",
+   "comments": "",
+   "id": "dv000348",
+   "ref": "N02-02"
+  },
+  {
+   "nodeId": "nd000147",
+   "seq": 3,
+   "parameter": "Pressure",
+   "guideword": "MORE",
+   "deviation": "Higher pressure in the vapour header",
+   "devAuto": false,
+   "consequence": "Vapour header (3.5 barg design) and users' fuel trains over-pressured – flange leaks, burner over-firing",
+   "sevB": "4",
+   "likB": "3",
+   "sevA": "4",
+   "likA": "2",
+   "comments": "",
+   "id": "dv000356",
+   "ref": "N02-03"
+  },
+  {
+   "nodeId": "nd000147",
+   "seq": 4,
+   "parameter": "Temperature",
+   "guideword": "LESS",
+   "deviation": "Low vapour temperature – liquid carry-over from the vaporiser",
+   "devAuto": false,
+   "consequence": "Liquid propane carried into the vapour header; liquid at regulators and burners – flare-ups, over-firing, cold embrittlement of carbon-steel piping",
+   "sevB": "4",
+   "likB": "3",
+   "sevA": "4",
+   "likA": "2",
+   "comments": "",
+   "id": "dv000364",
+   "ref": "N02-04"
+  },
+  {
+   "nodeId": "nd000147",
+   "seq": 5,
+   "parameter": "Level",
+   "guideword": "MORE",
+   "deviation": "High liquid level in the vaporiser shell",
+   "devAuto": false,
+   "consequence": "Liquid carry-over to the header (as N02-04)",
+   "sevB": "4",
+   "likB": "3",
+   "sevA": "4",
+   "likA": "2",
+   "comments": "",
+   "id": "dv000372",
+   "ref": "N02-05"
+  },
+  {
+   "nodeId": "nd000147",
+   "seq": 6,
+   "parameter": "Pressure",
+   "guideword": "MORE",
+   "deviation": "Vaporiser overpressure – liquid side",
+   "devAuto": false,
+   "consequence": "Rupture of the vaporiser tube bundle – propane into the water bath and its vent",
+   "sevB": "4",
+   "likB": "2",
+   "sevA": "4",
+   "likA": "1",
+   "comments": "",
+   "id": "dv000378",
+   "ref": "N02-06"
+  },
+  {
+   "nodeId": "nd000147",
+   "seq": 7,
+   "parameter": "Flow",
+   "guideword": "AS WELL AS",
+   "deviation": "Propane in the vaporiser hot-water circuit",
+   "devAuto": false,
+   "consequence": "Propane carried to the hot-water tank vent – flammable atmosphere at the boiler house",
+   "sevB": "4",
+   "likB": "2",
+   "sevA": "4",
+   "likA": "2",
+   "comments": "",
+   "id": "dv000383",
+   "ref": "N02-07"
+  },
+  {
+   "nodeId": "nd000147",
+   "seq": 8,
+   "parameter": "Fire and explosion",
+   "guideword": "REVIEW",
+   "deviation": "Leak from the liquid lines / pump seals",
+   "devAuto": false,
+   "consequence": "Liquid propane release at the pump area; flash fire or jet fire; escalation to the bullets",
+   "sevB": "5",
+   "likB": "3",
+   "sevA": "5",
+   "likA": "2",
+   "comments": "",
+   "id": "dv000386",
+   "ref": "N02-08"
+  },
+  {
+   "nodeId": "nd000147",
+   "seq": 9,
+   "parameter": "Composition",
+   "guideword": "OTHER THAN",
+   "deviation": "Heavier hydrocarbons in the vapour (butane-rich propane)",
+   "devAuto": false,
+   "consequence": "Re-condensation in the cold vapour header in winter; change in heating value at the users",
+   "sevB": "2",
+   "likB": "3",
+   "sevA": "2",
+   "likA": "2",
+   "comments": "",
+   "id": "dv000396",
+   "ref": "N02-09"
+  },
+  {
+   "nodeId": "nd000147",
+   "seq": 10,
+   "parameter": "Utilities / services",
+   "guideword": "LOSS OF",
+   "deviation": "Loss of power to the vaporisers and pumps",
+   "devAuto": false,
+   "consequence": "Loss of supply to the users (controlled trip); on restart, liquid carry-over if the bath is cold",
+   "sevB": "3",
+   "likB": "3",
+   "sevA": "3",
+   "likA": "2",
+   "comments": "",
+   "id": "dv000401",
+   "ref": "N02-10"
+  },
+  {
+   "nodeId": "nd000148",
+   "seq": 1,
+   "parameter": "Flow",
+   "guideword": "LESS",
+   "deviation": "Less / no propane to the mixer while air continues – mixture moves into the flammable range",
+   "devAuto": false,
+   "consequence": "Propane fraction falls from 55 % towards the flammable range (below 9.5 % in air) – explosive mixture in the mixer, surge tank ST-01 and the header to the burners; ignition at a burner flashes back – internal explosion of ST-01 and the header",
+   "sevB": "5",
+   "likB": "4",
+   "sevA": "5",
+   "likA": "4",
+   "comments": "Key scenario of the dilution system. Quantified in fault tree FT-PR-02 (top 1.2E-2 /yr); threat T1 of bow tie BT-PR-02. Likelihood after safeguards from the calculated frequency 1.2E-2 /yr.",
+   "id": "dv000407",
+   "ref": "N03-01"
+  },
+  {
+   "nodeId": "nd000148",
+   "seq": 2,
+   "parameter": "Flow",
+   "guideword": "MORE",
+   "deviation": "More air than set (ratio controller failure)",
+   "devAuto": false,
+   "consequence": "Lower heating value at the burners (flame instability); if severe, mixture approaches the flammable range (as N03-01)",
+   "sevB": "5",
+   "likB": "3",
+   "sevA": "5",
+   "likA": "2",
+   "comments": "",
+   "id": "dv000416",
+   "ref": "N03-02"
+  },
+  {
+   "nodeId": "nd000148",
+   "seq": 3,
+   "parameter": "Flow",
+   "guideword": "REVERSE",
+   "deviation": "Propane back-flow into the air blowers",
+   "devAuto": false,
+   "consequence": "Propane in the blower suction – flammable mixture at the blower motor (not Ex-rated); blower fire",
+   "sevB": "4",
+   "likB": "3",
+   "sevA": "4",
+   "likA": "2",
+   "comments": "",
+   "id": "dv000422",
+   "ref": "N03-03"
+  },
+  {
+   "nodeId": "nd000148",
+   "seq": 4,
+   "parameter": "Pressure",
+   "guideword": "MORE",
+   "deviation": "Higher pressure in the mixer / surge tank",
+   "devAuto": false,
+   "consequence": "Surge tank ST-01 (3.5 barg design) over-pressured – flange leak of propane–air",
+   "sevB": "3",
+   "likB": "3",
+   "sevA": "3",
+   "likA": "2",
+   "comments": "",
+   "id": "dv000427",
+   "ref": "N03-04"
+  },
+  {
+   "nodeId": "nd000148",
+   "seq": 5,
+   "parameter": "Composition",
+   "guideword": "OTHER THAN",
+   "deviation": "Mixture outside specification at the burners",
+   "devAuto": false,
+   "consequence": "Flame instability or over-firing at the reheat-furnace and ladle-preheater burners; flame-out with fuel flow (users' BMS)",
+   "sevB": "3",
+   "likB": "3",
+   "sevA": "3",
+   "likA": "2",
+   "comments": "",
+   "id": "dv000432",
+   "ref": "N03-05"
+  },
+  {
+   "nodeId": "nd000148",
+   "seq": 6,
+   "parameter": "Start-up",
+   "guideword": "REVIEW",
+   "deviation": "Start-up with air in the mixer, surge tank or header",
+   "devAuto": false,
+   "consequence": "Flammable propane–air mixture in ST-01 and the header during start-up; ignition at the first burner light-off – internal explosion",
+   "sevB": "5",
+   "likB": "3",
+   "sevA": "5",
+   "likA": "2",
+   "comments": "Threat T2 of bow tie BT-PR-02.",
+   "id": "dv000438",
+   "ref": "N03-06"
+  },
+  {
+   "nodeId": "nd000148",
+   "seq": 7,
+   "parameter": "Flow",
+   "guideword": "REVERSE",
+   "deviation": "Flashback from the burners into the propane–air header",
+   "devAuto": false,
+   "consequence": "Flame propagation into the header and surge tank – deflagration",
+   "sevB": "5",
+   "likB": "2",
+   "sevA": "5",
+   "likA": "1",
+   "comments": "Threat T3 of bow tie BT-PR-02.",
+   "id": "dv000445",
+   "ref": "N03-07"
+  },
+  {
+   "nodeId": "nd000148",
+   "seq": 8,
+   "parameter": "Fire and explosion",
+   "guideword": "REVIEW",
+   "deviation": "Leak of propane–air from the mixer or header",
+   "devAuto": false,
+   "consequence": "Flammable release near the furnace building (many ignition sources); flash fire",
+   "sevB": "4",
+   "likB": "3",
+   "sevA": "4",
+   "likA": "2",
+   "comments": "",
+   "id": "dv000451",
+   "ref": "N03-08"
+  },
+  {
+   "nodeId": "nd000148",
+   "seq": 9,
+   "parameter": "Utilities / services",
+   "guideword": "LOSS OF",
+   "deviation": "Power failure at the mixing station",
+   "devAuto": false,
+   "consequence": "Blowers stop; propane continues at full pressure to the users (heating value too high) unless XV-01 closes; on restart, sequence must re-establish propane before air",
+   "sevB": "3",
+   "likB": "3",
+   "sevA": "3",
+   "likA": "2",
+   "comments": "",
+   "id": "dv000458",
+   "ref": "N03-09"
+  }
+ ],
+ "causes": [
+  {
+   "id": "cz000253",
+   "deviationId": "dv000252",
+   "seq": 1,
+   "text": "Compressor C-01/C-02/C-03 trip or malfunction (source)"
+  },
+  {
+   "id": "cz000254",
+   "deviationId": "dv000252",
+   "seq": 2,
+   "text": "Vapour return valve closed"
+  },
+  {
+   "id": "cz000258",
+   "deviationId": "dv000257",
+   "seq": 1,
+   "text": "ROV-1 stuck closed (source)"
+  },
+  {
+   "id": "cz000259",
+   "deviationId": "dv000257",
+   "seq": 2,
+   "text": "Tank inlet ROV-11/21/31 closed (wrong tank selected or trip)"
+  },
+  {
+   "id": "cz000265",
+   "deviationId": "dv000264",
+   "seq": 1,
+   "text": "More pressure difference in tanker and tank (source)"
+  },
+  {
+   "id": "cz000266",
+   "deviationId": "dv000264",
+   "seq": 2,
+   "text": "Compressor run at full speed on a near-empty tank"
+  },
+  {
+   "id": "cz000271",
+   "deviationId": "dv000270",
+   "seq": 1,
+   "text": "Tank inlet closed while the compressor delivers vapour to the tanker side"
+  },
+  {
+   "id": "cz000272",
+   "deviationId": "dv000270",
+   "seq": 2,
+   "text": "Hot weather – vapour pressure 16 barg at 50 °C"
+  },
+  {
+   "id": "cz000273",
+   "deviationId": "dv000270",
+   "seq": 3,
+   "text": "Liquid overfill – no vapour space left (see N01-06)"
+  },
+  {
+   "id": "cz000279",
+   "deviationId": "dv000278",
+   "seq": 1,
+   "text": "Covered in less flow (source)"
+  },
+  {
+   "id": "cz000280",
+   "deviationId": "dv000278",
+   "seq": 2,
+   "text": "Vapour drawn off faster than the liquid vaporises in winter"
+  },
+  {
+   "id": "cz000283",
+   "deviationId": "dv000282",
+   "seq": 1,
+   "text": "Transfer not stopped at high level (source)"
+  },
+  {
+   "id": "cz000284",
+   "deviationId": "dv000282",
+   "seq": 2,
+   "text": "Wrong ullage – delivery larger than the free volume"
+  },
+  {
+   "id": "cz000285",
+   "deviationId": "dv000282",
+   "seq": 3,
+   "text": "Level transmitter LT-11/21/31 reads low (drift, stuck float)"
+  },
+  {
+   "id": "cz000293",
+   "deviationId": "dv000292",
+   "seq": 1,
+   "text": "External fire (source)"
+  },
+  {
+   "id": "cz000294",
+   "deviationId": "dv000292",
+   "seq": 2,
+   "text": "Pool fire from a release at the unloading bay"
+  },
+  {
+   "id": "cz000304",
+   "deviationId": "dv000303",
+   "seq": 1,
+   "text": "Rapid depressurisation / venting of liquid propane (auto-refrigeration to −42 °C)"
+  },
+  {
+   "id": "cz000305",
+   "deviationId": "dv000303",
+   "seq": 2,
+   "text": "Liquid leak through a valve – flashing liquid chills the line"
+  },
+  {
+   "id": "cz000310",
+   "deviationId": "dv000309",
+   "seq": 1,
+   "text": "Unloading arm or hose failure (wear, kinking, wrong gasket)"
+  },
+  {
+   "id": "cz000311",
+   "deviationId": "dv000309",
+   "seq": 2,
+   "text": "Coupling not fully engaged"
+  },
+  {
+   "id": "cz000318",
+   "deviationId": "dv000317",
+   "seq": 1,
+   "text": "Driver moves the tanker before disconnection"
+  },
+  {
+   "id": "cz000319",
+   "deviationId": "dv000317",
+   "seq": 2,
+   "text": "Brakes not applied / chocks missing"
+  },
+  {
+   "id": "cz000325",
+   "deviationId": "dv000324",
+   "seq": 1,
+   "text": "NA (source)"
+  },
+  {
+   "id": "cz000326",
+   "deviationId": "dv000324",
+   "seq": 2,
+   "text": "Water in the delivered propane"
+  },
+  {
+   "id": "cz000327",
+   "deviationId": "dv000324",
+   "seq": 3,
+   "text": "Butane-rich delivery (wrong grade)"
+  },
+  {
+   "id": "cz000331",
+   "deviationId": "dv000330",
+   "seq": 1,
+   "text": "Power failure (source)"
+  },
+  {
+   "id": "cz000332",
+   "deviationId": "dv000330",
+   "seq": 2,
+   "text": "Instrument air failure"
+  },
+  {
+   "id": "cz000337",
+   "deviationId": "dv000336",
+   "seq": 1,
+   "text": "Isolation by a single valve; liquid trapped between valves"
+  },
+  {
+   "id": "cz000338",
+   "deviationId": "dv000336",
+   "seq": 2,
+   "text": "Purge not complete before hot work"
+  },
+  {
+   "id": "cz000342",
+   "deviationId": "dv000341",
+   "seq": 1,
+   "text": "Pump P-01/P-02 trip"
+  },
+  {
+   "id": "cz000343",
+   "deviationId": "dv000341",
+   "seq": 2,
+   "text": "Bullet outlet valve ROV-12/22/32 closed"
+  },
+  {
+   "id": "cz000344",
+   "deviationId": "dv000341",
+   "seq": 3,
+   "text": "Bullet empty / low level"
+  },
+  {
+   "id": "cz000349",
+   "deviationId": "dv000348",
+   "seq": 1,
+   "text": "Low liquid level in the bullet"
+  },
+  {
+   "id": "cz000350",
+   "deviationId": "dv000348",
+   "seq": 2,
+   "text": "Strainer blocked"
+  },
+  {
+   "id": "cz000351",
+   "deviationId": "dv000348",
+   "seq": 3,
+   "text": "High liquid temperature (summer) – low NPSH margin"
+  },
+  {
+   "id": "cz000357",
+   "deviationId": "dv000356",
+   "seq": 1,
+   "text": "PCV-01 fails open"
+  },
+  {
+   "id": "cz000358",
+   "deviationId": "dv000356",
+   "seq": 2,
+   "text": "Regulator sensing line blocked"
+  },
+  {
+   "id": "cz000359",
+   "deviationId": "dv000356",
+   "seq": 3,
+   "text": "Vaporiser over-heating raises the pressure upstream"
+  },
+  {
+   "id": "cz000365",
+   "deviationId": "dv000364",
+   "seq": 1,
+   "text": "Vaporiser bath heater failure"
+  },
+  {
+   "id": "cz000366",
+   "deviationId": "dv000364",
+   "seq": 2,
+   "text": "Flow above the vaporiser capacity"
+  },
+  {
+   "id": "cz000367",
+   "deviationId": "dv000364",
+   "seq": 3,
+   "text": "Bath water level low"
+  },
+  {
+   "id": "cz000373",
+   "deviationId": "dv000372",
+   "seq": 1,
+   "text": "Inlet control valve fails open"
+  },
+  {
+   "id": "cz000374",
+   "deviationId": "dv000372",
+   "seq": 2,
+   "text": "Vapour draw-off restricted"
+  },
+  {
+   "id": "cz000379",
+   "deviationId": "dv000378",
+   "seq": 1,
+   "text": "Liquid blocked in between closed valves and heated (thermal expansion)"
+  },
+  {
+   "id": "cz000380",
+   "deviationId": "dv000378",
+   "seq": 2,
+   "text": "Bath over-temperature"
+  },
+  {
+   "id": "cz000384",
+   "deviationId": "dv000383",
+   "seq": 1,
+   "text": "Tube leak in VAP-01/VAP-02"
+  },
+  {
+   "id": "cz000387",
+   "deviationId": "dv000386",
+   "seq": 1,
+   "text": "Pump seal failure"
+  },
+  {
+   "id": "cz000388",
+   "deviationId": "dv000386",
+   "seq": 2,
+   "text": "Flange gasket failure"
+  },
+  {
+   "id": "cz000389",
+   "deviationId": "dv000386",
+   "seq": 3,
+   "text": "Corrosion under insulation at the liquid lines"
+  },
+  {
+   "id": "cz000397",
+   "deviationId": "dv000396",
+   "seq": 1,
+   "text": "Off-spec delivery"
+  },
+  {
+   "id": "cz000398",
+   "deviationId": "dv000396",
+   "seq": 2,
+   "text": "Residue accumulation in the vaporiser"
+  },
+  {
+   "id": "cz000402",
+   "deviationId": "dv000401",
+   "seq": 1,
+   "text": "Power failure"
+  },
+  {
+   "id": "cz000403",
+   "deviationId": "dv000401",
+   "seq": 2,
+   "text": "Vaporiser heater trip"
+  },
+  {
+   "id": "cz000408",
+   "deviationId": "dv000407",
+   "seq": 1,
+   "text": "Loss of propane vapour supply (vaporiser trip, PCV-01 closes, header low pressure)"
+  },
+  {
+   "id": "cz000409",
+   "deviationId": "dv000407",
+   "seq": 2,
+   "text": "XV-01 closes spuriously"
+  },
+  {
+   "id": "cz000410",
+   "deviationId": "dv000407",
+   "seq": 3,
+   "text": "FFIC-01 propane flow transmitter fails high"
+  },
+  {
+   "id": "cz000417",
+   "deviationId": "dv000416",
+   "seq": 1,
+   "text": "FFIC-01 fails / air flow transmitter fails low"
+  },
+  {
+   "id": "cz000418",
+   "deviationId": "dv000416",
+   "seq": 2,
+   "text": "Blower B-01/B-02 speed control fault"
+  },
+  {
+   "id": "cz000423",
+   "deviationId": "dv000422",
+   "seq": 1,
+   "text": "Blower trip with propane pressure higher than the air side"
+  },
+  {
+   "id": "cz000424",
+   "deviationId": "dv000422",
+   "seq": 2,
+   "text": "NRV-01 passing"
+  },
+  {
+   "id": "cz000428",
+   "deviationId": "dv000427",
+   "seq": 1,
+   "text": "Users' fuel valves close quickly (load rejection)"
+  },
+  {
+   "id": "cz000429",
+   "deviationId": "dv000427",
+   "seq": 2,
+   "text": "Propane regulator PCV-01 fails open (N02-03)"
+  },
+  {
+   "id": "cz000433",
+   "deviationId": "dv000432",
+   "seq": 1,
+   "text": "AT-01 drift"
+  },
+  {
+   "id": "cz000434",
+   "deviationId": "dv000432",
+   "seq": 2,
+   "text": "Butane-rich vapour (N02-09)"
+  },
+  {
+   "id": "cz000439",
+   "deviationId": "dv000438",
+   "seq": 1,
+   "text": "Purge not done or incomplete after maintenance"
+  },
+  {
+   "id": "cz000440",
+   "deviationId": "dv000438",
+   "seq": 2,
+   "text": "Blowers started before propane is established"
+  },
+  {
+   "id": "cz000446",
+   "deviationId": "dv000445",
+   "seq": 1,
+   "text": "Header pressure lower than furnace pressure"
+  },
+  {
+   "id": "cz000447",
+   "deviationId": "dv000445",
+   "seq": 2,
+   "text": "Burner flashback when the mixture is near the flammable range"
+  },
+  {
+   "id": "cz000452",
+   "deviationId": "dv000451",
+   "seq": 1,
+   "text": "Flange or expansion-joint failure"
+  },
+  {
+   "id": "cz000453",
+   "deviationId": "dv000451",
+   "seq": 2,
+   "text": "Corrosion of the header"
+  },
+  {
+   "id": "cz000459",
+   "deviationId": "dv000458",
+   "seq": 1,
+   "text": "Power failure"
+  },
+  {
+   "id": "cz000460",
+   "deviationId": "dv000458",
+   "seq": 2,
+   "text": "UPS failure"
+  }
+ ],
+ "safeguards": [
+  {
+   "tag": "C-01/C-02/C-03",
+   "description": "Standby vapour compressor available (source)",
+   "type": "BPCS control loop",
+   "iplCandidate": "No",
+   "notes": "",
+   "id": "sg000191",
+   "key": "STBYCOMP"
+  },
+  {
+   "tag": "C-01/C-02/C-03",
+   "description": "Compressor discharge high-pressure trip at 20.6 barg (source: 21 kg/cm2)",
+   "type": "SIF / SIS trip",
+   "iplCandidate": "No",
+   "notes": "",
+   "id": "sg000192",
+   "key": "COMPTRIP"
+  },
+  {
+   "tag": "",
+   "description": "Tanker designed for 20.6 barg; bullets designed for 17.5 barg (source)",
+   "type": "Inherent design",
+   "iplCandidate": "Yes",
+   "notes": "",
+   "id": "sg000193",
+   "key": "TANKDES"
+  },
+  {
+   "tag": "PG-01",
+   "description": "Pressure gauges PG-01, PG-12, PG-13, PG-14 on the unloading header and bullets; tanker pressure gauge (source)",
+   "type": "Alarm with operator response",
+   "iplCandidate": "No",
+   "notes": "",
+   "id": "sg000194",
+   "key": "PG"
+  },
+  {
+   "tag": "PSV-11/21/31",
+   "description": "Bullet relief valves PSV-11/21/31 at 17.5 barg, fire-case sized, discharging vertically upwards (source: 'PSV provided')",
+   "type": "Relief device (PSV / rupture disc / vent)",
+   "iplCandidate": "Yes",
+   "notes": "",
+   "id": "sg000195",
+   "key": "PSVTANK"
+  },
+  {
+   "tag": "PRV-01",
+   "description": "Thermal relief valve PRV-01 on the unloading liquid line (source)",
+   "type": "Relief device (PSV / rupture disc / vent)",
+   "iplCandidate": "Yes",
+   "notes": "",
+   "id": "sg000196",
+   "key": "PRV01"
+  },
+  {
+   "tag": "EBI-1",
+   "description": "Tanker, line and tanks earthed; earth bonding interlock EBI-1 prevents compressor start without a verified tanker earth",
+   "type": "Mechanical device (check valve, RO, limiter)",
+   "iplCandidate": "No",
+   "notes": "",
+   "id": "sg000197",
+   "key": "EARTH"
+  },
+  {
+   "tag": "GLD-1/2/3",
+   "description": "Gas leak detectors GLD-1, GLD-2, GLD-3 at the unloading bay and tank farm with alarm (source)",
+   "type": "Alarm with operator response",
+   "iplCandidate": "No",
+   "notes": "",
+   "id": "sg000198",
+   "key": "GLD"
+  },
+  {
+   "tag": "",
+   "description": "Water sprinklers on the bullets and the tanker unloading station (source), 10 l/min/m2",
+   "type": "Emergency response / mitigation",
+   "iplCandidate": "No",
+   "notes": "",
+   "id": "sg000199",
+   "key": "SPRINK"
+  },
+  {
+   "tag": "LT-11/21/31",
+   "description": "High-high level trip LAHH (85 %) from LT-11/21/31 closes ROV-11/21/31 and stops the compressors (source: LT closes ROV)",
+   "type": "SIF / SIS trip",
+   "iplCandidate": "Yes",
+   "notes": "",
+   "id": "sg000200",
+   "key": "OVERFILL"
+  },
+  {
+   "tag": "LT-11/21/31",
+   "description": "High level alarm LAH at 80 % with operator response (stop unloading)",
+   "type": "Alarm with operator response",
+   "iplCandidate": "Yes",
+   "notes": "",
+   "id": "sg000201",
+   "key": "LAH"
+  },
+  {
+   "tag": "",
+   "description": "Tanker unloading procedure OP-PR-010 and checklist: ullage check before unloading, operator in attendance throughout",
+   "type": "Procedure / administrative control",
+   "iplCandidate": "No",
+   "notes": "",
+   "id": "sg000202",
+   "key": "UNLPROC"
+  },
+  {
+   "tag": "ROV-1",
+   "description": "All ROVs and solenoid valves fail closed on loss of power or air (source)",
+   "type": "Inherent design",
+   "iplCandidate": "No",
+   "notes": "",
+   "id": "sg000203",
+   "key": "ROVFAIL"
+  },
+  {
+   "tag": "ERC-1",
+   "description": "Emergency release coupling ERC-1 on the unloading arm with self-closing valves on both sides",
+   "type": "Mechanical device (check valve, RO, limiter)",
+   "iplCandidate": "Yes",
+   "notes": "",
+   "id": "sg000204",
+   "key": "ERC"
+  },
+  {
+   "tag": "",
+   "description": "Tanker brake interlock and wheel chocks; keys held by the unloading operator",
+   "type": "Mechanical device (check valve, RO, limiter)",
+   "iplCandidate": "No",
+   "notes": "",
+   "id": "sg000205",
+   "key": "BRAKE"
+  },
+  {
+   "tag": "UCP-1",
+   "description": "Gas detection GLD-1/2/3 (1oo3) and manual ESD ESD-1 close ROV-1 and ROV-11/21/31 and stop C-01/C-02/C-03 (logic UCP-1)",
+   "type": "SIF / SIS trip",
+   "iplCandidate": "Yes",
+   "notes": "",
+   "id": "sg000206",
+   "key": "ESD"
+  },
+  {
+   "tag": "ESD-1",
+   "description": "Manual ESD push buttons at the unloading bay, tank farm and control room",
+   "type": "Alarm with operator response",
+   "iplCandidate": "No",
+   "notes": "",
+   "id": "sg000207",
+   "key": "MANESD"
+  },
+  {
+   "tag": "",
+   "description": "Unloading arm / hose inspection and annual pressure test; leak test before each transfer",
+   "type": "Inspection / maintenance / testing",
+   "iplCandidate": "No",
+   "notes": "",
+   "id": "sg000208",
+   "key": "HOSEINSP"
+  },
+  {
+   "tag": "",
+   "description": "Bullets and liquid lines in low-temperature carbon steel (design min. −45 °C)",
+   "type": "Inherent design",
+   "iplCandidate": "Yes",
+   "notes": "",
+   "id": "sg000209",
+   "key": "MDMT"
+  },
+  {
+   "tag": "",
+   "description": "Depressurisation procedure: no rapid venting of liquid-full equipment; vent only vapour to the flare stack",
+   "type": "Procedure / administrative control",
+   "iplCandidate": "No",
+   "notes": "",
+   "id": "sg000210",
+   "key": "DEPRESS"
+  },
+  {
+   "tag": "",
+   "description": "Ignition source control – Ex equipment in zoned areas, hot-work permits, vehicle control, no mobile phones at the bay",
+   "type": "Inherent design",
+   "iplCandidate": "No",
+   "notes": "",
+   "id": "sg000211",
+   "key": "IGN"
+  },
+  {
+   "tag": "",
+   "description": "Separation distances to buildings, roads and the furnace area; bunded / kerbed impoundment sloped away from the bullets",
+   "type": "Physical containment / bund / dyke",
+   "iplCandidate": "No",
+   "notes": "",
+   "id": "sg000212",
+   "key": "SEPARATION"
+  },
+  {
+   "tag": "",
+   "description": "Emergency response team and fire brigade; LPG emergency plan (cooling, evacuation radius)",
+   "type": "Emergency response / mitigation",
+   "iplCandidate": "No",
+   "notes": "",
+   "id": "sg000213",
+   "key": "ERT"
+  },
+  {
+   "tag": "P-01/P-02",
+   "description": "Pump minimum-flow recycle and low-suction-pressure trip",
+   "type": "BPCS control loop",
+   "iplCandidate": "No",
+   "notes": "",
+   "id": "sg000214",
+   "key": "PUMPPROT"
+  },
+  {
+   "tag": "P-01/P-02",
+   "description": "Double mechanical seals with seal-pot pressure alarm on P-01/P-02",
+   "type": "Mechanical device (check valve, RO, limiter)",
+   "iplCandidate": "No",
+   "notes": "",
+   "id": "sg000215",
+   "key": "SEAL"
+  },
+  {
+   "tag": "VAP-01/VAP-02",
+   "description": "Vaporiser bath temperature control with duty / standby vaporisers",
+   "type": "BPCS control loop",
+   "iplCandidate": "No",
+   "notes": "",
+   "id": "sg000216",
+   "key": "VAPCTRL"
+  },
+  {
+   "tag": "TSL-01",
+   "description": "Low vapour outlet temperature trip TSL-01 (10 °C) closes the vaporiser liquid inlet",
+   "type": "SIF / SIS trip",
+   "iplCandidate": "Yes",
+   "notes": "",
+   "id": "sg000217",
+   "key": "TSL01"
+  },
+  {
+   "tag": "LSH-01",
+   "description": "High liquid level trip LSH-01 in the vaporiser shell closes the liquid inlet (liquid carry-over protection)",
+   "type": "SIF / SIS trip",
+   "iplCandidate": "Yes",
+   "notes": "",
+   "id": "sg000218",
+   "key": "LSH01"
+  },
+  {
+   "tag": "PSV-02",
+   "description": "Vaporiser relief valve PSV-02 at 20 barg",
+   "type": "Relief device (PSV / rupture disc / vent)",
+   "iplCandidate": "Yes",
+   "notes": "",
+   "id": "sg000219",
+   "key": "PSV02"
+  },
+  {
+   "tag": "SSV-01",
+   "description": "Slam-shut valve SSV-01 upstream of PCV-01 closes at 2.5 barg (over-pressure shut-off)",
+   "type": "Mechanical device (check valve, RO, limiter)",
+   "iplCandidate": "Yes",
+   "notes": "",
+   "id": "sg000220",
+   "key": "SSV01"
+  },
+  {
+   "tag": "PSV-03",
+   "description": "Vapour header relief valve PSV-03 at 3.0 barg to a safe location",
+   "type": "Relief device (PSV / rupture disc / vent)",
+   "iplCandidate": "Yes",
+   "notes": "",
+   "id": "sg000221",
+   "key": "PSV03"
+  },
+  {
+   "tag": "PT-02",
+   "description": "Vapour header pressure alarms PAH / PAL on PT-02 with operator response",
+   "type": "Alarm with operator response",
+   "iplCandidate": "No",
+   "notes": "",
+   "id": "sg000222",
+   "key": "PAL02"
+  },
+  {
+   "tag": "",
+   "description": "Low-low fuel pressure trips in the users' burner management systems",
+   "type": "SIF / SIS trip",
+   "iplCandidate": "Yes",
+   "notes": "",
+   "id": "sg000223",
+   "key": "USERBMS"
+  },
+  {
+   "tag": "FFIC-01",
+   "description": "Propane / air ratio controller FFIC-01 with cross-limiting (air follows propane)",
+   "type": "BPCS control loop",
+   "iplCandidate": "No",
+   "notes": "",
+   "id": "sg000224",
+   "key": "RATIO"
+  },
+  {
+   "tag": "PSLL-01",
+   "description": "Low propane pressure trip PSLL-01: stops B-01/B-02 and closes XV-01 / XV-02 (mixture trip)",
+   "type": "SIF / SIS trip",
+   "iplCandidate": "Yes",
+   "notes": "",
+   "id": "sg000225",
+   "key": "PSLL01"
+  },
+  {
+   "tag": "AT-01",
+   "description": "Calorimeter / Wobbe analyser AT-01 with low-heating-value trip (independent of FFIC-01)",
+   "type": "SIF / SIS trip",
+   "iplCandidate": "Yes",
+   "notes": "",
+   "id": "sg000226",
+   "key": "AT01"
+  },
+  {
+   "tag": "FA-01",
+   "description": "In-line flame arrester FA-01 on the propane–air header to the users",
+   "type": "Mechanical device (check valve, RO, limiter)",
+   "iplCandidate": "Yes",
+   "notes": "",
+   "id": "sg000227",
+   "key": "FA01"
+  },
+  {
+   "tag": "EP-01",
+   "description": "Explosion vent panel EP-01 on surge tank ST-01",
+   "type": "Physical containment / bund / dyke",
+   "iplCandidate": "Yes",
+   "notes": "",
+   "id": "sg000228",
+   "key": "EP01"
+  },
+  {
+   "tag": "PSV-04",
+   "description": "Surge tank relief valve PSV-04 at 2.0 barg",
+   "type": "Relief device (PSV / rupture disc / vent)",
+   "iplCandidate": "Yes",
+   "notes": "",
+   "id": "sg000229",
+   "key": "PSV04"
+  },
+  {
+   "tag": "",
+   "description": "Start-up procedure OP-PR-020: N2 purge of mixer and surge tank, propane established before air, mixture verified by AT-01 before supply",
+   "type": "Procedure / administrative control",
+   "iplCandidate": "No",
+   "notes": "",
+   "id": "sg000230",
+   "key": "MIXPROC"
+  },
+  {
+   "tag": "NRV-01",
+   "description": "Non-return valve NRV-01 on the air line to MX-01 (prevents propane back-flow into the blowers)",
+   "type": "Mechanical device (check valve, RO, limiter)",
+   "iplCandidate": "No",
+   "notes": "",
+   "id": "sg000231",
+   "key": "NRV"
+  },
+  {
+   "tag": "UPS-1",
+   "description": "UPS for UCP-1 and the gas detection (30 min); ROVs fail closed",
+   "type": "Inherent design",
+   "iplCandidate": "No",
+   "notes": "",
+   "id": "sg000232",
+   "key": "UPS"
+  },
+  {
+   "tag": "",
+   "description": "Permit-to-work with isolation verification, N2 purge / gas-free test and fire watch",
+   "type": "Procedure / administrative control",
+   "iplCandidate": "No",
+   "notes": "",
+   "id": "sg000233",
+   "key": "PTW"
+  },
+  {
+   "tag": "",
+   "description": "Proof testing – annual trip tests of the overfill and mixture trips; quarterly gas-detector bump tests",
+   "type": "Inspection / maintenance / testing",
+   "iplCandidate": "No",
+   "notes": "",
+   "id": "sg000234",
+   "key": "PROOF"
+  }
+ ],
+ "devSafeguards": [
+  {
+   "id": "ds000255",
+   "deviationId": "dv000252",
+   "safeguardId": "sg000191",
+   "ipl": false,
+   "seq": 1
+  },
+  {
+   "id": "ds000260",
+   "deviationId": "dv000257",
+   "safeguardId": "sg000192",
+   "ipl": false,
+   "seq": 1
+  },
+  {
+   "id": "ds000261",
+   "deviationId": "dv000257",
+   "safeguardId": "sg000193",
+   "ipl": true,
+   "seq": 2
+  },
+  {
+   "id": "ds000262",
+   "deviationId": "dv000257",
+   "safeguardId": "sg000194",
+   "ipl": false,
+   "seq": 3
+  },
+  {
+   "id": "ds000267",
+   "deviationId": "dv000264",
+   "safeguardId": "sg000197",
+   "ipl": false,
+   "seq": 1
+  },
+  {
+   "id": "ds000268",
+   "deviationId": "dv000264",
+   "safeguardId": "sg000211",
+   "ipl": false,
+   "seq": 2
+  },
+  {
+   "id": "ds000274",
+   "deviationId": "dv000270",
+   "safeguardId": "sg000195",
+   "ipl": true,
+   "seq": 1
+  },
+  {
+   "id": "ds000275",
+   "deviationId": "dv000270",
+   "safeguardId": "sg000194",
+   "ipl": false,
+   "seq": 2
+  },
+  {
+   "id": "ds000276",
+   "deviationId": "dv000270",
+   "safeguardId": "sg000192",
+   "ipl": false,
+   "seq": 3
+  },
+  {
+   "id": "ds000281",
+   "deviationId": "dv000278",
+   "safeguardId": "sg000191",
+   "ipl": false,
+   "seq": 1
+  },
+  {
+   "id": "ds000286",
+   "deviationId": "dv000282",
+   "safeguardId": "sg000200",
+   "ipl": true,
+   "seq": 1
+  },
+  {
+   "id": "ds000287",
+   "deviationId": "dv000282",
+   "safeguardId": "sg000201",
+   "ipl": true,
+   "seq": 2
+  },
+  {
+   "id": "ds000288",
+   "deviationId": "dv000282",
+   "safeguardId": "sg000202",
+   "ipl": false,
+   "seq": 3
+  },
+  {
+   "id": "ds000289",
+   "deviationId": "dv000282",
+   "safeguardId": "sg000195",
+   "ipl": false,
+   "seq": 4
+  },
+  {
+   "id": "ds000295",
+   "deviationId": "dv000292",
+   "safeguardId": "sg000195",
+   "ipl": true,
+   "seq": 1
+  },
+  {
+   "id": "ds000296",
+   "deviationId": "dv000292",
+   "safeguardId": "sg000196",
+   "ipl": false,
+   "seq": 2
+  },
+  {
+   "id": "ds000297",
+   "deviationId": "dv000292",
+   "safeguardId": "sg000198",
+   "ipl": false,
+   "seq": 3
+  },
+  {
+   "id": "ds000298",
+   "deviationId": "dv000292",
+   "safeguardId": "sg000199",
+   "ipl": false,
+   "seq": 4
+  },
+  {
+   "id": "ds000299",
+   "deviationId": "dv000292",
+   "safeguardId": "sg000207",
+   "ipl": false,
+   "seq": 5
+  },
+  {
+   "id": "ds000300",
+   "deviationId": "dv000292",
+   "safeguardId": "sg000213",
+   "ipl": false,
+   "seq": 6
+  },
+  {
+   "id": "ds000306",
+   "deviationId": "dv000303",
+   "safeguardId": "sg000209",
+   "ipl": true,
+   "seq": 1
+  },
+  {
+   "id": "ds000307",
+   "deviationId": "dv000303",
+   "safeguardId": "sg000210",
+   "ipl": false,
+   "seq": 2
+  },
+  {
+   "id": "ds000312",
+   "deviationId": "dv000309",
+   "safeguardId": "sg000208",
+   "ipl": false,
+   "seq": 1
+  },
+  {
+   "id": "ds000313",
+   "deviationId": "dv000309",
+   "safeguardId": "sg000206",
+   "ipl": true,
+   "seq": 2
+  },
+  {
+   "id": "ds000314",
+   "deviationId": "dv000309",
+   "safeguardId": "sg000198",
+   "ipl": false,
+   "seq": 3
+  },
+  {
+   "id": "ds000315",
+   "deviationId": "dv000309",
+   "safeguardId": "sg000211",
+   "ipl": false,
+   "seq": 4
+  },
+  {
+   "id": "ds000320",
+   "deviationId": "dv000317",
+   "safeguardId": "sg000205",
+   "ipl": false,
+   "seq": 1
+  },
+  {
+   "id": "ds000321",
+   "deviationId": "dv000317",
+   "safeguardId": "sg000204",
+   "ipl": true,
+   "seq": 2
+  },
+  {
+   "id": "ds000322",
+   "deviationId": "dv000317",
+   "safeguardId": "sg000202",
+   "ipl": false,
+   "seq": 3
+  },
+  {
+   "id": "ds000328",
+   "deviationId": "dv000324",
+   "safeguardId": "sg000202",
+   "ipl": false,
+   "seq": 1
+  },
+  {
+   "id": "ds000333",
+   "deviationId": "dv000330",
+   "safeguardId": "sg000203",
+   "ipl": true,
+   "seq": 1
+  },
+  {
+   "id": "ds000334",
+   "deviationId": "dv000330",
+   "safeguardId": "sg000232",
+   "ipl": false,
+   "seq": 2
+  },
+  {
+   "id": "ds000339",
+   "deviationId": "dv000336",
+   "safeguardId": "sg000233",
+   "ipl": false,
+   "seq": 1
+  },
+  {
+   "id": "ds000340",
+   "deviationId": "dv000336",
+   "safeguardId": "sg000211",
+   "ipl": false,
+   "seq": 2
+  },
+  {
+   "id": "ds000345",
+   "deviationId": "dv000341",
+   "safeguardId": "sg000214",
+   "ipl": false,
+   "seq": 1
+  },
+  {
+   "id": "ds000346",
+   "deviationId": "dv000341",
+   "safeguardId": "sg000222",
+   "ipl": false,
+   "seq": 2
+  },
+  {
+   "id": "ds000347",
+   "deviationId": "dv000341",
+   "safeguardId": "sg000223",
+   "ipl": true,
+   "seq": 3
+  },
+  {
+   "id": "ds000352",
+   "deviationId": "dv000348",
+   "safeguardId": "sg000214",
+   "ipl": false,
+   "seq": 1
+  },
+  {
+   "id": "ds000353",
+   "deviationId": "dv000348",
+   "safeguardId": "sg000215",
+   "ipl": false,
+   "seq": 2
+  },
+  {
+   "id": "ds000354",
+   "deviationId": "dv000348",
+   "safeguardId": "sg000198",
+   "ipl": false,
+   "seq": 3
+  },
+  {
+   "id": "ds000360",
+   "deviationId": "dv000356",
+   "safeguardId": "sg000220",
+   "ipl": true,
+   "seq": 1
+  },
+  {
+   "id": "ds000361",
+   "deviationId": "dv000356",
+   "safeguardId": "sg000221",
+   "ipl": true,
+   "seq": 2
+  },
+  {
+   "id": "ds000362",
+   "deviationId": "dv000356",
+   "safeguardId": "sg000222",
+   "ipl": false,
+   "seq": 3
+  },
+  {
+   "id": "ds000368",
+   "deviationId": "dv000364",
+   "safeguardId": "sg000216",
+   "ipl": false,
+   "seq": 1
+  },
+  {
+   "id": "ds000369",
+   "deviationId": "dv000364",
+   "safeguardId": "sg000217",
+   "ipl": true,
+   "seq": 2
+  },
+  {
+   "id": "ds000370",
+   "deviationId": "dv000364",
+   "safeguardId": "sg000218",
+   "ipl": false,
+   "seq": 3
+  },
+  {
+   "id": "ds000375",
+   "deviationId": "dv000372",
+   "safeguardId": "sg000218",
+   "ipl": true,
+   "seq": 1
+  },
+  {
+   "id": "ds000376",
+   "deviationId": "dv000372",
+   "safeguardId": "sg000217",
+   "ipl": false,
+   "seq": 2
+  },
+  {
+   "id": "ds000381",
+   "deviationId": "dv000378",
+   "safeguardId": "sg000219",
+   "ipl": true,
+   "seq": 1
+  },
+  {
+   "id": "ds000382",
+   "deviationId": "dv000378",
+   "safeguardId": "sg000216",
+   "ipl": false,
+   "seq": 2
+  },
+  {
+   "id": "ds000385",
+   "deviationId": "dv000383",
+   "safeguardId": "sg000198",
+   "ipl": false,
+   "seq": 1
+  },
+  {
+   "id": "ds000390",
+   "deviationId": "dv000386",
+   "safeguardId": "sg000215",
+   "ipl": false,
+   "seq": 1
+  },
+  {
+   "id": "ds000391",
+   "deviationId": "dv000386",
+   "safeguardId": "sg000198",
+   "ipl": false,
+   "seq": 2
+  },
+  {
+   "id": "ds000392",
+   "deviationId": "dv000386",
+   "safeguardId": "sg000206",
+   "ipl": true,
+   "seq": 3
+  },
+  {
+   "id": "ds000393",
+   "deviationId": "dv000386",
+   "safeguardId": "sg000212",
+   "ipl": false,
+   "seq": 4
+  },
+  {
+   "id": "ds000399",
+   "deviationId": "dv000396",
+   "safeguardId": "sg000202",
+   "ipl": false,
+   "seq": 1
+  },
+  {
+   "id": "ds000404",
+   "deviationId": "dv000401",
+   "safeguardId": "sg000217",
+   "ipl": true,
+   "seq": 1
+  },
+  {
+   "id": "ds000405",
+   "deviationId": "dv000401",
+   "safeguardId": "sg000223",
+   "ipl": false,
+   "seq": 2
+  },
+  {
+   "id": "ds000411",
+   "deviationId": "dv000407",
+   "safeguardId": "sg000225",
+   "ipl": true,
+   "seq": 1
+  },
+  {
+   "id": "ds000412",
+   "deviationId": "dv000407",
+   "safeguardId": "sg000224",
+   "ipl": false,
+   "seq": 2
+  },
+  {
+   "id": "ds000413",
+   "deviationId": "dv000407",
+   "safeguardId": "sg000226",
+   "ipl": true,
+   "seq": 3
+  },
+  {
+   "id": "ds000414",
+   "deviationId": "dv000407",
+   "safeguardId": "sg000227",
+   "ipl": false,
+   "seq": 4
+  },
+  {
+   "id": "ds000419",
+   "deviationId": "dv000416",
+   "safeguardId": "sg000226",
+   "ipl": true,
+   "seq": 1
+  },
+  {
+   "id": "ds000420",
+   "deviationId": "dv000416",
+   "safeguardId": "sg000224",
+   "ipl": false,
+   "seq": 2
+  },
+  {
+   "id": "ds000425",
+   "deviationId": "dv000422",
+   "safeguardId": "sg000231",
+   "ipl": false,
+   "seq": 1
+  },
+  {
+   "id": "ds000426",
+   "deviationId": "dv000422",
+   "safeguardId": "sg000225",
+   "ipl": false,
+   "seq": 2
+  },
+  {
+   "id": "ds000430",
+   "deviationId": "dv000427",
+   "safeguardId": "sg000229",
+   "ipl": true,
+   "seq": 1
+  },
+  {
+   "id": "ds000431",
+   "deviationId": "dv000427",
+   "safeguardId": "sg000220",
+   "ipl": false,
+   "seq": 2
+  },
+  {
+   "id": "ds000435",
+   "deviationId": "dv000432",
+   "safeguardId": "sg000226",
+   "ipl": false,
+   "seq": 1
+  },
+  {
+   "id": "ds000436",
+   "deviationId": "dv000432",
+   "safeguardId": "sg000223",
+   "ipl": true,
+   "seq": 2
+  },
+  {
+   "id": "ds000441",
+   "deviationId": "dv000438",
+   "safeguardId": "sg000230",
+   "ipl": false,
+   "seq": 1
+  },
+  {
+   "id": "ds000442",
+   "deviationId": "dv000438",
+   "safeguardId": "sg000226",
+   "ipl": false,
+   "seq": 2
+  },
+  {
+   "id": "ds000443",
+   "deviationId": "dv000438",
+   "safeguardId": "sg000227",
+   "ipl": true,
+   "seq": 3
+  },
+  {
+   "id": "ds000448",
+   "deviationId": "dv000445",
+   "safeguardId": "sg000227",
+   "ipl": true,
+   "seq": 1
+  },
+  {
+   "id": "ds000449",
+   "deviationId": "dv000445",
+   "safeguardId": "sg000223",
+   "ipl": false,
+   "seq": 2
+  },
+  {
+   "id": "ds000454",
+   "deviationId": "dv000451",
+   "safeguardId": "sg000198",
+   "ipl": false,
+   "seq": 1
+  },
+  {
+   "id": "ds000455",
+   "deviationId": "dv000451",
+   "safeguardId": "sg000206",
+   "ipl": false,
+   "seq": 2
+  },
+  {
+   "id": "ds000456",
+   "deviationId": "dv000451",
+   "safeguardId": "sg000211",
+   "ipl": false,
+   "seq": 3
+  },
+  {
+   "id": "ds000461",
+   "deviationId": "dv000458",
+   "safeguardId": "sg000203",
+   "ipl": true,
+   "seq": 1
+  },
+  {
+   "id": "ds000462",
+   "deviationId": "dv000458",
+   "safeguardId": "sg000230",
+   "ipl": false,
+   "seq": 2
+  }
+ ],
+ "recs": [
+  {
+   "no": "R-001",
+   "text": "Provide copper / aluminium / G.I. jumper strips for electrical continuity at every flange of the unloading line, check the resistance of all earthing strips and pits and keep a record; add an earth bonding interlock (EBI-1) so the compressors cannot start without a verified tanker earth (source recommendation no. 1, completed).",
+   "responsible": "Electrical engineer",
+   "priority": "High",
+   "dueDate": "2027-03-31",
+   "status": "Open",
+   "closeout": "",
+   "closeDate": "",
+   "id": "rc000235"
+  },
+  {
+   "no": "R-002",
+   "text": "Provide a diesel generator for back-up power to the propane storage system so that a power failure during unloading or supply leaves the system in a controlled state (source recommendation no. 2). Confirm that every ROV fails closed and that UCP-1 and the gas detection are on UPS-1.",
+   "responsible": "Electrical engineer",
+   "priority": "Medium",
+   "dueDate": "2027-06-30",
+   "status": "Open",
+   "closeout": "",
+   "closeDate": "",
+   "id": "rc000236"
+  },
+  {
+   "no": "R-003",
+   "text": "Add the bullet relief valves PSV-11/21/31 and PRV-01 to the statutory inspection schedule with a 2-yearly bench-test interval (source remark, made a recommendation).",
+   "responsible": "Mechanical engineer",
+   "priority": "High",
+   "dueDate": "2027-03-31",
+   "status": "Open",
+   "closeout": "",
+   "closeDate": "",
+   "id": "rc000237"
+  },
+  {
+   "no": "R-004",
+   "text": "Make the overfill trip independent of the level gauge used for control: fit an independent high-high level switch on each bullet acting on ROV-11/21/31, and proof-test the trip every 6 months. Fault tree FT-PR-01 gives an overfill frequency of 1.9E-3 /yr with the protection PFDavg 3.9E-3.",
+   "responsible": "Instrument engineer",
+   "priority": "High",
+   "dueDate": "2027-03-31",
+   "status": "Open",
+   "closeout": "",
+   "closeDate": "",
+   "id": "rc000238"
+  },
+  {
+   "no": "R-005",
+   "text": "Add a written ullage calculation to the unloading checklist (volume in the bullet + delivery ≤ 85 %), signed before the compressor is started.",
+   "responsible": "Utilities superintendent",
+   "priority": "High",
+   "dueDate": "2027-03-31",
+   "status": "Open",
+   "closeout": "",
+   "closeDate": "",
+   "id": "rc000239"
+  },
+  {
+   "no": "R-006",
+   "text": "Fit an emergency release coupling ERC-1 and a tanker brake interlock at the unloading bay; drive-away during unloading is not covered by the source safeguards.",
+   "responsible": "Mechanical engineer",
+   "priority": "High",
+   "dueDate": "2027-03-31",
+   "status": "Open",
+   "closeout": "",
+   "closeDate": "",
+   "id": "rc000240"
+  },
+  {
+   "no": "R-007",
+   "text": "Confirm that the bullets, the liquid lines and the unloading arm are rated for −45 °C (auto-refrigeration of propane on rapid depressurisation); the source worksheet recorded 'Lower temperature – no issue'.",
+   "responsible": "Process engineer",
+   "priority": "High",
+   "dueDate": "2027-03-31",
+   "status": "Open",
+   "closeout": "",
+   "closeDate": "",
+   "id": "rc000241"
+  },
+  {
+   "no": "R-008",
+   "text": "Verify the gas detection and ESD function against the required risk reduction: fault tree FT-PR-03 gives PFDavg 3.9E-2; relocate GLD-1/2/3 at low level (propane vapour is heavier than air) and add a detector at the compressor house.",
+   "responsible": "Instrument engineer",
+   "priority": "High",
+   "dueDate": "2027-03-31",
+   "status": "Open",
+   "closeout": "",
+   "closeDate": "",
+   "id": "rc000242"
+  },
+  {
+   "no": "R-009",
+   "text": "Check the bullet sprinkler / deluge coverage and density against the fire-case relief study and add automatic start on fire detection at the unloading bay (BLEVE prevention); test annually.",
+   "responsible": "Fire officer",
+   "priority": "High",
+   "dueDate": "2027-03-31",
+   "status": "Open",
+   "closeout": "",
+   "closeDate": "",
+   "id": "rc000243"
+  },
+  {
+   "no": "R-010",
+   "text": "Fit a low-suction-pressure trip and seal-pot alarm on P-01/P-02; replace single seals with double mechanical seals.",
+   "responsible": "Mechanical engineer",
+   "priority": "Medium",
+   "dueDate": "2027-06-30",
+   "status": "Open",
+   "closeout": "",
+   "closeDate": "",
+   "id": "rc000244"
+  },
+  {
+   "no": "R-011",
+   "text": "Provide a second, independent liquid carry-over protection on each vaporiser (high-level trip LSH-01 in addition to TSL-01) and test both every 6 months.",
+   "responsible": "Instrument engineer",
+   "priority": "High",
+   "dueDate": "2027-03-31",
+   "status": "Open",
+   "closeout": "",
+   "closeDate": "",
+   "id": "rc000245"
+  },
+  {
+   "no": "R-012",
+   "text": "Confirm the set-point staggering of PCV-01 (1.5 barg), SSV-01 (2.5 barg) and PSV-03 (3.0 barg) against the vapour header design pressure (3.5 barg).",
+   "responsible": "Process engineer",
+   "priority": "Medium",
+   "dueDate": "2027-06-30",
+   "status": "Open",
+   "closeout": "",
+   "closeDate": "",
+   "id": "rc000246"
+  },
+  {
+   "no": "R-013",
+   "text": "Upgrade the propane–air mixture protection: make the calorimeter AT-01 trip independent of FFIC-01 and add a second low propane pressure switch (1oo2). Fault tree FT-PR-02 gives a flammable-mixture frequency of 1.2E-2 /yr (protection PFDavg 1.8E-2); bow tie BT-PR-02 internal explosion 7.6E-5 /yr.",
+   "responsible": "Instrument engineer",
+   "priority": "High",
+   "dueDate": "2027-03-31",
+   "status": "Open",
+   "closeout": "",
+   "closeDate": "",
+   "id": "rc000247"
+  },
+  {
+   "no": "R-014",
+   "text": "Rewrite the mixing-station start-up procedure OP-PR-020: N2 purge, propane established before air, AT-01 reading verified before the users are opened; add a start-permissive interlock.",
+   "responsible": "Utilities superintendent",
+   "priority": "High",
+   "dueDate": "2027-03-31",
+   "status": "Open",
+   "closeout": "",
+   "closeDate": "",
+   "id": "rc000248"
+  },
+  {
+   "no": "R-015",
+   "text": "Inspect flame arrester FA-01 every 6 months (fouling) and confirm it is rated for the propane–air mixture and pipe length (in-line deflagration arrester).",
+   "responsible": "Mechanical engineer",
+   "priority": "Medium",
+   "dueDate": "2027-06-30",
+   "status": "Open",
+   "closeout": "",
+   "closeDate": "",
+   "id": "rc000249"
+  },
+  {
+   "no": "R-016",
+   "text": "Introduce a vehicle-movement plan for the unloading bay (no other traffic during unloading, crash barriers around the bullets and the arm).",
+   "responsible": "Area owner",
+   "priority": "Medium",
+   "dueDate": "2027-06-30",
+   "status": "Open",
+   "closeout": "",
+   "closeDate": "",
+   "id": "rc000250"
+  },
+  {
+   "no": "R-017",
+   "text": "Train LPG operators on the response to a release (ESD, evacuation upwind, no attempt to stop a burning leak, cooling of exposed vessels) with a drill twice a year; event tree ETA-PR-01 gives 1.2E-5 /yr for a vapour cloud explosion or BLEVE.",
+   "responsible": "HSE / process safety",
+   "priority": "High",
+   "dueDate": "2027-03-31",
+   "status": "Open",
+   "closeout": "",
+   "closeDate": "",
+   "id": "rc000251"
+  }
+ ],
+ "devRecs": [
+  {
+   "id": "dr000256",
+   "deviationId": "dv000252",
+   "recId": "rc000250"
+  },
+  {
+   "id": "dr000263",
+   "deviationId": "dv000257",
+   "recId": "rc000237"
+  },
+  {
+   "id": "dr000269",
+   "deviationId": "dv000264",
+   "recId": "rc000235"
+  },
+  {
+   "id": "dr000277",
+   "deviationId": "dv000270",
+   "recId": "rc000237"
+  },
+  {
+   "id": "dr000290",
+   "deviationId": "dv000282",
+   "recId": "rc000238"
+  },
+  {
+   "id": "dr000291",
+   "deviationId": "dv000282",
+   "recId": "rc000239"
+  },
+  {
+   "id": "dr000301",
+   "deviationId": "dv000292",
+   "recId": "rc000243"
+  },
+  {
+   "id": "dr000302",
+   "deviationId": "dv000292",
+   "recId": "rc000251"
+  },
+  {
+   "id": "dr000308",
+   "deviationId": "dv000303",
+   "recId": "rc000241"
+  },
+  {
+   "id": "dr000316",
+   "deviationId": "dv000309",
+   "recId": "rc000242"
+  },
+  {
+   "id": "dr000323",
+   "deviationId": "dv000317",
+   "recId": "rc000240"
+  },
+  {
+   "id": "dr000329",
+   "deviationId": "dv000324",
+   "recId": "rc000239"
+  },
+  {
+   "id": "dr000335",
+   "deviationId": "dv000330",
+   "recId": "rc000236"
+  },
+  {
+   "id": "dr000355",
+   "deviationId": "dv000348",
+   "recId": "rc000244"
+  },
+  {
+   "id": "dr000363",
+   "deviationId": "dv000356",
+   "recId": "rc000246"
+  },
+  {
+   "id": "dr000371",
+   "deviationId": "dv000364",
+   "recId": "rc000245"
+  },
+  {
+   "id": "dr000377",
+   "deviationId": "dv000372",
+   "recId": "rc000245"
+  },
+  {
+   "id": "dr000394",
+   "deviationId": "dv000386",
+   "recId": "rc000244"
+  },
+  {
+   "id": "dr000395",
+   "deviationId": "dv000386",
+   "recId": "rc000242"
+  },
+  {
+   "id": "dr000400",
+   "deviationId": "dv000396",
+   "recId": "rc000239"
+  },
+  {
+   "id": "dr000406",
+   "deviationId": "dv000401",
+   "recId": "rc000236"
+  },
+  {
+   "id": "dr000415",
+   "deviationId": "dv000407",
+   "recId": "rc000247"
+  },
+  {
+   "id": "dr000421",
+   "deviationId": "dv000416",
+   "recId": "rc000247"
+  },
+  {
+   "id": "dr000437",
+   "deviationId": "dv000432",
+   "recId": "rc000247"
+  },
+  {
+   "id": "dr000444",
+   "deviationId": "dv000438",
+   "recId": "rc000248"
+  },
+  {
+   "id": "dr000450",
+   "deviationId": "dv000445",
+   "recId": "rc000249"
+  },
+  {
+   "id": "dr000457",
+   "deviationId": "dv000451",
+   "recId": "rc000242"
+  },
+  {
+   "id": "dr000463",
+   "deviationId": "dv000458",
+   "recId": "rc000236"
+  },
+  {
+   "id": "dr000464",
+   "deviationId": "dv000458",
+   "recId": "rc000248"
+  }
+ ],
+ "customCauses": []
+}

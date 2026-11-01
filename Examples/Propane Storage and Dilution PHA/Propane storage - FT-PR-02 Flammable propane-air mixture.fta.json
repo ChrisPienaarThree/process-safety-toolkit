@@ -1,0 +1,345 @@
+{
+ "app": "Fault Tree & PFD Calculator",
+ "schema": 1,
+ "title": "FT-PR-02 – Propane–air mixture enters the flammable range (propane storage example)",
+ "description": "Top event: the propane fraction in mixer MX-01 / surge tank ST-01 falls into the flammable range because propane is lost or air is over-supplied while blowers B-01/B-02 keep running, and both mixture protections fail. Protection (gate G-002) = low propane pressure trip PSLL-01 (stops the blowers, closes XV-01 / XV-02) AND the calorimeter trip AT-01. PSLL-01 cannot see a ratio-controller fault (BE-010). Gate G-002 is the mixture barrier of bow tie BT-PR-02 (threat T1). HAZOP N03-01; FMECA S03. Illustrative data from the toolkit's data library – replace with site / vendor data before use. Propane storage and dilution worked example (HAZOP HZ-EX-PR-001).",
+ "modified": "2026-11-12T16:00:00.000Z",
+ "top": "g000016",
+ "gates": [
+  {
+   "id": "g000016",
+   "code": "G-001",
+   "name": "Flammable propane–air mixture in mixer MX-01 / surge tank ST-01",
+   "type": "AND",
+   "k": 2,
+   "children": [
+    {
+     "kind": "g",
+     "id": "g000017"
+    },
+    {
+     "kind": "g",
+     "id": "g000021"
+    }
+   ],
+   "collapsed": false
+  },
+  {
+   "id": "g000017",
+   "code": "G-006",
+   "name": "Demand: propane fraction falls (supply lost or air excess)",
+   "type": "OR",
+   "k": 2,
+   "children": [
+    {
+     "kind": "e",
+     "id": "e000018"
+    },
+    {
+     "kind": "e",
+     "id": "e000019"
+    },
+    {
+     "kind": "e",
+     "id": "e000020"
+    }
+   ],
+   "collapsed": false
+  },
+  {
+   "id": "g000021",
+   "code": "G-002",
+   "name": "Mixture protection fails on demand (PSLL-01 trip and AT-01 trip)",
+   "type": "AND",
+   "k": 2,
+   "children": [
+    {
+     "kind": "g",
+     "id": "g000022"
+    },
+    {
+     "kind": "g",
+     "id": "g000028"
+    }
+   ],
+   "collapsed": false
+  },
+  {
+   "id": "g000022",
+   "code": "G-003",
+   "name": "Low propane pressure trip PSLL-01 fails to stop the air",
+   "type": "OR",
+   "k": 2,
+   "children": [
+    {
+     "kind": "e",
+     "id": "e000023"
+    },
+    {
+     "kind": "e",
+     "id": "e000024"
+    },
+    {
+     "kind": "e",
+     "id": "e000025"
+    },
+    {
+     "kind": "e",
+     "id": "e000026"
+    },
+    {
+     "kind": "e",
+     "id": "e000027"
+    }
+   ],
+   "collapsed": false
+  },
+  {
+   "id": "g000028",
+   "code": "G-004",
+   "name": "Calorimeter trip AT-01 fails",
+   "type": "OR",
+   "k": 2,
+   "children": [
+    {
+     "kind": "e",
+     "id": "e000029"
+    },
+    {
+     "kind": "e",
+     "id": "e000030"
+    }
+   ],
+   "collapsed": false
+  }
+ ],
+ "events": [
+  {
+   "id": "e000018",
+   "code": "BE-001",
+   "name": "Loss of propane vapour supply (vaporiser trip, PCV-01 closes, header pressure low)",
+   "model": "freq",
+   "q": 0.01,
+   "lamDU": 1e-06,
+   "lamDD": 0,
+   "TI": 8760,
+   "MTTR": 8,
+   "lam": 1e-06,
+   "freq": 0.5,
+   "house": true,
+   "ef": 3,
+   "ccf": "",
+   "undeveloped": false,
+   "notes": "HAZOP N02-01, N03-01 – illustrative"
+  },
+  {
+   "id": "e000019",
+   "code": "BE-002",
+   "name": "Propane shut-off XV-01 closes spuriously while the blowers run",
+   "model": "freq",
+   "q": 0.01,
+   "lamDU": 1e-06,
+   "lamDD": 0,
+   "TI": 8760,
+   "MTTR": 8,
+   "lam": 1e-06,
+   "freq": 0.1,
+   "house": true,
+   "ef": 3,
+   "ccf": "",
+   "undeveloped": false,
+   "notes": "HAZOP N03-01",
+   "lib": {
+    "g": "freq",
+    "id": "ie-sis-spurious",
+    "note": ""
+   }
+  },
+  {
+   "id": "e000020",
+   "code": "BE-003",
+   "name": "Ratio controller FFIC-01 fails – air excess (BPCS loop failure)",
+   "model": "freq",
+   "q": 0.01,
+   "lamDU": 1e-06,
+   "lamDD": 0,
+   "TI": 8760,
+   "MTTR": 8,
+   "lam": 1e-06,
+   "freq": 0.1,
+   "house": true,
+   "ef": 3,
+   "ccf": "",
+   "undeveloped": false,
+   "notes": "HAZOP N03-02",
+   "lib": {
+    "g": "freq",
+    "id": "ie-bpcs",
+    "note": ""
+   }
+  },
+  {
+   "id": "e000023",
+   "code": "BE-004",
+   "name": "Pressure switch PSLL-01 fails to function when required",
+   "model": "tested",
+   "q": 0.01,
+   "lamDU": 4e-07,
+   "lamDD": 0,
+   "TI": 8760,
+   "MTTR": 8,
+   "lam": 1e-06,
+   "freq": 0.1,
+   "house": true,
+   "ef": 3,
+   "ccf": "",
+   "undeveloped": false,
+   "notes": "FMECA S03 PSLL-01",
+   "lib": {
+    "g": "rate",
+    "id": "perd-psw",
+    "note": ""
+   }
+  },
+  {
+   "id": "e000024",
+   "code": "BE-005",
+   "name": "Blower B-01 motor contactor fails to open",
+   "model": "tested",
+   "q": 0.01,
+   "lamDU": 1e-07,
+   "lamDD": 0,
+   "TI": 8760,
+   "MTTR": 8,
+   "lam": 1e-06,
+   "freq": 0.1,
+   "house": true,
+   "ef": 3,
+   "ccf": "",
+   "undeveloped": false,
+   "notes": "",
+   "lib": {
+    "g": "rate",
+    "id": "lr-contactor",
+    "note": ""
+   }
+  },
+  {
+   "id": "e000025",
+   "code": "BE-006",
+   "name": "Air shut-off valve XV-02 fails to close",
+   "model": "tested",
+   "q": 0.01,
+   "lamDU": 2e-06,
+   "lamDD": 0,
+   "TI": 8760,
+   "MTTR": 24,
+   "lam": 1e-06,
+   "freq": 0.1,
+   "house": true,
+   "ef": 3,
+   "ccf": "",
+   "undeveloped": false,
+   "notes": "FMECA S03 XV-02",
+   "lib": {
+    "g": "rate",
+    "id": "lr-esdv",
+    "note": ""
+   }
+  },
+  {
+   "id": "e000026",
+   "code": "BE-007",
+   "name": "Logic solver UCP-1 fails dangerous",
+   "model": "tested",
+   "q": 0.01,
+   "lamDU": 5e-08,
+   "lamDD": 0,
+   "TI": 8760,
+   "MTTR": 8,
+   "lam": 1e-06,
+   "freq": 0.1,
+   "house": true,
+   "ef": 3,
+   "ccf": "",
+   "undeveloped": false,
+   "notes": "",
+   "lib": {
+    "g": "rate",
+    "id": "lr-plc",
+    "note": ""
+   }
+  },
+  {
+   "id": "e000027",
+   "code": "BE-010",
+   "name": "Demand not seen by PSLL-01 (ratio fault with normal propane pressure)",
+   "model": "prob",
+   "q": 0.15,
+   "lamDU": 1e-06,
+   "lamDD": 0,
+   "TI": 8760,
+   "MTTR": 8,
+   "lam": 1e-06,
+   "freq": 0.1,
+   "house": true,
+   "ef": 3,
+   "ccf": "",
+   "undeveloped": true,
+   "notes": "Share of the demand from FFIC-01 faults (BE-003) – PSLL-01 only sees a loss of propane pressure"
+  },
+  {
+   "id": "e000029",
+   "code": "BE-008",
+   "name": "Calorimeter AT-01 fails to detect the low heating value",
+   "model": "tested",
+   "q": 0.01,
+   "lamDU": 5e-06,
+   "lamDD": 0,
+   "TI": 4380,
+   "MTTR": 24,
+   "lam": 1e-06,
+   "freq": 0.1,
+   "house": true,
+   "ef": 3,
+   "ccf": "",
+   "undeveloped": false,
+   "notes": "Six-monthly calibration; FMECA S03 AT-01",
+   "lib": {
+    "g": "rate",
+    "id": "lr-analyser",
+    "note": ""
+   }
+  },
+  {
+   "id": "e000030",
+   "code": "BE-009",
+   "name": "AT-01 trip routed through FFIC-01 (not independent)",
+   "model": "prob",
+   "q": 0.1,
+   "lamDU": 1e-06,
+   "lamDD": 0,
+   "TI": 8760,
+   "MTTR": 8,
+   "lam": 1e-06,
+   "freq": 0.1,
+   "house": true,
+   "ef": 3,
+   "ccf": "",
+   "undeveloped": false,
+   "notes": "Source design – R-013 makes it independent"
+  }
+ ],
+ "ccf": [],
+ "libOver": {},
+ "siteLib": [],
+ "settings": {
+  "mission": 8760,
+  "points": 400,
+  "maxOrder": 8,
+  "cutoff": 1e-15,
+  "maxCS": 20000,
+  "mcSamples": 2000,
+  "demandMode": "low"
+ }
+}

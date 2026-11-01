@@ -1,0 +1,644 @@
+{
+ "app": "Bow Tie Analysis",
+ "schema": 1,
+ "title": "BT-AM-02 – Loss of containment of hydrogen-rich synthesis gas at the synthesis loop (ammonia unit example)",
+ "description": "Threat T1 = converter over-temperature (FT-AM-02 demand gate G-006) with the protection barrier = FT-AM-02 gate G-002 and 0.3 = probability that the excursion causes a leak. The top-event frequency is the initiating frequency of event tree ETA-AM-02; consequences JET, FF and VCE reproduce its end states. HAZOP N03; FMECA S03. Illustrative data.",
+ "modified": "2026-11-24T16:00:00.000Z",
+ "hazard": "Synthesis gas (75 % H2) at about 140 barg and up to 450 °C in 103-J, 105-D and the loop exchangers",
+ "top": "Loss of containment of synthesis gas at the synthesis loop",
+ "threats": [
+  {
+   "id": "t000087",
+   "name": "Converter 105-D over-temperature leads to a flange or exchanger leak",
+   "freq": 0.35,
+   "cond": 0.3,
+   "notes": "Frequency = FT-AM-02 gate G-006. HAZOP N03-03.",
+   "barrierIds": [
+    "b000080"
+   ],
+   "key": "T1"
+  },
+  {
+   "id": "t000088",
+   "name": "Compressor 103-J seal failure",
+   "freq": 0.1,
+   "cond": 0.2,
+   "notes": "Library ie15-rotating. HAZOP N03-01, N03-07.",
+   "barrierIds": [
+    "b000081"
+   ],
+   "key": "T2"
+  },
+  {
+   "id": "t000089",
+   "name": "High-temperature hydrogen attack / hot flange leak",
+   "freq": 0.01,
+   "cond": 1,
+   "notes": "Library ie-flange-hot. HAZOP N03-06.",
+   "barrierIds": [
+    "b000082"
+   ],
+   "key": "T3"
+  },
+  {
+   "id": "t000090",
+   "name": "Synthesis loop over-pressured",
+   "freq": 0.05,
+   "cond": 0.5,
+   "notes": "HAZOP N03-04",
+   "barrierIds": [
+    "b000083"
+   ],
+   "key": "T4"
+  },
+  {
+   "id": "t000091",
+   "name": "Maintenance error on hydrogen service",
+   "freq": 0.2,
+   "cond": 0.05,
+   "notes": "HAZOP N03-08",
+   "barrierIds": [
+    "b000084"
+   ],
+   "key": "T5"
+  }
+ ],
+ "consequences": [
+  {
+   "id": "q000092",
+   "name": "Prolonged hydrogen jet fire – escalation to the loop",
+   "cond": 0.3,
+   "sev": {
+    "P": 4,
+    "E": 2,
+    "A": 5,
+    "R": 4
+   },
+   "notes": "ETA-AM-02 end state 'Prolonged jet fire – escalation to the loop'. cond = H1.",
+   "barrierIds": [
+    "b000085"
+   ],
+   "key": "JET"
+  },
+  {
+   "id": "q000093",
+   "name": "Large flash fire from a prolonged release",
+   "cond": 0.42,
+   "sev": {
+    "P": 4,
+    "E": 1,
+    "A": 3,
+    "R": 3
+   },
+   "notes": "ETA-AM-02 end state 'Large flash fire – prolonged release'. cond = (1 − H1) x (1 − H4).",
+   "barrierIds": [
+    "b000085",
+    "b000086"
+   ],
+   "key": "FF"
+  },
+  {
+   "id": "q000094",
+   "name": "Vapour cloud explosion in the compressor house – multiple fatalities",
+   "cond": 0.28,
+   "sev": {
+    "P": 5,
+    "E": 2,
+    "A": 5,
+    "R": 5
+   },
+   "notes": "ETA-AM-02 end state 'Vapour cloud explosion – blast damage, multiple fatalities'. cond = (1 − H1) x H4.",
+   "barrierIds": [
+    "b000085",
+    "b000086"
+   ],
+   "key": "VCE"
+  }
+ ],
+ "barriers": [
+  {
+   "id": "b000080",
+   "name": "Converter over-temperature protection – TAH-1383 + operator and TSHH-1396 trip",
+   "type": "Active human-hardware",
+   "pfd": 0.050987,
+   "source": "ft",
+   "ftId": "f000079",
+   "gateId": "g000023",
+   "status": "Available",
+   "degradeFactor": 10,
+   "owner": "Instrument / SIS engineer",
+   "performance": "Catalyst never above 520 °C",
+   "verification": "Annual trip test (R-008)",
+   "critical": "Yes",
+   "notes": "PFDavg from fault tree FT-AM-02 gate G-002. HAZOP safeguards TSHH-1396 (N03-03).",
+   "key": "CONVPROT"
+  },
+  {
+   "id": "b000081",
+   "name": "Seal-gas low-low pressure trip PSLL-1155 on 103-J",
+   "type": "Active hardware",
+   "pfd": 0.1,
+   "source": "manual",
+   "ftId": "",
+   "gateId": "",
+   "status": "Available",
+   "degradeFactor": 10,
+   "owner": "Rotating equipment engineer",
+   "performance": "Compressor trips before seal failure",
+   "verification": "Annual trip test",
+   "critical": "Yes",
+   "notes": "Library ipl-sil1. HAZOP safeguard PSLL-1155 (N03-01).",
+   "key": "SEALTRIP"
+  },
+  {
+   "id": "b000082",
+   "name": "HTHA review and inspection of loop exchangers 123-C1 / 124-C1",
+   "type": "Continuous / procedural",
+   "pfd": 0.1,
+   "source": "manual",
+   "ftId": "",
+   "gateId": "",
+   "status": "Available",
+   "degradeFactor": 10,
+   "owner": "Materials engineer",
+   "performance": "No HTHA damage in service",
+   "verification": "Turnaround inspection (R-010)",
+   "critical": "",
+   "notes": "HAZOP N03-06",
+   "key": "HTHA"
+  },
+  {
+   "id": "b000083",
+   "name": "Synthesis loop relief valve PSV-1018",
+   "type": "Passive hardware",
+   "pfd": 0.01,
+   "source": "manual",
+   "ftId": "",
+   "gateId": "",
+   "status": "Available",
+   "degradeFactor": 10,
+   "owner": "Process engineer",
+   "performance": "Loop never above 160 barg",
+   "verification": "Bench test",
+   "critical": "Yes",
+   "notes": "Library ipl-prv. HAZOP safeguard PSV-1018 (N03-04).",
+   "key": "PSVL"
+  },
+  {
+   "id": "b000084",
+   "name": "Permit-to-work with positive isolation and N2 purge",
+   "type": "Active human",
+   "pfd": 0.1,
+   "source": "manual",
+   "ftId": "",
+   "gateId": "",
+   "status": "Available",
+   "degradeFactor": 10,
+   "owner": "Area owner",
+   "performance": "No break-in on hydrogen service without isolation",
+   "verification": "PTW audits",
+   "critical": "",
+   "notes": "HAZOP N03-08",
+   "key": "PTW2"
+  },
+  {
+   "id": "b000085",
+   "name": "Unit ESD and emergency depressurisation (UCP-1000, HV-1019)",
+   "type": "Active hardware",
+   "pfd": 0.1,
+   "source": "manual",
+   "ftId": "",
+   "gateId": "",
+   "status": "Available",
+   "degradeFactor": 10,
+   "owner": "Instrument / SIS engineer",
+   "performance": "Loop isolated and depressurised to flare",
+   "verification": "Annual ESD test",
+   "critical": "Yes",
+   "notes": "= event tree ETA-AM-02 heading H2. HAZOP safeguard UCP-1000 (N03-08).",
+   "key": "ESD2"
+  },
+  {
+   "id": "b000086",
+   "name": "Ignition source control in the compressor house and loop area",
+   "type": "Continuous / procedural",
+   "pfd": 0.3,
+   "source": "manual",
+   "ftId": "",
+   "gateId": "",
+   "status": "Available",
+   "degradeFactor": 10,
+   "owner": "Area owner",
+   "performance": "No ignition source in zoned areas",
+   "verification": "Ex inspection",
+   "critical": "",
+   "notes": "= event tree ETA-AM-02 heading H3 (hydrogen: high probability of delayed ignition).",
+   "key": "IGN2"
+  }
+ ],
+ "efs": [
+  {
+   "id": "x000095",
+   "barrierId": "b000080",
+   "name": "Alarm and trip on the same thermocouple",
+   "notes": "",
+   "controls": [
+    {
+     "id": "y000096",
+     "name": "Second independent bed thermocouple, 1oo2 trip (R-008)",
+     "type": "Active hardware",
+     "owner": "Instrument / SIS engineer"
+    }
+   ]
+  },
+  {
+   "id": "x000097",
+   "barrierId": "b000085",
+   "name": "Slow manual depressurisation",
+   "notes": "",
+   "controls": [
+    {
+     "id": "y000098",
+     "name": "Automatic depressurisation on confirmed gas detection (R-019)",
+     "type": "Active hardware",
+     "owner": "Process engineer"
+    }
+   ]
+  }
+ ],
+ "fts": [
+  {
+   "id": "f000079",
+   "name": "FT-AM-02 – Converter over-temperature protection",
+   "project": {
+    "app": "Fault Tree & PFD Calculator",
+    "schema": 1,
+    "title": "FT-AM-02 – Uncontrolled over-temperature of the ammonia converter 105-D (ammonia unit example)",
+    "description": "Top event: the catalyst temperature of 105-D rises above the design limit (demand gate G-006) and both the operator response to TAH-1383 and the high-high trip TSHH-1396 (closes converter feed XV-1250A and trips 103-J) fail (gate G-002). As reviewed, the alarm and the trip use the same bed thermocouple (BE-010, R-008). Gate G-002 is the barrier of bow tie BT-AM-02 threat T1. HAZOP N03-03; FMECA S03. Illustrative data from the toolkit's data library – replace with site / vendor data before use. Ammonia unit worked example (HAZOP HZ-EX-AM-001).",
+    "modified": "2026-11-24T16:00:00.000Z",
+    "top": "g000018",
+    "gates": [
+     {
+      "id": "g000018",
+      "code": "G-001",
+      "name": "Converter 105-D catalyst above design temperature – uncontrolled",
+      "type": "AND",
+      "k": 2,
+      "children": [
+       {
+        "kind": "g",
+        "id": "g000019"
+       },
+       {
+        "kind": "g",
+        "id": "g000023"
+       }
+      ],
+      "collapsed": false
+     },
+     {
+      "id": "g000019",
+      "code": "G-006",
+      "name": "Demand: converter temperature excursion",
+      "type": "OR",
+      "k": 2,
+      "children": [
+       {
+        "kind": "e",
+        "id": "e000020"
+       },
+       {
+        "kind": "e",
+        "id": "e000021"
+       },
+       {
+        "kind": "e",
+        "id": "e000022"
+       }
+      ],
+      "collapsed": false
+     },
+     {
+      "id": "g000023",
+      "code": "G-002",
+      "name": "Over-temperature protection fails (TAH-1383 + operator and TSHH-1396 trip)",
+      "type": "OR",
+      "k": 2,
+      "children": [
+       {
+        "kind": "e",
+        "id": "e000024"
+       },
+       {
+        "kind": "g",
+        "id": "g000025"
+       }
+      ],
+      "collapsed": false
+     },
+     {
+      "id": "g000025",
+      "code": "G-003",
+      "name": "Operator response and trip both fail",
+      "type": "AND",
+      "k": 2,
+      "children": [
+       {
+        "kind": "g",
+        "id": "g000026"
+       },
+       {
+        "kind": "g",
+        "id": "g000029"
+       }
+      ],
+      "collapsed": false
+     },
+     {
+      "id": "g000026",
+      "code": "G-004",
+      "name": "TAH-1383 not acted on",
+      "type": "OR",
+      "k": 2,
+      "children": [
+       {
+        "kind": "e",
+        "id": "e000027"
+       },
+       {
+        "kind": "e",
+        "id": "e000028"
+       }
+      ],
+      "collapsed": false
+     },
+     {
+      "id": "g000029",
+      "code": "G-005",
+      "name": "TSHH-1396 trip fails",
+      "type": "OR",
+      "k": 2,
+      "children": [
+       {
+        "kind": "e",
+        "id": "e000030"
+       },
+       {
+        "kind": "e",
+        "id": "e000031"
+       },
+       {
+        "kind": "e",
+        "id": "e000032"
+       }
+      ],
+      "collapsed": false
+     }
+    ],
+    "events": [
+     {
+      "id": "e000020",
+      "code": "BE-001",
+      "name": "Quench / bypass temperature control loop fails",
+      "model": "freq",
+      "q": 0.01,
+      "lamDU": 1e-06,
+      "lamDD": 0,
+      "TI": 8760,
+      "MTTR": 8,
+      "lam": 1e-06,
+      "freq": 0.1,
+      "house": true,
+      "ef": 3,
+      "ccf": "",
+      "undeveloped": false,
+      "notes": "CCPS LOPA Table 5.1 BPCS loop failure",
+      "lib": {
+       "g": "freq",
+       "id": "ie-bpcs",
+       "note": ""
+      }
+     },
+     {
+      "id": "e000021",
+      "code": "BE-002",
+      "name": "H2 / N2 ratio upset from the front end",
+      "model": "freq",
+      "q": 0.01,
+      "lamDU": 1e-06,
+      "lamDD": 0,
+      "TI": 8760,
+      "MTTR": 8,
+      "lam": 1e-06,
+      "freq": 0.2,
+      "house": true,
+      "ef": 3,
+      "ccf": "",
+      "undeveloped": false,
+      "notes": "Illustrative"
+     },
+     {
+      "id": "e000022",
+      "code": "BE-003",
+      "name": "Start-up heater 102-B over-fires without loop circulation",
+      "model": "freq",
+      "q": 0.01,
+      "lamDU": 1e-06,
+      "lamDD": 0,
+      "TI": 8760,
+      "MTTR": 8,
+      "lam": 1e-06,
+      "freq": 0.05,
+      "house": true,
+      "ef": 3,
+      "ccf": "",
+      "undeveloped": false,
+      "notes": "Start-ups x HEP – illustrative; R-020"
+     },
+     {
+      "id": "e000024",
+      "code": "BE-010",
+      "name": "TAH-1383 and TSHH-1396 on the same bed thermocouple – both blind",
+      "model": "prob",
+      "q": 0.05,
+      "lamDU": 1e-06,
+      "lamDD": 0,
+      "TI": 8760,
+      "MTTR": 8,
+      "lam": 1e-06,
+      "freq": 0.1,
+      "house": true,
+      "ef": 3,
+      "ccf": "",
+      "undeveloped": false,
+      "notes": "Common cause in the design reviewed (R-008)"
+     },
+     {
+      "id": "e000027",
+      "code": "BE-004",
+      "name": "Operator does not reduce the converter temperature on TAH-1383",
+      "model": "prob",
+      "q": 0.1,
+      "lamDU": 1e-06,
+      "lamDD": 0,
+      "TI": 8760,
+      "MTTR": 8,
+      "lam": 1e-06,
+      "freq": 0.1,
+      "house": true,
+      "ef": 3,
+      "ccf": "",
+      "undeveloped": false,
+      "notes": "CCPS LOPA Table 6.5",
+      "lib": {
+       "g": "ipl",
+       "id": "ipl-op10",
+       "note": ""
+      }
+     },
+     {
+      "id": "e000028",
+      "code": "BE-005",
+      "name": "Bed temperature indication TAH-1383 fails",
+      "model": "tested",
+      "q": 0.01,
+      "lamDU": 3e-07,
+      "lamDD": 8e-07,
+      "TI": 8760,
+      "MTTR": 8,
+      "lam": 1e-06,
+      "freq": 0.1,
+      "house": true,
+      "ef": 3,
+      "ccf": "",
+      "undeveloped": false,
+      "notes": "",
+      "lib": {
+       "g": "rate",
+       "id": "lr-tt",
+       "note": ""
+      }
+     },
+     {
+      "id": "e000030",
+      "code": "BE-006",
+      "name": "Bed thermocouple of TSHH-1396 fails dangerous",
+      "model": "tested",
+      "q": 0.01,
+      "lamDU": 3e-07,
+      "lamDD": 8e-07,
+      "TI": 8760,
+      "MTTR": 8,
+      "lam": 1e-06,
+      "freq": 0.1,
+      "house": true,
+      "ef": 3,
+      "ccf": "",
+      "undeveloped": false,
+      "notes": "FMECA S03 TSHH-1396",
+      "lib": {
+       "g": "rate",
+       "id": "lr-tt",
+       "note": ""
+      }
+     },
+     {
+      "id": "e000031",
+      "code": "BE-007",
+      "name": "Logic solver UCP-1000 fails dangerous",
+      "model": "tested",
+      "q": 0.01,
+      "lamDU": 5e-08,
+      "lamDD": 0,
+      "TI": 8760,
+      "MTTR": 8,
+      "lam": 1e-06,
+      "freq": 0.1,
+      "house": true,
+      "ef": 3,
+      "ccf": "",
+      "undeveloped": false,
+      "notes": "",
+      "lib": {
+       "g": "rate",
+       "id": "lr-plc",
+       "note": ""
+      }
+     },
+     {
+      "id": "e000032",
+      "code": "BE-008",
+      "name": "Converter feed shut-off XV-1250A fails to close",
+      "model": "tested",
+      "q": 0.01,
+      "lamDU": 2e-06,
+      "lamDD": 0,
+      "TI": 8760,
+      "MTTR": 24,
+      "lam": 1e-06,
+      "freq": 0.1,
+      "house": true,
+      "ef": 3,
+      "ccf": "",
+      "undeveloped": false,
+      "notes": "FMECA S03 XV-1250A",
+      "lib": {
+       "g": "rate",
+       "id": "lr-esdv",
+       "note": ""
+      }
+     }
+    ],
+    "ccf": [],
+    "libOver": {},
+    "siteLib": [],
+    "settings": {
+     "mission": 8760,
+     "points": 400,
+     "maxOrder": 8,
+     "cutoff": 1e-15,
+     "maxCS": 20000,
+     "mcSamples": 2000,
+     "demandMode": "low"
+    }
+   }
+  }
+ ],
+ "matrix": {
+  "sev": [
+   "Negligible",
+   "Minor",
+   "Moderate",
+   "Major",
+   "Catastrophic"
+  ],
+  "lik": [
+   "Rare",
+   "Unlikely",
+   "Possible",
+   "Likely",
+   "Frequent"
+  ],
+  "likBands": [
+   0.0001,
+   0.001,
+   0.01,
+   0.1
+  ],
+  "bands": {
+   "Medium": 5,
+   "High": 10,
+   "Very High": 20
+  },
+  "tol": [
+   "",
+   "",
+   "1",
+   "0.01",
+   "1e-4"
+  ]
+ },
+ "settings": {
+  "health": false
+ }
+}

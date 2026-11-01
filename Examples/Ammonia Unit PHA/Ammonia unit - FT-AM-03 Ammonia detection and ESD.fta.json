@@ -1,0 +1,399 @@
+{
+ "app": "Fault Tree & PFD Calculator",
+ "schema": 1,
+ "title": "FT-AM-03 – Ammonia release at the refrigeration area not isolated (ammonia unit example)",
+ "description": "Top event (gate G-001): an ammonia release at the receiver 149-D or the refrigerant pumps is not isolated – neither detectors AT-1801A/B/C (1oo3) through UCP-1000 nor the control-room operator (HS-1000) initiate, or XV-1290 / XV-1801 fail to close. PFDavg of G-001 is heading H1 of event tree ETA-AM-01 and the ESD barrier of bow tie BT-AM-01. HAZOP N04-07, N05-06; FMECA S04. Illustrative data from the toolkit's data library – replace with site / vendor data before use. Ammonia unit worked example (HAZOP HZ-EX-AM-001).",
+ "modified": "2026-11-24T16:00:00.000Z",
+ "top": "g000033",
+ "gates": [
+  {
+   "id": "g000033",
+   "code": "G-001",
+   "name": "Ammonia release at the refrigeration area not isolated (ESD fails on demand)",
+   "type": "OR",
+   "k": 2,
+   "children": [
+    {
+     "kind": "g",
+     "id": "g000035"
+    },
+    {
+     "kind": "g",
+     "id": "g000046"
+    },
+    {
+     "kind": "e",
+     "id": "e000050"
+    }
+   ],
+   "collapsed": false
+  },
+  {
+   "id": "g000035",
+   "code": "G-002",
+   "name": "ESD not initiated (automatic and manual both fail)",
+   "type": "AND",
+   "k": 2,
+   "children": [
+    {
+     "kind": "g",
+     "id": "g000036"
+    },
+    {
+     "kind": "g",
+     "id": "g000043"
+    }
+   ],
+   "collapsed": false
+  },
+  {
+   "id": "g000036",
+   "code": "G-003",
+   "name": "Automatic initiation fails",
+   "type": "OR",
+   "k": 2,
+   "children": [
+    {
+     "kind": "g",
+     "id": "g000037"
+    },
+    {
+     "kind": "e",
+     "id": "e000041"
+    },
+    {
+     "kind": "e",
+     "id": "e000042"
+    }
+   ],
+   "collapsed": false
+  },
+  {
+   "id": "g000037",
+   "code": "G-006",
+   "name": "All three ammonia detectors fail (1oo3)",
+   "type": "AND",
+   "k": 2,
+   "children": [
+    {
+     "kind": "e",
+     "id": "e000038"
+    },
+    {
+     "kind": "e",
+     "id": "e000039"
+    },
+    {
+     "kind": "e",
+     "id": "e000040"
+    }
+   ],
+   "collapsed": false
+  },
+  {
+   "id": "g000043",
+   "code": "G-004",
+   "name": "Manual ESD not initiated",
+   "type": "OR",
+   "k": 2,
+   "children": [
+    {
+     "kind": "e",
+     "id": "e000044"
+    },
+    {
+     "kind": "e",
+     "id": "e000045"
+    }
+   ],
+   "collapsed": false
+  },
+  {
+   "id": "g000046",
+   "code": "G-005",
+   "name": "Isolation valves fail to close",
+   "type": "OR",
+   "k": 2,
+   "children": [
+    {
+     "kind": "e",
+     "id": "e000047"
+    },
+    {
+     "kind": "e",
+     "id": "e000048"
+    },
+    {
+     "kind": "e",
+     "id": "e000049"
+    }
+   ],
+   "collapsed": false
+  }
+ ],
+ "events": [
+  {
+   "id": "e000038",
+   "code": "BE-001",
+   "name": "Ammonia detector AT-1801A fails to detect",
+   "model": "tested",
+   "q": 0.01,
+   "lamDU": 1e-06,
+   "lamDD": 0,
+   "TI": 2190,
+   "MTTR": 24,
+   "lam": 1e-06,
+   "freq": 0.1,
+   "house": true,
+   "ef": 3,
+   "ccf": "c000034",
+   "undeveloped": false,
+   "notes": "Quarterly bump test; FMECA S04 AT-1801A",
+   "lib": {
+    "g": "rate",
+    "id": "lr-gd-cat",
+    "note": ""
+   }
+  },
+  {
+   "id": "e000039",
+   "code": "BE-002",
+   "name": "Ammonia detector AT-1801B fails to detect",
+   "model": "tested",
+   "q": 0.01,
+   "lamDU": 1e-06,
+   "lamDD": 0,
+   "TI": 2190,
+   "MTTR": 24,
+   "lam": 1e-06,
+   "freq": 0.1,
+   "house": true,
+   "ef": 3,
+   "ccf": "c000034",
+   "undeveloped": false,
+   "notes": "Quarterly bump test; FMECA S04 AT-1801B",
+   "lib": {
+    "g": "rate",
+    "id": "lr-gd-cat",
+    "note": ""
+   }
+  },
+  {
+   "id": "e000040",
+   "code": "BE-003",
+   "name": "Ammonia detector AT-1801C fails to detect",
+   "model": "tested",
+   "q": 0.01,
+   "lamDU": 1e-06,
+   "lamDD": 0,
+   "TI": 2190,
+   "MTTR": 24,
+   "lam": 1e-06,
+   "freq": 0.1,
+   "house": true,
+   "ef": 3,
+   "ccf": "c000034",
+   "undeveloped": false,
+   "notes": "Quarterly bump test; FMECA S04 AT-1801C",
+   "lib": {
+    "g": "rate",
+    "id": "lr-gd-cat",
+    "note": ""
+   }
+  },
+  {
+   "id": "e000041",
+   "code": "BE-004",
+   "name": "Logic solver UCP-1000 fails dangerous",
+   "model": "tested",
+   "q": 0.01,
+   "lamDU": 5e-08,
+   "lamDD": 0,
+   "TI": 8760,
+   "MTTR": 8,
+   "lam": 1e-06,
+   "freq": 0.1,
+   "house": true,
+   "ef": 3,
+   "ccf": "",
+   "undeveloped": false,
+   "notes": "",
+   "lib": {
+    "g": "rate",
+    "id": "lr-plc",
+    "note": ""
+   }
+  },
+  {
+   "id": "e000042",
+   "code": "BE-005",
+   "name": "Release not reaching the detectors (location / wind)",
+   "model": "prob",
+   "q": 0.1,
+   "lamDU": 1e-06,
+   "lamDD": 0,
+   "TI": 8760,
+   "MTTR": 8,
+   "lam": 1e-06,
+   "freq": 0.1,
+   "house": true,
+   "ef": 3,
+   "ccf": "",
+   "undeveloped": true,
+   "notes": "Detector mapping – R-012"
+  },
+  {
+   "id": "e000044",
+   "code": "BE-006",
+   "name": "Control-room operator does not initiate ESD on the ammonia alarm",
+   "model": "prob",
+   "q": 0.1,
+   "lamDU": 1e-06,
+   "lamDD": 0,
+   "TI": 8760,
+   "MTTR": 8,
+   "lam": 1e-06,
+   "freq": 0.1,
+   "house": true,
+   "ef": 3,
+   "ccf": "",
+   "undeveloped": false,
+   "notes": "",
+   "lib": {
+    "g": "ipl",
+    "id": "ipl-op10",
+    "note": ""
+   }
+  },
+  {
+   "id": "e000045",
+   "code": "BE-007",
+   "name": "Manual ESD circuit HS-1000 fails",
+   "model": "tested",
+   "q": 0.01,
+   "lamDU": 5e-08,
+   "lamDD": 0,
+   "TI": 8760,
+   "MTTR": 8,
+   "lam": 1e-06,
+   "freq": 0.1,
+   "house": true,
+   "ef": 3,
+   "ccf": "",
+   "undeveloped": false,
+   "notes": "",
+   "lib": {
+    "g": "rate",
+    "id": "lr-relay-logic",
+    "note": ""
+   }
+  },
+  {
+   "id": "e000047",
+   "code": "BE-008",
+   "name": "Receiver outlet valve XV-1290 fails to close",
+   "model": "tested",
+   "q": 0.01,
+   "lamDU": 2e-06,
+   "lamDD": 0,
+   "TI": 8760,
+   "MTTR": 24,
+   "lam": 1e-06,
+   "freq": 0.1,
+   "house": true,
+   "ef": 3,
+   "ccf": "",
+   "undeveloped": false,
+   "notes": "FMECA S04 XV-1290",
+   "lib": {
+    "g": "rate",
+    "id": "lr-esdv",
+    "note": ""
+   }
+  },
+  {
+   "id": "e000048",
+   "code": "BE-009",
+   "name": "Boil-off valve XV-1801 fails to close",
+   "model": "tested",
+   "q": 0.01,
+   "lamDU": 2e-06,
+   "lamDD": 0,
+   "TI": 8760,
+   "MTTR": 24,
+   "lam": 1e-06,
+   "freq": 0.1,
+   "house": true,
+   "ef": 3,
+   "ccf": "",
+   "undeveloped": false,
+   "notes": "",
+   "lib": {
+    "g": "rate",
+    "id": "lr-esdv",
+    "note": ""
+   }
+  },
+  {
+   "id": "e000049",
+   "code": "BE-010",
+   "name": "Solenoid / instrument air fails to vent",
+   "model": "tested",
+   "q": 0.01,
+   "lamDU": 3e-07,
+   "lamDD": 0,
+   "TI": 8760,
+   "MTTR": 8,
+   "lam": 1e-06,
+   "freq": 0.1,
+   "house": true,
+   "ef": 3,
+   "ccf": "",
+   "undeveloped": false,
+   "notes": "",
+   "lib": {
+    "g": "rate",
+    "id": "lr-sov",
+    "note": ""
+   }
+  },
+  {
+   "id": "e000050",
+   "code": "BE-011",
+   "name": "ESD in bypass / detectors inhibited",
+   "model": "prob",
+   "q": 0.001,
+   "lamDU": 1e-06,
+   "lamDD": 0,
+   "TI": 8760,
+   "MTTR": 8,
+   "lam": 1e-06,
+   "freq": 0.1,
+   "house": true,
+   "ef": 10,
+   "ccf": "",
+   "undeveloped": false,
+   "notes": "Bypass management"
+  }
+ ],
+ "ccf": [
+  {
+   "id": "c000034",
+   "code": "CCF-001",
+   "name": "Ammonia detectors AT-1801A/B/C",
+   "beta": 0.1,
+   "betaD": ""
+  }
+ ],
+ "libOver": {},
+ "siteLib": [],
+ "settings": {
+  "mission": 8760,
+  "points": 400,
+  "maxOrder": 8,
+  "cutoff": 1e-15,
+  "maxCS": 20000,
+  "mcSamples": 2000,
+  "demandMode": "low"
+ }
+}

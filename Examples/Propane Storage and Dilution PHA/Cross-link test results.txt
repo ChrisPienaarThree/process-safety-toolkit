@@ -1,0 +1,450 @@
+Propane storage and propane–air dilution system – cross-link test results
+Run 01 Nov 2026 22:10 · 433 checks · 433 passed · 0 failed
+
+
+A. Apps
+  PASS  fta app boots headless without script errors
+  PASS  fta app: no runtime errors while loading the example files
+  PASS  Propane storage - FT-PR-01 Bullet overfill.fta.json opens in its app
+  PASS  Propane storage - FT-PR-01 Bullet overfill.fta.json renders in its app
+  PASS  Propane storage - FT-PR-02 Flammable propane-air mixture.fta.json opens in its app
+  PASS  Propane storage - FT-PR-02 Flammable propane-air mixture.fta.json renders in its app
+  PASS  Propane storage - FT-PR-03 Gas detection and ESD.fta.json opens in its app
+  PASS  Propane storage - FT-PR-03 Gas detection and ESD.fta.json renders in its app
+  PASS  eta app boots headless without script errors
+  PASS  eta app: no runtime errors while loading the example files
+  PASS  Propane storage - ETA-PR-01 Major propane release.eta.json opens in its app
+  PASS  Propane storage - ETA-PR-01 Major propane release.eta.json renders in its app
+  PASS  bowtie app boots headless without script errors
+  PASS  bowtie app: no runtime errors while loading the example files
+  PASS  Propane storage - BT-PR-01 Loss of containment.bowtie.json opens in its app
+  PASS  Propane storage - BT-PR-01 Loss of containment.bowtie.json renders in its app
+  PASS  Propane storage - BT-PR-02 Propane-air ignition.bowtie.json opens in its app
+  PASS  Propane storage - BT-PR-02 Propane-air ignition.bowtie.json renders in its app
+  PASS  hazop app boots headless without script errors
+  PASS  hazop app: no runtime errors while loading the example files
+  PASS  Propane storage - HAZOP HZ-EX-PR-001.hazop.json opens in its app
+  PASS  Propane storage - HAZOP HZ-EX-PR-001.hazop.json renders in its app
+  PASS  Propane storage - FT-PR-01 Bullet overfill.fta.json: calculation has no warnings
+  PASS  Propane storage - FT-PR-02 Flammable propane-air mixture.fta.json: calculation has no warnings
+  PASS  Propane storage - FT-PR-03 Gas detection and ESD.fta.json: calculation has no warnings
+  PASS  Propane storage - ETA-PR-01 Major propane release.eta.json: no warnings (FT gates linked, every end state categorised)
+  PASS  Propane storage - ETA-PR-01 Major propane release.eta.json: sequence frequencies add up to the initiating frequency
+  PASS  Propane storage - BT-PR-01 Loss of containment.bowtie.json: no warnings (FT gates linked, every threat / consequence has a barrier)
+  PASS  Propane storage - BT-PR-02 Propane-air ignition.bowtie.json: no warnings (FT gates linked, every threat / consequence has a barrier)
+  PASS  HAZOP file: integrity check finds no orphaned records
+
+B. Numbers
+  PASS  ETA1 H2 = FT3 gate G-001 PFDavg
+  PASS  ETA1 H2 is live-linked to the fault tree (source = ft)
+  PASS  BT1 barrier OVERFILL = FT1 gate G-002 PFDavg
+  PASS  BT1 barrier OVERFILL is live-linked to its fault tree (source = ft)
+  PASS  BT1 barrier ESD = FT3 gate G-001 PFDavg
+  PASS  BT1 barrier ESD is live-linked to its fault tree (source = ft)
+  PASS  BT2 barrier MIXPROT = FT2 gate G-002 PFDavg
+  PASS  BT2 barrier MIXPROT is live-linked to its fault tree (source = ft)
+  PASS  Fault tree embedded in Propane storage - ETA-PR-01 Major propane release.eta.json is identical to Propane storage - FT-PR-03 Gas detection and ESD.fta.json
+  PASS  Fault tree embedded in Propane storage - BT-PR-01 Loss of containment.bowtie.json is identical to Propane storage - FT-PR-01 Bullet overfill.fta.json
+  PASS  Fault tree embedded in Propane storage - BT-PR-01 Loss of containment.bowtie.json is identical to Propane storage - FT-PR-03 Gas detection and ESD.fta.json
+  PASS  Fault tree embedded in Propane storage - BT-PR-02 Propane-air ignition.bowtie.json is identical to Propane storage - FT-PR-02 Flammable propane-air mixture.fta.json
+  PASS  ETA1 initiating frequency = BT1 top-event frequency
+  PASS  BT1 consequence 'JET' residual = ETA1 end state 'Prolonged jet fire – cooling prevents BLEVE'
+  PASS  BT1 consequence 'BLEVE' residual = ETA1 end state 'BLEVE – fireball, fragments, multiple fatalities'
+  PASS  BT1 consequence 'FF' residual = ETA1 end state 'Large flash fire – prolonged release'
+  PASS  BT1 consequence 'VCE' residual = ETA1 end state 'Vapour cloud explosion – blast damage, multiple fatalities'
+  PASS  BT1 threat T1 frequency = FT1 demand gate G-006
+  PASS  BT1 threat T1 contribution = FT1 top frequency x threat condition
+  PASS  BT2 threat T1 frequency = FT2 demand gate G-006
+  PASS  BT2 threat T1 contribution = FT2 top frequency x threat condition
+  PASS  ETA-PR-01 H3 = BT-PR-01 barrier 'ignition source control'
+  PASS  ETA-PR-01 H5 = BT-PR-01 barrier 'sprinkler / deluge cooling'
+  PASS  ETA-PR-01 H1 = BT-PR-01 'BLEVE' condition
+  PASS  BT-PR-01 'JET' condition = ETA H1 x (1 − H5)
+  PASS  BT-PR-01 'VCE' condition = (1 − ETA H1) x H4
+  PASS  BT-PR-01 'FF' condition = (1 − ETA H1) x (1 − H4)
+  PASS  BT-PR-02 threat T1 condition = BT-PR-02 threat T2 condition (same P(ignition))
+  PASS  ETA1 catastrophic target (0.0001 /yr) = BT1 tolerable frequency for severity 5
+  PASS  HAZOP N01-06 likelihood after safeguards (3) matches the calculated FT1_TOP = 1.9E-3 /yr
+  PASS  HAZOP N03-01 likelihood after safeguards (4) matches the calculated FT2_TOP = 1.2E-2 /yr
+  PASS  R-004 quotes FT1_TOP, FT1_PFD as the apps calculate them
+  PASS  R-008 quotes FT3_PFD as the apps calculate them
+  PASS  R-013 quotes FT2_TOP, FT2_PFD, BT2_EXPL as the apps calculate them
+  PASS  R-017 quotes ETA1_C5 as the apps calculate them
+  PASS  HAZOP texts quote FT1_TOP = 1.9E-3 exactly as the apps calculate it
+  PASS  HAZOP texts quote FT1_PFD = 3.9E-3 exactly as the apps calculate it
+  PASS  HAZOP texts quote FT2_TOP = 1.2E-2 exactly as the apps calculate it
+  PASS  HAZOP texts quote FT2_PFD = 1.8E-2 exactly as the apps calculate it
+  PASS  HAZOP texts quote FT3_PFD = 3.9E-2 exactly as the apps calculate it
+  PASS  HAZOP texts quote ETA1_C5 = 1.2E-5 exactly as the apps calculate it
+  PASS  HAZOP texts quote BT2_EXPL = 7.6E-5 exactly as the apps calculate it
+  PASS  Propane storage - FT-PR-01 Bullet overfill.fta.json BE-004 uses library item lr-lt-radar (typical)
+  PASS  Propane storage - FT-PR-01 Bullet overfill.fta.json BE-005 uses library item ipl-op10 (checked)
+  PASS  Propane storage - FT-PR-01 Bullet overfill.fta.json BE-006 uses library item eq-alarm (typical)
+  PASS  Propane storage - FT-PR-01 Bullet overfill.fta.json BE-007 uses library item lr-esdv (typical)
+  PASS  Propane storage - FT-PR-01 Bullet overfill.fta.json BE-008 uses library item lr-sov (typical)
+  PASS  Propane storage - FT-PR-01 Bullet overfill.fta.json BE-009 uses library item lr-plc (typical)
+  PASS  Propane storage - FT-PR-02 Flammable propane-air mixture.fta.json BE-002 uses library item ie-sis-spurious (typical)
+  PASS  Propane storage - FT-PR-02 Flammable propane-air mixture.fta.json BE-003 uses library item ie-bpcs (checked)
+  PASS  Propane storage - FT-PR-02 Flammable propane-air mixture.fta.json BE-004 uses library item perd-psw (checked)
+  PASS  Propane storage - FT-PR-02 Flammable propane-air mixture.fta.json BE-005 uses library item lr-contactor (typical)
+  PASS  Propane storage - FT-PR-02 Flammable propane-air mixture.fta.json BE-006 uses library item lr-esdv (typical)
+  PASS  Propane storage - FT-PR-02 Flammable propane-air mixture.fta.json BE-007 uses library item lr-plc (typical)
+  PASS  Propane storage - FT-PR-02 Flammable propane-air mixture.fta.json BE-008 uses library item lr-analyser (typical)
+  PASS  Propane storage - FT-PR-03 Gas detection and ESD.fta.json BE-001 uses library item lr-gd-cat (typical)
+  PASS  Propane storage - FT-PR-03 Gas detection and ESD.fta.json BE-002 uses library item lr-gd-cat (typical)
+  PASS  Propane storage - FT-PR-03 Gas detection and ESD.fta.json BE-003 uses library item lr-gd-cat (typical)
+  PASS  Propane storage - FT-PR-03 Gas detection and ESD.fta.json BE-004 uses library item lr-plc (typical)
+  PASS  Propane storage - FT-PR-03 Gas detection and ESD.fta.json BE-006 uses library item ipl-op10 (checked)
+  PASS  Propane storage - FT-PR-03 Gas detection and ESD.fta.json BE-007 uses library item lr-relay-logic (typical)
+  PASS  Propane storage - FT-PR-03 Gas detection and ESD.fta.json BE-008 uses library item lr-esdv (typical)
+  PASS  Propane storage - FT-PR-03 Gas detection and ESD.fta.json BE-009 uses library item lr-esdv (typical)
+  PASS  Propane storage - FT-PR-03 Gas detection and ESD.fta.json BE-010 uses library item lr-sov (typical)
+
+C. References
+  PASS  FT-PR-01 exists as 'Propane storage - FT-PR-01 Bullet overfill.fta.json'
+  PASS  FT-PR-02 exists as 'Propane storage - FT-PR-02 Flammable propane-air mixture.fta.json'
+  PASS  FT-PR-03 exists as 'Propane storage - FT-PR-03 Gas detection and ESD.fta.json'
+  PASS  ETA-PR-01 exists as 'Propane storage - ETA-PR-01 Major propane release.eta.json'
+  PASS  BT-PR-01 exists as 'Propane storage - BT-PR-01 Loss of containment.bowtie.json'
+  PASS  BT-PR-02 exists as 'Propane storage - BT-PR-02 Propane-air ignition.bowtie.json'
+  PASS  HZ-EX-PR-001 exists as 'Propane storage - HAZOP HZ-EX-PR-001.hazop.json'
+  PASS  FM-EX-PR-001 exists as 'Propane storage - FMECA_Workbook.xlsx'
+  PASS  HI-EX-PR-001 exists as 'Propane storage - HAZID_Register.xlsx'
+  PASS  Propane storage - FT-PR-01 Bullet overfill.fta.json: every FT / ETA / BT code it mentions exists (2 codes)
+  PASS  Propane storage - FT-PR-01 Bullet overfill.fta.json: every HAZOP deviation reference resolves (1 refs)
+  PASS  Propane storage - FT-PR-01 Bullet overfill.fta.json: every recommendation reference resolves (2 refs)
+  PASS  Propane storage - FT-PR-01 Bullet overfill.fta.json: every FMECA system reference resolves (1 refs)
+  PASS  Propane storage - FT-PR-02 Flammable propane-air mixture.fta.json: every FT / ETA / BT code it mentions exists (2 codes)
+  PASS  Propane storage - FT-PR-02 Flammable propane-air mixture.fta.json: every HAZOP deviation reference resolves (3 refs)
+  PASS  Propane storage - FT-PR-02 Flammable propane-air mixture.fta.json: every recommendation reference resolves (1 refs)
+  PASS  Propane storage - FT-PR-02 Flammable propane-air mixture.fta.json: every FMECA system reference resolves (1 refs)
+  PASS  Propane storage - FT-PR-03 Gas detection and ESD.fta.json: every FT / ETA / BT code it mentions exists (3 codes)
+  PASS  Propane storage - FT-PR-03 Gas detection and ESD.fta.json: every HAZOP deviation reference resolves (2 refs)
+  PASS  Propane storage - FT-PR-03 Gas detection and ESD.fta.json: every recommendation reference resolves (2 refs)
+  PASS  Propane storage - FT-PR-03 Gas detection and ESD.fta.json: every FMECA system reference resolves (1 refs)
+  PASS  Propane storage - ETA-PR-01 Major propane release.eta.json: every FT / ETA / BT code it mentions exists (3 codes)
+  PASS  Propane storage - ETA-PR-01 Major propane release.eta.json: every HAZOP deviation reference resolves (3 refs)
+  PASS  Propane storage - ETA-PR-01 Major propane release.eta.json: every recommendation reference resolves (3 refs)
+  PASS  Propane storage - ETA-PR-01 Major propane release.eta.json: every FMECA system reference resolves (1 refs)
+  PASS  Propane storage - ETA-PR-01 Major propane release.eta.json: FT-PR-03 G-001 exists in Propane storage - FT-PR-03 Gas detection and ESD.fta.json
+  PASS  Propane storage - BT-PR-01 Loss of containment.bowtie.json: every FT / ETA / BT code it mentions exists (4 codes)
+  PASS  Propane storage - BT-PR-01 Loss of containment.bowtie.json: every HAZOP deviation reference resolves (9 refs)
+  PASS  Propane storage - BT-PR-01 Loss of containment.bowtie.json: every recommendation reference resolves (8 refs)
+  PASS  Propane storage - BT-PR-01 Loss of containment.bowtie.json: every FMECA system reference resolves (2 refs)
+  PASS  Propane storage - BT-PR-01 Loss of containment.bowtie.json: FT-PR-01 G-002 exists in Propane storage - FT-PR-01 Bullet overfill.fta.json
+  PASS  Propane storage - BT-PR-01 Loss of containment.bowtie.json: FT-PR-03 G-001 exists in Propane storage - FT-PR-03 Gas detection and ESD.fta.json
+  PASS  Propane storage - BT-PR-01 Loss of containment.bowtie.json: FT-PR-01 G-006 exists in Propane storage - FT-PR-01 Bullet overfill.fta.json
+  PASS  Propane storage - BT-PR-01 Loss of containment.bowtie.json: FT-PR-01 G-002 exists in Propane storage - FT-PR-01 Bullet overfill.fta.json
+  PASS  Propane storage - BT-PR-01 Loss of containment.bowtie.json: FT-PR-03 G-001 exists in Propane storage - FT-PR-03 Gas detection and ESD.fta.json
+  PASS  Propane storage - BT-PR-02 Propane-air ignition.bowtie.json: every FT / ETA / BT code it mentions exists (2 codes)
+  PASS  Propane storage - BT-PR-02 Propane-air ignition.bowtie.json: every HAZOP deviation reference resolves (6 refs)
+  PASS  Propane storage - BT-PR-02 Propane-air ignition.bowtie.json: every recommendation reference resolves (3 refs)
+  PASS  Propane storage - BT-PR-02 Propane-air ignition.bowtie.json: every FMECA system reference resolves (1 refs)
+  PASS  Propane storage - BT-PR-02 Propane-air ignition.bowtie.json: FT-PR-02 G-006 exists in Propane storage - FT-PR-02 Flammable propane-air mixture.fta.json
+  PASS  Propane storage - BT-PR-02 Propane-air ignition.bowtie.json: FT-PR-02 G-002 exists in Propane storage - FT-PR-02 Flammable propane-air mixture.fta.json
+  PASS  Propane storage - BT-PR-02 Propane-air ignition.bowtie.json: FT-PR-02 G-006 exists in Propane storage - FT-PR-02 Flammable propane-air mixture.fta.json
+  PASS  Propane storage - BT-PR-02 Propane-air ignition.bowtie.json: FT-PR-02 G-002 exists in Propane storage - FT-PR-02 Flammable propane-air mixture.fta.json
+  PASS  Propane storage - HAZOP HZ-EX-PR-001.hazop.json: every FT / ETA / BT code it mentions exists (6 codes)
+  PASS  Propane storage - HAZOP HZ-EX-PR-001.hazop.json: every HAZOP deviation reference resolves (32 refs)
+  PASS  Propane storage - HAZOP HZ-EX-PR-001.hazop.json: every recommendation reference resolves (17 refs)
+  PASS  Propane storage - HAZOP HZ-EX-PR-001.hazop.json: every FMECA system reference resolves (0 refs)
+  PASS  Propane storage - HAZOP_Study_Workbook.xlsx: every FT / ETA / BT code it mentions exists (6 codes)
+  PASS  Propane storage - HAZOP_Study_Workbook.xlsx: every HAZOP deviation reference resolves (32 refs)
+  PASS  Propane storage - HAZOP_Study_Workbook.xlsx: every recommendation reference resolves (17 refs)
+  PASS  Propane storage - HAZOP_Study_Workbook.xlsx: every FMECA system reference resolves (0 refs)
+  PASS  Propane storage - FMECA_Workbook.xlsx: every FT / ETA / BT code it mentions exists (6 codes)
+  PASS  Propane storage - FMECA_Workbook.xlsx: every HAZOP deviation reference resolves (12 refs)
+  PASS  Propane storage - FMECA_Workbook.xlsx: every recommendation reference resolves (9 refs)
+  PASS  Propane storage - FMECA_Workbook.xlsx: every FMECA system reference resolves (0 refs)
+  PASS  Propane storage - FMECA_Workbook.xlsx: FT-PR-01 BE-004 exists in Propane storage - FT-PR-01 Bullet overfill.fta.json
+  PASS  Propane storage - FMECA_Workbook.xlsx: FT-PR-01 BE-007 exists in Propane storage - FT-PR-01 Bullet overfill.fta.json
+  PASS  Propane storage - FMECA_Workbook.xlsx: FT-PR-03 BE-001 exists in Propane storage - FT-PR-03 Gas detection and ESD.fta.json
+  PASS  Propane storage - FMECA_Workbook.xlsx: FT-PR-02 BE-004 exists in Propane storage - FT-PR-02 Flammable propane-air mixture.fta.json
+  PASS  Propane storage - FMECA_Workbook.xlsx: FT-PR-02 BE-008 exists in Propane storage - FT-PR-02 Flammable propane-air mixture.fta.json
+  PASS  Propane storage - FMECA_Workbook.xlsx: FT-PR-02 BE-006 exists in Propane storage - FT-PR-02 Flammable propane-air mixture.fta.json
+  PASS  Propane storage - HAZID_Register.xlsx: every FT / ETA / BT code it mentions exists (6 codes)
+  PASS  Propane storage - HAZID_Register.xlsx: every HAZOP deviation reference resolves (21 refs)
+  PASS  Propane storage - HAZID_Register.xlsx: every recommendation reference resolves (17 refs)
+  PASS  Propane storage - HAZID_Register.xlsx: every FMECA system reference resolves (0 refs)
+  PASS  Every HAZOP recommendation is linked to at least one deviation
+  PASS  HAZOP N01-01 complete (causes, consequence, safeguards, risk before / after; risk not increased)
+  PASS  HAZOP N01-02 complete (causes, consequence, safeguards, risk before / after; risk not increased)
+  PASS  HAZOP N01-03 complete (causes, consequence, safeguards, risk before / after; risk not increased)
+  PASS  HAZOP N01-04 complete (causes, consequence, safeguards, risk before / after; risk not increased)
+  PASS  HAZOP N01-05 complete (causes, consequence, safeguards, risk before / after; risk not increased)
+  PASS  HAZOP N01-06 complete (causes, consequence, safeguards, risk before / after; risk not increased)
+  PASS  HAZOP N01-07 complete (causes, consequence, safeguards, risk before / after; risk not increased)
+  PASS  HAZOP N01-08 complete (causes, consequence, safeguards, risk before / after; risk not increased)
+  PASS  HAZOP N01-09 complete (causes, consequence, safeguards, risk before / after; risk not increased)
+  PASS  HAZOP N01-10 complete (causes, consequence, safeguards, risk before / after; risk not increased)
+  PASS  HAZOP N01-11 complete (causes, consequence, safeguards, risk before / after; risk not increased)
+  PASS  HAZOP N01-12 complete (causes, consequence, safeguards, risk before / after; risk not increased)
+  PASS  HAZOP N01-13 complete (causes, consequence, safeguards, risk before / after; risk not increased)
+  PASS  HAZOP N02-01 complete (causes, consequence, safeguards, risk before / after; risk not increased)
+  PASS  HAZOP N02-02 complete (causes, consequence, safeguards, risk before / after; risk not increased)
+  PASS  HAZOP N02-03 complete (causes, consequence, safeguards, risk before / after; risk not increased)
+  PASS  HAZOP N02-04 complete (causes, consequence, safeguards, risk before / after; risk not increased)
+  PASS  HAZOP N02-05 complete (causes, consequence, safeguards, risk before / after; risk not increased)
+  PASS  HAZOP N02-06 complete (causes, consequence, safeguards, risk before / after; risk not increased)
+  PASS  HAZOP N02-07 complete (causes, consequence, safeguards, risk before / after; risk not increased)
+  PASS  HAZOP N02-08 complete (causes, consequence, safeguards, risk before / after; risk not increased)
+  PASS  HAZOP N02-09 complete (causes, consequence, safeguards, risk before / after; risk not increased)
+  PASS  HAZOP N02-10 complete (causes, consequence, safeguards, risk before / after; risk not increased)
+  PASS  HAZOP N03-01 complete (causes, consequence, safeguards, risk before / after; risk not increased)
+  PASS  HAZOP N03-02 complete (causes, consequence, safeguards, risk before / after; risk not increased)
+  PASS  HAZOP N03-03 complete (causes, consequence, safeguards, risk before / after; risk not increased)
+  PASS  HAZOP N03-04 complete (causes, consequence, safeguards, risk before / after; risk not increased)
+  PASS  HAZOP N03-05 complete (causes, consequence, safeguards, risk before / after; risk not increased)
+  PASS  HAZOP N03-06 complete (causes, consequence, safeguards, risk before / after; risk not increased)
+  PASS  HAZOP N03-07 complete (causes, consequence, safeguards, risk before / after; risk not increased)
+  PASS  HAZOP N03-08 complete (causes, consequence, safeguards, risk before / after; risk not increased)
+  PASS  HAZOP N03-09 complete (causes, consequence, safeguards, risk before / after; risk not increased)
+  PASS  Every HAZOP node has PSI documents linked
+  PASS  Every HAZOP node is covered by a study session
+  PASS  FMECA systems map one-to-one to the HAZOP nodes with the same names
+  PASS  FMECA S01 LT-11 → HAZOP N01-06 exists and belongs to node N01
+  PASS  FMECA S01 ROV-11 → HAZOP N01-06 exists and belongs to node N01
+  PASS  FMECA S01 ERC-1 → HAZOP N01-10 exists and belongs to node N01
+  PASS  FMECA S01 PSV-11 → HAZOP N01-07 exists and belongs to node N01
+  PASS  FMECA S01 GLD-1 → HAZOP N01-09 exists and belongs to node N01
+  PASS  FMECA S01 C-01 → HAZOP N01-01 exists and belongs to node N01
+  PASS  FMECA S02 P-01 → HAZOP N02-02 exists and belongs to node N02
+  PASS  FMECA S02 VAP-01 → HAZOP N02-04 exists and belongs to node N02
+  PASS  FMECA S02 TSL-01 → HAZOP N02-04 exists and belongs to node N02
+  PASS  FMECA S02 PCV-01 → HAZOP N02-03 exists and belongs to node N02
+  PASS  FMECA S03 PSLL-01 → HAZOP N03-01 exists and belongs to node N03
+  PASS  FMECA S03 AT-01 → HAZOP N03-01 exists and belongs to node N03
+  PASS  FMECA S03 XV-02 → HAZOP N03-01 exists and belongs to node N03
+  PASS  FMECA S03 FFIC-01 → HAZOP N03-02 exists and belongs to node N03
+  PASS  FMECA S03 FA-01 → HAZOP N03-07 exists and belongs to node N03
+  PASS  FMECA S03 B-01 → HAZOP N03-09 exists and belongs to node N03
+
+D. Tags
+  PASS  Equipment register tags are unique
+  PASS  Propane storage - FT-PR-01 Bullet overfill.fta.json: every equipment tag in the basic events is in the FMECA equipment register (3 tags)
+  PASS  Propane storage - FT-PR-02 Flammable propane-air mixture.fta.json: every equipment tag in the basic events is in the FMECA equipment register (8 tags)
+  PASS  Propane storage - FT-PR-03 Gas detection and ESD.fta.json: every equipment tag in the basic events is in the FMECA equipment register (7 tags)
+  PASS  Propane storage - BT-PR-01 Loss of containment.bowtie.json: every tag in barrier names / notes is defined in the HAZOP or FMECA (7 tags)
+  PASS  BT1 barrier 'Overfill protection – LAH with operator ' → HAZOP safeguard tag(s) LT-11 in the register
+  PASS  BT1 barrier 'Emergency release coupling ERC-1 with se' → HAZOP safeguard tag(s) ERC-1 in the register
+  PASS  BT1 barrier 'Gas detection and ESD isolation (GLD-1/2' → HAZOP safeguard tag(s) UCP-1 in the register
+  PASS  Propane storage - BT-PR-02 Propane-air ignition.bowtie.json: every tag in barrier names / notes is defined in the HAZOP or FMECA (5 tags)
+  PASS  BT2 barrier 'Mixture protection – PSLL-01 trip and ca' → HAZOP safeguard tag(s) AT-01, PSLL-01 in the register
+  PASS  BT2 barrier 'In-line flame arrester FA-01 on the prop' → HAZOP safeguard tag(s) FA-01 in the register
+  PASS  BT2 barrier 'Explosion vent panel EP-01 on surge tank' → HAZOP safeguard tag(s) EP-01 in the register
+  PASS  FMECA S01 row tag LT-11 is in the equipment register under S01
+  PASS  FMECA S01 row tag ROV-11 is in the equipment register under S01
+  PASS  FMECA S01 row tag ERC-1 is in the equipment register under S01
+  PASS  FMECA S01 row tag PSV-11 is in the equipment register under S01
+  PASS  FMECA S01 row tag GLD-1 is in the equipment register under S01
+  PASS  FMECA S01 row tag C-01 is in the equipment register under S01
+  PASS  FMECA S02 row tag P-01 is in the equipment register under S02
+  PASS  FMECA S02 row tag VAP-01 is in the equipment register under S02
+  PASS  FMECA S02 row tag TSL-01 is in the equipment register under S02
+  PASS  FMECA S02 row tag PCV-01 is in the equipment register under S02
+  PASS  FMECA S03 row tag PSLL-01 is in the equipment register under S03
+  PASS  FMECA S03 row tag AT-01 is in the equipment register under S03
+  PASS  FMECA S03 row tag XV-02 is in the equipment register under S03
+  PASS  FMECA S03 row tag FFIC-01 is in the equipment register under S03
+  PASS  FMECA S03 row tag FA-01 is in the equipment register under S03
+  PASS  FMECA S03 row tag B-01 is in the equipment register under S03
+  PASS  HAZOP safeguard register: every tag is defined (44 tags)
+  PASS  HAZOP causes / consequences / comments: every tag is defined (22 tags)
+  PASS  HAZOP IPL OVERFILL (LT-11/21/31) is the barrier 'Overfill protection – LAH with operato' in BT1
+  PASS  HAZOP IPL ESD (UCP-1) is the barrier 'Gas detection and ESD isolation (GLD-1' in BT1
+  PASS  HAZOP IPL ERC (ERC-1) is the barrier 'Emergency release coupling ERC-1 with ' in BT1
+  PASS  HAZOP IPL PSLL01 (PSLL-01) is the barrier 'Mixture protection – PSLL-01 trip and ' in BT2
+  PASS  HAZOP IPL AT01 (AT-01) is the barrier 'Mixture protection – PSLL-01 trip and ' in BT2
+  PASS  HAZOP IPL FA01 (FA-01) is the barrier 'In-line flame arrester FA-01 on the pr' in BT2
+  PASS  HAZOP IPL EP01 (EP-01) is the barrier 'Explosion vent panel EP-01 on surge ta' in BT2
+
+E. Workbooks
+  PASS  Propane storage - HAZOP_Study_Workbook.xlsx recalculates in LibreOffice with no formula errors (9101 formulas)
+  PASS  Propane storage - FMECA_Workbook.xlsx recalculates in LibreOffice with no formula errors (9210 formulas)
+  PASS  Propane storage - HAZID_Register.xlsx recalculates in LibreOffice with no formula errors (40 formulas)
+  PASS  HAZOP workbook: cover shows 3 nodes
+  PASS  HAZOP workbook Node 01 is 'N01' with the node details
+  PASS  HAZOP workbook Node 01 has the same 13 deviations as the app
+  PASS  HAZOP workbook N01-01 = app (parameter/guideword valid, 2 causes, 1 safeguards, risk 8 → 6)
+  PASS  HAZOP workbook N01-02 = app (parameter/guideword valid, 2 causes, 3 safeguards, risk 12 → 8)
+  PASS  HAZOP workbook N01-03 = app (parameter/guideword valid, 2 causes, 2 safeguards, risk 12 → 8)
+  PASS  HAZOP workbook N01-04 = app (parameter/guideword valid, 3 causes, 3 safeguards, risk 12 → 8)
+  PASS  HAZOP workbook N01-05 = app (parameter/guideword valid, 2 causes, 1 safeguards, risk 3 → 3)
+  PASS  HAZOP workbook N01-06 = app (parameter/guideword valid, 3 causes, 4 safeguards, risk 20 → 15)
+  PASS  HAZOP workbook N01-07 = app (parameter/guideword valid, 2 causes, 6 safeguards, risk 10 → 5)
+  PASS  HAZOP workbook N01-08 = app (parameter/guideword valid, 2 causes, 2 safeguards, risk 10 → 5)
+  PASS  HAZOP workbook N01-09 = app (parameter/guideword valid, 2 causes, 4 safeguards, risk 15 → 10)
+  PASS  HAZOP workbook N01-10 = app (parameter/guideword valid, 2 causes, 3 safeguards, risk 15 → 10)
+  PASS  HAZOP workbook N01-11 = app (parameter/guideword valid, 3 causes, 1 safeguards, risk 6 → 4)
+  PASS  HAZOP workbook N01-12 = app (parameter/guideword valid, 2 causes, 2 safeguards, risk 9 → 6)
+  PASS  HAZOP workbook N01-13 = app (parameter/guideword valid, 2 causes, 2 safeguards, risk 12 → 8)
+  PASS  HAZOP workbook Node 02 is 'N02' with the node details
+  PASS  HAZOP workbook Node 02 has the same 10 deviations as the app
+  PASS  HAZOP workbook N02-01 = app (parameter/guideword valid, 3 causes, 3 safeguards, risk 12 → 9)
+  PASS  HAZOP workbook N02-02 = app (parameter/guideword valid, 3 causes, 3 safeguards, risk 12 → 8)
+  PASS  HAZOP workbook N02-03 = app (parameter/guideword valid, 3 causes, 3 safeguards, risk 12 → 8)
+  PASS  HAZOP workbook N02-04 = app (parameter/guideword valid, 3 causes, 3 safeguards, risk 12 → 8)
+  PASS  HAZOP workbook N02-05 = app (parameter/guideword valid, 2 causes, 2 safeguards, risk 12 → 8)
+  PASS  HAZOP workbook N02-06 = app (parameter/guideword valid, 2 causes, 2 safeguards, risk 8 → 4)
+  PASS  HAZOP workbook N02-07 = app (parameter/guideword valid, 1 causes, 1 safeguards, risk 8 → 8)
+  PASS  HAZOP workbook N02-08 = app (parameter/guideword valid, 3 causes, 4 safeguards, risk 15 → 10)
+  PASS  HAZOP workbook N02-09 = app (parameter/guideword valid, 2 causes, 1 safeguards, risk 6 → 4)
+  PASS  HAZOP workbook N02-10 = app (parameter/guideword valid, 2 causes, 2 safeguards, risk 9 → 6)
+  PASS  HAZOP workbook Node 03 is 'N03' with the node details
+  PASS  HAZOP workbook Node 03 has the same 9 deviations as the app
+  PASS  HAZOP workbook N03-01 = app (parameter/guideword valid, 3 causes, 4 safeguards, risk 20 → 20)
+  PASS  HAZOP workbook N03-02 = app (parameter/guideword valid, 2 causes, 2 safeguards, risk 15 → 10)
+  PASS  HAZOP workbook N03-03 = app (parameter/guideword valid, 2 causes, 2 safeguards, risk 12 → 8)
+  PASS  HAZOP workbook N03-04 = app (parameter/guideword valid, 2 causes, 2 safeguards, risk 9 → 6)
+  PASS  HAZOP workbook N03-05 = app (parameter/guideword valid, 2 causes, 2 safeguards, risk 9 → 6)
+  PASS  HAZOP workbook N03-06 = app (parameter/guideword valid, 2 causes, 3 safeguards, risk 15 → 10)
+  PASS  HAZOP workbook N03-07 = app (parameter/guideword valid, 2 causes, 2 safeguards, risk 10 → 5)
+  PASS  HAZOP workbook N03-08 = app (parameter/guideword valid, 2 causes, 3 safeguards, risk 12 → 8)
+  PASS  HAZOP workbook N03-09 = app (parameter/guideword valid, 2 causes, 2 safeguards, risk 9 → 6)
+  PASS  FMECA workbook: cover shows 3 systems and 36 equipment items
+  PASS  FMECA S01-01 LT-11: type from register, component + failure mode valid, RPN 240, AP H
+  PASS  FMECA S01-02 ROV-11: type from register, component + failure mode valid, RPN 162, AP M
+  PASS  FMECA S01-03 ERC-1: type from register, component + failure mode valid, RPN 210, AP H
+  PASS  FMECA S01-04 PSV-11: type from register, component + failure mode valid, RPN 140, AP H
+  PASS  FMECA S01-05 GLD-1: type from register, component + failure mode valid, RPN 128, AP M
+  PASS  FMECA S01-06 C-01: type from register, component + failure mode valid, RPN 40, AP L
+  PASS  FMECA S02-01 P-01: type from register, component + failure mode valid, RPN 144, AP H
+  PASS  FMECA S02-02 VAP-01: type from register, component + failure mode valid, RPN 96, AP M
+  PASS  FMECA S02-03 TSL-01: type from register, component + failure mode valid, RPN 144, AP M
+  PASS  FMECA S02-04 PCV-01: type from register, component + failure mode valid, RPN 84, AP M
+  PASS  FMECA S03-01 PSLL-01: type from register, component + failure mode valid, RPN 180, AP M
+  PASS  FMECA S03-02 AT-01: type from register, component + failure mode valid, RPN 200, AP H
+  PASS  FMECA S03-03 XV-02: type from register, component + failure mode valid, RPN 162, AP M
+  PASS  FMECA S03-04 FFIC-01: type from register, component + failure mode valid, RPN 180, AP H
+  PASS  FMECA S03-05 FA-01: type from register, component + failure mode valid, RPN 192, AP M
+  PASS  FMECA S03-06 B-01: type from register, component + failure mode valid, RPN 40, AP L
+  PASS  FMECA Summary counts all 16 failure modes
+  PASS  Propane storage - HAZOP_Study_Workbook_Macro.xlsm keeps the template's VBA project unchanged
+  PASS  Propane storage - FMECA_Workbook_Macro.xlsm keeps the template's VBA project unchanged
+  PASS  HAZOP macro workbook Node 01: 13 deviations and IPL tags as the app
+  PASS  HAZOP macro workbook Node 02: 10 deviations and IPL tags as the app
+  PASS  HAZOP macro workbook Node 03: 9 deviations and IPL tags as the app
+
+G. HAZID
+  PASS  HAZID register has all 20 hazards
+  PASS  HZD-01 risk score 15 and rank High calculated by the workbook
+  PASS  HZD-01 (High) is sent to a further study
+  PASS  HZD-01 further-study reference N01-09 resolves
+  PASS  HZD-01 further-study reference N01-10 resolves
+  PASS  HZD-01 recommendation R-006 exists in the HAZOP
+  PASS  HZD-01 recommendation R-008 exists in the HAZOP
+  PASS  HZD-02 risk score 20 and rank Very High calculated by the workbook
+  PASS  HZD-02 (Very High) is sent to a further study
+  PASS  HZD-02 further-study reference N01-06 resolves
+  PASS  HZD-02 recommendation R-004 exists in the HAZOP
+  PASS  HZD-02 recommendation R-005 exists in the HAZOP
+  PASS  HZD-03 risk score 10 and rank High calculated by the workbook
+  PASS  HZD-03 (High) is sent to a further study
+  PASS  HZD-03 further-study reference N01-07 resolves
+  PASS  HZD-03 recommendation R-009 exists in the HAZOP
+  PASS  HZD-04 risk score 9 and rank Medium calculated by the workbook
+  PASS  HZD-04 further-study reference N01-04 resolves
+  PASS  HZD-04 recommendation R-003 exists in the HAZOP
+  PASS  HZD-05 risk score 10 and rank High calculated by the workbook
+  PASS  HZD-05 (High) is sent to a further study
+  PASS  HZD-05 further-study reference N01-08 resolves
+  PASS  HZD-05 recommendation R-007 exists in the HAZOP
+  PASS  HZD-06 risk score 12 and rank High calculated by the workbook
+  PASS  HZD-06 (High) is sent to a further study
+  PASS  HZD-06 further-study reference N01-03 resolves
+  PASS  HZD-06 recommendation R-001 exists in the HAZOP
+  PASS  HZD-07 risk score 10 and rank High calculated by the workbook
+  PASS  HZD-07 (High) is sent to a further study
+  PASS  HZD-07 further-study reference N01-01 resolves
+  PASS  HZD-07 recommendation R-016 exists in the HAZOP
+  PASS  HZD-08 risk score 9 and rank Medium calculated by the workbook
+  PASS  HZD-09 risk score 15 and rank High calculated by the workbook
+  PASS  HZD-09 (High) is sent to a further study
+  PASS  HZD-09 further-study reference N02-02 resolves
+  PASS  HZD-09 further-study reference N02-08 resolves
+  PASS  HZD-09 recommendation R-010 exists in the HAZOP
+  PASS  HZD-10 risk score 12 and rank High calculated by the workbook
+  PASS  HZD-10 (High) is sent to a further study
+  PASS  HZD-10 further-study reference N02-04 resolves
+  PASS  HZD-10 further-study reference N02-05 resolves
+  PASS  HZD-10 recommendation R-011 exists in the HAZOP
+  PASS  HZD-11 risk score 12 and rank High calculated by the workbook
+  PASS  HZD-11 (High) is sent to a further study
+  PASS  HZD-11 further-study reference N02-03 resolves
+  PASS  HZD-11 recommendation R-012 exists in the HAZOP
+  PASS  HZD-12 risk score 20 and rank Very High calculated by the workbook
+  PASS  HZD-12 (Very High) is sent to a further study
+  PASS  HZD-12 further-study reference N03-01 resolves
+  PASS  HZD-12 further-study reference N03-02 resolves
+  PASS  HZD-12 recommendation R-013 exists in the HAZOP
+  PASS  HZD-13 risk score 15 and rank High calculated by the workbook
+  PASS  HZD-13 (High) is sent to a further study
+  PASS  HZD-13 further-study reference N03-06 resolves
+  PASS  HZD-13 recommendation R-014 exists in the HAZOP
+  PASS  HZD-14 risk score 10 and rank High calculated by the workbook
+  PASS  HZD-14 (High) is sent to a further study
+  PASS  HZD-14 further-study reference N03-07 resolves
+  PASS  HZD-14 recommendation R-015 exists in the HAZOP
+  PASS  HZD-15 risk score 9 and rank Medium calculated by the workbook
+  PASS  HZD-15 further-study reference N01-12 resolves
+  PASS  HZD-15 further-study reference N02-10 resolves
+  PASS  HZD-15 further-study reference N03-09 resolves
+  PASS  HZD-15 recommendation R-002 exists in the HAZOP
+  PASS  HZD-16 risk score 12 and rank High calculated by the workbook
+  PASS  HZD-16 (High) is sent to a further study
+  PASS  HZD-16 further-study reference N01-13 resolves
+  PASS  HZD-17 risk score 8 and rank Medium calculated by the workbook
+  PASS  HZD-18 risk score 8 and rank Medium calculated by the workbook
+  PASS  HZD-19 risk score 10 and rank High calculated by the workbook
+  PASS  HZD-19 (High) is sent to a further study
+  PASS  HZD-19 recommendation R-017 exists in the HAZOP
+  PASS  HZD-20 risk score 6 and rank Medium calculated by the workbook
+  PASS  Every HAZOP node is reached from the HAZID
+
+F. Report
+  PASS  Report refers to FT-PR-01
+  PASS  Report refers to FT-PR-02
+  PASS  Report refers to FT-PR-03
+  PASS  Report refers to ETA-PR-01
+  PASS  Report refers to BT-PR-01
+  PASS  Report refers to BT-PR-02
+  PASS  Report refers to HZ-EX-PR-001
+  PASS  Report refers to FM-EX-PR-001
+  PASS  Report refers to HI-EX-PR-001
+  PASS  Report quotes FT1_TOP = 1.9E-3 as calculated by the apps
+  PASS  Report quotes FT1_PFD = 3.9E-3 as calculated by the apps
+  PASS  Report quotes FT2_TOP = 1.2E-2 as calculated by the apps
+  PASS  Report quotes FT2_PFD = 1.8E-2 as calculated by the apps
+  PASS  Report quotes FT3_PFD = 3.9E-2 as calculated by the apps
+  PASS  Report quotes ETA1_C5 = 1.2E-5 as calculated by the apps
+  PASS  Report quotes BT2_EXPL = 7.6E-5 as calculated by the apps
+  PASS  Report lists every recommendation (17 of 17)
+  PASS  Report covers every HAZOP deviation
+  PASS  Report quotes ETA1 end state 'Release isolated – propane disperses wit' = 6.5E-3 /yr
+  PASS  Report quotes ETA1 end state 'Small flash fire – isolated inventory' = 7.2E-4 /yr
+  PASS  Report quotes ETA1 end state 'Prolonged release disperses without igni' = 2.7E-4 /yr
+  PASS  Report quotes ETA1 end state 'Large flash fire – prolonged release' = 2.1E-5 /yr
+  PASS  Report quotes ETA1 end state 'Vapour cloud explosion – blast damage, m' = 8.8E-6 /yr
+  PASS  Report quotes ETA1 end state 'Jet fire – isolated quickly, local damag' = 8.0E-4 /yr
+  PASS  Report quotes ETA1 end state 'Prolonged jet fire – cooling prevents BL' = 2.9E-5 /yr
+  PASS  Report quotes ETA1 end state 'BLEVE – fireball, fragments, multiple fa' = 3.3E-6 /yr
+  PASS  Report lists HAZID item HZD-01
+  PASS  Report lists HAZID item HZD-02
+  PASS  Report lists HAZID item HZD-03
+  PASS  Report lists HAZID item HZD-04
+  PASS  Report lists HAZID item HZD-05
+  PASS  Report lists HAZID item HZD-06
+  PASS  Report lists HAZID item HZD-07
+  PASS  Report lists HAZID item HZD-08
+  PASS  Report lists HAZID item HZD-09
+  PASS  Report lists HAZID item HZD-10
+  PASS  Report lists HAZID item HZD-11
+  PASS  Report lists HAZID item HZD-12
+  PASS  Report lists HAZID item HZD-13
+  PASS  Report lists HAZID item HZD-14
+  PASS  Report lists HAZID item HZD-15
+  PASS  Report lists HAZID item HZD-16
+  PASS  Report lists HAZID item HZD-17
+  PASS  Report lists HAZID item HZD-18
+  PASS  Report lists HAZID item HZD-19
+  PASS  Report lists HAZID item HZD-20

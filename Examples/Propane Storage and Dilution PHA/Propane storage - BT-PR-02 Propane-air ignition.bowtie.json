@@ -1,0 +1,619 @@
+{
+ "app": "Bow Tie Analysis",
+ "schema": 1,
+ "title": "BT-PR-02 – Ignition of a propane–air mixture inside the dilution system (propane storage example)",
+ "description": "Threat T1 = flammable mixture (fault tree FT-PR-02 demand gate G-006) with the mixture-protection barrier = FT-PR-02 gate G-002, and a conditional probability of ignition (flashback at a burner) of 0.5 – its contribution is the FT-PR-02 top event x 0.5. HAZOP N03; FMECA S03. Illustrative data.",
+ "modified": "2026-11-12T16:00:00.000Z",
+ "hazard": "Propane–air mixture (55 % propane) at 0.8 barg in mixer MX-01, surge tank ST-01 and the header to the burners",
+ "top": "Ignition of a propane–air mixture inside the mixer, surge tank or header",
+ "threats": [
+  {
+   "id": "t000089",
+   "name": "Propane–air mixture enters the flammable range (propane lost, air continues)",
+   "freq": 0.7,
+   "cond": 0.5,
+   "notes": "Frequency = FT-PR-02 gate G-006; 0.5 = P(ignition by flashback). HAZOP N03-01.",
+   "barrierIds": [
+    "b000082"
+   ],
+   "key": "T1"
+  },
+  {
+   "id": "t000090",
+   "name": "Start-up with air in the mixer, surge tank or header",
+   "freq": 0.2,
+   "cond": 0.5,
+   "notes": "Start-ups after maintenance; HAZOP N03-06",
+   "barrierIds": [
+    "b000083",
+    "b000084"
+   ],
+   "key": "T2"
+  },
+  {
+   "id": "t000091",
+   "name": "Flashback from a burner into the header",
+   "freq": 0.5,
+   "cond": 0.1,
+   "notes": "HAZOP N03-07",
+   "barrierIds": [
+    "b000087",
+    "b000085"
+   ],
+   "key": "T3"
+  }
+ ],
+ "consequences": [
+  {
+   "id": "q000092",
+   "name": "Surge tank / header ruptures – explosion near the furnace building",
+   "cond": 1,
+   "sev": {
+    "P": 5,
+    "E": 2,
+    "A": 5,
+    "R": 4
+   },
+   "notes": "Overpressure not relieved by EP-01",
+   "barrierIds": [
+    "b000086"
+   ],
+   "key": "EXPL"
+  },
+  {
+   "id": "q000093",
+   "name": "Deflagration vented by EP-01 – damage to the mixing station, outage",
+   "cond": 1,
+   "sev": {
+    "P": 2,
+    "E": 1,
+    "A": 4,
+    "R": 2
+   },
+   "notes": "Vented through EP-01 to a safe area",
+   "barrierIds": [
+    "b000088"
+   ],
+   "key": "DEFL"
+  }
+ ],
+ "barriers": [
+  {
+   "id": "b000082",
+   "name": "Mixture protection – PSLL-01 trip and calorimeter trip AT-01",
+   "type": "Active hardware",
+   "pfd": 0.017517,
+   "source": "ft",
+   "ftId": "f000081",
+   "gateId": "g000021",
+   "status": "Available",
+   "degradeFactor": 10,
+   "owner": "Instrument engineer",
+   "performance": "Air stopped before the mixture reaches 15 % propane",
+   "verification": "Annual trip tests",
+   "critical": "Yes",
+   "notes": "PFDavg from fault tree FT-PR-02 gate G-002. HAZOP safeguards PSLL-01, AT-01 (N03-01).",
+   "key": "MIXPROT"
+  },
+  {
+   "id": "b000083",
+   "name": "Start-up procedure OP-PR-020 – N2 purge, propane before air",
+   "type": "Active human",
+   "pfd": 0.1,
+   "source": "manual",
+   "ftId": "",
+   "gateId": "",
+   "status": "Available",
+   "degradeFactor": 10,
+   "owner": "Shift supervisor",
+   "performance": "No air in the system at start-up",
+   "verification": "Observation audits",
+   "critical": "",
+   "notes": "HAZOP N03-06 (R-014)",
+   "key": "PURGE"
+  },
+  {
+   "id": "b000084",
+   "name": "Mixture verified on AT-01 before the users are opened",
+   "type": "Active human",
+   "pfd": 0.1,
+   "source": "manual",
+   "ftId": "",
+   "gateId": "",
+   "status": "Available",
+   "degradeFactor": 10,
+   "owner": "Shift supervisor",
+   "performance": "Users opened only with mixture in specification",
+   "verification": "Log check",
+   "critical": "",
+   "notes": "HAZOP N03-06",
+   "key": "ATCHK"
+  },
+  {
+   "id": "b000085",
+   "name": "In-line flame arrester FA-01 on the propane–air header",
+   "type": "Passive hardware",
+   "pfd": 0.1,
+   "source": "manual",
+   "ftId": "",
+   "gateId": "",
+   "status": "Available",
+   "degradeFactor": 10,
+   "owner": "Mechanical engineer",
+   "performance": "Flame stopped at FA-01",
+   "verification": "Six-monthly inspection (R-015)",
+   "critical": "Yes",
+   "notes": "Library ipl15-arr-inline (CCPS IE & IPL Data Table 5.2). HAZOP safeguard FA-01 (N03-07).",
+   "key": "FA"
+  },
+  {
+   "id": "b000086",
+   "name": "Explosion vent panel EP-01 on surge tank ST-01",
+   "type": "Passive hardware",
+   "pfd": 0.01,
+   "source": "manual",
+   "ftId": "",
+   "gateId": "",
+   "status": "Available",
+   "degradeFactor": 10,
+   "owner": "Mechanical engineer",
+   "performance": "Panel opens before ST-01 ruptures",
+   "verification": "Annual inspection",
+   "critical": "Yes",
+   "notes": "Library ipl15-expl-panel (CCPS IE & IPL Data Table 5.27). HAZOP safeguard EP-01.",
+   "key": "EP"
+  },
+  {
+   "id": "b000087",
+   "name": "Users' burner management – low fuel pressure and flame-failure trips",
+   "type": "Active hardware",
+   "pfd": 0.1,
+   "source": "manual",
+   "ftId": "",
+   "gateId": "",
+   "status": "Available",
+   "degradeFactor": 10,
+   "owner": "Instrument engineer",
+   "performance": "Burners trip before flashback",
+   "verification": "Annual BMS test",
+   "critical": "",
+   "notes": "HAZOP N03-05",
+   "key": "BMSU"
+  },
+  {
+   "id": "b000088",
+   "name": "No personnel at the mixing station during start-up and mixture changes",
+   "type": "Active human",
+   "pfd": 0.1,
+   "source": "manual",
+   "ftId": "",
+   "gateId": "",
+   "status": "Available",
+   "degradeFactor": 10,
+   "owner": "Shift supervisor",
+   "performance": "Area clear during start-up",
+   "verification": "Supervision",
+   "critical": "",
+   "notes": "HAZOP N03-06",
+   "key": "NOGO"
+  }
+ ],
+ "efs": [
+  {
+   "id": "x000094",
+   "barrierId": "b000082",
+   "name": "Calorimeter trip routed through the ratio controller (not independent)",
+   "notes": "",
+   "controls": [
+    {
+     "id": "y000095",
+     "name": "Independent AT-01 trip and 1oo2 PSLL (R-013)",
+     "type": "Active hardware",
+     "owner": "Instrument engineer"
+    }
+   ]
+  },
+  {
+   "id": "x000096",
+   "barrierId": "b000085",
+   "name": "Arrester element fouled",
+   "notes": "",
+   "controls": [
+    {
+     "id": "y000097",
+     "name": "Six-monthly inspection (R-015)",
+     "type": "Continuous / procedural",
+     "owner": "Mechanical engineer"
+    }
+   ]
+  }
+ ],
+ "fts": [
+  {
+   "id": "f000081",
+   "name": "FT-PR-02 – Mixture protection",
+   "project": {
+    "app": "Fault Tree & PFD Calculator",
+    "schema": 1,
+    "title": "FT-PR-02 – Propane–air mixture enters the flammable range (propane storage example)",
+    "description": "Top event: the propane fraction in mixer MX-01 / surge tank ST-01 falls into the flammable range because propane is lost or air is over-supplied while blowers B-01/B-02 keep running, and both mixture protections fail. Protection (gate G-002) = low propane pressure trip PSLL-01 (stops the blowers, closes XV-01 / XV-02) AND the calorimeter trip AT-01. PSLL-01 cannot see a ratio-controller fault (BE-010). Gate G-002 is the mixture barrier of bow tie BT-PR-02 (threat T1). HAZOP N03-01; FMECA S03. Illustrative data from the toolkit's data library – replace with site / vendor data before use. Propane storage and dilution worked example (HAZOP HZ-EX-PR-001).",
+    "modified": "2026-11-12T16:00:00.000Z",
+    "top": "g000016",
+    "gates": [
+     {
+      "id": "g000016",
+      "code": "G-001",
+      "name": "Flammable propane–air mixture in mixer MX-01 / surge tank ST-01",
+      "type": "AND",
+      "k": 2,
+      "children": [
+       {
+        "kind": "g",
+        "id": "g000017"
+       },
+       {
+        "kind": "g",
+        "id": "g000021"
+       }
+      ],
+      "collapsed": false
+     },
+     {
+      "id": "g000017",
+      "code": "G-006",
+      "name": "Demand: propane fraction falls (supply lost or air excess)",
+      "type": "OR",
+      "k": 2,
+      "children": [
+       {
+        "kind": "e",
+        "id": "e000018"
+       },
+       {
+        "kind": "e",
+        "id": "e000019"
+       },
+       {
+        "kind": "e",
+        "id": "e000020"
+       }
+      ],
+      "collapsed": false
+     },
+     {
+      "id": "g000021",
+      "code": "G-002",
+      "name": "Mixture protection fails on demand (PSLL-01 trip and AT-01 trip)",
+      "type": "AND",
+      "k": 2,
+      "children": [
+       {
+        "kind": "g",
+        "id": "g000022"
+       },
+       {
+        "kind": "g",
+        "id": "g000028"
+       }
+      ],
+      "collapsed": false
+     },
+     {
+      "id": "g000022",
+      "code": "G-003",
+      "name": "Low propane pressure trip PSLL-01 fails to stop the air",
+      "type": "OR",
+      "k": 2,
+      "children": [
+       {
+        "kind": "e",
+        "id": "e000023"
+       },
+       {
+        "kind": "e",
+        "id": "e000024"
+       },
+       {
+        "kind": "e",
+        "id": "e000025"
+       },
+       {
+        "kind": "e",
+        "id": "e000026"
+       },
+       {
+        "kind": "e",
+        "id": "e000027"
+       }
+      ],
+      "collapsed": false
+     },
+     {
+      "id": "g000028",
+      "code": "G-004",
+      "name": "Calorimeter trip AT-01 fails",
+      "type": "OR",
+      "k": 2,
+      "children": [
+       {
+        "kind": "e",
+        "id": "e000029"
+       },
+       {
+        "kind": "e",
+        "id": "e000030"
+       }
+      ],
+      "collapsed": false
+     }
+    ],
+    "events": [
+     {
+      "id": "e000018",
+      "code": "BE-001",
+      "name": "Loss of propane vapour supply (vaporiser trip, PCV-01 closes, header pressure low)",
+      "model": "freq",
+      "q": 0.01,
+      "lamDU": 1e-06,
+      "lamDD": 0,
+      "TI": 8760,
+      "MTTR": 8,
+      "lam": 1e-06,
+      "freq": 0.5,
+      "house": true,
+      "ef": 3,
+      "ccf": "",
+      "undeveloped": false,
+      "notes": "HAZOP N02-01, N03-01 – illustrative"
+     },
+     {
+      "id": "e000019",
+      "code": "BE-002",
+      "name": "Propane shut-off XV-01 closes spuriously while the blowers run",
+      "model": "freq",
+      "q": 0.01,
+      "lamDU": 1e-06,
+      "lamDD": 0,
+      "TI": 8760,
+      "MTTR": 8,
+      "lam": 1e-06,
+      "freq": 0.1,
+      "house": true,
+      "ef": 3,
+      "ccf": "",
+      "undeveloped": false,
+      "notes": "HAZOP N03-01",
+      "lib": {
+       "g": "freq",
+       "id": "ie-sis-spurious",
+       "note": ""
+      }
+     },
+     {
+      "id": "e000020",
+      "code": "BE-003",
+      "name": "Ratio controller FFIC-01 fails – air excess (BPCS loop failure)",
+      "model": "freq",
+      "q": 0.01,
+      "lamDU": 1e-06,
+      "lamDD": 0,
+      "TI": 8760,
+      "MTTR": 8,
+      "lam": 1e-06,
+      "freq": 0.1,
+      "house": true,
+      "ef": 3,
+      "ccf": "",
+      "undeveloped": false,
+      "notes": "HAZOP N03-02",
+      "lib": {
+       "g": "freq",
+       "id": "ie-bpcs",
+       "note": ""
+      }
+     },
+     {
+      "id": "e000023",
+      "code": "BE-004",
+      "name": "Pressure switch PSLL-01 fails to function when required",
+      "model": "tested",
+      "q": 0.01,
+      "lamDU": 4e-07,
+      "lamDD": 0,
+      "TI": 8760,
+      "MTTR": 8,
+      "lam": 1e-06,
+      "freq": 0.1,
+      "house": true,
+      "ef": 3,
+      "ccf": "",
+      "undeveloped": false,
+      "notes": "FMECA S03 PSLL-01",
+      "lib": {
+       "g": "rate",
+       "id": "perd-psw",
+       "note": ""
+      }
+     },
+     {
+      "id": "e000024",
+      "code": "BE-005",
+      "name": "Blower B-01 motor contactor fails to open",
+      "model": "tested",
+      "q": 0.01,
+      "lamDU": 1e-07,
+      "lamDD": 0,
+      "TI": 8760,
+      "MTTR": 8,
+      "lam": 1e-06,
+      "freq": 0.1,
+      "house": true,
+      "ef": 3,
+      "ccf": "",
+      "undeveloped": false,
+      "notes": "",
+      "lib": {
+       "g": "rate",
+       "id": "lr-contactor",
+       "note": ""
+      }
+     },
+     {
+      "id": "e000025",
+      "code": "BE-006",
+      "name": "Air shut-off valve XV-02 fails to close",
+      "model": "tested",
+      "q": 0.01,
+      "lamDU": 2e-06,
+      "lamDD": 0,
+      "TI": 8760,
+      "MTTR": 24,
+      "lam": 1e-06,
+      "freq": 0.1,
+      "house": true,
+      "ef": 3,
+      "ccf": "",
+      "undeveloped": false,
+      "notes": "FMECA S03 XV-02",
+      "lib": {
+       "g": "rate",
+       "id": "lr-esdv",
+       "note": ""
+      }
+     },
+     {
+      "id": "e000026",
+      "code": "BE-007",
+      "name": "Logic solver UCP-1 fails dangerous",
+      "model": "tested",
+      "q": 0.01,
+      "lamDU": 5e-08,
+      "lamDD": 0,
+      "TI": 8760,
+      "MTTR": 8,
+      "lam": 1e-06,
+      "freq": 0.1,
+      "house": true,
+      "ef": 3,
+      "ccf": "",
+      "undeveloped": false,
+      "notes": "",
+      "lib": {
+       "g": "rate",
+       "id": "lr-plc",
+       "note": ""
+      }
+     },
+     {
+      "id": "e000027",
+      "code": "BE-010",
+      "name": "Demand not seen by PSLL-01 (ratio fault with normal propane pressure)",
+      "model": "prob",
+      "q": 0.15,
+      "lamDU": 1e-06,
+      "lamDD": 0,
+      "TI": 8760,
+      "MTTR": 8,
+      "lam": 1e-06,
+      "freq": 0.1,
+      "house": true,
+      "ef": 3,
+      "ccf": "",
+      "undeveloped": true,
+      "notes": "Share of the demand from FFIC-01 faults (BE-003) – PSLL-01 only sees a loss of propane pressure"
+     },
+     {
+      "id": "e000029",
+      "code": "BE-008",
+      "name": "Calorimeter AT-01 fails to detect the low heating value",
+      "model": "tested",
+      "q": 0.01,
+      "lamDU": 5e-06,
+      "lamDD": 0,
+      "TI": 4380,
+      "MTTR": 24,
+      "lam": 1e-06,
+      "freq": 0.1,
+      "house": true,
+      "ef": 3,
+      "ccf": "",
+      "undeveloped": false,
+      "notes": "Six-monthly calibration; FMECA S03 AT-01",
+      "lib": {
+       "g": "rate",
+       "id": "lr-analyser",
+       "note": ""
+      }
+     },
+     {
+      "id": "e000030",
+      "code": "BE-009",
+      "name": "AT-01 trip routed through FFIC-01 (not independent)",
+      "model": "prob",
+      "q": 0.1,
+      "lamDU": 1e-06,
+      "lamDD": 0,
+      "TI": 8760,
+      "MTTR": 8,
+      "lam": 1e-06,
+      "freq": 0.1,
+      "house": true,
+      "ef": 3,
+      "ccf": "",
+      "undeveloped": false,
+      "notes": "Source design – R-013 makes it independent"
+     }
+    ],
+    "ccf": [],
+    "libOver": {},
+    "siteLib": [],
+    "settings": {
+     "mission": 8760,
+     "points": 400,
+     "maxOrder": 8,
+     "cutoff": 1e-15,
+     "maxCS": 20000,
+     "mcSamples": 2000,
+     "demandMode": "low"
+    }
+   }
+  }
+ ],
+ "matrix": {
+  "sev": [
+   "Negligible",
+   "Minor",
+   "Moderate",
+   "Major",
+   "Catastrophic"
+  ],
+  "lik": [
+   "Rare",
+   "Unlikely",
+   "Possible",
+   "Likely",
+   "Frequent"
+  ],
+  "likBands": [
+   0.0001,
+   0.001,
+   0.01,
+   0.1
+  ],
+  "bands": {
+   "Medium": 5,
+   "High": 10,
+   "Very High": 20
+  },
+  "tol": [
+   "",
+   "",
+   "1",
+   "0.01",
+   "1e-4"
+  ]
+ },
+ "settings": {
+  "health": false
+ }
+}

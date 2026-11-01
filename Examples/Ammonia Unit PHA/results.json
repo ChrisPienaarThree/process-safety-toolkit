@@ -1,0 +1,432 @@
+{
+ "values": {
+  "FT1_TOP": 2.3780465809579455e-06,
+  "FT1_PFD": 1.0809302635706012e-05,
+  "FT1_DEM": 0.2199999999999993,
+  "FT2_TOP": 0.017845488564746978,
+  "FT2_PFD": 0.05098711016134993,
+  "FT2_DEM": 0.3499999999999994,
+  "FT3_PFD": 0.029433435227563687,
+  "FT3_RRF": 33.97496732095765,
+  "BT1_TOP": 0.0075123780465798555,
+  "BT1_TOXON": 0.00015478056484728573,
+  "BT1_TOXOCC": 1.1940215002504899e-05,
+  "BT1_TOXOFF": 1.3266905558338778e-06,
+  "BT1_BURN": 3.756189023289928e-05,
+  "BT2_TOP": 0.009603646566941744,
+  "BT2_JET": 0.0002881093970082523,
+  "BT2_FF": 0.00012100594674346596,
+  "BT2_VCE": 8.067063116231066e-05,
+  "ETA1_C5": 1.3266905476078468e-06,
+  "ETA1_C4": 1.194021492847062e-05,
+  "ETA2_C5": 8.06706348e-05,
+  "ETA2_C4": 0.00040911536219999996
+ },
+ "files": {
+  "hazop": "Ammonia unit - HAZOP HZ-EX-AM-001.hazop.json",
+  "FT1": "Ammonia unit - FT-AM-01 Refrigeration overpressure.fta.json",
+  "FT2": "Ammonia unit - FT-AM-02 Converter over-temperature.fta.json",
+  "FT3": "Ammonia unit - FT-AM-03 Ammonia detection and ESD.fta.json",
+  "ETA1": "Ammonia unit - ETA-AM-01 Liquid ammonia release.eta.json",
+  "ETA2": "Ammonia unit - ETA-AM-02 Synthesis gas release.eta.json",
+  "BT1": "Ammonia unit - BT-AM-01 Ammonia loss of containment.bowtie.json",
+  "BT2": "Ammonia unit - BT-AM-02 Synthesis gas loss of containment.bowtie.json",
+  "hz_xlsx": "Ammonia unit - HAZOP_Study_Workbook.xlsx",
+  "hz_xlsm": "Ammonia unit - HAZOP_Study_Workbook_Macro.xlsm",
+  "fm_xlsx": "Ammonia unit - FMECA_Workbook.xlsx",
+  "fm_xlsm": "Ammonia unit - FMECA_Workbook_Macro.xlsm",
+  "hi_xlsx": "Ammonia unit - HAZID_Register.xlsx",
+  "results": "results.json"
+ },
+ "constants": {
+  "P_WC": 0.3,
+  "P_WIND": 0.2,
+  "P_SHELTER": 0.1,
+  "P_IMM": 0.3,
+  "P_DEL": 0.3,
+  "P_VCE": 0.4,
+  "P_ESD2": 0.1
+ },
+ "ft": {
+  "FT1": {
+   "top": "G-001",
+   "freq": 2.3780465809579455e-06,
+   "pTime": 2.3780465809579455e-06,
+   "gates": {
+    "G-001": 2.378046579855324e-06,
+    "G-006": 0.2199999999999993,
+    "G-002": 1.0809302635706012e-05,
+    "G-007": 0.05098727658351895,
+    "G-003": 0.001039238508967316,
+    "G-004": 0.10118876472715699,
+    "G-005": 0.010230660342208065
+   },
+   "warn": []
+  },
+  "FT2": {
+   "top": "G-001",
+   "freq": 0.017845488564746978,
+   "pTime": 0.017845488564746978,
+   "gates": {
+    "G-001": 0.01784548855647248,
+    "G-006": 0.3499999999999994,
+    "G-002": 0.05098711016134993,
+    "G-003": 0.0010390633277367676,
+    "G-004": 0.10118732472715701,
+    "G-005": 0.010229074622995873
+   },
+   "warn": []
+  },
+  "FT3": {
+   "top": "G-001",
+   "freq": null,
+   "pTime": 0.02943343458496731,
+   "gates": {
+    "G-001": 0.029433435227563687,
+    "G-002": 0.010049339172580099,
+    "G-003": 0.10029559237603607,
+    "G-006": 0.00010949391662739854,
+    "G-004": 0.10019707122667566,
+    "G-005": 0.01859973156063512
+   },
+   "warn": []
+  }
+ },
+ "eta": {
+  "ETA1": {
+   "ie": 0.007512378,
+   "warn": [],
+   "headingP": [
+    0.029433435227563687,
+    0.3,
+    0.2,
+    0.1
+   ],
+   "cats": {
+    "C1": 0.005103884036112418,
+    "C2": 0.002240446494523922,
+    "C3": 0.0001547805638875821,
+    "C4": 1.194021492847062e-05,
+    "C5": 1.3266905476078468e-06
+   },
+   "leaves": [
+    {
+     "label": "Release isolated and knocked down \u2013 minor exposure",
+     "f": 0.005103884036112418
+    },
+    {
+     "label": "Release isolated \u2013 short-lived cloud, on-site exposure",
+     "f": 0.002187378872619608
+    },
+    {
+     "label": "Prolonged release knocked down by the water curtain \u2013 on-site injuries",
+     "f": 0.0001547805638875821
+    },
+    {
+     "label": "Prolonged release drifts away from occupied areas \u2013 plant evacuated",
+     "f": 5.3067621904313866e-05
+    },
+    {
+     "label": "Toxic cloud over occupied areas \u2013 people shelter, serious injuries",
+     "f": 1.194021492847062e-05
+    },
+    {
+     "label": "Toxic cloud \u2013 fatalities on and off site",
+     "f": 1.3266905476078468e-06
+    }
+   ]
+  },
+  "ETA2": {
+   "ie": 0.009603647,
+   "warn": [],
+   "headingP": [
+    0.3,
+    0.1,
+    0.3,
+    0.4
+   ],
+   "cats": {
+    "C1": 0.00470578703,
+    "C2": 0.001815089283,
+    "C3": 0.00259298469,
+    "C4": 0.00040911536219999996,
+    "C5": 8.06706348e-05
+   },
+   "leaves": [
+    {
+     "label": "Release isolated \u2013 hydrogen disperses without ignition",
+     "f": 0.004235208327
+    },
+    {
+     "label": "Small flash fire \u2013 isolated inventory",
+     "f": 0.001815089283
+    },
+    {
+     "label": "Prolonged release disperses without ignition",
+     "f": 0.000470578703
+    },
+    {
+     "label": "Large flash fire \u2013 prolonged release",
+     "f": 0.00012100595219999998
+    },
+    {
+     "label": "Vapour cloud explosion \u2013 blast damage, multiple fatalities",
+     "f": 8.06706348e-05
+    },
+    {
+     "label": "Jet fire \u2013 isolated quickly, local damage",
+     "f": 0.00259298469
+    },
+    {
+     "label": "Prolonged jet fire \u2013 escalation to the loop",
+     "f": 0.00028810941
+    }
+   ]
+  }
+ },
+ "bt": {
+  "BT1": {
+   "top": 0.0075123780465798555,
+   "topRaw": 0.386,
+   "warn": [],
+   "threats": [
+    {
+     "name": "Refrigerant system over-pressured (loss of condensing)",
+     "key": "T1",
+     "f": 2.3780465798553225e-06,
+     "raw": 0.22
+    },
+    {
+     "name": "Refrigerant or reflux pump seal failure",
+     "key": "T2",
+     "f": 0.003,
+     "raw": 0.03
+    },
+    {
+     "name": "Flange, gasket or small-bore fitting failure",
+     "key": "T3",
+     "f": 0.001,
+     "raw": 0.01
+    },
+    {
+     "name": "Brittle fracture after auto-refrigeration",
+     "key": "T4",
+     "f": 1e-05,
+     "raw": 0.001
+    },
+    {
+     "name": "Line break during maintenance with ammonia inside",
+     "key": "T5",
+     "f": 0.0025000000000000005,
+     "raw": 0.025
+    },
+    {
+     "name": "Gas blow-by into the distillation column 160-C (let-down fails open)",
+     "key": "T6",
+     "f": 0.001,
+     "raw": 0.1
+    }
+   ],
+   "cons": [
+    {
+     "name": "Prolonged release knocked down by the water curtain \u2013 on-site injuries",
+     "key": "TOXON",
+     "res": 0.00015478056484728573,
+     "inh": 0.2702,
+     "S": 3,
+     "Lr": 2,
+     "rankR": "Medium",
+     "tol": "1"
+    },
+    {
+     "name": "Toxic cloud over occupied areas \u2013 people shelter, serious injuries",
+     "key": "TOXOCC",
+     "res": 1.1940215002504899e-05,
+     "inh": 0.020844,
+     "S": 4,
+     "Lr": 1,
+     "rankR": "Low",
+     "tol": "0.01"
+    },
+    {
+     "name": "Toxic cloud \u2013 fatalities on and off site",
+     "key": "TOXOFF",
+     "res": 1.3266905558338778e-06,
+     "inh": 0.0772,
+     "S": 5,
+     "Lr": 1,
+     "rankR": "Medium",
+     "tol": "1e-4"
+    },
+    {
+     "name": "Chemical burns to the operator at the leak",
+     "key": "BURN",
+     "res": 3.756189023289928e-05,
+     "inh": 0.0193,
+     "S": 3,
+     "Lr": 1,
+     "rankR": "Low",
+     "tol": "1"
+    }
+   ],
+   "barriers": [
+    {
+     "id": "b000053",
+     "name": "Refrigeration overpressure protection \u2013 PAH-1009 + operator, PSHH-1110 trip and PSV-1109",
+     "pfd": 1.0809302635706012e-05
+    },
+    {
+     "id": "b000054",
+     "name": "Double mechanical seals with seal-pot alarm on the refrigerant pumps",
+     "pfd": 0.1
+    },
+    {
+     "id": "b000055",
+     "name": "Gasket control, bolt torque and small-bore bracing",
+     "pfd": 0.1
+    },
+    {
+     "id": "b000056",
+     "name": "Low-temperature steel rated to \u221233 \u00b0C",
+     "pfd": 0.01
+    },
+    {
+     "id": "b000057",
+     "name": "Permit-to-work with positive isolation and closed draining",
+     "pfd": 0.1
+    },
+    {
+     "id": "b000058",
+     "name": "Column relief valve PSV-1033 sized for gas blow-by",
+     "pfd": 0.01
+    },
+    {
+     "id": "b000059",
+     "name": "Ammonia detection and ESD (AT-1801A/B/C, UCP-1000, HS-1000, XV-1290 / XV-1801)",
+     "pfd": 0.029433435227563687
+    },
+    {
+     "id": "b000060",
+     "name": "Water-spray curtain knocks down the ammonia vapour",
+     "pfd": 0.3
+    },
+    {
+     "id": "b000061",
+     "name": "Toxic-gas refuge, HVAC trip and escape sets \u2013 people shelter in time",
+     "pfd": 0.1
+    },
+    {
+     "id": "b000062",
+     "name": "Ammonia PPE \u2013 respirators, gas-tight suits, eyewash and showers",
+     "pfd": 0.1
+    }
+   ]
+  },
+  "BT2": {
+   "top": 0.009603646566941744,
+   "topRaw": 0.17,
+   "warn": [],
+   "threats": [
+    {
+     "name": "Converter 105-D over-temperature leads to a flange or exchanger leak",
+     "key": "T1",
+     "f": 0.005353646566941742,
+     "raw": 0.105
+    },
+    {
+     "name": "Compressor 103-J seal failure",
+     "key": "T2",
+     "f": 0.0020000000000000005,
+     "raw": 0.020000000000000004
+    },
+    {
+     "name": "High-temperature hydrogen attack / hot flange leak",
+     "key": "T3",
+     "f": 0.001,
+     "raw": 0.01
+    },
+    {
+     "name": "Synthesis loop over-pressured",
+     "key": "T4",
+     "f": 0.00025,
+     "raw": 0.025
+    },
+    {
+     "name": "Maintenance error on hydrogen service",
+     "key": "T5",
+     "f": 0.0010000000000000002,
+     "raw": 0.010000000000000002
+    }
+   ],
+   "cons": [
+    {
+     "name": "Prolonged hydrogen jet fire \u2013 escalation to the loop",
+     "key": "JET",
+     "res": 0.0002881093970082523,
+     "inh": 0.051000000000000004,
+     "S": 5,
+     "Lr": 2,
+     "rankR": "High",
+     "tol": "1e-4"
+    },
+    {
+     "name": "Large flash fire from a prolonged release",
+     "key": "FF",
+     "res": 0.00012100594674346596,
+     "inh": 0.0714,
+     "S": 4,
+     "Lr": 2,
+     "rankR": "Medium",
+     "tol": "0.01"
+    },
+    {
+     "name": "Vapour cloud explosion in the compressor house \u2013 multiple fatalities",
+     "key": "VCE",
+     "res": 8.067063116231066e-05,
+     "inh": 0.04760000000000001,
+     "S": 5,
+     "Lr": 1,
+     "rankR": "Medium",
+     "tol": "1e-4"
+    }
+   ],
+   "barriers": [
+    {
+     "id": "b000080",
+     "name": "Converter over-temperature protection \u2013 TAH-1383 + operator and TSHH-1396 trip",
+     "pfd": 0.05098711016134993
+    },
+    {
+     "id": "b000081",
+     "name": "Seal-gas low-low pressure trip PSLL-1155 on 103-J",
+     "pfd": 0.1
+    },
+    {
+     "id": "b000082",
+     "name": "HTHA review and inspection of loop exchangers 123-C1 / 124-C1",
+     "pfd": 0.1
+    },
+    {
+     "id": "b000083",
+     "name": "Synthesis loop relief valve PSV-1018",
+     "pfd": 0.01
+    },
+    {
+     "id": "b000084",
+     "name": "Permit-to-work with positive isolation and N2 purge",
+     "pfd": 0.1
+    },
+    {
+     "id": "b000085",
+     "name": "Unit ESD and emergency depressurisation (UCP-1000, HV-1019)",
+     "pfd": 0.1
+    },
+    {
+     "id": "b000086",
+     "name": "Ignition source control in the compressor house and loop area",
+     "pfd": 0.3
+    }
+   ]
+  }
+ }
+}

@@ -1,0 +1,625 @@
+{
+ "app": "Event Tree Analysis",
+ "schema": 1,
+ "title": "ETA-AM-01 – Liquid ammonia release from the refrigeration system (ammonia unit example)",
+ "description": "Initiating event = top event of bow tie BT-AM-01, frequency 7.5E-3 /yr. H1 is linked to fault tree FT-AM-03 (ammonia detection and ESD). End states TOXON, TOXOCC and TOXOFF are reproduced by the bow-tie consequences. HAZOP N04-07. Illustrative probabilities.",
+ "modified": "2026-11-24T16:00:00.000Z",
+ "ie": {
+  "name": "Liquid ammonia release from the refrigeration or recovery system",
+  "freq": 0.007512378,
+  "ef": 3,
+  "notes": "= bow tie BT-AM-01 top-event frequency"
+ },
+ "headings": [
+  {
+   "id": "h000100",
+   "code": "H1",
+   "name": "Release detected and isolated by ESD",
+   "sLabel": "Isolated",
+   "fLabel": "Not isolated",
+   "pFail": 0.029433,
+   "ef": 3,
+   "source": "ft",
+   "ftId": "f000099",
+   "gateId": "g000033",
+   "notes": "PFDavg from fault tree FT-AM-03 gate G-001 = BT-AM-01 ESD barrier"
+  },
+  {
+   "id": "h000101",
+   "code": "H2",
+   "name": "Water curtain knocks down the vapour",
+   "sLabel": "Knocked down",
+   "fLabel": "Not knocked down",
+   "pFail": 0.3,
+   "ef": 3,
+   "source": "manual",
+   "ftId": "",
+   "gateId": "",
+   "notes": "= BT-AM-01 barrier 'Water-spray curtain'"
+  },
+  {
+   "id": "h000102",
+   "code": "H3",
+   "name": "Wind carries the cloud away from occupied areas",
+   "sLabel": "Away",
+   "fLabel": "Over occupied areas",
+   "pFail": 0.2,
+   "ef": 3,
+   "source": "manual",
+   "ftId": "",
+   "gateId": "",
+   "notes": "Wind-rose fraction towards the control room, offices and the boundary – illustrative"
+  },
+  {
+   "id": "h000103",
+   "code": "H4",
+   "name": "People reach shelter in time",
+   "sLabel": "Sheltered",
+   "fLabel": "Exposed",
+   "pFail": 0.1,
+   "ef": 3,
+   "source": "manual",
+   "ftId": "",
+   "gateId": "",
+   "notes": "= BT-AM-01 barrier 'Toxic-gas refuge' (R-016)"
+  }
+ ],
+ "root": {
+  "id": "n000126",
+  "h": 0,
+  "mode": "split",
+  "pOv": "",
+  "s": {
+   "id": "n000115",
+   "h": 1,
+   "mode": "split",
+   "pOv": "",
+   "s": {
+    "id": "n000111",
+    "h": 2,
+    "mode": "pass",
+    "pOv": "",
+    "n": {
+     "id": "n000110",
+     "h": 3,
+     "mode": "pass",
+     "pOv": "",
+     "n": {
+      "id": "n000109",
+      "leaf": true,
+      "label": "Release isolated and knocked down – minor exposure",
+      "cat": "k000104"
+     }
+    }
+   },
+   "f": {
+    "id": "n000114",
+    "h": 2,
+    "mode": "pass",
+    "pOv": "",
+    "n": {
+     "id": "n000113",
+     "h": 3,
+     "mode": "pass",
+     "pOv": "",
+     "n": {
+      "id": "n000112",
+      "leaf": true,
+      "label": "Release isolated – short-lived cloud, on-site exposure",
+      "cat": "k000105"
+     }
+    }
+   }
+  },
+  "f": {
+   "id": "n000125",
+   "h": 1,
+   "mode": "split",
+   "pOv": "",
+   "s": {
+    "id": "n000118",
+    "h": 2,
+    "mode": "pass",
+    "pOv": "",
+    "n": {
+     "id": "n000117",
+     "h": 3,
+     "mode": "pass",
+     "pOv": "",
+     "n": {
+      "id": "n000116",
+      "leaf": true,
+      "label": "Prolonged release knocked down by the water curtain – on-site injuries",
+      "cat": "k000106"
+     }
+    }
+   },
+   "f": {
+    "id": "n000124",
+    "h": 2,
+    "mode": "split",
+    "pOv": "",
+    "s": {
+     "id": "n000120",
+     "h": 3,
+     "mode": "pass",
+     "pOv": "",
+     "n": {
+      "id": "n000119",
+      "leaf": true,
+      "label": "Prolonged release drifts away from occupied areas – plant evacuated",
+      "cat": "k000105"
+     }
+    },
+    "f": {
+     "id": "n000123",
+     "h": 3,
+     "mode": "split",
+     "pOv": "",
+     "s": {
+      "id": "n000121",
+      "leaf": true,
+      "label": "Toxic cloud over occupied areas – people shelter, serious injuries",
+      "cat": "k000107"
+     },
+     "f": {
+      "id": "n000122",
+      "leaf": true,
+      "label": "Toxic cloud – fatalities on and off site",
+      "cat": "k000108"
+     }
+    }
+   }
+  }
+ },
+ "cats": [
+  {
+   "id": "k000104",
+   "code": "C1",
+   "name": "Minor – brief local exposure",
+   "color": "#e6ee9c",
+   "target": "",
+   "cost": 5
+  },
+  {
+   "id": "k000105",
+   "code": "C2",
+   "name": "Moderate – first aid / medical treatment on site",
+   "color": "#fff59d",
+   "target": 1,
+   "cost": 50
+  },
+  {
+   "id": "k000106",
+   "code": "C3",
+   "name": "Serious – lost-time injuries on site",
+   "color": "#ffcc80",
+   "target": 0.1,
+   "cost": 300
+  },
+  {
+   "id": "k000107",
+   "code": "C4",
+   "name": "Major – serious injuries in occupied areas",
+   "color": "#ff8a65",
+   "target": 0.01,
+   "cost": 5000
+  },
+  {
+   "id": "k000108",
+   "code": "C5",
+   "name": "Catastrophic – fatalities on and off site",
+   "color": "#e57373",
+   "target": 0.0001,
+   "cost": 50000
+  }
+ ],
+ "fts": [
+  {
+   "id": "f000099",
+   "name": "FT-AM-03 – Ammonia detection and ESD",
+   "project": {
+    "app": "Fault Tree & PFD Calculator",
+    "schema": 1,
+    "title": "FT-AM-03 – Ammonia release at the refrigeration area not isolated (ammonia unit example)",
+    "description": "Top event (gate G-001): an ammonia release at the receiver 149-D or the refrigerant pumps is not isolated – neither detectors AT-1801A/B/C (1oo3) through UCP-1000 nor the control-room operator (HS-1000) initiate, or XV-1290 / XV-1801 fail to close. PFDavg of G-001 is heading H1 of event tree ETA-AM-01 and the ESD barrier of bow tie BT-AM-01. HAZOP N04-07, N05-06; FMECA S04. Illustrative data from the toolkit's data library – replace with site / vendor data before use. Ammonia unit worked example (HAZOP HZ-EX-AM-001).",
+    "modified": "2026-11-24T16:00:00.000Z",
+    "top": "g000033",
+    "gates": [
+     {
+      "id": "g000033",
+      "code": "G-001",
+      "name": "Ammonia release at the refrigeration area not isolated (ESD fails on demand)",
+      "type": "OR",
+      "k": 2,
+      "children": [
+       {
+        "kind": "g",
+        "id": "g000035"
+       },
+       {
+        "kind": "g",
+        "id": "g000046"
+       },
+       {
+        "kind": "e",
+        "id": "e000050"
+       }
+      ],
+      "collapsed": false
+     },
+     {
+      "id": "g000035",
+      "code": "G-002",
+      "name": "ESD not initiated (automatic and manual both fail)",
+      "type": "AND",
+      "k": 2,
+      "children": [
+       {
+        "kind": "g",
+        "id": "g000036"
+       },
+       {
+        "kind": "g",
+        "id": "g000043"
+       }
+      ],
+      "collapsed": false
+     },
+     {
+      "id": "g000036",
+      "code": "G-003",
+      "name": "Automatic initiation fails",
+      "type": "OR",
+      "k": 2,
+      "children": [
+       {
+        "kind": "g",
+        "id": "g000037"
+       },
+       {
+        "kind": "e",
+        "id": "e000041"
+       },
+       {
+        "kind": "e",
+        "id": "e000042"
+       }
+      ],
+      "collapsed": false
+     },
+     {
+      "id": "g000037",
+      "code": "G-006",
+      "name": "All three ammonia detectors fail (1oo3)",
+      "type": "AND",
+      "k": 2,
+      "children": [
+       {
+        "kind": "e",
+        "id": "e000038"
+       },
+       {
+        "kind": "e",
+        "id": "e000039"
+       },
+       {
+        "kind": "e",
+        "id": "e000040"
+       }
+      ],
+      "collapsed": false
+     },
+     {
+      "id": "g000043",
+      "code": "G-004",
+      "name": "Manual ESD not initiated",
+      "type": "OR",
+      "k": 2,
+      "children": [
+       {
+        "kind": "e",
+        "id": "e000044"
+       },
+       {
+        "kind": "e",
+        "id": "e000045"
+       }
+      ],
+      "collapsed": false
+     },
+     {
+      "id": "g000046",
+      "code": "G-005",
+      "name": "Isolation valves fail to close",
+      "type": "OR",
+      "k": 2,
+      "children": [
+       {
+        "kind": "e",
+        "id": "e000047"
+       },
+       {
+        "kind": "e",
+        "id": "e000048"
+       },
+       {
+        "kind": "e",
+        "id": "e000049"
+       }
+      ],
+      "collapsed": false
+     }
+    ],
+    "events": [
+     {
+      "id": "e000038",
+      "code": "BE-001",
+      "name": "Ammonia detector AT-1801A fails to detect",
+      "model": "tested",
+      "q": 0.01,
+      "lamDU": 1e-06,
+      "lamDD": 0,
+      "TI": 2190,
+      "MTTR": 24,
+      "lam": 1e-06,
+      "freq": 0.1,
+      "house": true,
+      "ef": 3,
+      "ccf": "c000034",
+      "undeveloped": false,
+      "notes": "Quarterly bump test; FMECA S04 AT-1801A",
+      "lib": {
+       "g": "rate",
+       "id": "lr-gd-cat",
+       "note": ""
+      }
+     },
+     {
+      "id": "e000039",
+      "code": "BE-002",
+      "name": "Ammonia detector AT-1801B fails to detect",
+      "model": "tested",
+      "q": 0.01,
+      "lamDU": 1e-06,
+      "lamDD": 0,
+      "TI": 2190,
+      "MTTR": 24,
+      "lam": 1e-06,
+      "freq": 0.1,
+      "house": true,
+      "ef": 3,
+      "ccf": "c000034",
+      "undeveloped": false,
+      "notes": "Quarterly bump test; FMECA S04 AT-1801B",
+      "lib": {
+       "g": "rate",
+       "id": "lr-gd-cat",
+       "note": ""
+      }
+     },
+     {
+      "id": "e000040",
+      "code": "BE-003",
+      "name": "Ammonia detector AT-1801C fails to detect",
+      "model": "tested",
+      "q": 0.01,
+      "lamDU": 1e-06,
+      "lamDD": 0,
+      "TI": 2190,
+      "MTTR": 24,
+      "lam": 1e-06,
+      "freq": 0.1,
+      "house": true,
+      "ef": 3,
+      "ccf": "c000034",
+      "undeveloped": false,
+      "notes": "Quarterly bump test; FMECA S04 AT-1801C",
+      "lib": {
+       "g": "rate",
+       "id": "lr-gd-cat",
+       "note": ""
+      }
+     },
+     {
+      "id": "e000041",
+      "code": "BE-004",
+      "name": "Logic solver UCP-1000 fails dangerous",
+      "model": "tested",
+      "q": 0.01,
+      "lamDU": 5e-08,
+      "lamDD": 0,
+      "TI": 8760,
+      "MTTR": 8,
+      "lam": 1e-06,
+      "freq": 0.1,
+      "house": true,
+      "ef": 3,
+      "ccf": "",
+      "undeveloped": false,
+      "notes": "",
+      "lib": {
+       "g": "rate",
+       "id": "lr-plc",
+       "note": ""
+      }
+     },
+     {
+      "id": "e000042",
+      "code": "BE-005",
+      "name": "Release not reaching the detectors (location / wind)",
+      "model": "prob",
+      "q": 0.1,
+      "lamDU": 1e-06,
+      "lamDD": 0,
+      "TI": 8760,
+      "MTTR": 8,
+      "lam": 1e-06,
+      "freq": 0.1,
+      "house": true,
+      "ef": 3,
+      "ccf": "",
+      "undeveloped": true,
+      "notes": "Detector mapping – R-012"
+     },
+     {
+      "id": "e000044",
+      "code": "BE-006",
+      "name": "Control-room operator does not initiate ESD on the ammonia alarm",
+      "model": "prob",
+      "q": 0.1,
+      "lamDU": 1e-06,
+      "lamDD": 0,
+      "TI": 8760,
+      "MTTR": 8,
+      "lam": 1e-06,
+      "freq": 0.1,
+      "house": true,
+      "ef": 3,
+      "ccf": "",
+      "undeveloped": false,
+      "notes": "",
+      "lib": {
+       "g": "ipl",
+       "id": "ipl-op10",
+       "note": ""
+      }
+     },
+     {
+      "id": "e000045",
+      "code": "BE-007",
+      "name": "Manual ESD circuit HS-1000 fails",
+      "model": "tested",
+      "q": 0.01,
+      "lamDU": 5e-08,
+      "lamDD": 0,
+      "TI": 8760,
+      "MTTR": 8,
+      "lam": 1e-06,
+      "freq": 0.1,
+      "house": true,
+      "ef": 3,
+      "ccf": "",
+      "undeveloped": false,
+      "notes": "",
+      "lib": {
+       "g": "rate",
+       "id": "lr-relay-logic",
+       "note": ""
+      }
+     },
+     {
+      "id": "e000047",
+      "code": "BE-008",
+      "name": "Receiver outlet valve XV-1290 fails to close",
+      "model": "tested",
+      "q": 0.01,
+      "lamDU": 2e-06,
+      "lamDD": 0,
+      "TI": 8760,
+      "MTTR": 24,
+      "lam": 1e-06,
+      "freq": 0.1,
+      "house": true,
+      "ef": 3,
+      "ccf": "",
+      "undeveloped": false,
+      "notes": "FMECA S04 XV-1290",
+      "lib": {
+       "g": "rate",
+       "id": "lr-esdv",
+       "note": ""
+      }
+     },
+     {
+      "id": "e000048",
+      "code": "BE-009",
+      "name": "Boil-off valve XV-1801 fails to close",
+      "model": "tested",
+      "q": 0.01,
+      "lamDU": 2e-06,
+      "lamDD": 0,
+      "TI": 8760,
+      "MTTR": 24,
+      "lam": 1e-06,
+      "freq": 0.1,
+      "house": true,
+      "ef": 3,
+      "ccf": "",
+      "undeveloped": false,
+      "notes": "",
+      "lib": {
+       "g": "rate",
+       "id": "lr-esdv",
+       "note": ""
+      }
+     },
+     {
+      "id": "e000049",
+      "code": "BE-010",
+      "name": "Solenoid / instrument air fails to vent",
+      "model": "tested",
+      "q": 0.01,
+      "lamDU": 3e-07,
+      "lamDD": 0,
+      "TI": 8760,
+      "MTTR": 8,
+      "lam": 1e-06,
+      "freq": 0.1,
+      "house": true,
+      "ef": 3,
+      "ccf": "",
+      "undeveloped": false,
+      "notes": "",
+      "lib": {
+       "g": "rate",
+       "id": "lr-sov",
+       "note": ""
+      }
+     },
+     {
+      "id": "e000050",
+      "code": "BE-011",
+      "name": "ESD in bypass / detectors inhibited",
+      "model": "prob",
+      "q": 0.001,
+      "lamDU": 1e-06,
+      "lamDD": 0,
+      "TI": 8760,
+      "MTTR": 8,
+      "lam": 1e-06,
+      "freq": 0.1,
+      "house": true,
+      "ef": 10,
+      "ccf": "",
+      "undeveloped": false,
+      "notes": "Bypass management"
+     }
+    ],
+    "ccf": [
+     {
+      "id": "c000034",
+      "code": "CCF-001",
+      "name": "Ammonia detectors AT-1801A/B/C",
+      "beta": 0.1,
+      "betaD": ""
+     }
+    ],
+    "libOver": {},
+    "siteLib": [],
+    "settings": {
+     "mission": 8760,
+     "points": 400,
+     "maxOrder": 8,
+     "cutoff": 1e-15,
+     "maxCS": 20000,
+     "mcSamples": 2000,
+     "demandMode": "low"
+    }
+   }
+  }
+ ],
+ "settings": {
+  "mcSamples": 5000
+ }
+}
