@@ -96,7 +96,7 @@ body.web .usbonly{display:none!important} body.usb .webonly{display:none!importa
     <h1>Process Safety Toolkit</h1>
   </div>
   <nav class="views" id="views" aria-label="Views">
-    <button class="vbtn on" data-view="launch" title="The seven tools, the overview and the quick links">Launch</button>
+    <button class="vbtn on" data-view="launch" title="The six tools, the overview and the quick links">Launch</button>
     <button class="vbtn" data-view="run" title="Work in a tool on this page, with its quick start, examples and saving notes beside it">Open a tool</button>
     <button class="vbtn" data-view="path" title="The order of a full PHA – HAZID, HAZOP, FMECA, fault tree, event tree, bow tie – and what moves between the steps">Study path</button>
     <button class="vbtn" data-view="library" title="Guides, reference, Excel workbooks and example files">Library</button>
@@ -112,7 +112,7 @@ body.web .usbonly{display:none!important} body.usb .webonly{display:none!importa
 <main>
   <!-- ================= launch ================= -->
   <section class="view on" id="view-launch">
-    <p class="lead">Seven offline tools – six for recording and calculating a process hazard analysis and one for assessing process safety culture – plus Excel workbooks, guides and worked examples. Everything runs in the browser: no installation and no internet. <span id="leadMode"></span></p>
+    <p class="lead">Six offline tools for recording and calculating a process hazard analysis, plus Excel workbooks, guides and worked examples. Everything runs in the browser: no installation and no internet. <span id="leadMode"></span></p>
     <div class="note">
       <div><b>New here? Start with the overview.</b><br><span class="muted small">What each tool is for, how information moves between them, which tool to choose – and the hot DRI conveyor fire traced through all of them with consistent numbers (7 pages).</span></div>
       <a class="act" href="Guides/Toolkit Overview - How the Tools Fit Together.pdf" target="_blank" rel="noopener" title="Opens the 7-page overview (PDF) in a new tab">Read the overview (PDF)</a>
@@ -219,7 +219,7 @@ body.web .usbonly{display:none!important} body.usb .webonly{display:none!importa
       </nav>
       <div class="panel">
         <section id="g-what"><h2>1. What this toolkit is</h2>
-          <p>Six tools for recording and calculating a process hazard analysis (PHA): <b>What-If / Checklist Analysis</b>, the <b>HAZOP Study Manager</b>, the <b>LOPA Study Manager</b>, the <b>Fault Tree &amp; PFD Calculator</b>, <b>Event Tree Analysis</b> and <b>Bow Tie Analysis</b>, plus the <b>Process Safety Culture Assessment</b> (survey and facilitator review on the 10 CCPS core principles). They are study-recording tools and calculators, not simulators: what you enter is your study record. Around them are the HAZOP and FMECA Excel workbooks, the HAZID checklist, the HAZOP guidewords, user guides and worked examples.</p>
+          <p>Six tools for recording and calculating a process hazard analysis (PHA): <b>What-If / Checklist Analysis</b>, the <b>HAZOP Study Manager</b>, the <b>LOPA Study Manager</b>, the <b>Fault Tree &amp; PFD Calculator</b>, <b>Event Tree Analysis</b> and <b>Bow Tie Analysis</b>. They are study-recording tools and calculators, not simulators: what you enter is your study record. Around them are the HAZOP and FMECA Excel workbooks, the HAZID checklist, the HAZOP guidewords, user guides and worked examples.</p>
           <p>Each tool is one HTML page that runs in the browser with no installation and no internet connection. Nothing you type is sent anywhere.</p></section>
         <section id="g-start"><h2>2. Quick start</h2>
           <ol>
@@ -230,7 +230,7 @@ body.web .usbonly{display:none!important} body.usb .webonly{display:none!importa
           </ol></section>
         <section id="g-views"><h2>3. The views on this page</h2>
           <ul>
-            <li><b>Launch</b> – the seven tools, the overview and quick links.</li>
+            <li><b>Launch</b> – the six tools, the overview and quick links.</li>
             <li><b>Open a tool</b> – the tool on this page, with its purpose, quick start, examples and saving notes beside it. Switch tools with the selector at the top.</li>
             <li><b>Study path</b> – the order of a full PHA, what each step hands to the next, and which tool answers which question.</li>
             <li><b>Library</b> – guides, reference, workbooks and example files.</li>
@@ -334,14 +334,7 @@ var TOOLS = [
     guide: 'Guides/Bow Tie Analysis - User Guide.pdf',
     quick: ['File ▸ New bow tie: name the hazard and the top event.', 'Add threats on the left and consequences on the right.', 'Add preventive and mitigative barriers from the barrier register.', 'Give barriers a PFD, or link them to a fault-tree gate.', 'Switch to current barrier condition to see the effect of degraded barriers.'],
     examples: ['Opens with the example: hot DRI conveyor fire (also File ▸ Load example)', 'Examples/Example - Hot DRI conveyor fire.bowtie.json', GNP + 'BT-GN-01 Loss of containment.bowtie.json', GNP + 'BT-GN-02 Reheat furnace explosion.bowtie.json'],
-    save: 'File ▸ Save as… (link file)' },
-  { id: 'culture', file: 'Tools/Process Safety Culture Assessment.html', title: 'Process Safety Culture Assessment', topic: 'Culture · survey, facilitator review, actions',
-    summary: 'Anonymous 50-statement survey (English / Arabic) and facilitator review on the 10 CCPS process safety culture core principles, with group gaps, red flags and an action plan.',
-    features: ['Survey on one device or on people\'s own phones (response codes)', 'Management vs front-line gap; groups under 5 hidden', 'Example: 60 responses (Set up ▸ Load example)'], ext: '.psc.json', chips: ['.psc.json', 'CSV export', 'Print / PDF'],
-    guide: 'Guides/Process Safety Culture Assessment - Quick Guide.pdf',
-    quick: ['Set up: name the assessment and note the survey code.', 'Take the survey on this device, or send people the survey link for their phones.', 'Paste the response codes from phones in Responses.', 'Facilitator review: rate each principle 1–5, tick red flags, note the evidence.', 'Results and Action plan: agree actions on the priority principles; Print report.'],
-    examples: ['Set up ▸ Load example – Site A process unit, 60 made-up responses'],
-    save: 'Save / open ▸ Save to file (.json)' }
+    save: 'File ▸ Save as… (link file)' }
 ];
 
 var PATH = [
@@ -363,7 +356,6 @@ var GUIDES = [
   ['Fault Tree & PFD Calculator – User Guide', ['Guides/Fault Tree and PFD Calculator - User Guide.pdf'], 'Symbols, event models and formulas, β-factor, calculation method, SIF calculator, worked example'],
   ['Event Tree Analysis – User Guide', ['Guides/Event Tree Analysis - User Guide.pdf'], 'Headings, sequences, linking to fault trees, targets, sensitivity'],
   ['Bow Tie Analysis – User Guide', ['Guides/Bow Tie Analysis - User Guide.pdf'], 'Threats, barriers, consequences, barrier condition, criticality, risk matrix'],
-  ['Process Safety Culture Assessment – Quick Guide', ['Guides/Process Safety Culture Assessment - Quick Guide.pdf'], 'Running the survey and facilitator review on the 10 CCPS core principles, reading the scores and gaps'],
   ['HAZID checklist – steel smelting and rolling', ['Guides/HAZID_Checklist_Steel_Smelting_and_Rolling.docx'], 'Hazard identification checklist for screening before a HAZOP'],
   ['HAZOP guidewords, deviations and potential causes – chemical, steel & metals', ['Reference/HAZOP_Guidewords_Chemical_Steel_Metals.pdf', 'Reference/HAZOP_Guidewords_Chemical_Steel_Metals.docx'], 'Parameter – deviation – potential causes; causes tagged [C] chemical / [S] steel & metals. The same lists drive the HAZOP tool and workbook.']
 ];
