@@ -1,8 +1,8 @@
 {
  "app": "HAZOP Study Manager",
  "schema": 1,
- "created": "2026-10-05T19:33:18.681Z",
- "modified": "2026-10-05T19:33:18.685Z",
+ "created": "2026-11-02T09:35:54.315Z",
+ "modified": null,
  "study": {
   "title": "HAZOP – Hot DRI transfer conveyor and N2 fire protection (example)",
   "company": "Integrated DRI-EAF Steel Complex (example)",
@@ -11,7 +11,7 @@
   "type": "HAZOP – modification / MOC",
   "docNo": "HZ-EX-DRI-001",
   "rev": "A",
-  "start": "2026-10-05",
+  "start": "2026-11-02",
   "end": "",
   "venue": "DRI plant training room",
   "scope": "Hot DRI transfer from the reduction shaft discharge to the EAF hot-charging bin: enclosed belt conveyor, hood and gallery, dust extraction, and the N2 fire detection / inerting / extinguishing system that protects it.",
@@ -91,7 +91,52 @@
    "Medium": 5,
    "High": 10,
    "Very High": 20
-  }
+  },
+  "recOn": [
+   "S",
+   "E",
+   "A",
+   "R",
+   "C"
+  ],
+  "recDesc": {
+   "S": [
+    "First aid case",
+    "Medical treatment or restricted work case",
+    "Lost-time injury",
+    "Single fatality or permanent disability",
+    "Multiple fatalities"
+   ],
+   "E": [
+    "Minor release contained on site, no lasting effect",
+    "Reportable release contained on site",
+    "Off-site release with short-term impact",
+    "Significant off-site impact, medium-term clean-up",
+    "Major off-site release, long-term damage"
+   ],
+   "A": [
+    "Negligible damage, no lost production",
+    "Minor damage, short interruption",
+    "Significant damage, production lost for days",
+    "Major damage, production lost for weeks",
+    "Loss of the unit, production lost for months"
+   ],
+   "R": [
+    "Internal only",
+    "Local complaints",
+    "Regional media or regulator interest",
+    "National media or regulator action",
+    "International media, licence to operate at risk"
+   ],
+   "C": [
+    "No off-site effect noticed",
+    "Off-site nuisance (odour, noise, dust)",
+    "Off-site exposure, short-term health effects",
+    "Off-site injuries, shelter-in-place or evacuation",
+    "Off-site fatalities or large-scale evacuation"
+   ]
+  },
+  "wsCols": {}
  },
  "team": [
   {
@@ -99,68 +144,68 @@
    "company": "Istec",
    "role": "Facilitator",
    "attendance": "Day 1",
-   "id": "muvndmmyl2j909"
+   "id": "mvz2d74napwn4d"
   },
   {
    "name": "B. Scribe",
    "company": "Istec",
    "role": "Scribe",
    "attendance": "Day 1",
-   "id": "muvndmmy9h99mf"
+   "id": "mvz2d74nsw11zb"
   },
   {
    "name": "C. Process",
    "company": "Site",
    "role": "Process engineer",
    "attendance": "Day 1",
-   "id": "muvndmmy84oy0t"
+   "id": "mvz2d74nevtz3u"
   },
   {
    "name": "D. Shift Supervisor",
    "company": "Site",
    "role": "Operations representative",
    "attendance": "Day 1",
-   "id": "muvndmmyisv4i2"
+   "id": "mvz2d74n80rnew"
   },
   {
    "name": "E. Instrument",
    "company": "Site",
    "role": "Instrument / control engineer",
    "attendance": "Day 1",
-   "id": "muvndmmy7u1wig"
+   "id": "mvz2d74n65j4p5"
   },
   {
    "name": "F. Fire",
    "company": "Site",
    "role": "HSE / process safety",
    "attendance": "Day 1",
-   "id": "muvndmmy25mmjr"
+   "id": "mvz2d74nespxky"
   },
   {
    "name": "G. Maintenance",
    "company": "Site",
    "role": "Maintenance",
    "attendance": "Day 1",
-   "id": "muvndmmyuuwp8r"
+   "id": "mvz2d74nn3ynrr"
   }
  ],
  "sessions": [
   {
-   "id": "muvndmn1zm9b7b",
-   "date": "2026-10-05",
+   "id": "mvz2d74priljx0",
+   "date": "2026-11-02",
    "time": "08:00 – 16:00",
    "nodeIds": [
-    "muvndmmyaizbv9",
-    "muvndmmyr8wywv"
+    "mvz2d74ntajgkf",
+    "mvz2d74nu4dhcn"
    ],
    "attendeeIds": [
-    "muvndmmyl2j909",
-    "muvndmmy9h99mf",
-    "muvndmmy84oy0t",
-    "muvndmmyisv4i2",
-    "muvndmmy7u1wig",
-    "muvndmmy25mmjr",
-    "muvndmmyuuwp8r"
+    "mvz2d74napwn4d",
+    "mvz2d74nsw11zb",
+    "mvz2d74nevtz3u",
+    "mvz2d74n80rnew",
+    "mvz2d74n65j4p5",
+    "mvz2d74nespxky",
+    "mvz2d74nn3ynrr"
    ],
    "notes": "Nodes N01 and N02 reviewed; N01 deviations on stoppage under load referred for quantification (R-001)."
   }
@@ -173,7 +218,7 @@
    "title": "Hot DRI transfer conveyor P&IDs",
    "rev": "A",
    "status": "Available",
-   "id": "muvndmmzfss171"
+   "id": "mvz2d74nwvvf23"
   },
   {
    "ref": "PSI-02",
@@ -182,7 +227,7 @@
    "title": "N2 inerting / extinguishing system P&ID",
    "rev": "A",
    "status": "Available",
-   "id": "muvndmmzylssfl"
+   "id": "mvz2d74nzhbhr9"
   },
   {
    "ref": "PSI-03",
@@ -191,7 +236,7 @@
    "title": "Process design basis – DRI discharge temperature, conveyor and belt rating",
    "rev": "A",
    "status": "Outstanding",
-   "id": "muvndmmzrawz6v"
+   "id": "mvz2d74nlsta0x"
   },
   {
    "ref": "PSI-04",
@@ -200,7 +245,7 @@
    "title": "Fire-protection design basis and cause & effect for the N2 system",
    "rev": "A",
    "status": "Available",
-   "id": "muvndmmzzji11a"
+   "id": "mvz2d74nawy867"
   },
   {
    "ref": "PSI-05",
@@ -209,7 +254,7 @@
    "title": "Hot DRI / HBI handling hazards (self-heating, H2 generation with water) and N2 SDS",
    "rev": "A",
    "status": "Available",
-   "id": "muvndmmzh1zfjw"
+   "id": "mvz2d74nijfxky"
   },
   {
    "ref": "PSI-06",
@@ -218,44 +263,44 @@
    "title": "Conveyor fire incident reports and trip records (stoppages under load)",
    "rev": "A",
    "status": "Outstanding",
-   "id": "muvndmmzmtwl4r"
+   "id": "mvz2d74nn93fip"
   }
  ],
  "psiNodes": [
   {
-   "id": "muvndmmzc7f9yo",
-   "psiId": "muvndmmzfss171",
-   "nodeId": "muvndmmyaizbv9"
+   "id": "mvz2d74nk8lwqs",
+   "psiId": "mvz2d74nwvvf23",
+   "nodeId": "mvz2d74ntajgkf"
   },
   {
-   "id": "muvndmmzo3mgfd",
-   "psiId": "muvndmmzylssfl",
-   "nodeId": "muvndmmyr8wywv"
+   "id": "mvz2d74nwaojpz",
+   "psiId": "mvz2d74nzhbhr9",
+   "nodeId": "mvz2d74nu4dhcn"
   },
   {
-   "id": "muvndmmzh9d3zr",
-   "psiId": "muvndmmzrawz6v",
-   "nodeId": "muvndmmyaizbv9"
+   "id": "mvz2d74np4xusw",
+   "psiId": "mvz2d74nlsta0x",
+   "nodeId": "mvz2d74ntajgkf"
   },
   {
-   "id": "muvndmmz35gucl",
-   "psiId": "muvndmmzzji11a",
-   "nodeId": "muvndmmyr8wywv"
+   "id": "mvz2d74nqew0ju",
+   "psiId": "mvz2d74nawy867",
+   "nodeId": "mvz2d74nu4dhcn"
   },
   {
-   "id": "muvndmmzn9p18e",
-   "psiId": "muvndmmzh1zfjw",
-   "nodeId": "muvndmmyaizbv9"
+   "id": "mvz2d74nqhu5e7",
+   "psiId": "mvz2d74nijfxky",
+   "nodeId": "mvz2d74ntajgkf"
   },
   {
-   "id": "muvndmmznxgoy6",
-   "psiId": "muvndmmzh1zfjw",
-   "nodeId": "muvndmmyr8wywv"
+   "id": "mvz2d74n1bv8cg",
+   "psiId": "mvz2d74nijfxky",
+   "nodeId": "mvz2d74nu4dhcn"
   },
   {
-   "id": "muvndmmzmyl05r",
-   "psiId": "muvndmmzmtwl4r",
-   "nodeId": "muvndmmyaizbv9"
+   "id": "mvz2d74nix7249",
+   "psiId": "mvz2d74nn93fip",
+   "nodeId": "mvz2d74ntajgkf"
   }
  ],
  "nodes": [
@@ -269,7 +314,9 @@
    "designParams": "Example: belt capacity 250 t/h; belt speed 2 m/s; enclosed hood with N2 inerting connection. DRI discharge temperature and belt temperature rating – to be confirmed from the design basis",
    "operatingParams": "Example: 150–200 t/h hot DRI; continuous operation; hood under slight negative pressure (dust extraction)",
    "materials": "Hot DRI / HBI and fines (self-heating, pyrophoric fines, H2 with water); combustible conveyor belt; CO from re-oxidation / combustion; N2 (asphyxiant)",
-   "id": "muvndmmyaizbv9"
+   "id": "mvz2d74ntajgkf",
+   "incidents": "Example: belt fires after stoppages under load are reported in the DRI industry; site trip records requested (PSI-06, P-003).",
+   "mocRefs": "MOC – hot DRI transfer conveyor"
   },
   {
    "no": "N02",
@@ -281,12 +328,14 @@
    "designParams": "Example: buffer vessel 10 barg; delivery to hood at regulated pressure; design discharge time per fire-protection design basis",
    "operatingParams": "Example: buffer vessel 6–8 barg; system on automatic; manual release from control room and local station",
    "materials": "Nitrogen (asphyxiant, stored under pressure)",
-   "id": "muvndmmyr8wywv"
+   "id": "mvz2d74nu4dhcn",
+   "incidents": "Example: asphyxiation after inert-gas releases into enclosures (industry incidents).",
+   "mocRefs": "MOC – hot DRI transfer conveyor (N2 system added)"
   }
  ],
  "deviations": [
   {
-   "nodeId": "muvndmmyaizbv9",
+   "nodeId": "mvz2d74ntajgkf",
    "seq": 1,
    "parameter": "Flow",
    "guideword": "NO",
@@ -297,11 +346,36 @@
    "likB": "4",
    "sevA": "5",
    "likA": "2",
+   "sevC": "5",
+   "likC": "1",
+   "rcp": {
+    "B": {
+     "S": "5",
+     "E": "2",
+     "A": "4",
+     "R": "3",
+     "C": "1"
+    },
+    "A": {
+     "S": "5",
+     "E": "2",
+     "A": "4",
+     "R": "3",
+     "C": "1"
+    },
+    "C": {
+     "S": "5",
+     "E": "2",
+     "A": "4",
+     "R": "3",
+     "C": "1"
+    }
+   },
    "comments": "Trips under load about 6 per year (plant records). Scenario quantified in the fault tree / event tree / bow tie examples.",
-   "id": "muvndmn1omb9x6"
+   "id": "mvz2d74o5unkoz"
   },
   {
-   "nodeId": "muvndmmyaizbv9",
+   "nodeId": "mvz2d74ntajgkf",
    "seq": 2,
    "parameter": "Hot DRI / HBI temperature",
    "guideword": "MORE",
@@ -312,11 +386,36 @@
    "likB": "3",
    "sevA": "4",
    "likA": "1",
+   "sevC": "4",
+   "likC": "1",
+   "rcp": {
+    "B": {
+     "S": "3",
+     "E": "1",
+     "A": "4",
+     "R": "2",
+     "C": "1"
+    },
+    "A": {
+     "S": "3",
+     "E": "1",
+     "A": "4",
+     "R": "2",
+     "C": "1"
+    },
+    "C": {
+     "S": "3",
+     "E": "1",
+     "A": "4",
+     "R": "2",
+     "C": "1"
+    }
+   },
    "comments": "N2 system not claimed as IPL here – already credited for the stoppage scenario and shares the detection.",
-   "id": "muvndmn101omfr"
+   "id": "mvz2d74olzs3mj"
   },
   {
-   "nodeId": "muvndmmyaizbv9",
+   "nodeId": "mvz2d74ntajgkf",
    "seq": 3,
    "parameter": "Composition",
    "guideword": "AS WELL AS",
@@ -327,11 +426,36 @@
    "likB": "3",
    "sevA": "4",
    "likA": "2",
+   "sevC": "4",
+   "likC": "1",
+   "rcp": {
+    "B": {
+     "S": "4",
+     "E": "1",
+     "A": "4",
+     "R": "2",
+     "C": "1"
+    },
+    "A": {
+     "S": "4",
+     "E": "1",
+     "A": "4",
+     "R": "2",
+     "C": "1"
+    },
+    "C": {
+     "S": "4",
+     "E": "1",
+     "A": "4",
+     "R": "2",
+     "C": "1"
+    }
+   },
    "comments": "",
-   "id": "muvndmn1vtrkp3"
+   "id": "mvz2d74pz3hw1x"
   },
   {
-   "nodeId": "muvndmmyaizbv9",
+   "nodeId": "mvz2d74ntajgkf",
    "seq": 4,
    "parameter": "Combustible dust",
    "guideword": "MORE",
@@ -342,11 +466,36 @@
    "likB": "3",
    "sevA": "4",
    "likA": "2",
+   "sevC": "4",
+   "likC": "2",
+   "rcp": {
+    "B": {
+     "S": "4",
+     "E": "1",
+     "A": "3",
+     "R": "2",
+     "C": "1"
+    },
+    "A": {
+     "S": "4",
+     "E": "1",
+     "A": "3",
+     "R": "2",
+     "C": "1"
+    },
+    "C": {
+     "S": "4",
+     "E": "1",
+     "A": "3",
+     "R": "2",
+     "C": "1"
+    }
+   },
    "comments": "",
-   "id": "muvndmn15yl4xt"
+   "id": "mvz2d74pg4pamz"
   },
   {
-   "nodeId": "muvndmmyr8wywv",
+   "nodeId": "mvz2d74nu4dhcn",
    "seq": 1,
    "parameter": "Flow",
    "guideword": "NO",
@@ -357,11 +506,36 @@
    "likB": "3",
    "sevA": "5",
    "likA": "2",
+   "sevC": "5",
+   "likC": "1",
+   "rcp": {
+    "B": {
+     "S": "5",
+     "E": "2",
+     "A": "4",
+     "R": "3",
+     "C": "1"
+    },
+    "A": {
+     "S": "5",
+     "E": "2",
+     "A": "4",
+     "R": "3",
+     "C": "1"
+    },
+    "C": {
+     "S": "5",
+     "E": "2",
+     "A": "4",
+     "R": "3",
+     "C": "1"
+    }
+   },
    "comments": "Dominant contributors in the fault tree example (gate G-002): enclosure not sealed, PCV-211 fails closed, nozzles blocked, isolation valve left closed.",
-   "id": "muvndmn1n01i0t"
+   "id": "mvz2d74pzdba9l"
   },
   {
-   "nodeId": "muvndmmyr8wywv",
+   "nodeId": "mvz2d74nu4dhcn",
    "seq": 2,
    "parameter": "Utilities / services",
    "guideword": "LOSS OF",
@@ -372,11 +546,36 @@
    "likB": "3",
    "sevA": "5",
    "likA": "2",
+   "sevC": "5",
+   "likC": "1",
+   "rcp": {
+    "B": {
+     "S": "5",
+     "E": "2",
+     "A": "4",
+     "R": "3",
+     "C": "1"
+    },
+    "A": {
+     "S": "5",
+     "E": "2",
+     "A": "4",
+     "R": "3",
+     "C": "1"
+    },
+    "C": {
+     "S": "5",
+     "E": "2",
+     "A": "4",
+     "R": "3",
+     "C": "1"
+    }
+   },
    "comments": "",
-   "id": "muvndmn1jphlws"
+   "id": "mvz2d74ptkty3w"
   },
   {
-   "nodeId": "muvndmmyr8wywv",
+   "nodeId": "mvz2d74nu4dhcn",
    "seq": 3,
    "parameter": "Inert gas (N2, Ar)",
    "guideword": "LEAK OF",
@@ -387,128 +586,153 @@
    "likB": "3",
    "sevA": "5",
    "likA": "1",
+   "sevC": "5",
+   "likC": "1",
+   "rcp": {
+    "B": {
+     "S": "5",
+     "E": "1",
+     "A": "1",
+     "R": "3",
+     "C": "1"
+    },
+    "A": {
+     "S": "5",
+     "E": "1",
+     "A": "1",
+     "R": "3",
+     "C": "1"
+    },
+    "C": {
+     "S": "5",
+     "E": "1",
+     "A": "1",
+     "R": "3",
+     "C": "1"
+    }
+   },
    "comments": "Hazard introduced by the protection system itself (see the bow tie example).",
-   "id": "muvndmn1fjn246"
+   "id": "mvz2d74po9df76"
   }
  ],
  "causes": [
   {
-   "id": "muvndmn1b4qsqw",
-   "deviationId": "muvndmn1omb9x6",
+   "id": "mvz2d74o8iax5o",
+   "deviationId": "mvz2d74o5unkoz",
    "seq": 1,
    "text": "[S] Conveyor, feeder or vibratory feeder stopped (belt tear, drive trip, chute blockage)"
   },
   {
-   "id": "muvndmn1pve0fz",
-   "deviationId": "muvndmn1omb9x6",
+   "id": "mvz2d74o6xhjzo",
+   "deviationId": "mvz2d74o5unkoz",
    "seq": 2,
    "text": "Power failure; instrument air failure (valves go to fail position)"
   },
   {
-   "id": "muvndmn1k21po4",
-   "deviationId": "muvndmn1omb9x6",
+   "id": "mvz2d74okq9y9w",
+   "deviationId": "mvz2d74o5unkoz",
    "seq": 3,
    "text": "Pull-cord or belt-drift trip; EAF charging bin full / downstream blockage"
   },
   {
-   "id": "muvndmn194iw4p",
-   "deviationId": "muvndmn101omfr",
+   "id": "mvz2d74o3sgo8i",
+   "deviationId": "mvz2d74olzs3mj",
    "seq": 1,
    "text": "Re-oxidation in air (insufficient inerting or cooling)"
   },
   {
-   "id": "muvndmn1fogmyc",
-   "deviationId": "muvndmn101omfr",
+   "id": "mvz2d74o7d88ic",
+   "deviationId": "mvz2d74olzs3mj",
    "seq": 2,
    "text": "Conveyor or transport vessel over-temperature"
   },
   {
-   "id": "muvndmn1yeawwk",
-   "deviationId": "muvndmn101omfr",
+   "id": "mvz2d74oaogbdk",
+   "deviationId": "mvz2d74olzs3mj",
    "seq": 3,
    "text": "Reduction / cooling upset – over-temperature DRI discharged onto the belt"
   },
   {
-   "id": "muvndmn1od4upx",
-   "deviationId": "muvndmn1vtrkp3",
+   "id": "mvz2d74pia4dpe",
+   "deviationId": "mvz2d74pz3hw1x",
    "seq": 1,
    "text": "Ingress of air, water or lubricant"
   },
   {
-   "id": "muvndmn1z1nx7c",
-   "deviationId": "muvndmn1vtrkp3",
+   "id": "mvz2d74pq4u1fv",
+   "deviationId": "mvz2d74pz3hw1x",
    "seq": 2,
    "text": "Rain ingress through a damaged hood or open inspection doors"
   },
   {
-   "id": "muvndmn1xnb9t8",
-   "deviationId": "muvndmn1vtrkp3",
+   "id": "mvz2d74pqb8gmq",
+   "deviationId": "mvz2d74pz3hw1x",
    "seq": 3,
    "text": "[S] Oxygen or air ingress into reducing gas or inerted systems"
   },
   {
-   "id": "muvndmn1l9acxv",
-   "deviationId": "muvndmn15yl4xt",
+   "id": "mvz2d74p37joio",
+   "deviationId": "mvz2d74pg4pamz",
    "seq": 1,
    "text": "Dust accumulation on structures; poor housekeeping"
   },
   {
-   "id": "muvndmn1syjgfq",
-   "deviationId": "muvndmn15yl4xt",
+   "id": "mvz2d74p7i2tsr",
+   "deviationId": "mvz2d74pg4pamz",
    "seq": 2,
    "text": "Hot surfaces, sparks, static, hot work"
   },
   {
-   "id": "muvndmn1pzhf5g",
-   "deviationId": "muvndmn1n01i0t",
+   "id": "mvz2d74p3rdb81",
+   "deviationId": "mvz2d74pzdba9l",
    "seq": 1,
    "text": "Equipment failure – control valve fails closed, isolation valve, pump or compressor trip, vessel failure"
   },
   {
-   "id": "muvndmn123xslt",
-   "deviationId": "muvndmn1n01i0t",
+   "id": "mvz2d74p1eo82n",
+   "deviationId": "mvz2d74pzdba9l",
    "seq": 2,
    "text": "Blockage, gas lock or vapour lock"
   },
   {
-   "id": "muvndmn1ltxa97",
-   "deviationId": "muvndmn1n01i0t",
+   "id": "mvz2d74p6s9o57",
+   "deviationId": "mvz2d74pzdba9l",
    "seq": 3,
    "text": "Both N2 release valves XV-210A/B fail to open (common cause)"
   },
   {
-   "id": "muvndmn1p9cl8q",
-   "deviationId": "muvndmn1n01i0t",
+   "id": "mvz2d74p953xkp",
+   "deviationId": "mvz2d74pzdba9l",
    "seq": 4,
    "text": "Distribution header / nozzles blocked by DRI fines"
   },
   {
-   "id": "muvndmn17evsqd",
-   "deviationId": "muvndmn1n01i0t",
+   "id": "mvz2d74plvqe12",
+   "deviationId": "mvz2d74pzdba9l",
    "seq": 5,
    "text": "Isolation in error (wrong valve closed, LOTO on wrong equipment)"
   },
   {
-   "id": "muvndmn1q0jxdq",
-   "deviationId": "muvndmn1jphlws",
+   "id": "mvz2d74pn0ohi0",
+   "deviationId": "mvz2d74ptkty3w",
    "seq": 1,
    "text": "Failure of steam / nitrogen / cooling water"
   },
   {
-   "id": "muvndmn1yq2a7t",
-   "deviationId": "muvndmn1jphlws",
+   "id": "mvz2d74phscl8r",
+   "deviationId": "mvz2d74ptkty3w",
    "seq": 2,
    "text": "Failure of hydraulic power / electric power"
   },
   {
-   "id": "muvndmn1lsiqj6",
-   "deviationId": "muvndmn1fjn246",
+   "id": "mvz2d74pin92au",
+   "deviationId": "mvz2d74po9df76",
    "seq": 1,
    "text": "Leak or purge into enclosed or confined area"
   },
   {
-   "id": "muvndmn119xyxl",
-   "deviationId": "muvndmn1fjn246",
+   "id": "mvz2d74po5xlyz",
+   "deviationId": "mvz2d74po9df76",
    "seq": 2,
    "text": "Pit, tunnel or bin atmosphere not tested before entry"
   }
@@ -520,7 +744,7 @@
    "type": "Procedure / administrative control",
    "iplCandidate": "No",
    "notes": "",
-   "id": "muvndmmz0zp4s1"
+   "id": "mvz2d74nb0bm91"
   },
   {
    "tag": "XS-210",
@@ -528,7 +752,7 @@
    "type": "SIF / SIS trip",
    "iplCandidate": "Yes",
    "notes": "",
-   "id": "muvndmmz731g8i"
+   "id": "mvz2d74nsrtocq"
   },
   {
    "tag": "",
@@ -536,7 +760,7 @@
    "type": "Emergency response / mitigation",
    "iplCandidate": "No",
    "notes": "",
-   "id": "muvndmmzt1cjfx"
+   "id": "mvz2d74ny15sec"
   },
   {
    "tag": "",
@@ -544,7 +768,7 @@
    "type": "Physical containment / bund / dyke",
    "iplCandidate": "Yes",
    "notes": "",
-   "id": "muvndmmzmtit1p"
+   "id": "mvz2d74nxwe40p"
   },
   {
    "tag": "TSHH-202",
@@ -552,7 +776,7 @@
    "type": "SIF / SIS trip",
    "iplCandidate": "Yes",
    "notes": "",
-   "id": "muvndmmz5ye80t"
+   "id": "mvz2d74n9cp77k"
   },
   {
    "tag": "TAH-202",
@@ -560,7 +784,7 @@
    "type": "Alarm with operator response",
    "iplCandidate": "No",
    "notes": "",
-   "id": "muvndmn0yvdvp0"
+   "id": "mvz2d74n4nwyp1"
   },
   {
    "tag": "",
@@ -568,7 +792,7 @@
    "type": "Inspection / maintenance / testing",
    "iplCandidate": "No",
    "notes": "",
-   "id": "muvndmn0zaye49"
+   "id": "mvz2d74nmwu62e"
   },
   {
    "tag": "",
@@ -576,7 +800,7 @@
    "type": "Mechanical device (check valve, RO, limiter)",
    "iplCandidate": "No",
    "notes": "",
-   "id": "muvndmn0b0uiu7"
+   "id": "mvz2d74n980qs5"
   },
   {
    "tag": "",
@@ -584,7 +808,7 @@
    "type": "Procedure / administrative control",
    "iplCandidate": "No",
    "notes": "",
-   "id": "muvndmn0g9v793"
+   "id": "mvz2d74nrazr9o"
   },
   {
    "tag": "",
@@ -592,7 +816,7 @@
    "type": "Inspection / maintenance / testing",
    "iplCandidate": "No",
    "notes": "",
-   "id": "muvndmn0kdegjr"
+   "id": "mvz2d74nnx7wml"
   },
   {
    "tag": "PSL-205",
@@ -600,7 +824,7 @@
    "type": "Alarm with operator response",
    "iplCandidate": "No",
    "notes": "",
-   "id": "muvndmn05tlc5o"
+   "id": "mvz2d74nwmh53n"
   },
   {
    "tag": "",
@@ -608,7 +832,7 @@
    "type": "Procedure / administrative control",
    "iplCandidate": "No",
    "notes": "",
-   "id": "muvndmn0j52u20"
+   "id": "mvz2d74nid5gi9"
   },
   {
    "tag": "",
@@ -616,7 +840,7 @@
    "type": "Detection (gas / fire / leak)",
    "iplCandidate": "No",
    "notes": "",
-   "id": "muvndmn0sx6on6"
+   "id": "mvz2d74nwt1lq5"
   },
   {
    "tag": "",
@@ -624,126 +848,126 @@
    "type": "Procedure / administrative control",
    "iplCandidate": "No",
    "notes": "",
-   "id": "muvndmn0dlsfcj"
+   "id": "mvz2d74n8ffaq8"
   }
  ],
  "devSafeguards": [
   {
-   "id": "muvndmn1fzdojz",
-   "deviationId": "muvndmn1omb9x6",
-   "safeguardId": "muvndmmz0zp4s1",
+   "id": "mvz2d74owg2nnl",
+   "deviationId": "mvz2d74o5unkoz",
+   "safeguardId": "mvz2d74nb0bm91",
    "ipl": false,
    "seq": 1
   },
   {
-   "id": "muvndmn11w7koa",
-   "deviationId": "muvndmn1omb9x6",
-   "safeguardId": "muvndmmz731g8i",
+   "id": "mvz2d74ojf8dcn",
+   "deviationId": "mvz2d74o5unkoz",
+   "safeguardId": "mvz2d74nsrtocq",
    "ipl": true,
    "seq": 2
   },
   {
-   "id": "muvndmn1d1a50l",
-   "deviationId": "muvndmn1omb9x6",
-   "safeguardId": "muvndmmzt1cjfx",
+   "id": "mvz2d74odnn491",
+   "deviationId": "mvz2d74o5unkoz",
+   "safeguardId": "mvz2d74ny15sec",
    "ipl": false,
    "seq": 3
   },
   {
-   "id": "muvndmn1bc4rs1",
-   "deviationId": "muvndmn1omb9x6",
-   "safeguardId": "muvndmmzmtit1p",
+   "id": "mvz2d74o0lk1jf",
+   "deviationId": "mvz2d74o5unkoz",
+   "safeguardId": "mvz2d74nxwe40p",
    "ipl": true,
    "seq": 4
   },
   {
-   "id": "muvndmn14tls6o",
-   "deviationId": "muvndmn101omfr",
-   "safeguardId": "muvndmmz5ye80t",
+   "id": "mvz2d74oew5mhi",
+   "deviationId": "mvz2d74olzs3mj",
+   "safeguardId": "mvz2d74n9cp77k",
    "ipl": true,
    "seq": 1
   },
   {
-   "id": "muvndmn1tnekkz",
-   "deviationId": "muvndmn101omfr",
-   "safeguardId": "muvndmn0yvdvp0",
+   "id": "mvz2d74o6otnhi",
+   "deviationId": "mvz2d74olzs3mj",
+   "safeguardId": "mvz2d74n4nwyp1",
    "ipl": false,
    "seq": 2
   },
   {
-   "id": "muvndmn1v5xnp6",
-   "deviationId": "muvndmn101omfr",
-   "safeguardId": "muvndmmz731g8i",
+   "id": "mvz2d74o5ynimk",
+   "deviationId": "mvz2d74olzs3mj",
+   "safeguardId": "mvz2d74nsrtocq",
    "ipl": false,
    "seq": 3
   },
   {
-   "id": "muvndmn1xlqtad",
-   "deviationId": "muvndmn1vtrkp3",
-   "safeguardId": "muvndmn0zaye49",
+   "id": "mvz2d74p1xksg3",
+   "deviationId": "mvz2d74pz3hw1x",
+   "safeguardId": "mvz2d74nmwu62e",
    "ipl": false,
    "seq": 1
   },
   {
-   "id": "muvndmn1h38g6c",
-   "deviationId": "muvndmn1vtrkp3",
-   "safeguardId": "muvndmn0b0uiu7",
+   "id": "mvz2d74p1iyhs5",
+   "deviationId": "mvz2d74pz3hw1x",
+   "safeguardId": "mvz2d74n980qs5",
    "ipl": false,
    "seq": 2
   },
   {
-   "id": "muvndmn15smdl5",
-   "deviationId": "muvndmn15yl4xt",
-   "safeguardId": "muvndmn0g9v793",
+   "id": "mvz2d74pi7w5hf",
+   "deviationId": "mvz2d74pg4pamz",
+   "safeguardId": "mvz2d74nrazr9o",
    "ipl": false,
    "seq": 1
   },
   {
-   "id": "muvndmn125fgiz",
-   "deviationId": "muvndmn15yl4xt",
-   "safeguardId": "muvndmn0b0uiu7",
+   "id": "mvz2d74p6ytj3c",
+   "deviationId": "mvz2d74pg4pamz",
+   "safeguardId": "mvz2d74n980qs5",
    "ipl": false,
    "seq": 2
   },
   {
-   "id": "muvndmn1we5ohd",
-   "deviationId": "muvndmn1n01i0t",
-   "safeguardId": "muvndmn0kdegjr",
+   "id": "mvz2d74pmpqba6",
+   "deviationId": "mvz2d74pzdba9l",
+   "safeguardId": "mvz2d74nnx7wml",
    "ipl": false,
    "seq": 1
   },
   {
-   "id": "muvndmn1s10u3y",
-   "deviationId": "muvndmn1n01i0t",
-   "safeguardId": "muvndmmzt1cjfx",
+   "id": "mvz2d74pwwu7fs",
+   "deviationId": "mvz2d74pzdba9l",
+   "safeguardId": "mvz2d74ny15sec",
    "ipl": false,
    "seq": 2
   },
   {
-   "id": "muvndmn1dhhkz4",
-   "deviationId": "muvndmn1jphlws",
-   "safeguardId": "muvndmn05tlc5o",
+   "id": "mvz2d74pw4iqhp",
+   "deviationId": "mvz2d74ptkty3w",
+   "safeguardId": "mvz2d74nwmh53n",
    "ipl": false,
    "seq": 1
   },
   {
-   "id": "muvndmn1mod6et",
-   "deviationId": "muvndmn1jphlws",
-   "safeguardId": "muvndmn0j52u20",
+   "id": "mvz2d74pim1awx",
+   "deviationId": "mvz2d74ptkty3w",
+   "safeguardId": "mvz2d74nid5gi9",
    "ipl": false,
    "seq": 2
   },
   {
-   "id": "muvndmn12icxlx",
-   "deviationId": "muvndmn1fjn246",
-   "safeguardId": "muvndmn0sx6on6",
+   "id": "mvz2d74pyqc4oi",
+   "deviationId": "mvz2d74po9df76",
+   "safeguardId": "mvz2d74nwt1lq5",
    "ipl": false,
    "seq": 1
   },
   {
-   "id": "muvndmn1t25syy",
-   "deviationId": "muvndmn1fjn246",
-   "safeguardId": "muvndmn0dlsfcj",
+   "id": "mvz2d74pcksoyd",
+   "deviationId": "mvz2d74po9df76",
+   "safeguardId": "mvz2d74n8ffaq8",
    "ipl": false,
    "seq": 2
   }
@@ -758,7 +982,7 @@
    "status": "Open",
    "closeout": "",
    "closeDate": "",
-   "id": "muvndmn0cc69lx"
+   "id": "mvz2d74o59x93h"
   },
   {
    "no": "R-002",
@@ -769,7 +993,7 @@
    "status": "Open",
    "closeout": "",
    "closeDate": "",
-   "id": "muvndmn0j0ic89"
+   "id": "mvz2d74ovkomsh"
   },
   {
    "no": "R-003",
@@ -780,7 +1004,7 @@
    "status": "Open",
    "closeout": "",
    "closeDate": "",
-   "id": "muvndmn03fd55l"
+   "id": "mvz2d74o2uf5sl"
   },
   {
    "no": "R-004",
@@ -791,7 +1015,7 @@
    "status": "Open",
    "closeout": "",
    "closeDate": "",
-   "id": "muvndmn0ne2qpa"
+   "id": "mvz2d74o1ylfji"
   },
   {
    "no": "R-005",
@@ -802,7 +1026,7 @@
    "status": "Open",
    "closeout": "",
    "closeDate": "",
-   "id": "muvndmn06qoo9h"
+   "id": "mvz2d74oe0800m"
   },
   {
    "no": "R-006",
@@ -813,7 +1037,7 @@
    "status": "Open",
    "closeout": "",
    "closeDate": "",
-   "id": "muvndmn0xcj60v"
+   "id": "mvz2d74ol3wezw"
   },
   {
    "no": "R-007",
@@ -824,55 +1048,93 @@
    "status": "Open",
    "closeout": "",
    "closeDate": "",
-   "id": "muvndmn0iytffw"
+   "id": "mvz2d74oz8r0s1"
   }
  ],
  "devRecs": [
   {
-   "id": "muvndmn1tai15a",
-   "deviationId": "muvndmn1omb9x6",
-   "recId": "muvndmn0cc69lx"
+   "id": "mvz2d74ong2jju",
+   "deviationId": "mvz2d74o5unkoz",
+   "recId": "mvz2d74o59x93h"
   },
   {
-   "id": "muvndmn12pdrnn",
-   "deviationId": "muvndmn1omb9x6",
-   "recId": "muvndmn0j0ic89"
+   "id": "mvz2d74o0402um",
+   "deviationId": "mvz2d74o5unkoz",
+   "recId": "mvz2d74ovkomsh"
   },
   {
-   "id": "muvndmn15veouy",
-   "deviationId": "muvndmn1omb9x6",
-   "recId": "muvndmn03fd55l"
+   "id": "mvz2d74om1vmuv",
+   "deviationId": "mvz2d74o5unkoz",
+   "recId": "mvz2d74o2uf5sl"
   },
   {
-   "id": "muvndmn199oqwx",
-   "deviationId": "muvndmn101omfr",
-   "recId": "muvndmn0ne2qpa"
+   "id": "mvz2d74ottk7lg",
+   "deviationId": "mvz2d74olzs3mj",
+   "recId": "mvz2d74o1ylfji"
   },
   {
-   "id": "muvndmn15sbdbh",
-   "deviationId": "muvndmn1vtrkp3",
-   "recId": "muvndmn06qoo9h"
+   "id": "mvz2d74p75gqy8",
+   "deviationId": "mvz2d74pz3hw1x",
+   "recId": "mvz2d74oe0800m"
   },
   {
-   "id": "muvndmn1o4zbd8",
-   "deviationId": "muvndmn1n01i0t",
-   "recId": "muvndmn0xcj60v"
+   "id": "mvz2d74pg5vsbs",
+   "deviationId": "mvz2d74pzdba9l",
+   "recId": "mvz2d74ol3wezw"
   },
   {
-   "id": "muvndmn1vph24c",
-   "deviationId": "muvndmn1n01i0t",
-   "recId": "muvndmn0cc69lx"
+   "id": "mvz2d74pwwuso9",
+   "deviationId": "mvz2d74pzdba9l",
+   "recId": "mvz2d74o59x93h"
   },
   {
-   "id": "muvndmn1ozu2rw",
-   "deviationId": "muvndmn1jphlws",
-   "recId": "muvndmn0xcj60v"
+   "id": "mvz2d74pq663vi",
+   "deviationId": "mvz2d74ptkty3w",
+   "recId": "mvz2d74ol3wezw"
   },
   {
-   "id": "muvndmn1q6joce",
-   "deviationId": "muvndmn1fjn246",
-   "recId": "muvndmn0iytffw"
+   "id": "mvz2d74pigqv6r",
+   "deviationId": "mvz2d74po9df76",
+   "recId": "mvz2d74oz8r0s1"
   }
  ],
- "customCauses": []
+ "customCauses": [],
+ "parking": [
+  {
+   "no": "P-001",
+   "status": "Open",
+   "raised": "2026-11-02",
+   "text": "Confirm the DRI discharge temperature range used to select the belt rating.",
+   "nodeId": "mvz2d74ntajgkf",
+   "deviationId": "mvz2d74olzs3mj",
+   "raisedBy": "F. Fire",
+   "owner": "C. Process",
+   "due": "",
+   "id": "mvz2d74pq1hp9u"
+  },
+  {
+   "no": "P-002",
+   "status": "Open",
+   "raised": "2026-11-02",
+   "text": "Is H2 detection fitted in the hood on the reference plant? Ask the technology licensor.",
+   "nodeId": "mvz2d74ntajgkf",
+   "deviationId": "mvz2d74pz3hw1x",
+   "raisedBy": "C. Process",
+   "owner": "E. Instrument",
+   "due": "",
+   "id": "mvz2d74pnvty9i"
+  },
+  {
+   "no": "P-003",
+   "status": "Answered",
+   "raised": "2026-11-02",
+   "text": "Obtain three years of conveyor trip records (stoppages under load).",
+   "nodeId": "mvz2d74ntajgkf",
+   "deviationId": "mvz2d74o5unkoz",
+   "raisedBy": "A. Facilitator",
+   "owner": "D. Shift Supervisor",
+   "answer": "About 6 trips under load per year – used for the likelihood of N01-01.",
+   "id": "mvz2d74pant2dh"
+  }
+ ]
 }

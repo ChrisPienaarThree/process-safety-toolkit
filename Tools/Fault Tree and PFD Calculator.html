@@ -829,6 +829,54 @@ var FTALIB = (function () {
   upd("lr-fan-run", { v: 9.09e-6, chk: true, ref: "CCPS-PERD", src: PD + "3.3.4 – mean (1.75–24.7 per 10⁶ h)", name: "Motor-driven fan, fails while running – λ" });
 
   ["ipl-prv-foul", "ipl-dual-check", "ipl-gasdet", "ipl-quench", "ipl-inhibitor", "ipl-emcool", "ipl-n2-inert", "ipl-scrubber", "ipl-efv", "ipl-rov", "ipl-erc", "ipl-foam", "ipl-watercurtain", "hep-overfill-manual", "ie-flange-hot", "ie-hx-tube", "ie-hx-leak", "ie-agitation", "ie-instair", "ie-n2", "ie-contam", "ie-truck-drive", "ie-sis-spurious"].forEach(id => upd(id, { ref: "TYPICAL" }));
+  // ---- added 2 Nov 2026 for the LOPA Study Manager (checked in the e-book library unless chk is false) ----
+  const IPS = "CCPS, Guidelines for Safe and Reliable Instrumented Protective Systems (2007)", ECCM = "CCPS, Guidelines for Enabling Conditions and Conditional Modifiers in LOPA (2014)", MSZ = "Marszal & Scharpf, Safety Integrity Level Selection (ISA, 2002), Table 9.1";
+  // operator and supervisory activities – IPS Table B.1 (RRF 10 each → PFD 0.1)
+  add("ipl", "ips-rounds", "Process-related operator rounds and inspections (frequency sufficient to detect; reading independent of the initiating cause)", "p", 0.1, "RRF 10", "CCPS-IPS", true, IPS + ", Table B.1", "Operator trained to recognise and respond to out-of-range values");
+  add("ipl", "ips-observe", "Observational – the need to respond is obvious by sight or hearing (loud noise, high vibration, serious leak)", "p", 0.1, "RRF 10", "CCPS-IPS", true, IPS + ", Table B.1", "Response must not require the operator to go into the hazard zone");
+  add("ipl", "ips-review", "Independent review – verification and sign-off that a required operator action was done (e.g. valve line-up)", "p", 0.1, "RRF 10", "CCPS-IPS", true, IPS + ", Table B.1");
+  add("ipl", "ips-2nd-op", "Action by a different operator relying on independent observation", "p", 0.1, "RRF 10", "CCPS-IPS", true, IPS + ", Table B.1");
+  add("ipl", "ips-corrective", "Corrective action – propagation slow enough to gather lab tests, quality or material-balance data and correct", "p", 0.1, "RRF 10", "CCPS-IPS", true, IPS + ", Table B.1");
+  // operator response to alarm – IPS Table B.2 (adapted from ISA)
+  add("ipl", "ips-alarm-complex", "Operator response – complicated (many alarms, no written procedure or not trained on it)", "p", 1, "RRF 1 (no credit)", "CCPS-IPS", true, IPS + ", Table B.2");
+  add("ipl", "ips-alarm-lt10", "Operator response < 10 min where troubleshooting is needed to decide the action", "p", 1, "RRF 1 (no credit)", "CCPS-IPS", true, IPS + ", Table B.2");
+  add("ipl", "ips-alarm-drilled", "Drilled ‘never exceed, never deviate’ response, 2–10 min, alarm independent of the BPCS", "p", 0.1, "RRF 10", "CCPS-IPS", true, IPS + ", Table B.2");
+  add("ipl", "ips-alarm-gt10", "Operator response > 10 min, no troubleshooting needed (alarm in or independent of the BPCS)", "p", 0.1, "RRF 10", "CCPS-IPS", true, IPS + ", Table B.2", "Independence from the initiating cause and other IPLs must be shown");
+  add("ipl", "ips-alarm-gt40", "Operator response > 40 min with minor troubleshooting (alarm in or independent of the BPCS)", "p", 0.1, "RRF 10", "CCPS-IPS", true, IPS + ", Table B.2");
+  add("ipl", "ips-alarm-24h", "24 h response, several shifts can act; repeated alarm independent of the BPCS", "p", 0.01, "RRF 100", "CCPS-IPS", true, IPS + ", Table B.2");
+  // mechanical mitigation devices – IPS Table B.4
+  add("ipl", "ips-prv-clean", "Pressure relief valve, clean service, sized to fully mitigate the scenario", "p", 0.01, "RRF 100", "CCPS-IPS", true, IPS + ", Table B.4");
+  add("ipl", "ips-prv-multi-full", "Multiple full-load relief valves available for the scenario", "p", 0.001, "RRF 1000", "CCPS-IPS", true, IPS + ", Table B.4");
+  add("ipl", "ips-prv-multi-part", "Multiple partial-load relief valves – more than one must fail for the scenario", "p", 0.01, "RRF 100", "CCPS-IPS", true, IPS + ", Table B.4");
+  add("ipl", "ips-prv-staged", "Multiple partial-load / staged relief valves, more than one needed for the full load", "p", 0.1, "RRF 10", "CCPS-IPS", true, IPS + ", Table B.4");
+  add("ipl", "ips-prv-plug", "Relief valve in plugging service without protection – not an IPL", "p", 1, "RRF 1", "CCPS-IPS", true, IPS + ", Table B.4");
+  add("ipl", "ips-prv-plug-prot", "Relief valve in plugging service with protection (purges, special design, close-coupled rupture disc)", "p", 0.01, "RRF 100", "CCPS-IPS", true, IPS + ", Table B.4", "Not sufficient where plugging comes from polymerisation during venting");
+  add("ipl", "ips-rd", "Vessel rupture disc designed to mitigate the scenario", "p", 0.01, "RRF 100", "CCPS-IPS", true, IPS + ", Table B.4");
+  add("ipl", "ips-flamearr", "Flame arrester designed for the hazard (deflagration or detonation), inspected", "p", 0.01, "RRF 100", "CCPS-IPS", true, IPS + ", Table B.4");
+  add("ipl", "ips-vacbrk", "Vacuum breaker designed for the hazard, inspected", "p", 0.01, "RRF 100", "CCPS-IPS", true, IPS + ", Table B.4");
+  add("ipl", "ips-blowout", "Blowout panels designed to mitigate the scenario", "p", 0.01, "RRF 100", "CCPS-IPS", true, IPS + ", Table B.4");
+  add("ipl", "ips-overflow", "Overflow line to a safe location, sized for the scenario", "p", 0.01, "RRF 100", "CCPS-IPS", true, IPS + ", Table B.4");
+  // limitation systems – IPS Table B.5
+  add("ipl", "ips-fds", "Fire detection with automatic water deluge / foam / water curtain (FDS)", "p", 0.1, "RRF 10", "CCPS-IPS", true, IPS + ", Table B.5", "Most owners limit the claim to RRF 10 – a higher claim needs detailed analysis");
+  add("ipl", "ips-gds", "Gas detection with automatic deluge or emergency ventilation before ignition (GDS)", "p", 0.1, "RRF 10", "CCPS-IPS", true, IPS + ", Table B.5", "Most owners limit the claim to RRF 10");
+  // operator response – Marszal & Scharpf
+  add("ipl", "msz-op-normal", "Normal operator response: clear indication, trained, > 20 min, process always monitored", "p", 0.1, "", "MARSZAL", true, MSZ);
+  add("ipl", "msz-op-drilled", "Drilled operator response (written, strictly followed, repeatedly drilled shutdowns)", "p", 0.01, "", "MARSZAL", true, MSZ, "Rarely achieved in most plants (Marszal); CCPS LOPA (2001) gives 0.1 for operator response – a 0.01 claim needs strong justification");
+  add("ipl", "msz-op-unlikely", "Operator response unlikely – the conditions for a normal response are not all met", "p", 1, "", "MARSZAL", true, MSZ);
+  // conditional modifiers – CCPS 2014
+  add("cm", "cm-ign-certain", "Probability of ignition – assumed certain (conservative; risk criteria must match)", "p", 1, "", "CCPS-ECCM", true, ECCM + ", section 3.3", "Also usual when a mechanical failure itself supplies the ignition energy");
+  add("cm", "cm-ign-prompt", "Probability of prompt ignition of a flammable vapour release (default)", "p", 0.15, "", "CCPS-ECCM", true, ECCM + ", section 3.3, quoting Moosemiller (2009)", "Replace with a scenario-specific value where possible (release rate, AIT, MIE, ignition sources)");
+  add("cm", "cm-ign-delayed", "Probability of delayed ignition, given no prompt ignition (default)", "p", 0.3, "", "CCPS-ECCM", true, ECCM + ", section 3.3, quoting Moosemiller (2009)", "Being inside an electrically classified area is not by itself enough to take ignition credit");
+  add("cm", "cm-pres-17h", "Probability of personnel presence – about 17 h per week in the effect area (one person)", "p", 0.1, "", "CCPS-ECCM", true, ECCM + ", Table 3.4", "Count all people: operations, maintenance, contractors, visitors, peak periods");
+  add("cm", "cm-pres-2h", "Probability of personnel presence – about 2 h per week in the effect area (one person)", "p", 0.01, "", "CCPS-ECCM", true, ECCM + ", Table 3.4", "Some companies do not allow less than 0.1 (or 0.01) without careful analysis");
+  add("cm", "cm-pres-10min", "Probability of personnel presence – about 10 min per week in the effect area (one person)", "p", 0.001, "", "CCPS-ECCM", true, ECCM + ", Table 3.4", "Some companies do not allow less than 0.1 (or 0.01) without careful analysis");
+  add("cm", "cm-inj-boundary", "Probability of serious injury / fatality – effect area with a sharp boundary (wall, dike, flame front)", "p", 1, "", "CCPS-ECCM", true, ECCM + ", section 3.6 (approach 1)", "Same as not using an injury modifier");
+  add("cm", "cm-ign-gas-s", "Probability of ignition – gas release < 1 kg/s", "p", 0.01, "", "COX1990", false, "Cox, Lees & Ang (1990), as reproduced in Lees (2012) Table 16.72 – checked in secondary sources only");
+  add("cm", "cm-ign-gas-m", "Probability of ignition – gas release 1–50 kg/s", "p", 0.07, "", "COX1990", false, "Cox, Lees & Ang (1990), as reproduced in Lees (2012) Table 16.72 – checked in secondary sources only");
+  add("cm", "cm-ign-gas-l", "Probability of ignition – gas release > 50 kg/s", "p", 0.3, "", "COX1990", false, "Cox, Lees & Ang (1990), as reproduced in Lees (2012) Table 16.72 – checked in secondary sources only");
+  add("cm", "cm-ign-liq-s", "Probability of ignition – liquid release < 1 kg/s", "p", 0.01, "", "COX1990", false, "Cox, Lees & Ang (1990), as reproduced in Lees (2012) Table 16.72 – checked in secondary sources only");
+  add("cm", "cm-ign-liq-m", "Probability of ignition – liquid release 1–50 kg/s", "p", 0.03, "", "COX1990", false, "Cox, Lees & Ang (1990), as reproduced in Lees (2012) Table 16.72 – checked in secondary sources only");
+  add("cm", "cm-ign-liq-l", "Probability of ignition – liquid release > 50 kg/s", "p", 0.08, "", "COX1990", false, "Cox, Lees & Ang (1990), as reproduced in Lees (2012) Table 16.72 – checked in secondary sources only");
   const GROUPS = [
     { k: "manual", name: "Manual value (no library item)" },
     { k: "ipl", name: "Safeguard / IPL – PFD", kind: "p" },
@@ -836,6 +884,7 @@ var FTALIB = (function () {
     { k: "equip", name: "Equipment failure on demand", kind: "p" },
     { k: "rate", name: "Failure rate (/h) – proof-tested, mission or repairable", kind: "rate" },
     { k: "freq", name: "Initiating event frequency (/yr)", kind: "f" },
+    { k: "cm", name: "LOPA conditional modifier (probability)", kind: "p" },
     { k: "site", name: "Site data (items you add)" }
   ];
   const REFS = {
@@ -851,7 +900,11 @@ var FTALIB = (function () {
     GENERIC: "Typical generic process-industry per-demand values (CCPS CPQRA and reliability handbooks)",
     PDS: "SINTEF, Reliability Data for Safety Instrumented Systems (PDS Data Handbook) – typical values",
     OREDA: "OREDA Offshore and Onshore Reliability Data Handbook – typical values",
-    EXIDA: "exida, Safety Equipment Reliability Handbook – typical values"
+    EXIDA: "exida, Safety Equipment Reliability Handbook – typical values",
+    "CCPS-IPS": "CCPS, Guidelines for Safe and Reliable Instrumented Protective Systems (2007) – Appendix B, Tables B.1–B.5 (RRF examples; PFD = 1 / RRF)",
+    "CCPS-ECCM": "CCPS, Guidelines for Enabling Conditions and Conditional Modifiers in Layer of Protection Analysis (2014) – chapter 3",
+    MARSZAL: "Marszal & Scharpf, Safety Integrity Level Selection: Systematic Methods Including LOPA (ISA, 2002)",
+    COX1990: "Cox, Lees & Ang, Classification of hazardous locations (IChemE, 1990) – ignition probability by release rate; not checked against the original"
   };
   const ids = new Set(); L.forEach(x => { if (ids.has(x.id)) throw new Error("duplicate library id " + x.id); ids.add(x.id); if (!(x.v >= 0) || !REFS[x.ref]) throw new Error("bad library item " + x.id); });
   return { ITEMS: L, GROUPS, REFS };
@@ -1886,6 +1939,7 @@ window.addEventListener("DOMContentLoaded", boot);
     ['[data-act="saveas"]', "Choose a file to save to. From then on every change is written to it automatically (Chrome or Edge)."],
     ['[data-act="savenow"]', "Write the current state to the linked file now"],
     ['[data-act="exportjson"]', "Download a copy of everything as a .json file – works in every browser"],
+    ['[data-act="importxlsx"]', "Read a filled-in HAZOP Study Workbook (.xlsx or .xlsm) into the tool: study, team, PSI, nodes, deviations, safeguards, IPLs, LOPA flags, recommendations"],
     ['[data-act="importjson"]', "Replace the current work with a downloaded backup (.json)"],
     ['[data-act="importft"]', "Bring in a fault tree (.fta.json) so its gates can supply probabilities here"],
     ['[data-act="exportxlsx"]', "Save the data and results as an Excel workbook"],
@@ -1913,6 +1967,11 @@ window.addEventListener("DOMContentLoaded", boot);
       ['[data-v="safeguards"]', "All safeguards in the study, which deviations use them, and which are claimed as IPLs"],
       ['[data-v="recs"]', "All recommendations, owners, due dates and status"],
       ['[data-v="lopa"]', "Scenarios with an IPL flagged for LOPA: causes, consequence (top event), IPLs, status"],
+      ['[data-act="importlopa"]', "Bring the results of a LOPA study (.lopa.json) back onto the LOPA study list"],
+      ['[data-v="parking"]', "Open questions from the sessions, with owner, answer and status"],
+      ["#addPl", "Add an open question or issue to answer outside the session"], ["#addPlN", "Add an open question for this node (or the selected deviation)"],
+      ["#plAdd", "Add this question to the parking lot for this deviation"], ["#wsColsBtn", "Show, hide or rename the worksheet columns for this study"],
+      ["[data-open]", "Open the deviation editor: causes, safeguards, severity by receptor, recommendations"],
       ["[data-gows]", "Open this deviation on the HAZOP worksheet"],
       ['[data-v="matrix"]', "The 5 × 5 risk matrix and the risk bands used for ranking"],
       ['[data-v="library"]', "Parameters, guidewords and typical causes offered in the worksheet"],
@@ -1972,6 +2031,27 @@ window.addEventListener("DOMContentLoaded", boot);
       ["#impFt", "Bring in a fault tree (.fta.json) so a gate can supply a heading's probability"],
       ["#addC", "Add a consequence category"], ["#runMc", "Run the Monte Carlo uncertainty analysis"]
     ],
+    "LOPA Study Manager": [
+      ['[data-act="new"]', "Start a new, empty LOPA study (save or back up the current one first)"],
+      ['[data-act="importhazop"]', "Read the LOPA study list from a HAZOP study file: one scenario per initiating cause; a re-import keeps your LOPA entries"],
+      ['[data-v="dashboard"]', "Results of all scenarios: which meet the target, which need another IPL or a SIF"],
+      ['[data-v="study"]', "Title, team, scope and the HAZOP study this LOPA comes from"],
+      ['[data-v="criteria"]', "Explicit or implicit LOPA, receptors in use, and the target for each receptor and severity"],
+      ['[data-v="scenarios"]', "All LOPA scenarios with their result; add one or update from the HAZOP"],
+      ['[data-v="scenario"]', "Work through one scenario: initiating event, enabling conditions, modifiers, IPLs and the result"],
+      ['[data-v="ipls"]', "Every IPL credited in the study and the scenarios that rely on it"],
+      ['[data-v="library"]', "Initiating-event frequencies, IPL PFDs and human error probabilities with their sources"],
+      ['[data-v="reports"]', "Print the LOPA report, export to Excel, or download a backup"],
+      ["#dImp", "Read the LOPA study list from a HAZOP study file"], ["#dSample", "Open the hot DRI transfer example to see a finished LOPA"],
+      ["#addSc", "Add a scenario by hand"], ["#impHz", "Read or update the scenarios from a HAZOP study file"],
+      ["#prevS", "Previous scenario"], ["#nextS", "Next scenario"], ["#addEn", "Add a condition that must be present for the consequence (e.g. time in that mode)"],
+      ['[data-addcm="ign"]', "Add the probability that the release ignites"], ['[data-addcm="pres"]', "Add the probability that someone is in the effect zone (safety only)"],
+      ['[data-addcm="inj"]', "Add the probability of injury or fatality given exposure (safety only)"], ['[data-addcm=""]', "Add another conditional modifier"],
+      ["#addIpl", "Add an existing independent protection layer"], ["#addProp", "Add a proposed IPL (a recommendation) – shown separately in the result"],
+      ["[data-scdel]", "Delete this scenario"], ["[data-rm]", "Remove this line"],
+      ["#crSync", "Fill one table from the other (credits = −log10 of the TMEL)"], ["#crReset", "Go back to the typical example criteria"],
+      ["#rPrint", "Print the report, or choose Save as PDF"], ["#rHtml", "Download the report as a web page"], ["#xX", "Export the scenarios, results and IPLs to Excel"], ["#xJ", "Download a backup (.json)"]
+    ],
     "What-If Checklist Analysis": [
       ['[data-act="new"]', "Start a new, empty study (save or back up the current one first)"],
       ['[data-act="importhazid"]', "Bring in the HAZID register (.xlsx) so each What-If question can be linked to the hazards it examines"],
@@ -2018,7 +2098,7 @@ window.addEventListener("DOMContentLoaded", boot);
     ]
   };
   var LABELS = { // exact button labels, used when no selector rule matches
-    "Open worksheet": "Go to the HAZOP worksheet", "Worksheet": "Open the worksheet for this item", "Checklist": "Open the checklist for this area", "Discard": "Discard this new question", "Save": "Save the changes", "Cancel": "Close without saving", "Delete": "Delete this record", "Link": "Link the selected item",
+    "Open worksheet": "Go to the HAZOP worksheet", "Apply": "Apply these settings", "Reset to default": "Go back to the default settings", "Columns…": "Show, hide or rename the worksheet columns", "Worksheet": "Open the worksheet for this item", "Checklist": "Open the checklist for this area", "Discard": "Discard this new question", "Save": "Save the changes", "Cancel": "Close without saving", "Delete": "Delete this record", "Link": "Link the selected item",
     "All": "Show all recommendations", "Open": "Show only recommendations with this status", "In progress": "Show only recommendations with this status",
     "Open + In progress": "Show recommendations that are still open or in progress", "Closed": "Show only recommendations with this status", "Rejected": "Show only recommendations with this status",
     "Add": "Add this entry",

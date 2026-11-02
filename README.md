@@ -1,14 +1,16 @@
 # Process Safety Analysis Toolkit
 
-Five browser tools for recording and calculating a process hazard analysis (PHA), with Excel workbooks,
+Six browser tools for recording and calculating a process hazard analysis (PHA), plus a process safety culture assessment, with Excel workbooks,
 guides and worked examples:
 
 - **What-If / Checklist Analysis** – What-If / Checklist study (CCPS) between the HAZID and the HAZOP: checklist library, What-If worksheet, hand-over to the HAZOP.
 - **HAZOP Study Manager** – study, team, PSI, nodes, deviations with causes, safeguards (Safeguard / IPL, LOPA flag), a LOPA study list and recommendations; imports the HAZOP workbook.
+- **LOPA Study Manager** – layer of protection analysis of the HAZOP's LOPA study list: explicit or implicit LOPA, five receptors, IPL credit adjudication (seven tests including cyber), a sourced rules check, SCAI register, ALARP record and bow-tie export; results go back to the HAZOP.
 - **Fault Tree & PFD Calculator** – exact top-event probability, time-averaged PFDavg, common cause, cut sets,
   importance, uncertainty and an IEC 61508 SIF calculator.
 - **Event Tree Analysis** – outcomes of an initiating event against frequency targets.
 - **Bow Tie Analysis** – threats, barriers, consequences, barrier condition and criticality.
+- **Process Safety Culture Assessment** – anonymous survey (English / Arabic) and facilitator review on the 10 core principles of CCPS (2018), *Essential Practices for Creating, Strengthening, and Sustaining Process Safety Culture*; group gaps, red flags and an action plan. The statements are original wording, not the CCPS protocol text; the Arabic translation is a draft pending native-speaker review.
 
 **Open the toolkit:** https://chrispienaarthree.github.io/process-safety-toolkit/
 

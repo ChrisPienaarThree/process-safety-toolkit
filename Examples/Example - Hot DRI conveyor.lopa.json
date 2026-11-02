@@ -1,0 +1,468 @@
+{
+ "app": "LOPA Study Manager",
+ "schema": 1,
+ "created": "2026-11-02T09:34:38.068Z",
+ "modified": null,
+ "study": {
+  "title": "LOPA – Hot DRI transfer conveyor and N2 fire protection (example)",
+  "company": "Integrated DRI-EAF Steel Complex (example)",
+  "unit": "DRI plant – hot DRI transfer to EAF",
+  "docNo": "LOPA-EX-DRI-001",
+  "rev": "A",
+  "date": "2026-11-02",
+  "facilitator": "A. Facilitator",
+  "team": "A. Facilitator (LOPA), C. Process (process), E. Instrument (instrument / SIS), F. Fire (HSE / fire), D. Shift Supervisor (operations)",
+  "hazopTitle": "HAZOP – Hot DRI transfer conveyor and N2 fire protection (example)",
+  "hazopFile": "Example - Hot DRI transfer conveyor.hazop.json",
+  "hazopImported": "2026-11-02",
+  "scope": "Scenarios from the HAZOP LOPA study list for nodes N01 (hot DRI transfer conveyor) and N02 (N2 fire detection / inerting system). Illustrative values for training – not design data.",
+  "notes": ""
+ },
+ "settings": {
+  "mode": "explicit",
+  "credit": "claimed",
+  "alarpDec": 2,
+  "recOn": [
+   "S",
+   "E",
+   "A",
+   "R",
+   "C"
+  ],
+  "sev": [
+   "Negligible",
+   "Minor",
+   "Moderate",
+   "Major",
+   "Catastrophic"
+  ],
+  "tmel": {
+   "S": [
+    0.01,
+    0.001,
+    0.0001,
+    0.00001,
+    0.000001
+   ],
+   "E": [
+    0.01,
+    0.001,
+    0.0001,
+    0.00001,
+    0.000001
+   ],
+   "A": [
+    0.1,
+    0.01,
+    0.001,
+    0.0001,
+    0.00001
+   ],
+   "R": [
+    0.1,
+    0.01,
+    0.001,
+    0.0001,
+    0.00001
+   ],
+   "C": [
+    0.01,
+    0.001,
+    0.0001,
+    0.00001,
+    0.000001
+   ]
+  },
+  "req": {
+   "S": [
+    2,
+    3,
+    4,
+    5,
+    6
+   ],
+   "E": [
+    2,
+    3,
+    4,
+    5,
+    6
+   ],
+   "A": [
+    1,
+    2,
+    3,
+    4,
+    5
+   ],
+   "R": [
+    1,
+    2,
+    3,
+    4,
+    5
+   ],
+   "C": [
+    2,
+    3,
+    4,
+    5,
+    6
+   ]
+  },
+  "basis": "Typical example values – replace with the client's tolerable risk criteria before the study."
+ },
+ "scenarios": [
+  {
+   "id": "mvz2bks4nstr5g",
+   "no": "L-01",
+   "key": "",
+   "hazopRef": "N01-01",
+   "node": "N01 – Hot DRI transfer conveyor",
+   "deviation": "No flow",
+   "cause": "Conveyor, feeder or vibratory feeder stopped under load (belt tear, drive trip, chute blockage)",
+   "consequence": "Hot DRI stationary on the belt self-heats; belt fire spreads through the gallery to the transfer tower / DRI silo – potential fatality and extended outage",
+   "sev": {
+    "S": 5,
+    "E": 2,
+    "A": 4,
+    "R": 3,
+    "C": 1
+   },
+   "status": "Complete",
+   "ie": {
+    "desc": "Conveyor trip / stoppage under load",
+    "f": 6,
+    "libId": "",
+    "basis": "Plant trip records – about 6 per year (example; the same value as the fault tree example)"
+   },
+   "enabling": [],
+   "modifiers": [
+    {
+     "id": "mvz2bks4kj5sng",
+     "desc": "Fire develops from the stationary hot DRI",
+     "p": 0.05,
+     "basis": "Fault tree example: a fire develops in 0.05 of stoppages under load – illustrative",
+     "rec": [
+      "S",
+      "E",
+      "A",
+      "R",
+      "C"
+     ]
+    },
+    {
+     "id": "mvz2bks4kqvvvq",
+     "desc": "Person present in the gallery when the fire spreads",
+     "p": 0.1,
+     "basis": "Occupancy estimate: rounds about 10 % of the time – illustrative",
+     "rec": [
+      "S"
+     ]
+    }
+   ],
+   "ipls": [
+    {
+     "id": "mvz2bks40eh7aw",
+     "sgId": "",
+     "name": "XS-210 – N2 fire detection & inerting / extinguishing system",
+     "type": "SIF / SIS",
+     "pfd": 0.0285,
+     "libId": "",
+     "basis": "Fault Tree & PFD Calculator example, gate G-002 PFDavg 0.0285",
+     "proposed": false,
+     "adj": {
+      "status": "Accepted with conditions",
+      "tests": {
+       "spec": "yes",
+       "indep": "yes",
+       "dep": "yes",
+       "aud": "yes",
+       "sec": "yes",
+       "time": "yes",
+       "cyber": "yes"
+      },
+      "evidence": "Fault tree example G-002 (PFDavg 0.0285); proof-test and blow-through test records; cause & effect FP-N2-01",
+      "reviewer": "E. Instrument",
+      "date": "2026-11-02",
+      "accPfd": "",
+      "conditions": "Six-monthly function and blow-through test kept in the proof-test plan (FMECA)",
+      "reason": ""
+     }
+    },
+    {
+     "id": "mvz2bks4qv1er8",
+     "sgId": "",
+     "name": "Fire separation of the conveyor gallery (fire breaks / dampers)",
+     "type": "Passive / physical",
+     "pfd": 0.1,
+     "libId": "",
+     "basis": "Engineering judgement – confirm against the fire-protection design basis",
+     "proposed": false,
+     "adj": {
+      "status": "Under review",
+      "tests": {
+       "spec": "yes",
+       "indep": "yes",
+       "dep": "",
+       "aud": "yes",
+       "sec": "yes",
+       "time": "yes",
+       "cyber": "yes"
+      },
+      "evidence": "Gallery drawings; fire-damper inspection list",
+      "reviewer": "F. Fire",
+      "date": "2026-11-02",
+      "accPfd": "",
+      "conditions": "",
+      "reason": ""
+     }
+    },
+    {
+     "id": "mvz2bks4k32lsv",
+     "sgId": "",
+     "name": "Emergency discharge chute operable without power (R-002)",
+     "type": "Mechanical device",
+     "pfd": 0.1,
+     "libId": "",
+     "basis": "Proposed in the HAZOP (R-002) – assumed PFD 0.1",
+     "proposed": true,
+     "adj": {
+      "status": "Claimed",
+      "tests": {},
+      "evidence": "",
+      "reviewer": "",
+      "date": "",
+      "accPfd": "",
+      "conditions": "",
+      "reason": ""
+     }
+    }
+   ],
+   "others": [
+    "Restart / emergency discharge of hot DRI within safe time (procedure)",
+    "Manual fire fighting by the emergency response team"
+   ],
+   "notes": "Gap remains after the proposed discharge chute – review the N2 system SIL (R-001) and inherently safer options.",
+   "ack": {
+    "fg-mvz2bks40eh7aw": {
+     "by": "E. Instrument",
+     "note": "PFD 0.0285 comes from a fault tree of the whole N2 system (FT G-002) – the detailed analysis the IPS guideline asks for",
+     "date": "2026-11-02"
+    }
+   },
+   "alarp": {
+    "options": "Environment, reputation and community: an enclosed fire-water collection system and a second N2 supply were considered",
+    "decision": "Further risk reduction is not reasonably practicable – the risk is ALARP",
+    "justification": "Small extra risk reduction (mainly asset) at high cost; the safety gap is addressed by R-001 and R-002",
+    "by": "A. Facilitator",
+    "date": "2026-11-02"
+   },
+   "result": "SIL 1 needed (Safety, RRF 85.5); with proposed IPLs: Gap ≤ 10× – one more IPL or SIL 1"
+  },
+  {
+   "id": "mvz2bks45rklcd",
+   "no": "L-02",
+   "key": "",
+   "hazopRef": "N01-02",
+   "node": "N01 – Hot DRI transfer conveyor",
+   "deviation": "More hot DRI / HBI temperature",
+   "cause": "Reduction / cooling upset – over-temperature DRI discharged onto the belt",
+   "consequence": "Belt damage or ignition; smouldering DRI carried to the EAF charging bin; conveyor fire",
+   "sev": {
+    "S": 3,
+    "E": 1,
+    "A": 4,
+    "R": 2,
+    "C": 1
+   },
+   "status": "In progress",
+   "ie": {
+    "desc": "Cooling-gas control loop failure",
+    "f": 0.1,
+    "libId": "ie-bpcs",
+    "basis": "CCPS LOPA (2001), Table 5.1; CCPS Guidelines for Initiating Events and IPLs in LOPA (2015), Data Table 4.1"
+   },
+   "enabling": [
+    {
+     "id": "mvz2bks4jc8bp0",
+     "desc": "Belt ignites when over-temperature DRI is discharged",
+     "p": 0.1,
+     "basis": "Engineering judgement – confirm the belt temperature rating (HAZOP R-004)"
+    }
+   ],
+   "modifiers": [
+    {
+     "id": "mvz2bks4dbxeqq",
+     "desc": "Person present near the conveyor",
+     "p": 0.1,
+     "basis": "Occupancy estimate – illustrative",
+     "rec": [
+      "S"
+     ]
+    }
+   ],
+   "ipls": [
+    {
+     "id": "mvz2bks4v2f0ni",
+     "sgId": "",
+     "name": "TSHH-202 – DRI discharge high-high temperature trip",
+     "type": "SIF / SIS",
+     "pfd": 0.1,
+     "libId": "",
+     "basis": "SIL 1 assumed – confirm by SIL verification",
+     "proposed": false,
+     "adj": {
+      "status": "Under review",
+      "tests": {
+       "spec": "yes",
+       "indep": "yes",
+       "dep": "yes",
+       "aud": "yes",
+       "sec": "yes",
+       "time": "yes",
+       "cyber": ""
+      },
+      "evidence": "Draft SRS for TSHH-202; separate sensor from TAH-202 to be confirmed",
+      "reviewer": "E. Instrument",
+      "date": "2026-11-02",
+      "accPfd": "",
+      "conditions": "",
+      "reason": ""
+     }
+    }
+   ],
+   "others": [
+    "TAH-202 – High DRI temperature alarm (shares the sensor with TSHH-202: not independent)",
+    "XS-210 – N2 system (already credited in L-01, shares detection)"
+   ],
+   "notes": "",
+   "alarp": {
+    "options": "Second, diverse temperature trip; belt with a higher temperature rating",
+    "decision": "",
+    "justification": "",
+    "by": "",
+    "date": ""
+   },
+   "result": "Gap ≤ 10× – one more IPL or SIL 1 (Asset, RRF 10)"
+  },
+  {
+   "id": "mvz2bks4yxldxe",
+   "no": "L-03",
+   "key": "",
+   "hazopRef": "N02-03",
+   "node": "N02 – N2 fire detection, inerting & extinguishing system",
+   "deviation": "Leak of inert gas (N2, Ar)",
+   "cause": "Personnel enter the hood or gallery during or soon after an N2 release",
+   "consequence": "Asphyxiation in the conveyor enclosure – potential fatality",
+   "sev": {
+    "S": 5,
+    "E": 1,
+    "A": 1,
+    "R": 3,
+    "C": 1
+   },
+   "status": "In progress",
+   "ie": {
+    "desc": "N2 release into the enclosure (demand or spurious)",
+    "f": 0.3,
+    "libId": "",
+    "basis": "Example: demands on the N2 system plus spurious releases – illustrative"
+   },
+   "enabling": [
+    {
+     "id": "mvz2bks4btrql7",
+     "desc": "Entry into the enclosure while N2 is present",
+     "p": 0.1,
+     "basis": "Engineering judgement – illustrative",
+     "tar": false
+    }
+   ],
+   "modifiers": [],
+   "ipls": [
+    {
+     "id": "mvz2bks4d3jdm8",
+     "sgId": "",
+     "name": "Confined-space entry permit with O2 test before entry",
+     "type": "Procedure / administrative",
+     "pfd": 0.1,
+     "libId": "",
+     "basis": "Administrative IPL – credit only if audited and independent of the release warning; illustrative",
+     "proposed": false,
+     "adj": {
+      "status": "Under review",
+      "tests": {
+       "spec": "yes",
+       "indep": "yes",
+       "dep": "",
+       "aud": "yes",
+       "sec": "yes",
+       "time": "",
+       "cyber": "yes"
+      },
+      "evidence": "Confined-space entry procedure; permit audit 2026",
+      "reviewer": "F. Fire",
+      "date": "2026-11-02",
+      "accPfd": "",
+      "conditions": "",
+      "reason": ""
+     }
+    },
+    {
+     "id": "mvz2bks4n4yd3w",
+     "sgId": "",
+     "name": "Access door interlock with the N2 release (R-007)",
+     "type": "SIF / SIS",
+     "pfd": 0.01,
+     "libId": "",
+     "basis": "Proposed – SIL 2 door interlock assumed; illustrative",
+     "proposed": true,
+     "adj": {
+      "status": "Claimed",
+      "tests": {},
+      "evidence": "",
+      "reviewer": "",
+      "date": "",
+      "accPfd": "",
+      "conditions": "",
+      "reason": ""
+     }
+    }
+   ],
+   "others": [
+    "N2 release warning beacons and enclosure access lock-out"
+   ],
+   "notes": "",
+   "result": "SIL 3 needed (Safety, RRF 3.0E+3); with proposed IPLs: SIL 1 needed"
+  }
+ ],
+ "log": [
+  {
+   "ts": "2026-11-02T09:34:38.068Z",
+   "sc": "L-01",
+   "ipl": "XS-210 – N2 fire detection & inerting / extinguishing system",
+   "from": "Under review",
+   "to": "Accepted with conditions",
+   "by": "E. Instrument",
+   "note": "Six-monthly function and blow-through test kept in the proof-test plan (FMECA)"
+  }
+ ],
+ "scai": {
+  "XS-210 – N2 fire detection & inerting / extinguishing system": {
+   "tag": "XS-210",
+   "setpoint": "Stoppage under load > 2 min or TSHH / smoke detection → open XV-210A/B",
+   "testInterval": "6 months",
+   "responseTime": "< 60 s to N2 delivery",
+   "owner": "E. Instrument",
+   "notes": "PFDavg from FT G-002"
+  },
+  "TSHH-202 – DRI discharge high-high temperature trip": {
+   "tag": "TSHH-202",
+   "setpoint": "To be set from the belt rating (HAZOP R-004)",
+   "testInterval": "12 months",
+   "responseTime": "",
+   "owner": "E. Instrument",
+   "notes": "Separate sensor from TAH-202 to be confirmed"
+  }
+ }
+}

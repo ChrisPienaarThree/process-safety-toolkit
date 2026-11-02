@@ -37,6 +37,7 @@ main{flex:1 1 auto;display:flex;flex-direction:column} .view{display:none;flex:1
 .note{background:var(--panel);border:1px solid var(--line);border-left:5px solid var(--water);border-radius:10px;padding:12px 16px;display:flex;gap:14px;align-items:center;flex-wrap:wrap}
 .note.warn{border-left-color:var(--brass)} .note > div{flex:1 1 320px}
 .cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,250px),1fr));gap:14px}
+@media (min-width:1100px){.cards{grid-template-columns:repeat(3,1fr)}}
 .card{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:16px;display:flex;flex-direction:column;gap:10px;box-shadow:var(--shadow);min-width:0}
 .card .num{font-family:var(--display);font-size:2.4rem;font-weight:700;color:var(--water);line-height:1}
 .card .head{display:flex;gap:12px;align-items:baseline} .card .topic{font-size:.8rem;color:var(--brass);font-weight:600}
@@ -95,7 +96,7 @@ body.web .usbonly{display:none!important} body.usb .webonly{display:none!importa
     <h1>Process Safety Toolkit</h1>
   </div>
   <nav class="views" id="views" aria-label="Views">
-    <button class="vbtn on" data-view="launch" title="The five tools, the overview and the quick links">Launch</button>
+    <button class="vbtn on" data-view="launch" title="The seven tools, the overview and the quick links">Launch</button>
     <button class="vbtn" data-view="run" title="Work in a tool on this page, with its quick start, examples and saving notes beside it">Open a tool</button>
     <button class="vbtn" data-view="path" title="The order of a full PHA – HAZID, HAZOP, FMECA, fault tree, event tree, bow tie – and what moves between the steps">Study path</button>
     <button class="vbtn" data-view="library" title="Guides, reference, Excel workbooks and example files">Library</button>
@@ -111,19 +112,19 @@ body.web .usbonly{display:none!important} body.usb .webonly{display:none!importa
 <main>
   <!-- ================= launch ================= -->
   <section class="view on" id="view-launch">
-    <p class="lead">Five offline tools for recording and calculating a process hazard analysis, plus Excel workbooks, guides and worked examples. Everything runs in the browser: no installation and no internet. <span id="leadMode"></span></p>
+    <p class="lead">Seven offline tools – six for recording and calculating a process hazard analysis and one for assessing process safety culture – plus Excel workbooks, guides and worked examples. Everything runs in the browser: no installation and no internet. <span id="leadMode"></span></p>
     <div class="note">
-      <div><b>New here? Start with the overview.</b><br><span class="muted small">What each tool is for, how information moves between them, which tool to choose – and the hot DRI conveyor fire traced through all of them with consistent numbers (6 pages).</span></div>
-      <a class="act" href="Guides/Toolkit Overview - How the Tools Fit Together.pdf" target="_blank" rel="noopener" title="Opens the 6-page overview (PDF) in a new tab">Read the overview (PDF)</a>
+      <div><b>New here? Start with the overview.</b><br><span class="muted small">What each tool is for, how information moves between them, which tool to choose – and the hot DRI conveyor fire traced through all of them with consistent numbers (7 pages).</span></div>
+      <a class="act" href="Guides/Toolkit Overview - How the Tools Fit Together.pdf" target="_blank" rel="noopener" title="Opens the 7-page overview (PDF) in a new tab">Read the overview (PDF)</a>
       <a class="mini" href="Guides/Toolkit Overview - How the Tools Fit Together.docx" title="Download the overview as a Word file">Word version</a>
     </div>
     <div class="note warn" id="browserWarn" hidden><div><b>Tip:</b> use <b>Google Chrome</b> or <b>Microsoft Edge</b>. In this browser the tools work, but “Save as… (link file)” is not available – use <i>Download backup (.json)</i> to keep your work.</div></div>
     <div class="cards" id="cards"></div>
     <div class="strip">
-      <button class="tile" data-goto="path" title="See the order of a full study and which tool or workbook to use at each step"><b>Study path</b><span class="muted small">HAZID → What-If → HAZOP → FMECA → fault tree → event tree → bow tie</span></button>
+      <button class="tile" data-goto="path" title="See the order of a full study and which tool or workbook to use at each step"><b>Study path</b><span class="muted small">HAZID → What-If → HAZOP → LOPA → FMECA → fault tree → event tree → bow tie</span></button>
       <button class="tile" data-goto="library#lib-workbooks" title="What-If, HAZOP and FMECA workbooks, with and without macros"><b>Excel workbooks</b><span class="muted small">What-If · HAZOP · FMECA · .xlsx and macro .xlsm</span></button>
       <button class="tile" data-goto="library#lib-examples" title="Example study files and the complete worked PHA"><b>Worked examples</b><span class="muted small">Hot DRI conveyor fire · gas network · propane storage · ammonia unit</span></button>
-      <button class="tile" data-goto="library#lib-guides" title="User guides (PDF), the HAZID checklist and the HAZOP guidewords"><b>Guides &amp; reference</b><span class="muted small">Overview · 5 tool guides · HAZID checklist · guidewords</span></button>
+      <button class="tile" data-goto="library#lib-guides" title="User guides (PDF), the HAZID checklist and the HAZOP guidewords"><b>Guides &amp; reference</b><span class="muted small">Overview · 6 tool guides · HAZID checklist · guidewords</span></button>
     </div>
   </section>
 
@@ -165,7 +166,7 @@ body.web .usbonly{display:none!important} body.usb .webonly{display:none!importa
       </article>
       <article class="panel">
         <h2>Traced through every step</h2>
-        <p><b>Hot DRI conveyor fire</b> – the built-in example in all five tools. The HAZOP finds “no flow – stoppage under load”, the fault tree quantifies the N2 fire protection (gate G-002, PFDavg 0.0285), the event tree uses that gate as a heading, and the bow tie uses it as a barrier.</p>
+        <p><b>Hot DRI conveyor fire</b> – the built-in example in all six tools. The HAZOP finds “no flow – stoppage under load”, the LOPA checks its IPL credits, the fault tree quantifies the N2 fire protection (gate G-002, PFDavg 0.0285), the event tree uses that gate as a heading, and the bow tie uses it as a barrier.</p>
         <p><b>Steel works gas network PHA</b> – a complete worked study: HAZOP (8 nodes, 46 deviations), FMECA, 3 fault trees, 2 event trees and 2 bow ties sharing the same tags, nodes and recommendations, with a What-If of the non-routine work, a 23-page study report and 470 automated consistency checks.</p>
         <p><b>Propane storage and dilution PHA</b> and <b>Ammonia unit PHA</b> – two more complete studies that start with a HAZID register and run HAZID → What-If / Checklist → HAZOP → FMECA → fault trees → event trees → bow ties. Both are built on published HAZOP case studies, completed and corrected, with a study report each (475 and 540 automated consistency checks).</p>
         <p><button class="mini" data-goto="library#lib-examples" title="List of all example files and which tool opens them">See the example files</button></p>
@@ -218,18 +219,18 @@ body.web .usbonly{display:none!important} body.usb .webonly{display:none!importa
       </nav>
       <div class="panel">
         <section id="g-what"><h2>1. What this toolkit is</h2>
-          <p>Five tools for recording and calculating a process hazard analysis (PHA): <b>What-If / Checklist Analysis</b>, the <b>HAZOP Study Manager</b>, the <b>Fault Tree &amp; PFD Calculator</b>, <b>Event Tree Analysis</b> and <b>Bow Tie Analysis</b>. They are study-recording tools and calculators, not simulators: what you enter is your study record. Around them are the HAZOP and FMECA Excel workbooks, the HAZID checklist, the HAZOP guidewords, user guides and worked examples.</p>
+          <p>Six tools for recording and calculating a process hazard analysis (PHA): <b>What-If / Checklist Analysis</b>, the <b>HAZOP Study Manager</b>, the <b>LOPA Study Manager</b>, the <b>Fault Tree &amp; PFD Calculator</b>, <b>Event Tree Analysis</b> and <b>Bow Tie Analysis</b>, plus the <b>Process Safety Culture Assessment</b> (survey and facilitator review on the 10 CCPS core principles). They are study-recording tools and calculators, not simulators: what you enter is your study record. Around them are the HAZOP and FMECA Excel workbooks, the HAZID checklist, the HAZOP guidewords, user guides and worked examples.</p>
           <p>Each tool is one HTML page that runs in the browser with no installation and no internet connection. Nothing you type is sent anywhere.</p></section>
         <section id="g-start"><h2>2. Quick start</h2>
           <ol>
-            <li>Read the <a href="Guides/Toolkit Overview - How the Tools Fit Together.pdf" target="_blank" rel="noopener">overview</a> (6 pages) if the tools are new to you.</li>
+            <li>Read the <a href="Guides/Toolkit Overview - How the Tools Fit Together.pdf" target="_blank" rel="noopener">overview</a> (7 pages) if the tools are new to you.</li>
             <li>On <b>Launch</b>, choose a tool and click <b>Open here</b> (or <b>Open in new tab</b>).</li>
             <li>Try the built-in example first: <b>File ▸ Load example</b>.</li>
             <li>Start your own study with <b>File ▸ New</b>, then save it to a file straight away (section 4).</li>
           </ol></section>
         <section id="g-views"><h2>3. The views on this page</h2>
           <ul>
-            <li><b>Launch</b> – the five tools, the overview and quick links.</li>
+            <li><b>Launch</b> – the seven tools, the overview and quick links.</li>
             <li><b>Open a tool</b> – the tool on this page, with its purpose, quick start, examples and saving notes beside it. Switch tools with the selector at the top.</li>
             <li><b>Study path</b> – the order of a full PHA, what each step hands to the next, and which tool answers which question.</li>
             <li><b>Library</b> – guides, reference, workbooks and example files.</li>
@@ -249,6 +250,8 @@ body.web .usbonly{display:none!important} body.usb .webonly{display:none!importa
           <ul>
             <li><b>Fault tree → event tree / bow tie:</b> <b>File ▸ Import fault tree (.fta.json)…</b>, then link an event-tree heading or a barrier to a fault-tree gate; its probability is then calculated, not typed.</li>
             <li><b>HAZOP → fault tree:</b> a deviation with a high risk and a claimed IPL is a candidate for a fault tree of that safeguard. Keep the HAZOP node, deviation and recommendation numbers in the fault tree's title and notes.</li>
+            <li><b>HAZOP → LOPA → HAZOP:</b> tick <b>LOPA</b> on an IPL in the HAZOP and save; in the LOPA tool use <b>File ▸ Import HAZOP study</b>. When the LOPA is done, the HAZOP's <b>File ▸ Import LOPA results</b> puts the status and result on its LOPA study list.</li>
+            <li><b>LOPA → fault tree / bow tie:</b> the SCAI register lists the SIL each SIF needs – verify it with a fault tree; <b>Export bow tie</b> turns scenarios that share a top event into a bow tie.</li>
             <li><b>FMECA → fault tree:</b> failure modes of protective equipment become the basic events; use the same equipment tags.</li>
             <li><b>Results → HAZOP:</b> write the calculated frequency back into the HAZOP likelihood and recommendations.</li>
           </ul>
@@ -304,6 +307,13 @@ var TOOLS = [
     quick: ['File ▸ New study, then fill in the study details and the team.', 'Add the PSI documents and the nodes.', 'For each node, add deviations from the guideword library and pick the causes.', 'Type or pick safeguards; set each to Safeguard or IPL, and tick LOPA for an IPL that needs a LOPA.', 'Rank the risk before and after, and add recommendations.'],
     examples: ['File ▸ Load example study – hot DRI transfer conveyor and N2 fire protection', 'Examples/Example - Hot DRI transfer conveyor.hazop.json', GNP + 'HAZOP HZ-EX-GN-001.hazop.json'],
     save: 'File ▸ Save study as… (link file)' },
+  { id: 'lopa', file: 'Tools/LOPA Study Manager.html', title: 'LOPA Study Manager', topic: 'Semi-quantitative · IPL credits, gap, SIL',
+    summary: 'Layer of protection analysis of the scenarios on the HAZOP LOPA study list: explicit or implicit, five receptors, IPL credit adjudication and a sourced rules check.',
+    features: ['Imports the HAZOP LOPA study list; results go back', 'IPL tests incl. cyber, adjudication log, SCAI register', 'Data library shared with the fault tree tool'], ext: '.lopa.json',
+    guide: 'Guides/LOPA Study Manager - Quick Guide.pdf',
+    quick: ['In the HAZOP, set the protections to IPL and tick LOPA; save the HAZOP file.', 'Risk criteria: choose explicit or implicit and enter the client\'s targets.', 'File ▸ Import HAZOP study – one scenario per initiating cause.', 'Enter the initiating event, enabling conditions, modifiers and IPL PFDs; read the gap.', 'Adjudicate each IPL, clear the rules check, then send the results back (HAZOP: File ▸ Import LOPA results).'],
+    examples: ['File ▸ Load example study – hot DRI conveyor (3 scenarios)', 'Examples/Example - Hot DRI conveyor.lopa.json'],
+    save: 'File ▸ Save LOPA as… (link file)' },
   { id: 'fta', file: 'Tools/Fault Tree and PFD Calculator.html', title: 'Fault Tree & PFD Calculator', topic: 'Quantitative · PFDavg, cut sets, SIL',
     summary: 'Quantitative fault trees with exact calculation, time-averaged PFDavg, common cause, cut sets, importance, uncertainty and an IEC 61508 SIF calculator.',
     features: ['Examples: V-101 SIF + PSV; hot DRI conveyor N2 fire protection', 'Frequencies with initiating events'], ext: '.fta.json',
@@ -324,26 +334,36 @@ var TOOLS = [
     guide: 'Guides/Bow Tie Analysis - User Guide.pdf',
     quick: ['File ▸ New bow tie: name the hazard and the top event.', 'Add threats on the left and consequences on the right.', 'Add preventive and mitigative barriers from the barrier register.', 'Give barriers a PFD, or link them to a fault-tree gate.', 'Switch to current barrier condition to see the effect of degraded barriers.'],
     examples: ['Opens with the example: hot DRI conveyor fire (also File ▸ Load example)', 'Examples/Example - Hot DRI conveyor fire.bowtie.json', GNP + 'BT-GN-01 Loss of containment.bowtie.json', GNP + 'BT-GN-02 Reheat furnace explosion.bowtie.json'],
-    save: 'File ▸ Save as… (link file)' }
+    save: 'File ▸ Save as… (link file)' },
+  { id: 'culture', file: 'Tools/Process Safety Culture Assessment.html', title: 'Process Safety Culture Assessment', topic: 'Culture · survey, facilitator review, actions',
+    summary: 'Anonymous 50-statement survey (English / Arabic) and facilitator review on the 10 CCPS process safety culture core principles, with group gaps, red flags and an action plan.',
+    features: ['Survey on one device or on people\'s own phones (response codes)', 'Management vs front-line gap; groups under 5 hidden', 'Example: 60 responses (Set up ▸ Load example)'], ext: '.psc.json', chips: ['.psc.json', 'CSV export', 'Print / PDF'],
+    guide: 'Guides/Process Safety Culture Assessment - Quick Guide.pdf',
+    quick: ['Set up: name the assessment and note the survey code.', 'Take the survey on this device, or send people the survey link for their phones.', 'Paste the response codes from phones in Responses.', 'Facilitator review: rate each principle 1–5, tick red flags, note the evidence.', 'Results and Action plan: agree actions on the priority principles; Print report.'],
+    examples: ['Set up ▸ Load example – Site A process unit, 60 made-up responses'],
+    save: 'Save / open ▸ Save to file (.json)' }
 ];
 
 var PATH = [
   { n: 1, t: 'HAZID', use: { label: 'HAZID checklist (Word)', href: 'Guides/HAZID_Checklist_Steel_Smelting_and_Rolling.docx' }, what: 'Screen the area or activity for hazards with the checklist.', out: 'Hazard list and the nodes worth a HAZOP' },
   { n: 2, t: 'What-If / Checklist', tool: 'whatif', alt: { label: 'What-If workbook', href: 'Workbooks/WhatIf_Checklist_Workbook.xlsx' }, what: 'Ask “What if …?” for each area or task; use the checklist to cover gaps.', out: 'Questions closed, or sent on to HAZOP nodes and quantified studies' },
   { n: 3, t: 'HAZOP', tool: 'hazop', alt: { label: 'HAZOP workbook', href: 'Workbooks/HAZOP_Study_Workbook.xlsx' }, what: 'Work node by node through the guidewords: causes, consequences, safeguards, risk.', out: 'Scenarios, safeguards (IPL), recommendations' },
-  { n: 4, t: 'FMECA', use: { label: 'FMECA workbook', href: 'Workbooks/FMECA_Workbook.xlsx' }, what: 'Failure modes, effects and criticality of the equipment in the critical scenarios.', out: 'Failure modes and rates of protective equipment' },
-  { n: 5, t: 'Fault tree', tool: 'fta', what: 'Quantify how often a protection fails on demand.', out: 'PFDavg of each protective function (gate)' },
-  { n: 6, t: 'Event tree', tool: 'eta', what: 'Follow the event through each protection to its outcomes.', out: 'Frequency of each outcome against its target' },
-  { n: 7, t: 'Bow tie', tool: 'bowtie', what: 'Show and manage the barriers between threats and consequences.', out: 'Barrier register, criticality, actions back to the HAZOP' }
+  { n: 4, t: 'LOPA', tool: 'lopa', what: 'Check that the IPLs on each high-consequence scenario meet the target; adjudicate every credit.', out: 'Gap and SIL needed per scenario, SCAI register, results back to the HAZOP' },
+  { n: 5, t: 'FMECA', use: { label: 'FMECA workbook', href: 'Workbooks/FMECA_Workbook.xlsx' }, what: 'Failure modes, effects and criticality of the equipment in the critical scenarios.', out: 'Failure modes and rates of protective equipment' },
+  { n: 6, t: 'Fault tree', tool: 'fta', what: 'Quantify how often a protection fails on demand.', out: 'PFDavg of each protective function (gate)' },
+  { n: 7, t: 'Event tree', tool: 'eta', what: 'Follow the event through each protection to its outcomes.', out: 'Frequency of each outcome against its target' },
+  { n: 8, t: 'Bow tie', tool: 'bowtie', what: 'Show and manage the barriers between threats and consequences.', out: 'Barrier register, criticality, actions back to the HAZOP' }
 ];
 
 var GUIDES = [
-  ['Toolkit Overview - How the Tools Fit Together', ['Guides/Toolkit Overview - How the Tools Fit Together.pdf', 'Guides/Toolkit Overview - How the Tools Fit Together.docx'], 'What each tool is for, how results move between them, choosing a tool, the conveyor fire traced through all tools (6 pages)'],
+  ['Toolkit Overview - How the Tools Fit Together', ['Guides/Toolkit Overview - How the Tools Fit Together.pdf', 'Guides/Toolkit Overview - How the Tools Fit Together.docx'], 'What each tool is for, how results move between them, choosing a tool, the conveyor fire traced through all tools (7 pages)'],
   ['What-If / Checklist Analysis – Quick Guide', ['Guides/What-If Checklist Analysis - Quick Guide.pdf'], 'The five CCPS steps, the checklist library, next steps and the hand-over to the HAZOP'],
   ['HAZOP Study Manager – Quick Guide', ['Guides/HAZOP Study Manager - Quick Guide.pdf'], 'Setting up a study, nodes, deviations, safeguards, reports'],
+  ['LOPA Study Manager – Quick Guide', ['Guides/LOPA Study Manager - Quick Guide.pdf'], 'Scenarios from the HAZOP, explicit and implicit LOPA, IPL adjudication, rules check, SCAI register, ALARP'],
   ['Fault Tree & PFD Calculator – User Guide', ['Guides/Fault Tree and PFD Calculator - User Guide.pdf'], 'Symbols, event models and formulas, β-factor, calculation method, SIF calculator, worked example'],
   ['Event Tree Analysis – User Guide', ['Guides/Event Tree Analysis - User Guide.pdf'], 'Headings, sequences, linking to fault trees, targets, sensitivity'],
   ['Bow Tie Analysis – User Guide', ['Guides/Bow Tie Analysis - User Guide.pdf'], 'Threats, barriers, consequences, barrier condition, criticality, risk matrix'],
+  ['Process Safety Culture Assessment – Quick Guide', ['Guides/Process Safety Culture Assessment - Quick Guide.pdf'], 'Running the survey and facilitator review on the 10 CCPS core principles, reading the scores and gaps'],
   ['HAZID checklist – steel smelting and rolling', ['Guides/HAZID_Checklist_Steel_Smelting_and_Rolling.docx'], 'Hazard identification checklist for screening before a HAZOP'],
   ['HAZOP guidewords, deviations and potential causes – chemical, steel & metals', ['Reference/HAZOP_Guidewords_Chemical_Steel_Metals.pdf', 'Reference/HAZOP_Guidewords_Chemical_Steel_Metals.docx'], 'Parameter – deviation – potential causes; causes tagged [C] chemical / [S] steel & metals. The same lists drive the HAZOP tool and workbook.']
 ];
@@ -358,6 +378,7 @@ var WORKBOOKS = [
 
 var EXAMPLES = [
   ['Examples/Example - Hot DRI transfer conveyor.hazop.json', 'hazop', 'Hot DRI transfer conveyor and N2 fire protection: 2 nodes, 7 deviations'],
+  ['Examples/Example - Hot DRI conveyor.lopa.json', 'lopa', 'Three LOPA scenarios: stoppage under load, over-temperature DRI, N2 asphyxiation'],
   ['Examples/Example - Hot DRI conveyor N2 fire protection.fta.json', 'fta', 'N2 fire detection and extinguishing on demand (gate G-002)'],
   ['Examples/Example - Hot DRI conveyor fire.eta.json', 'eta', 'Conveyor trip / stoppage under load, headings to fire spread'],
   ['Examples/Example - Hot DRI conveyor fire.bowtie.json', 'bowtie', 'Conveyor fire: threats, barriers, consequences'],
@@ -421,7 +442,7 @@ function buildCards() {
   $('#cards').innerHTML = TOOLS.map(function (t, i) {
     return '<div class="card" data-id="' + t.id + '"><div class="head"><span class="num">0' + (i + 1) + '</span><div><h2>' + esc(t.title) + '</h2><div class="topic">' + esc(t.topic) + '</div></div></div>' +
       '<p>' + esc(t.summary) + '</p><ul>' + t.features.map(function (f) { return '<li>' + esc(f) + '</li>'; }).join('') + '</ul>' +
-      '<div class="chips"><span class="chip">' + t.ext + '</span><span class="chip">Excel export</span>' + (t.id === 'hazop' ? '' : '<span class="chip">Print / PDF</span>') + '</div>' +
+      '<div class="chips">' + (t.chips ? t.chips.map(function (c) { return '<span class="chip">' + esc(c) + '</span>'; }).join('') : '<span class="chip">' + t.ext + '</span><span class="chip">Excel export</span>' + (t.id === 'hazop' ? '' : '<span class="chip">Print / PDF</span>')) + '</div>' +
       '<div class="actions"><button class="act" data-run="' + t.id + '" title="Open ' + esc(t.title) + ' on this page, with its quick start and examples beside it">Open here</button>' +
       '<a class="act ghost" href="' + url(t.file) + '" target="_blank" rel="noopener" title="Open ' + esc(t.title) + ' in its own browser tab' + (WEB ? '' : ' – use this to save to a linked file from a USB stick or folder') + '">Open in new tab</a>' +
       '<a class="mini" href="' + url(t.guide) + '" target="_blank" rel="noopener" title="User guide for ' + esc(t.title) + ' (PDF, opens in a new tab)">Guide</a></div></div>';

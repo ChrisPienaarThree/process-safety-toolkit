@@ -1,0 +1,598 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Process Safety Culture Assessment</title>
+<style>
+:root{--bg:#f4f6fa;--panel:#fff;--ink:#1b2333;--muted:#5b6578;--line:#d7dce6;--navy:#1f3864;--accent:#2f6fd6;--chip:#e8eefb;--red:#c62828;--amber:#e0a100;--green:#2e7d32;--fac:#b26a00}
+*{box-sizing:border-box}html,body{margin:0}
+body{font:15px/1.5 -apple-system,"Segoe UI",Arial,"Noto Sans","Noto Sans Arabic",sans-serif;background:var(--bg);color:var(--ink)}
+button,input,select,textarea{font:inherit;color:inherit}
+header.top{display:flex;align-items:center;gap:10px;padding:8px 16px;background:var(--navy);color:#fff;position:sticky;top:0;z-index:20;flex-wrap:wrap}
+header.top h1{font-size:17px;margin:0;font-weight:600}.spacer{flex:1}
+.pill:empty{display:none}.pill{font-size:12px;padding:3px 10px;border-radius:999px;background:rgba(255,255,255,.15)}.pill.fac{background:#ffcc80;color:#3b2500}
+.hbtn{background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.3);color:#fff;border-radius:6px;padding:5px 10px;cursor:pointer}
+.layout{display:flex;min-height:calc(100vh - 48px)}
+nav.side{width:200px;flex:none;background:#fff;border-right:1px solid var(--line);padding:10px 8px}
+nav.side button{display:block;width:100%;text-align:left;background:none;border:0;padding:8px 10px;border-radius:6px;cursor:pointer}
+nav.side button:hover{background:var(--chip)}nav.side button.active{background:var(--navy);color:#fff}
+main{flex:1;min-width:0;padding:16px 20px 60px;max-width:1100px}
+h2{margin:0 0 4px;font-size:20px;color:var(--navy)}h3{margin:14px 0 6px;font-size:16px;color:var(--navy)}
+.sub{color:var(--muted);margin:0 0 14px;font-size:13px}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:14px;margin-bottom:14px}
+.row{display:flex;gap:10px;align-items:center;flex-wrap:wrap}
+.btn{background:var(--accent);color:#fff;border:0;border-radius:6px;padding:7px 14px;cursor:pointer}.btn.sec{background:#fff;color:var(--ink);border:1px solid var(--line)}
+.btn.danger{background:var(--red)}.btn.sm{padding:3px 9px;font-size:13px}.btn:disabled{opacity:.45}
+input[type=text],input[type=date],select,textarea{border:1px solid var(--line);border-radius:6px;padding:7px 9px;background:#fff;width:100%}
+textarea{min-height:64px;resize:vertical}label.f{display:block;font-size:12px;color:var(--muted);margin-bottom:3px}
+.grid2{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:10px 14px}
+.tw{overflow:auto}table.t{border-collapse:collapse;width:100%;font-size:13px}
+table.t th,table.t td{border-bottom:1px solid var(--line);padding:6px 8px;text-align:left;vertical-align:top}table.t th{background:#eef1f7}
+.num{text-align:right!important;white-space:nowrap}.muted{color:var(--muted)}.small{font-size:12px}
+.band{display:inline-block;min-width:52px;text-align:center;border-radius:5px;padding:1px 6px;font-weight:600}
+.b-r{background:#fbd5d5;color:#8a1c1c}.b-a{background:#ffefb3;color:#6b4d00}.b-g{background:#cdebd0;color:#1b5e20}.b-n{background:#eee;color:#666}
+.note{background:#fff8e1;border:1px solid #f0d58a;border-radius:8px;padding:8px 12px;font-size:13px}
+.facbox{border-left:4px solid var(--fac);background:#fff6ea;padding:8px 12px;border-radius:6px;font-size:13px}
+/* survey */
+.sv{max-width:720px;margin:0 auto}.stmt{padding:12px 0;border-bottom:1px solid var(--line)}.stmt p{margin:0 0 8px;font-weight:600}
+.opts{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:6px}
+.opts label{display:flex;align-items:center;justify-content:center;text-align:center;min-height:46px;border:1px solid var(--line);border-radius:8px;padding:4px;font-size:12px;cursor:pointer;background:#fff}
+.opts input{position:absolute;opacity:0;pointer-events:none}.opts label:has(input:checked){background:var(--accent);color:#fff;border-color:var(--accent)}
+.opts label.dk{background:#f3f3f3}.stmt.miss{background:#fff1f1}
+.prog{height:6px;background:var(--line);border-radius:3px;overflow:hidden;margin:8px 0}.prog i{display:block;height:100%;background:var(--accent)}
+.code{font:600 15px/1.4 ui-monospace,Menlo,Consolas,monospace;word-break:break-all;background:#eef1f7;padding:10px;border-radius:8px;direction:ltr;text-align:left}
+body.respond nav.side,body.respond #btnFile,body.respond #btnPrint,body.respond #mnav{display:none!important}
+@media (max-width:760px){nav.side{display:none}.layout{display:block}main{padding:12px}.opts{grid-template-columns:repeat(3,minmax(0,1fr))}#mnav{display:block!important}}
+@media print{header.top,nav.side,.noprint,#mnav{display:none!important}body{background:#fff}main{padding:0;max-width:none}.card{border:0;padding:0;break-inside:avoid}@page{size:A4;margin:14mm 12mm}}
+</style>
+</head>
+<body>
+<header class="top">
+  <h1>Process Safety Culture Assessment</h1><span class="pill" id="asmtPill"></span><span class="pill fac" id="facPill" hidden>Facilitator edition – not for distribution</span>
+  <span class="spacer"></span>
+  <button class="hbtn" id="btnFile" title="Save the whole assessment to a .json file, or open one saved earlier">Save / open</button>
+  <button class="hbtn" id="btnPrint" title="Print the results report, or choose Save as PDF in the print dialog" onclick="go('results');setTimeout(print,200)">Print report</button>
+</header>
+<div class="layout">
+  <nav class="side" id="nav"></nav>
+  <main id="main"><select id="mnav" class="noprint" style="display:none;margin-bottom:10px" onchange="go(this.value)" title="Choose a page"></select><div id="view"></div></main>
+</div>
+<input type="file" id="fileIn" accept=".json,application/json" hidden>
+<script>
+'use strict';
+var LIB = {"source": "Based on the 10 core principles in CCPS (2018), Essential Practices for Creating, Strengthening, and Sustaining Process Safety Culture, AIChE / Wiley, Appendix F. Survey statements are original wording.", "langs": [{"id": "en", "name": "English", "dir": "ltr", "reviewed": true}, {"id": "ar", "name": "العربية", "dir": "rtl", "reviewed": false}], "principles": [{"id": "IMP", "name": "Establish an Imperative for Safety", "meaning": "Process safety is a core value that is acted on, beyond minimum compliance.", "names": {"ar": "ترسيخ ضرورة السلامة"}, "flags": ["PSMS scope limited to what the regulation names (compliance only)", "Small changes made without MOC", "Procedures exist on paper but are not used"]}, {"id": "LEAD", "name": "Provide Strong Leadership", "meaning": "Leaders are visible, consistent and give the resources process safety needs.", "names": {"ar": "توفير قيادة قوية"}, "flags": ["Key process safety posts vacant, or moved to a lower level", "Production targets regularly override safety decisions", "Leaders seldom seen in the plant"]}, {"id": "TRUST", "name": "Foster Mutual Trust", "meaning": "People can report errors and concerns without fear; the focus is on the system.", "names": {"ar": "تعزيز الثقة المتبادلة"}, "flags": ["People who raise concerns are sidelined (\"shoot the messenger\")", "Investigations stop at the person who erred", "Contractors kept out of safety meetings and hazard studies"]}, {"id": "COMM", "name": "Ensure Open and Frank Communications", "meaning": "Information, bad news and dissent flow freely, including to contractors.", "names": {"ar": "ضمان التواصل المفتوح والصريح"}, "flags": ["Shift handover is informal or not logged", "Incident lessons not shared with the front line", "Concerns are filtered or softened on their way up"]}, {"id": "VULN", "name": "Maintain a Sense of Vulnerability", "meaning": "People believe a major accident could happen here and stay alert to weak signals.", "names": {"ar": "الحفاظ على الشعور بإمكانية التعرض للخطر"}, "flags": ["\"It can't happen here\" attitude", "Clean audits or compliance taken as proof of safety", "Near-miss reports low, or falling with no reason"]}, {"id": "HAZ", "name": "Understand and Act Upon Hazards/Risks", "meaning": "Hazards are known at every level and risk-study actions are closed on time.", "names": {"ar": "فهم المخاطر والتعامل معها"}, "flags": ["Overdue PHA / HAZOP recommendations", "Alarms or trips bypassed without authorisation", "Front-line staff cannot name the main hazards"]}, {"id": "EMP", "name": "Empower Individuals to Successfully Fulfill their Safety Responsibilities", "meaning": "People have the authority, competence, time and tools to work safely.", "names": {"ar": "تمكين الأفراد من أداء مسؤولياتهم في السلامة بنجاح"}, "flags": ["Stop-work authority exists on paper but is not used", "Training or competence gaps in safety-critical tasks", "High workload, overtime or vacancies"]}, {"id": "EXP", "name": "Defer to Expertise", "meaning": "Decisions go to the people with the knowledge, not the highest rank.", "names": {"ar": "الاحتكام إلى الخبرة"}, "flags": ["Decisions made by rank, not knowledge", "Technical staff reluctant to challenge managers", "No clear technical authority for process safety"]}, {"id": "DEV", "name": "Combat the Normalization of Deviance", "meaning": "Drift from limits and procedures is noticed, reported and corrected.", "names": {"ar": "مكافحة تطبيع الانحراف"}, "flags": ["Operation outside limits tolerated", "Known faults and standing alarms left for months", "Procedures differ from how the work is done", "Repeated nuisance alarms ignored"]}, {"id": "LEARN", "name": "Learn to Assess and Advance the Culture", "meaning": "Investigations, audits and indicators drive real, checked improvement.", "names": {"ar": "تعلّم تقييم الثقافة والارتقاء بها"}, "flags": ["Repeat incidents with the same causes", "Actions closed without checking they worked", "Audits return only minor findings", "Only lagging indicators (injury rates) reported"]}], "items": [{"id": "IMP1", "p": "IMP", "rev": false, "t": {"en": "Process safety is treated here as a core value, not just a rule we must follow.", "ar": "تُعامَل سلامة العمليات هنا كقيمة أساسية، وليس مجرد قاعدة يجب اتباعها."}}, {"id": "IMP2", "p": "IMP", "rev": false, "t": {"en": "When production and safety conflict, safety wins.", "ar": "عندما يتعارض الإنتاج مع السلامة، تكون الأولوية للسلامة."}}, {"id": "IMP3", "p": "IMP", "rev": true, "t": {"en": "We do only the minimum the law requires for process safety.", "ar": "نحن نفعل الحد الأدنى فقط الذي يطلبه القانون في سلامة العمليات."}}, {"id": "IMP4", "p": "IMP", "rev": false, "t": {"en": "Every change to equipment, chemicals or procedures goes through management of change (MOC), even small changes.", "ar": "أي تغيير في المعدات أو المواد الكيميائية أو الإجراءات يمر دائماً عبر إدارة التغيير (MOC)، حتى التغييرات الصغيرة."}}, {"id": "IMP5", "p": "IMP", "rev": false, "t": {"en": "Our process safety procedures are used every day. They are not just kept on a shelf.", "ar": "إجراءات سلامة العمليات تُستخدم كل يوم، ولا تبقى حبراً على ورق."}}, {"id": "LEAD1", "p": "LEAD", "rev": false, "t": {"en": "Managers visit the plant and talk to us about process safety.", "ar": "يزور المديرون الموقع ويتحدثون معنا عن سلامة العمليات."}}, {"id": "LEAD2", "p": "LEAD", "rev": false, "t": {"en": "Leaders give enough people, time and money to fix process safety problems.", "ar": "يوفّر القادة ما يكفي من الأشخاص والوقت والمال لإصلاح مشكلات سلامة العمليات."}}, {"id": "LEAD3", "p": "LEAD", "rev": false, "t": {"en": "Leaders follow the same safety rules they expect us to follow.", "ar": "يلتزم القادة بقواعد السلامة نفسها التي يطلبون منا الالتزام بها."}}, {"id": "LEAD4", "p": "LEAD", "rev": false, "t": {"en": "Leaders praise people who stop a job because it is unsafe.", "ar": "يمدح القادة من يوقف عملاً لأنه غير آمن."}}, {"id": "LEAD5", "p": "LEAD", "rev": true, "t": {"en": "Managers only talk about safety after an incident.", "ar": "لا يتحدث المديرون عن السلامة إلا بعد وقوع حادث."}}, {"id": "TRUST1", "p": "TRUST", "rev": false, "t": {"en": "I can report a mistake I made without fear of unfair punishment.", "ar": "أستطيع الإبلاغ عن خطأ ارتكبته دون خوف من عقاب غير عادل."}}, {"id": "TRUST2", "p": "TRUST", "rev": false, "t": {"en": "After an incident, the focus is on fixing the system, not on finding someone to blame.", "ar": "بعد أي حادث، يكون التركيز على إصلاح النظام، وليس على البحث عن شخص لإلقاء اللوم عليه."}}, {"id": "TRUST3", "p": "TRUST", "rev": true, "t": {"en": "People who raise safety problems are treated as a nuisance.", "ar": "يُعامَل من يثير مشكلات السلامة على أنه مصدر إزعاج."}}, {"id": "TRUST4", "p": "TRUST", "rev": false, "t": {"en": "Contractors are treated with the same respect as our own employees on safety matters.", "ar": "يُعامَل المقاولون في أمور السلامة بالاحترام نفسه الذي يُعامَل به موظفونا."}}, {"id": "TRUST5", "p": "TRUST", "rev": false, "t": {"en": "I trust what management tells us about process safety.", "ar": "أثق بما تخبرنا به الإدارة عن سلامة العمليات."}}, {"id": "COMM1", "p": "COMM", "rev": false, "t": {"en": "Shift handover is done properly, with a log or a checklist.", "ar": "يتم تسليم واستلام المناوبة بشكل صحيح، باستخدام سجل أو قائمة تحقق."}}, {"id": "COMM2", "p": "COMM", "rev": false, "t": {"en": "I am told about incidents and near misses at this site, and what we learned from them.", "ar": "يتم إبلاغي بالحوادث والحوادث الوشيكة في هذا الموقع وبالدروس المستفادة منها."}}, {"id": "COMM3", "p": "COMM", "rev": false, "t": {"en": "I feel free to disagree with my supervisor about a safety issue.", "ar": "أشعر بالحرية في الاختلاف مع مشرفي حول مسألة تتعلق بالسلامة."}}, {"id": "COMM4", "p": "COMM", "rev": true, "t": {"en": "Bad news about process safety is hidden, or made to sound better than it is.", "ar": "تُخفى الأخبار السيئة عن سلامة العمليات أو تُعرض بصورة أفضل من حقيقتها."}}, {"id": "COMM5", "p": "COMM", "rev": false, "t": {"en": "Contractors get the safety information they need to work safely here.", "ar": "يحصل المقاولون على معلومات السلامة التي يحتاجونها للعمل بأمان هنا."}}, {"id": "VULN1", "p": "VULN", "rev": false, "t": {"en": "A serious fire, explosion or toxic release could happen at this site.", "ar": "يمكن أن يقع حريق أو انفجار أو تسرب سام خطير في هذا الموقع."}}, {"id": "VULN2", "p": "VULN", "rev": false, "t": {"en": "We learn from major accidents at other companies and in other industries.", "ar": "نتعلم من الحوادث الكبرى في الشركات والصناعات الأخرى."}}, {"id": "VULN3", "p": "VULN", "rev": true, "t": {"en": "We have not had a big accident for a long time, so people think it cannot happen here.", "ar": "لأننا لم نتعرض لحادث كبير منذ وقت طويل، يعتقد الناس أن ذلك لا يمكن أن يحدث هنا."}}, {"id": "VULN4", "p": "VULN", "rev": false, "t": {"en": "Near misses are reported and taken seriously.", "ar": "يتم الإبلاغ عن الحوادث الوشيكة وأخذها على محمل الجد."}}, {"id": "VULN5", "p": "VULN", "rev": true, "t": {"en": "People here believe that following the rules is enough to prevent a major accident.", "ar": "يعتقد الناس هنا أن اتباع القواعد يكفي لمنع وقوع حادث كبير."}}, {"id": "HAZ1", "p": "HAZ", "rev": false, "t": {"en": "I know the main process hazards in my area (for example toxic, flammable or high-pressure materials).", "ar": "أعرف مخاطر العمليات الرئيسية في منطقتي (مثل المواد السامة أو القابلة للاشتعال أو ذات الضغط العالي)."}}, {"id": "HAZ2", "p": "HAZ", "rev": false, "t": {"en": "Actions from hazard studies (such as HAZOP) are completed on time.", "ar": "تُنجَز الإجراءات الناتجة عن دراسات المخاطر (مثل HAZOP) في موعدها."}}, {"id": "HAZ3", "p": "HAZ", "rev": false, "t": {"en": "I know which alarms, trips and relief valves protect my area, and why they matter.", "ar": "أعرف ما هي الإنذارات وأنظمة الإيقاف وصمامات التنفيس التي تحمي منطقتي، ولماذا هي مهمة."}}, {"id": "HAZ4", "p": "HAZ", "rev": true, "t": {"en": "Safety-critical alarms and trips are bypassed without proper approval.", "ar": "يتم تجاوز (تعطيل) الإنذارات وأنظمة الإيقاف الحرجة للسلامة دون موافقة صحيحة."}}, {"id": "HAZ5", "p": "HAZ", "rev": false, "t": {"en": "When we find a new hazard, it is assessed and dealt with quickly.", "ar": "عندما نكتشف خطراً جديداً، يتم تقييمه والتعامل معه بسرعة."}}, {"id": "EMP1", "p": "EMP", "rev": false, "t": {"en": "I have the authority to stop a job if I believe it is unsafe.", "ar": "لديّ الصلاحية لإيقاف أي عمل إذا اعتقدت أنه غير آمن."}}, {"id": "EMP2", "p": "EMP", "rev": false, "t": {"en": "I have had the training I need to do my job safely.", "ar": "حصلت على التدريب الذي أحتاجه لأداء عملي بأمان."}}, {"id": "EMP3", "p": "EMP", "rev": false, "t": {"en": "I have the procedures, tools and information I need to work safely.", "ar": "لديّ الإجراءات والأدوات والمعلومات التي أحتاجها للعمل بأمان."}}, {"id": "EMP4", "p": "EMP", "rev": false, "t": {"en": "My job description makes my process safety responsibilities clear.", "ar": "الوصف الوظيفي الخاص بي يوضح مسؤولياتي في سلامة العمليات."}}, {"id": "EMP5", "p": "EMP", "rev": true, "t": {"en": "I am too busy, or we are too short of people, to do my safety tasks properly.", "ar": "أنا مشغول جداً، أو عدد العاملين قليل جداً، فلا أستطيع أداء مهام السلامة بشكل صحيح."}}, {"id": "EXP1", "p": "EXP", "rev": false, "t": {"en": "In a process upset, the person who knows the process best makes the call, whatever their rank.", "ar": "أثناء الاضطرابات في العملية، يتخذ القرار الشخص الأكثر معرفة بالعملية، مهما كانت رتبته."}}, {"id": "EXP2", "p": "EXP", "rev": false, "t": {"en": "Process safety decisions are made by people with the right technical knowledge.", "ar": "يتخذ قرارات سلامة العمليات أشخاص لديهم المعرفة الفنية المناسبة."}}, {"id": "EXP3", "p": "EXP", "rev": false, "t": {"en": "Experienced operators are asked for their views on designs and changes.", "ar": "يُطلب من المشغلين ذوي الخبرة إبداء آرائهم في التصاميم والتغييرات."}}, {"id": "EXP4", "p": "EXP", "rev": true, "t": {"en": "Senior staff overrule technical experts on safety issues to keep production going.", "ar": "يتجاوز كبار الموظفين رأي الخبراء الفنيين في مسائل السلامة من أجل استمرار الإنتاج."}}, {"id": "EXP5", "p": "EXP", "rev": false, "t": {"en": "We know who to call for expert process safety advice, day or night.", "ar": "نعرف بمن نتصل للحصول على مشورة خبير في سلامة العمليات، ليلاً أو نهاراً."}}, {"id": "DEV1", "p": "DEV", "rev": true, "t": {"en": "Small departures from procedures are accepted as normal here.", "ar": "تُقبَل المخالفات الصغيرة للإجراءات هنا على أنها أمر طبيعي."}}, {"id": "DEV2", "p": "DEV", "rev": false, "t": {"en": "Operating outside safe limits (for example pressure or temperature) is always reported and investigated.", "ar": "يتم دائماً الإبلاغ عن التشغيل خارج الحدود الآمنة (مثل الضغط أو درجة الحرارة) والتحقيق فيه."}}, {"id": "DEV3", "p": "DEV", "rev": false, "t": {"en": "Long-standing alarms, leaks and faults are fixed. We do not just live with them.", "ar": "يتم إصلاح الإنذارات والتسربات والأعطال القديمة، ولا نتعايش معها فقط."}}, {"id": "DEV4", "p": "DEV", "rev": false, "t": {"en": "Procedures are kept up to date, so they match how the work is really done.", "ar": "تُحدَّث الإجراءات باستمرار لتطابق طريقة أداء العمل فعلياً."}}, {"id": "DEV5", "p": "DEV", "rev": true, "t": {"en": "Shortcuts are accepted when they save time and \"nothing went wrong last time\".", "ar": "تُقبَل الطرق المختصرة عندما توفر الوقت و\"لم يحدث شيء خطأ في المرة الماضية\"."}}, {"id": "LEARN1", "p": "LEARN", "rev": false, "t": {"en": "Incident investigations here find the real (root) causes.", "ar": "تتوصل التحقيقات في الحوادث هنا إلى الأسباب الحقيقية (الجذرية)."}}, {"id": "LEARN2", "p": "LEARN", "rev": false, "t": {"en": "Actions from investigations and audits are completed and checked.", "ar": "تُنجَز الإجراءات الناتجة عن التحقيقات والتدقيقات ويتم التحقق منها."}}, {"id": "LEARN3", "p": "LEARN", "rev": false, "t": {"en": "Audits are seen as a chance to improve, not as a punishment.", "ar": "يُنظر إلى التدقيق على أنه فرصة للتحسين، وليس عقاباً."}}, {"id": "LEARN4", "p": "LEARN", "rev": false, "t": {"en": "We measure process safety with early-warning indicators (for example overdue inspections or alarm counts), not only injury rates.", "ar": "نقيس أداء سلامة العمليات بمؤشرات إنذار مبكر (مثل الفحوصات المتأخرة أو عدد الإنذارات)، وليس بمعدلات الإصابات فقط."}}, {"id": "LEARN5", "p": "LEARN", "rev": false, "t": {"en": "I have seen real changes made because of what we learned from an incident or an audit.", "ar": "رأيت تغييرات حقيقية تمت بسبب ما تعلمناه من حادث أو تدقيق."}}], "groups": [{"id": "MGR", "t": {"en": "Manager", "ar": "مدير"}, "side": "M"}, {"id": "SUP", "t": {"en": "Supervisor", "ar": "مشرف"}, "side": "M"}, {"id": "OPS", "t": {"en": "Operator or technician", "ar": "مشغّل أو فني"}, "side": "F"}, {"id": "MNT", "t": {"en": "Maintenance", "ar": "صيانة"}, "side": "F"}, {"id": "ENG", "t": {"en": "Engineer or technical specialist", "ar": "مهندس أو أخصائي فني"}, "side": ""}, {"id": "CON", "t": {"en": "Contractor", "ar": "مقاول"}, "side": "F"}, {"id": "OTH", "t": {"en": "Other", "ar": "أخرى"}, "side": ""}], "ui": {"en": {"title": "Process Safety Culture Survey", "intro": "This survey asks how process safety really works where you are. There are 50 short statements in 10 parts and it takes about 10-15 minutes.", "anon": "Your answers are anonymous. Do not write your name. Results are only shown for groups of 5 people or more.", "lang": "Language", "code": "Survey code (from your facilitator)", "group": "Which group are you in?", "start": "Start", "scale": ["Strongly disagree", "Disagree", "Neutral", "Agree", "Strongly agree"], "dk": "Don't know", "part": "Part {n} of {t}", "back": "Back", "next": "Next", "finish": "Finish", "missing": "Please answer every statement (or choose Don't know).", "done": "Thank you. Your answers are saved.", "yourcode": "Your response code", "codehelp": "If you used your own phone, copy this code and send it to your facilitator.", "copy": "Copy code", "copied": "Copied", "nextp": "Next person", "draft": ""}, "ar": {"title": "استبيان ثقافة سلامة العمليات", "intro": "يسأل هذا الاستبيان عن كيفية تطبيق سلامة العمليات فعلياً في مكان عملك. يتكون من 50 عبارة قصيرة في 10 أجزاء، ويستغرق حوالي 10-15 دقيقة.", "anon": "إجاباتك مجهولة الهوية. لا تكتب اسمك. تُعرض النتائج فقط للمجموعات المكونة من 5 أشخاص أو أكثر.", "lang": "اللغة", "code": "رمز الاستبيان (من الميسّر)", "group": "إلى أي مجموعة تنتمي؟", "start": "ابدأ", "scale": ["لا أوافق بشدة", "لا أوافق", "محايد", "أوافق", "أوافق بشدة"], "dk": "لا أعرف", "part": "الجزء {n} من {t}", "back": "السابق", "next": "التالي", "finish": "إنهاء", "missing": "يرجى الإجابة على كل عبارة (أو اختيار لا أعرف).", "done": "شكراً لك. تم حفظ إجاباتك.", "yourcode": "رمز إجابتك", "codehelp": "إذا استخدمت هاتفك الخاص، انسخ هذا الرمز وأرسله إلى الميسّر.", "copy": "نسخ الرمز", "copied": "تم النسخ", "nextp": "الشخص التالي", "draft": "ترجمة أولية - لم تتم مراجعتها بعد من قبل متحدث أصلي."}}, "scale": [{"n": 1, "label": "Absent", "desc": "No sign of the principle in practice."}, {"n": 2, "label": "Weak", "desc": "Talked about, but seldom practised."}, {"n": 3, "label": "Developing", "desc": "In place in parts; depends on individuals."}, {"n": 4, "label": "Established", "desc": "Practised consistently and checked."}, {"n": 5, "label": "Strong", "desc": "Embedded and self-correcting; people challenge drift."}], "minGroup": 5, "facilitator": false};
+var KEY = 'psc.v1', VIEWS = [['setup', 'Set up', 'Name the assessment, choose its survey code and see how to collect responses'], ['survey', 'Take the survey', 'Run the survey on this device, one person after another'], ['responses', 'Responses', 'Paste response codes from phones and check the responses received'], ['review', 'Facilitator review', 'Rate each principle from interviews, documents and site walks'], ['results', 'Results', 'Scores per principle, group gaps, weakest statements and red flags'], ['actions', 'Action plan', 'Improvement actions, owners and dates'], ['guide', 'Guide', 'How to run an assessment and how the scores are worked out']];
+var $ = function (s) { return document.querySelector(s); };
+var esc = function (t) { return String(t == null ? '' : t).replace(/[&<>"]/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]; }); };
+var P = {}; LIB.principles.forEach(function (p) { P[p.id] = p; });
+var G = {}; LIB.groups.forEach(function (g) { G[g.id] = g; });
+var db, view = 'setup', sv = null;
+
+function blank() { return { v: 1, meta: { title: '', site: '', date: new Date().toISOString().slice(0, 10), facilitator: '', code: randCode() }, responses: [], review: {}, actions: [] }; }
+function randCode() { var a = 'ABCDEFGHJKLMNPQRSTUVWXYZ23456789', s = ''; for (var i = 0; i < 4; i++) s += a[Math.floor(Math.random() * a.length)]; return s; }
+function load() { try { db = JSON.parse(localStorage.getItem(KEY)) || blank(); } catch (e) { db = blank(); } }
+function save() { try { localStorage.setItem(KEY, JSON.stringify(db)); } catch (e) { alertBox('Could not save in this browser (storage full or blocked). Use Save / open to download a copy.'); } }
+function alertBox(m) { var d = $('#view'); d.insertAdjacentHTML('afterbegin', '<div class="note" style="margin-bottom:10px">' + esc(m) + '</div>'); }
+
+/* ---------- response codes: PSC1-<code>-<group>-<50 digits 0..5>-<check> (0 = Don't know) ---------- */
+function chk(s) { var h = 0; for (var i = 0; i < s.length; i++) h = (h + s.charCodeAt(i) * (i + 1)) % 97; return ('0' + h).slice(-2); }
+function encode(code, g, a) { var s = 'PSC1-' + code + '-' + g + '-' + a.join(''); return s + '-' + chk(s); }
+function decode(str) {
+  var m = String(str).trim().toUpperCase().match(/^(PSC1-([A-Z0-9]{4})-([A-Z]{3})-([0-5]{50}))-(\d{2})$/);
+  if (!m) return { err: 'not a response code' };
+  if (chk(m[1]) !== m[5]) return { err: 'check digits do not match (typing error?)' };
+  if (!G[m[3]]) return { err: 'unknown group ' + m[3] };
+  return { code: m[2], g: m[3], a: m[4].split('').map(Number), raw: m[0] };
+}
+function addResponse(code, g, a, src) {
+  var raw = encode(code, g, a);
+  if (db.responses.some(function (r) { return r.raw === raw; })) return false;
+  db.responses.push({ raw: raw, code: code, g: g, a: a, src: src, t: new Date().toISOString() }); save(); return true;
+}
+function importCodes(text) {
+  var out = { added: 0, dup: 0, other: 0, bad: [] };
+  String(text).split(/[\s,;]+/).filter(Boolean).forEach(function (tok) {
+    var r = decode(tok); if (r.err) { out.bad.push(tok.slice(0, 24) + '… – ' + r.err); return; }
+    if (r.code !== db.meta.code) out.other++;
+    if (addResponse(r.code, r.g, r.a, 'code')) out.added++; else out.dup++;
+  });
+  return out;
+}
+
+/* ---------- scoring ---------- */
+// item score 0-100: (v-1)/4*100 with reverse items flipped; Don't know (0) left out
+function val(it, v) { if (!v) return null; return ((it.rev ? 6 - v : v) - 1) / 4 * 100; }
+function mean(a) { return a.length ? a.reduce(function (s, x) { return s + x; }, 0) / a.length : null; }
+function calc(resp) {
+  resp = resp || db.responses.filter(function (r) { return r.code === db.meta.code; });
+  var min = LIB.minGroup, res = { n: resp.length, P: {}, items: [], groups: {} };
+  LIB.groups.forEach(function (g) { res.groups[g.id] = resp.filter(function (r) { return r.g === g.id; }).length; });
+  var side = function (s) { return resp.filter(function (r) { return G[r.g].side === s; }); };
+  var pScore = function (rs, pid) { var xs = []; rs.forEach(function (r) { LIB.items.forEach(function (it, i) { if (it.p === pid) { var x = val(it, r.a[i]); if (x !== null) xs.push(x); } }); }); return mean(xs); };
+  LIB.principles.forEach(function (p) {
+    var o = { all: pScore(resp, p.id), groups: {} }, M = side('M'), F = side('F');
+    LIB.groups.forEach(function (g) { var rs = resp.filter(function (r) { return r.g === g.id; }); o.groups[g.id] = rs.length >= min ? pScore(rs, p.id) : null; });
+    o.gap = M.length >= min && F.length >= min ? pScore(M, p.id) - pScore(F, p.id) : null;
+    var rv = db.review[p.id]; o.fac = rv && rv.rating ? rv.rating : null;
+    res.P[p.id] = o;
+  });
+  LIB.items.forEach(function (it, i) {
+    var xs = [], dk = 0, fav = 0;
+    resp.forEach(function (r) { var x = val(it, r.a[i]); if (x === null) dk++; else { xs.push(x); if (x >= 75) fav++; } });
+    res.items.push({ it: it, score: mean(xs), dk: resp.length ? dk / resp.length * 100 : 0, fav: xs.length ? fav / xs.length * 100 : null });
+  });
+  return res;
+}
+function band(x) { if (x == null) return '<span class="band b-n">–</span>'; var c = x < 50 ? 'b-r' : x < 70 ? 'b-a' : 'b-g'; return '<span class="band ' + c + '">' + Math.round(x) + '</span>'; }
+function facPct(r) { return r ? (r - 1) / 4 * 100 : null; }
+
+/* ---------- views ---------- */
+function nav() {
+  $('#nav').innerHTML = VIEWS.map(function (v) { return '<button data-v="' + v[0] + '" title="' + esc(v[2]) + '" class="' + (v[0] === view ? 'active' : '') + '">' + v[1] + '</button>'; }).join('');
+  $('#mnav').innerHTML = VIEWS.map(function (v) { return '<option value="' + v[0] + '"' + (v[0] === view ? ' selected' : '') + '>' + v[1] + '</option>'; }).join('');
+  $('#asmtPill').textContent = (db.meta.title || 'Untitled assessment') + ' · code ' + db.meta.code + ' · ' + db.responses.filter(function (r) { return r.code === db.meta.code; }).length + ' responses';
+}
+function go(v) { view = v; if (v !== 'survey') sv = null; nav(); R[v](); window.scrollTo(0, 0); }
+var R = {};
+
+R.setup = function () {
+  var m = db.meta, link = location.href.split('#')[0] + '#survey=' + m.code;
+  $('#view').innerHTML = '<h2>Set up</h2><p class="sub">' + esc(LIB.source) + '</p>' +
+    '<div class="card"><div class="grid2">' +
+    fld('title', 'Assessment title', 'e.g. Unit 2 culture assessment 2026', 'A short name for this assessment') + fld('site', 'Site / unit (anonymised in training)', 'e.g. Site A – utilities', 'Use an anonymised name in training material') +
+    fld('date', 'Date', '', 'Date of the assessment', 'date') + fld('facilitator', 'Facilitator', '', 'Who runs the assessment') +
+    '<div><label class="f">Survey code</label><div class="row"><b style="font-size:20px;letter-spacing:.1em" id="codeShow">' + esc(m.code) + '</b><button class="btn sec sm" id="newCode" title="Make a new code. Responses with the old code stay in the file but are not counted.">New code</button></div></div></div></div>' +
+    '<div class="card"><h3 style="margin-top:0">How to collect responses</h3><ol>' +
+    '<li><b>On this device</b> (a laptop or tablet passed around, or in a training room): open <i>Take the survey</i>. Each person answers, presses Finish, then <i>Next person</i>.</li>' +
+    '<li><b>On their own phones:</b> send people the website link with the code. At the end each person gets a response code to send you (for example by WhatsApp or e-mail). Paste the codes in <i>Responses</i>.<div class="code small" style="margin-top:6px">' + esc(link) + '</div></li></ol>' +
+    '<p class="small muted">Answers are anonymous: no names are asked. A group\'s results are only shown when it has ' + LIB.minGroup + ' or more responses. Everything stays in this browser and in the files you save.</p></div>' +
+    '<div class="card row"><button class="btn sec" id="sample" title="Replace the current work with an example assessment (60 made-up responses)">Load example</button><button class="btn danger" id="reset" title="Start a new, empty assessment (save the current one first)">New assessment</button></div>';
+  ['title', 'site', 'date', 'facilitator'].forEach(function (k) { $('#f_' + k).oninput = function () { db.meta[k] = this.value; save(); nav(); }; });
+  $('#newCode').onclick = function () { if (confirmInline(this, 'Sure? Click again')) { db.meta.code = randCode(); save(); go('setup'); } };
+  $('#sample').onclick = function () { if (confirmInline(this, 'Replace current work? Click again')) { loadSample(); go('results'); } };
+  $('#reset').onclick = function () { if (confirmInline(this, 'Clear everything? Click again')) { db = blank(); save(); go('setup'); } };
+};
+function fld(k, label, ph, tip, type) { return '<div><label class="f" for="f_' + k + '">' + label + '</label><input type="' + (type || 'text') + '" id="f_' + k + '" value="' + esc(db.meta[k]) + '" placeholder="' + esc(ph) + '" title="' + esc(tip) + '"></div>'; }
+function confirmInline(btn, msg) { if (btn.dataset.armed) return true; btn.dataset.armed = 1; btn.dataset.orig = btn.textContent; btn.textContent = msg; setTimeout(function () { delete btn.dataset.armed; btn.textContent = btn.dataset.orig; }, 3000); return false; }
+
+/* survey (also the respondent-only mode: #survey=CODE) */
+function T(k) { return (LIB.ui[sv.lang] || LIB.ui.en)[k]; }
+R.survey = function () {
+  if (!sv) sv = { lang: sv && sv.lang || 'en', step: -1, g: '', a: new Array(LIB.items.length).fill(-1), code: RESPOND || db.meta.code };
+  var L = LIB.langs.find(function (l) { return l.id === sv.lang; }), d = L.dir, nP = LIB.principles.length, h;
+  if (sv.step === -1) {
+    h = '<div class="card"><h2>' + esc(T('title')) + '</h2><p>' + esc(T('intro')) + '</p><p class="note">' + esc(T('anon')) + '</p>' +
+      (L.reviewed ? '' : '<p class="note">' + esc(T('draft')) + '</p>') +
+      '<div class="grid2"><div><label class="f">' + esc(T('lang')) + '</label><select id="svLang" title="Choose the language for the survey">' + LIB.langs.map(function (l) { return '<option value="' + l.id + '"' + (l.id === sv.lang ? ' selected' : '') + '>' + l.name + '</option>'; }).join('') + '</select></div>' +
+      '<div><label class="f">' + esc(T('code')) + '</label><input type="text" id="svCode" maxlength="4" value="' + esc(sv.code) + '" style="text-transform:uppercase;direction:ltr" title="The 4-character code your facilitator gave you"></div></div>' +
+      '<h3>' + esc(T('group')) + '</h3><div class="opts" style="grid-template-columns:repeat(auto-fit,minmax(150px,1fr))">' + LIB.groups.map(function (g) { return '<label><input type="radio" name="grp" value="' + g.id + '"' + (sv.g === g.id ? ' checked' : '') + '>' + esc(g.t[sv.lang]) + '</label>'; }).join('') + '</div>' +
+      '<p class="row" style="margin-top:14px"><button class="btn" id="svStart">' + esc(T('start')) + '</button><span id="svMsg" class="muted small"></span></p></div>';
+  } else if (sv.step < nP) {
+    var pid = LIB.principles[sv.step].id;
+    h = '<div class="card"><div class="muted small">' + esc(T('part').replace('{n}', sv.step + 1).replace('{t}', nP)) + '</div><div class="prog"><i style="width:' + ((sv.step + 1) / nP * 100) + '%"></i></div>' +
+      LIB.items.map(function (it, i) {
+        if (it.p !== pid) return '';
+        var lab = T('scale').map(function (s, k) { return '<label><input type="radio" name="q' + i + '" value="' + (k + 1) + '"' + (sv.a[i] === k + 1 ? ' checked' : '') + '>' + esc(s) + '</label>'; }).join('');
+        return '<div class="stmt" id="st' + i + '"><p>' + esc(it.t[sv.lang]) + '</p><div class="opts">' + lab + '<label class="dk"><input type="radio" name="q' + i + '" value="0"' + (sv.a[i] === 0 ? ' checked' : '') + '>' + esc(T('dk')) + '</label></div></div>';
+      }).join('') +
+      '<p class="row" style="margin-top:14px"><button class="btn sec" id="svBack">' + esc(T('back')) + '</button><button class="btn" id="svNext">' + esc(sv.step === nP - 1 ? T('finish') : T('next')) + '</button><span id="svMsg" class="small" style="color:var(--red)"></span></p></div>';
+  } else {
+    var raw = encode(sv.code, sv.g, sv.a);
+    h = '<div class="card"><h2>' + esc(T('done')) + '</h2><p>' + esc(T('codehelp')) + '</p><div class="code" id="svRaw">' + esc(raw) + '</div>' +
+      '<p class="row" style="margin-top:12px"><button class="btn sec" id="svCopy">' + esc(T('copy')) + '</button><button class="btn" id="svAgain">' + esc(T('nextp')) + '</button></p></div>';
+  }
+  $('#view').innerHTML = '<div class="sv" dir="' + d + '" lang="' + sv.lang + '">' + h + '</div>';
+  var on = function (id, f) { var e = $('#' + id); if (e) e.onclick = f; };
+  if ($('#svLang')) $('#svLang').onchange = function () { sv.lang = this.value; R.survey(); };
+  document.querySelectorAll('.sv input[type=radio][name^=q]').forEach(function (r) { r.onchange = function () { sv.a[+this.name.slice(1)] = +this.value; this.closest('.stmt').classList.remove('miss'); }; });
+  document.querySelectorAll('.sv input[name=grp]').forEach(function (r) { r.onchange = function () { sv.g = this.value; }; });
+  on('svStart', function () {
+    var c = $('#svCode').value.trim().toUpperCase();
+    if (!/^[A-Z0-9]{4}$/.test(c) || !sv.g) { $('#svMsg').textContent = T('missing'); return; }
+    sv.code = c; sv.step = 0; R.survey(); window.scrollTo(0, 0);
+  });
+  on('svBack', function () { sv.step--; R.survey(); window.scrollTo(0, 0); });
+  on('svNext', function () {
+    var pid = LIB.principles[sv.step].id, miss = null;
+    LIB.items.forEach(function (it, i) { if (it.p === pid && sv.a[i] < 0) { $('#st' + i).classList.add('miss'); miss = miss || $('#st' + i); } });
+    if (miss) { $('#svMsg').textContent = T('missing'); miss.scrollIntoView({ block: 'center' }); return; }
+    sv.step++;
+    if (sv.step === nP && !RESPOND) addResponse(sv.code, sv.g, sv.a, 'device');
+    if (sv.step === nP && RESPOND) try { localStorage.setItem('psc.last', encode(sv.code, sv.g, sv.a)); } catch (e) {}
+    R.survey(); if (!RESPOND) nav(); window.scrollTo(0, 0);
+  });
+  on('svCopy', function () { var b = this, t = $('#svRaw').textContent; (navigator.clipboard ? navigator.clipboard.writeText(t) : Promise.reject()).then(function () { b.textContent = T('copied'); }, function () { var s = getSelection(), r = document.createRange(); r.selectNodeContents($('#svRaw')); s.removeAllRanges(); s.addRange(r); }); });
+  on('svAgain', function () { var lang = sv.lang, code = sv.code; sv = null; R.survey(); sv.lang = lang; sv.code = code; R.survey(); });
+};
+
+R.responses = function () {
+  var cur = db.responses.filter(function (r) { return r.code === db.meta.code; }), other = db.responses.length - cur.length, res = calc();
+  $('#view').innerHTML = '<h2>Responses</h2><p class="sub">Paste the response codes people sent you. Duplicates are ignored.</p>' +
+    '<div class="card"><label class="f" for="codesIn">Response codes (one or more; any spacing)</label><textarea id="codesIn" placeholder="PSC1-' + esc(db.meta.code) + '-OPS-…" title="Paste one or many codes from WhatsApp, e-mail or SMS"></textarea>' +
+    '<p class="row"><button class="btn" id="addCodes" title="Check and add the pasted codes">Add codes</button><span id="codesMsg" class="small"></span></p></div>' +
+    '<div class="card"><h3 style="margin-top:0">' + cur.length + ' responses with code ' + esc(db.meta.code) + '</h3>' +
+    (other ? '<p class="note">' + other + ' response(s) carry another survey code and are not counted.</p>' : '') +
+    '<table class="t"><tr><th>Group</th><th class="num">Responses</th><th>Shown in results?</th></tr>' + LIB.groups.map(function (g) { var n = res.groups[g.id]; return '<tr><td>' + esc(g.t.en) + '</td><td class="num">' + n + '</td><td>' + (n >= LIB.minGroup ? 'Yes' : n ? 'No – fewer than ' + LIB.minGroup + ' (counted in the overall score only)' : '–') + '</td></tr>'; }).join('') + '</table>' +
+    (cur.length ? '<p class="row" style="margin-top:10px"><button class="btn sec sm" id="csv" title="Download every response as a spreadsheet (CSV): one row per person, one column per statement">Export responses (CSV)</button><button class="btn sec sm" id="delLast" title="Remove the most recent response (for example a test entry)">Remove last response</button></p>' : '') + '</div>';
+  $('#addCodes').onclick = function () {
+    var o = importCodes($('#codesIn').value), msg = o.added + ' added, ' + o.dup + ' duplicate(s) skipped' + (o.other ? ', ' + o.other + ' with another survey code' : '');
+    R.responses(); $('#codesMsg').innerHTML = esc(msg) + (o.bad.length ? '<br><span style="color:var(--red)">Not added: ' + o.bad.map(esc).join('<br>') + '</span>' : ''); nav();
+  };
+  if ($('#csv')) $('#csv').onclick = function () {
+    var rows = [['code', 'group', 'source', 'time'].concat(LIB.items.map(function (i) { return i.id + (i.rev ? ' (R)' : ''); }))];
+    cur.forEach(function (r) { rows.push([r.code, r.g, r.src, r.t].concat(r.a.map(function (v) { return v || 'DK'; }))); });
+    download(rows.map(function (r) { return r.map(csvCell).join(','); }).join('\r\n'), fname('responses', 'csv'), 'text/csv');
+  };
+  if ($('#delLast')) $('#delLast').onclick = function () { if (confirmInline(this, 'Remove? Click again')) { var i = db.responses.lastIndexOf(cur[cur.length - 1]); db.responses.splice(i, 1); save(); go('responses'); } };
+};
+function csvCell(v) { v = String(v == null ? '' : v); return /[",\r\n]/.test(v) ? '"' + v.replace(/"/g, '""') + '"' : v; }
+function fname(what, ext) { return 'PSC ' + (db.meta.title || 'assessment').replace(/[\\/:*?"<>|]/g, '') + ' - ' + what + ' (' + db.meta.date + ').' + ext; }
+function download(text, name, type) { var a = document.createElement('a'); a.href = URL.createObjectURL(new Blob(['﻿' + text], { type: type })); a.download = name; document.body.appendChild(a); a.click(); setTimeout(function () { URL.revokeObjectURL(a.href); a.remove(); }, 500); }
+
+R.review = function () {
+  var res = calc();
+  $('#view').innerHTML = '<h2>Facilitator review</h2><p class="sub">Rate each principle from interviews, document samples and site walks. Tick the red flags you saw and note the evidence.</p>' +
+    '<div class="card small"><b>Rating scale:</b> ' + LIB.scale.map(function (s) { return '<b>' + s.n + ' ' + s.label + '</b> – ' + esc(s.desc); }).join(' · ') + '</div>' +
+    LIB.principles.map(function (p) {
+      var rv = db.review[p.id] || {};
+      return '<div class="card" data-p="' + p.id + '"><div class="row"><h3 style="margin:0;flex:1">' + esc(p.name) + '</h3><span class="small muted">Survey score</span> ' + band(res.P[p.id].all) + '</div><p class="small muted" style="margin:4px 0 8px">' + esc(p.meaning) + '</p>' +
+        (p.fac ? '<div class="facbox"><b>Protocol:</b> CCPS (2018) ' + esc(p.fac.ref) + ' – work through these questions from your copy of the book.<br><b>Probes:</b><ul style="margin:4px 0">' + p.fac.probes.map(function (x) { return '<li>' + esc(x) + '</li>'; }).join('') + '</ul></div>' : '') +
+        '<div class="grid2" style="margin-top:8px"><div><label class="f">Rating</label><select data-k="rating" title="Your overall rating of this principle on site">' + '<option value="">– not rated –</option>' + LIB.scale.map(function (s) { return '<option value="' + s.n + '"' + (+rv.rating === s.n ? ' selected' : '') + '>' + s.n + ' ' + s.label + '</option>'; }).join('') + '</select>' +
+        '<label class="f" style="margin-top:8px">Red flags seen</label>' + p.flags.map(function (f, i) { return '<label class="small" style="display:block"><input type="checkbox" data-flag="' + i + '"' + ((rv.flags || []).indexOf(i) >= 0 ? ' checked' : '') + '> ' + esc(f) + '</label>'; }).join('') + '</div>' +
+        '<div><label class="f">Evidence and notes</label><textarea data-k="evidence" style="min-height:120px" title="What you saw, heard or read: interviews, documents sampled, site observations">' + esc(rv.evidence) + '</textarea></div></div></div>';
+    }).join('');
+  document.querySelectorAll('[data-p]').forEach(function (card) {
+    var pid = card.dataset.p, get = function () { return db.review[pid] = db.review[pid] || { rating: '', flags: [], evidence: '' }; };
+    card.querySelectorAll('[data-k]').forEach(function (e) { e.oninput = e.onchange = function () { get()[e.dataset.k] = e.dataset.k === 'rating' ? (+e.value || '') : e.value; save(); }; });
+    card.querySelectorAll('[data-flag]').forEach(function (e) { e.onchange = function () { get().flags = [].slice.call(card.querySelectorAll('[data-flag]:checked')).map(function (x) { return +x.dataset.flag; }); save(); }; });
+  });
+};
+
+function radar(res) {
+  var W = 520, H = 440, cx = 260, cy = 215, rad = 160, n = LIB.principles.length, pt = function (i, v) { var a = -Math.PI / 2 + i * 2 * Math.PI / n; return [cx + Math.cos(a) * rad * v / 100, cy + Math.sin(a) * rad * v / 100]; };
+  var s = '<svg viewBox="0 0 ' + W + ' ' + H + '" style="width:100%;max-width:560px" role="img" aria-label="Radar chart of the 10 principles"><g font-size="11" fill="#5b6578">';
+  [25, 50, 75, 100].forEach(function (v) { s += '<polygon fill="none" stroke="#d7dce6" points="' + LIB.principles.map(function (p, i) { return pt(i, v).join(','); }).join(' ') + '"/>'; });
+  LIB.principles.forEach(function (p, i) { var e = pt(i, 100), l = pt(i, 116); s += '<line x1="' + cx + '" y1="' + cy + '" x2="' + e[0] + '" y2="' + e[1] + '" stroke="#d7dce6"/><text x="' + l[0] + '" y="' + l[1] + '" text-anchor="middle" dominant-baseline="middle"><title>' + esc(p.name) + '</title>' + p.id + '</text>'; });
+  var poly = function (f, col, dash) { var pts = LIB.principles.map(function (p, i) { var v = f(p); return v == null ? null : pt(i, v).join(','); }); if (pts.some(function (x) { return x == null; })) return ''; return '<polygon points="' + pts.join(' ') + '" fill="' + col + '" fill-opacity=".15" stroke="' + col + '" stroke-width="2"' + (dash ? ' stroke-dasharray="5 4"' : '') + '/>'; };
+  s += poly(function (p) { return res.P[p.id].all; }, '#2f6fd6') + poly(function (p) { return facPct(res.P[p.id].fac); }, '#b26a00', 1);
+  s += '</g><g font-size="12"><rect x="10" y="' + (H - 24) + '" width="14" height="4" fill="#2f6fd6"/><text x="30" y="' + (H - 18) + '">Survey score</text><rect x="140" y="' + (H - 24) + '" width="14" height="4" fill="#b26a00"/><text x="160" y="' + (H - 18) + '">Facilitator rating (1–5 shown as 0–100)</text></g></svg>';
+  return s;
+}
+
+R.results = function () {
+  var res = calc(), shown = LIB.groups.filter(function (g) { return res.groups[g.id] >= LIB.minGroup; });
+  var weak = res.items.filter(function (x) { return x.score != null; }).sort(function (a, b) { return a.score - b.score; }).slice(0, 8);
+  var dks = res.items.filter(function (x) { return x.dk >= 25; });
+  var flags = []; LIB.principles.forEach(function (p) { ((db.review[p.id] || {}).flags || []).forEach(function (i) { flags.push([p, p.flags[i]]); }); });
+  $('#view').innerHTML = '<h2>Results – ' + esc(db.meta.title || 'Untitled assessment') + '</h2><p class="sub">' + esc(db.meta.site) + ' · ' + esc(db.meta.date) + ' · ' + res.n + ' survey responses · facilitator ' + esc(db.meta.facilitator || '–') + '</p>' +
+    (res.n ? '' : '<p class="note">No responses yet for code ' + esc(db.meta.code) + '. Take the survey, paste codes in Responses, or load the example in Set up.</p>') +
+    '<div class="card"><div class="row" style="align-items:flex-start"><div style="flex:1;min-width:280px">' + radar(res) + '</div><div class="small" style="flex:1;min-width:220px"><p><b>Scores run 0–100.</b> 100 = everyone strongly agrees with the positive statements (reverse statements are flipped). Don\'t know is left out.</p><p>' + band(40) + ' below 50: priority · ' + band(60) + ' 50–69: improve · ' + band(80) + ' 70+: strength</p><p><b>Gap</b> = managers and supervisors minus front line (operators, maintenance, contractors). A gap of +15 or more means managers see a better culture than the front line does.</p></div></div></div>' +
+    '<div class="card tw"><h3 style="margin-top:0">Score per principle</h3><table class="t"><tr><th>CCPS core principle</th><th class="num">All</th>' + shown.map(function (g) { return '<th class="num">' + esc(g.t.en) + ' (' + res.groups[g.id] + ')</th>'; }).join('') + '<th class="num">Gap</th><th class="num">Facilitator</th></tr>' +
+    LIB.principles.map(function (p) { var o = res.P[p.id]; return '<tr><td>' + esc(p.name) + '</td><td class="num">' + band(o.all) + '</td>' + shown.map(function (g) { return '<td class="num">' + band(o.groups[g.id]) + '</td>'; }).join('') + '<td class="num"' + (o.gap >= 15 ? ' style="color:var(--red);font-weight:700"' : '') + '>' + (o.gap == null ? '–' : (o.gap > 0 ? '+' : '') + Math.round(o.gap)) + '</td><td class="num">' + (o.fac ? o.fac + ' ' + LIB.scale[o.fac - 1].label : '–') + '</td></tr>'; }).join('') + '</table>' +
+    (LIB.groups.some(function (g) { return res.groups[g.id] && res.groups[g.id] < LIB.minGroup; }) ? '<p class="small muted">Groups with fewer than ' + LIB.minGroup + ' responses are not shown, to protect anonymity. Their answers count in "All".</p>' : '') + '</div>' +
+    '<div class="card tw"><h3 style="margin-top:0">Weakest statements</h3><table class="t"><tr><th>Statement</th><th>Principle</th><th class="num">Score</th><th class="num">% favourable</th></tr>' + weak.map(function (x) { return '<tr><td>' + esc(x.it.t.en) + (x.it.rev ? ' <span class="muted small">(reverse)</span>' : '') + '</td><td>' + x.it.p + '</td><td class="num">' + band(x.score) + '</td><td class="num">' + Math.round(x.fav) + '%</td></tr>'; }).join('') + '</table>' +
+    (dks.length ? '<p class="small"><b>Awareness gaps</b> – a quarter or more answered Don\'t know: ' + dks.map(function (x) { return esc(x.it.id) + ' (' + Math.round(x.dk) + '%)'; }).join(', ') + '</p>' : '') + '</div>' +
+    '<div class="card"><h3 style="margin-top:0">Red flags from the facilitator review</h3>' + (flags.length ? '<ul>' + flags.map(function (f) { return '<li><b>' + f[0].id + '</b> ' + esc(f[1]) + '</li>'; }).join('') + '</ul>' : '<p class="muted">None ticked.</p>') + '</div>' +
+    '<div class="card tw"><h3 style="margin-top:0">Action plan</h3>' + actionsTable(true) + '</div>' +
+    '<p class="small muted">' + esc(LIB.source) + ' This is a screening and discussion tool. It does not replace a formal culture assessment by competent people.</p>' +
+    '<p class="noprint row"><button class="btn sec" id="sumCsv" title="Download the score table as a spreadsheet (CSV)">Export summary (CSV)</button></p>';
+  $('#sumCsv').onclick = function () {
+    var rows = [['principle', 'name', 'all', 'n'].concat(LIB.groups.map(function (g) { return g.id; }), ['gap', 'facilitator'])];
+    LIB.principles.forEach(function (p) { var o = res.P[p.id], r = function (x) { return x == null ? '' : Math.round(x); }; rows.push([p.id, p.name, r(o.all), res.n].concat(LIB.groups.map(function (g) { return r(o.groups[g.id]); }), [r(o.gap), o.fac || ''])); });
+    download(rows.map(function (r) { return r.map(csvCell).join(','); }).join('\r\n'), fname('summary', 'csv'), 'text/csv');
+  };
+};
+
+function actionsTable(ro) {
+  if (!db.actions.length && ro) return '<p class="muted">No actions yet.</p>';
+  return '<table class="t"><tr><th>Principle</th><th>Action</th><th>Owner</th><th>Due</th><th>Status</th>' + (ro ? '' : '<th></th>') + '</tr>' + db.actions.map(function (a, i) {
+    if (ro) return '<tr><td>' + a.p + '</td><td>' + esc(a.action) + '</td><td>' + esc(a.owner) + '</td><td>' + esc(a.due) + '</td><td>' + esc(a.status) + '</td></tr>';
+    return '<tr data-i="' + i + '"><td><select data-k="p" title="Which principle this action improves">' + LIB.principles.map(function (p) { return '<option' + (a.p === p.id ? ' selected' : '') + '>' + p.id + '</option>'; }).join('') + '</select></td><td><textarea data-k="action" style="min-height:40px" title="What will be done">' + esc(a.action) + '</textarea></td><td><input type="text" data-k="owner" value="' + esc(a.owner) + '" title="Person responsible (role, not name, in training material)"></td><td><input type="date" data-k="due" value="' + esc(a.due) + '" title="Target date"></td><td><select data-k="status" title="Progress of the action">' + ['Open', 'In progress', 'Done', 'Verified'].map(function (s) { return '<option' + (a.status === s ? ' selected' : '') + '>' + s + '</option>'; }).join('') + '</select></td><td><button class="btn sec sm" data-del="' + i + '" title="Delete this action">✕</button></td></tr>';
+  }).join('') + '</table>';
+}
+R.actions = function () {
+  var res = calc(), low = LIB.principles.filter(function (p) { var o = res.P[p.id]; return (o.all != null && o.all < 50) || (o.fac && o.fac <= 2) || (o.gap >= 15); });
+  $('#view').innerHTML = '<h2>Action plan</h2><p class="sub">Agree improvement actions with the site. Start with the priorities below.</p>' +
+    '<div class="card small"><b>Priorities</b> (survey below 50, facilitator rating 1–2, or a gap of +15 or more): ' + (low.length ? low.map(function (p) { return esc(p.name); }).join(' · ') : 'none') + '</div>' +
+    '<div class="card tw">' + actionsTable(false) + '<p><button class="btn" id="addAct" title="Add an improvement action">Add action</button></p></div>';
+  $('#addAct').onclick = function () { db.actions.push({ p: (low[0] || LIB.principles[0]).id, action: '', owner: '', due: '', status: 'Open' }); save(); R.actions(); };
+  document.querySelectorAll('[data-i]').forEach(function (tr) { var a = db.actions[+tr.dataset.i]; tr.querySelectorAll('[data-k]').forEach(function (e) { e.oninput = e.onchange = function () { a[e.dataset.k] = e.value; save(); }; }); });
+  document.querySelectorAll('[data-del]').forEach(function (b) { b.onclick = function () { db.actions.splice(+b.dataset.del, 1); save(); R.actions(); }; });
+};
+
+R.guide = function () {
+  $('#view').innerHTML = '<h2>Guide</h2><div class="card"><h3 style="margin-top:0">Running an assessment</h3><ol>' +
+    '<li><b>Set up:</b> name the assessment. Note the 4-character survey code.</li>' +
+    '<li><b>Survey:</b> aim for at least ' + LIB.minGroup + ' people in each group you want to compare, and a mix of managers, supervisors and front line. Brief people first: it is anonymous and about the system, not about them.</li>' +
+    '<li><b>Facilitator review:</b> interview people from each level, sample documents (MOC, bypass register, PHA actions, investigations, audits, handover logs) and walk the site. Rate each principle and tick the red flags you saw.</li>' +
+    '<li><b>Results:</b> look for low principles, a large management–front-line gap, statements with many Don\'t know answers, and places where the survey and your review disagree.</li>' +
+    '<li><b>Action plan:</b> agree a few actions per priority principle, with an owner and a date. Repeat the survey after 12–18 months to see the trend.</li></ol>' +
+    '<h3>The 10 CCPS core principles</h3><table class="t">' + LIB.principles.map(function (p) { return '<tr><td><b>' + p.id + '</b></td><td>' + esc(p.name) + '</td><td class="muted">' + esc(p.meaning) + '</td></tr>'; }).join('') + '</table>' +
+    '<h3>How the scores are worked out</h3><ul><li>Each statement is answered on a 5-point scale. Statements marked <i>reverse</i> are negative (agreeing is bad), so their answers are flipped.</li><li>Score = (answer − 1) ÷ 4 × 100, averaged over all answers for the principle. Don\'t know is left out.</li><li>% favourable = share of answers that are Agree or Strongly agree (after flipping).</li><li>Groups with fewer than ' + LIB.minGroup + ' responses are hidden in the group columns.</li></ul>' +
+    '<h3>Saving</h3><p>Work is kept in this browser on this device. Use <b>Save / open</b> to download the whole assessment as a .json file (keep it with the site records) and to open it on another computer.</p>' +
+    '<h3>Languages</h3><p>The survey is in ' + LIB.langs.map(function (l) { return l.name + (l.reviewed ? '' : ' (draft translation, not yet reviewed)'); }).join(', ') + '. Facilitator pages are in English.</p>' +
+    '<p class="small muted">' + esc(LIB.source) + '</p></div>';
+};
+
+/* file save / open */
+$('#btnFile').onclick = function () {
+  $('#view').insertAdjacentHTML('afterbegin', '<div class="card row noprint" id="fileBox"><button class="btn" id="fSave" title="Download everything as a .json file – works in every browser">Save to file (.json)</button><button class="btn sec" id="fOpen" title="Replace the current work with a .json file saved earlier">Open file…</button><button class="btn sec sm" onclick="this.parentNode.remove()">Close</button></div>');
+  $('#fSave').onclick = function () { download(JSON.stringify(db, null, 1), fname('assessment', 'psc.json'), 'application/json'); };
+  $('#fOpen').onclick = function () { $('#fileIn').click(); };
+};
+$('#fileIn').onchange = function () {
+  var f = this.files[0]; if (!f) return; var rd = new FileReader();
+  rd.onload = function () { try { var d = JSON.parse(rd.result); if (!d || !d.meta || !Array.isArray(d.responses)) throw 0; d.responses = d.responses.filter(function (r) { return !decode(r.raw).err; }); db = d; save(); go('results'); } catch (e) { alertBox('That file is not a process safety culture assessment (.psc.json).'); } };
+  rd.readAsText(f); this.value = '';
+};
+
+/* example: 60 made-up responses with a typical pattern (managers more positive, weak DEV and HAZ) */
+function loadSample() {
+  db = blank(); db.meta.title = 'Example – Site A process unit'; db.meta.site = 'Site A (fictitious)'; db.meta.facilitator = 'Course facilitator'; db.meta.code = 'DEMO';
+  var seed = 7, rnd = function () { seed = (seed * 16807) % 2147483647; return seed / 2147483647; };
+  var base = { IMP: 3.6, LEAD: 3.5, TRUST: 3.1, COMM: 3.3, VULN: 3.0, HAZ: 2.9, EMP: 3.4, EXP: 3.3, DEV: 2.6, LEARN: 3.1 };
+  var mix = [['MGR', 8], ['SUP', 10], ['OPS', 22], ['MNT', 10], ['ENG', 4], ['CON', 6]];
+  mix.forEach(function (m) {
+    var lift = G[m[0]].side === 'M' ? 0.7 : G[m[0]].side === 'F' ? -0.15 : 0.2;
+    for (var k = 0; k < m[1]; k++) {
+      var a = LIB.items.map(function (it) { if (rnd() < 0.05) return 0; var v = Math.round(base[it.p] + lift + (rnd() - 0.5) * 2.2); v = Math.max(1, Math.min(5, v)); return it.rev ? 6 - v : v; });
+      addResponse('DEMO', m[0], a, 'example');
+    }
+  });
+  db.review = { DEV: { rating: 2, flags: [1, 2], evidence: 'Eleven standing alarms older than 3 months on the unit console; two temporary clamps on a process line since last turnaround.' }, HAZ: { rating: 2, flags: [0], evidence: '14 HAZOP recommendations overdue, oldest 26 months.' }, LEAD: { rating: 3, flags: [], evidence: 'Leaders visit monthly; front line says visits are mostly about production.' } };
+  db.actions = [{ p: 'DEV', action: 'Review all standing alarms and temporary repairs older than 3 months; close or risk-assess each one.', owner: 'Operations superintendent', due: '', status: 'Open' }];
+  save();
+}
+
+/* start: #survey=CODE opens respondent-only mode (for people on their own phones) */
+var RESPOND = (location.hash.match(/^#survey=([A-Za-z0-9]{4})/) || [])[1];
+RESPOND = RESPOND ? RESPOND.toUpperCase() : '';
+load();
+if (LIB.facilitator) $('#facPill').hidden = false;
+$('#nav').onclick = function (e) { var b = e.target.closest('[data-v]'); if (b) go(b.dataset.v); };
+if (RESPOND) { document.body.classList.add('respond'); $('#asmtPill').textContent = ''; view = 'survey'; R.survey(); }
+else go('setup');
+</script>
+<script>
+/* Hover tips with a 0.4 s delay for the Process Safety Analysis Toolkit tools (injected by each build_*_app.py).
+   - Existing title attributes and SVG <title> elements become tips when hovered (works on redrawn content too).
+   - Buttons, tabs and menu items without a title get the tips below, matched by CSS selector or by their label.
+   The tools re-render often, so tips are looked up on hover rather than attached once. */
+(function () {
+  "use strict";
+  if (window.PSTips) return;
+  var DELAY = 400;
+  var COMMON = [
+    ["#btnFile", "Open, save, back up, export, print and load examples"],
+    ["#btnReconnect", "The browser needs your permission again to write to the linked file. Click, then allow."],
+    ["#savePill", "Where your work is saved right now"],
+    ['[data-act="open"]', "Open a study file saved earlier (.json). In Chrome or Edge it is linked, so changes are saved back to it."],
+    ['[data-act="saveas"]', "Choose a file to save to. From then on every change is written to it automatically (Chrome or Edge)."],
+    ['[data-act="savenow"]', "Write the current state to the linked file now"],
+    ['[data-act="exportjson"]', "Download a copy of everything as a .json file – works in every browser"],
+    ['[data-act="importxlsx"]', "Read a filled-in HAZOP Study Workbook (.xlsx or .xlsm) into the tool: study, team, PSI, nodes, deviations, safeguards, IPLs, LOPA flags, recommendations"],
+    ['[data-act="importjson"]', "Replace the current work with a downloaded backup (.json)"],
+    ['[data-act="importft"]', "Bring in a fault tree (.fta.json) so its gates can supply probabilities here"],
+    ['[data-act="exportxlsx"]', "Save the data and results as an Excel workbook"],
+    ['[data-act="exportsvg"]', "Save the diagram as an SVG picture for reports and slides"],
+    ['[data-act="print"]', "Print the report, or choose Save as PDF in the print dialog"],
+    ['[data-act="sample"]', "Replace the current work with the built-in example"],
+    ['[data-act="guide"]', "Open the user guide"],
+    ['[data-act="about"]', "Open the help and user guide"],
+    ['[data-t="dash"]', "Study details, team, process safety information (PSI) and the key results"],
+    ["#pssEdit", "Edit the study title, scope, document number and other details"], ["#pssAddT", "Add a person to the study team"],
+    ["#pssAddP", "Add a drawing, data sheet or other document the study is based on"], ["#pssUsual", "Add the usual PSI documents as Outstanding, to fill in"],
+    ["#zIn", "Zoom in"], ["#zOut", "Zoom out"], ["#zFit", "Fit the whole diagram on screen"],
+    ['[data-t="settings"]', "Units, calculation options and display settings"],
+    ['[data-t="guide"]', "How to use this tool, with formulas and a worked example"],
+    ['[data-t="fts"]', "Fault trees imported into this file, and where their gates are used"]
+  ];
+  var TOOL = {
+    "HAZOP Study Manager": [
+      ['[data-act="new"]', "Start a new, empty study (save or back up the current one first)"],
+      ['[data-v="dashboard"]', "Progress of the study: nodes, deviations, risk ranking and open recommendations"],
+      ['[data-v="study"]', "Study title, scope, team members and session attendance"],
+      ['[data-v="psi"]', "Process safety information: drawings and documents used, and which nodes they cover"],
+      ['[data-v="nodes"]', "Divide the process into nodes and describe each one's design intent"],
+      ['[data-v="worksheet"]', "Work through deviations node by node: causes, consequences, safeguards, risk and recommendations"],
+      ['[data-v="safeguards"]', "All safeguards in the study, which deviations use them, and which are claimed as IPLs"],
+      ['[data-v="recs"]', "All recommendations, owners, due dates and status"],
+      ['[data-v="lopa"]', "Scenarios with an IPL flagged for LOPA: causes, consequence (top event), IPLs, status"],
+      ['[data-act="importlopa"]', "Bring the results of a LOPA study (.lopa.json) back onto the LOPA study list"],
+      ['[data-v="parking"]', "Open questions from the sessions, with owner, answer and status"],
+      ["#addPl", "Add an open question or issue to answer outside the session"], ["#addPlN", "Add an open question for this node (or the selected deviation)"],
+      ["#plAdd", "Add this question to the parking lot for this deviation"], ["#wsColsBtn", "Show, hide or rename the worksheet columns for this study"],
+      ["[data-open]", "Open the deviation editor: causes, safeguards, severity by receptor, recommendations"],
+      ["[data-gows]", "Open this deviation on the HAZOP worksheet"],
+      ['[data-v="matrix"]', "The 5 × 5 risk matrix and the risk bands used for ranking"],
+      ['[data-v="library"]', "Parameters, guidewords and typical causes offered in the worksheet"],
+      ['[data-v="reports"]', "Print the report, download it as HTML, or export to Excel"],
+      ['[data-v="data"]', "How the study data is structured, and an integrity check"],
+      ["#dSample", "Open the hot DRI transfer conveyor example to see a finished study"],
+      ["#addTeam", "Add a person to the study team"], ["#addSess", "Add a study session and who attended"],
+      ["#addPsi", "Add a drawing or document used in the study"], ["#psiChk", "Add the usual PSI documents as a checklist to tick off"],
+      ["#addNode", "Add a node (a section of the process with one design intent)"],
+      ["#prevN", "Previous node"], ["#nextN", "Next node"], ["#editN", "Change this node's name, intent and boundaries"],
+      ["#addDev", "Add one deviation to this node"], ["#quickAdd", "Add several deviations at once by ticking parameter–guideword pairs"],
+      ["#qaCore", "Tick the usual process set: flow, pressure, temperature, level and composition"], ["#qaNone", "Clear all ticks"],
+      ["#dAuto", "Fill the deviation wording from the parameter and guideword"],
+      ["#cAdd", "Add this cause to the deviation"], ["#sgAdd", "Add this safeguard; new text is added to the safeguard register"],
+      ["#recLink", "Link an existing recommendation to this deviation"], ["#recNew", "Write a new recommendation for this deviation"],
+      ["#addSg", "Add a safeguard to the register"], ["#addRec", "Add a recommendation"],
+      ["#mReset", "Put the risk matrix back to the default 5 × 5"], ["#chk", "Check the study for broken links and missing data"],
+      ["#rPrint", "Print the report, or save it as PDF"], ["#rHtml", "Download the report as a web page (.html)"],
+      ["#xX", "Export the study to Excel"], ["#xJ", "Download a backup (.json)"], ["#xI", "Load a backup (.json)"]
+    ],
+    "Fault Tree & PFD Calculator": [
+      ['[data-act="new"]', "Start a new, empty fault tree (save or back up the current one first)"],
+      ['[data-act="sampleDri"]', "Load the hot DRI conveyor N2 fire-protection example"],
+      ['[data-act="recent"]', "Open a copy of a fault tree you worked on earlier in this browser"],
+      ['[data-act="exportpng"]', "Save the tree as a PNG picture"],
+      ['[data-act="exportcsv"]', "Save the basic events with their data sources as a CSV file (opens in Excel)"],
+      ['[data-act="exportdocx"]', "Build a Word report: results, tree picture, data sources, cut sets, importance and the SIF table"],
+      ['[data-t="library"]', "About 190 PFDs, failure rates, human error probabilities and initiating-event frequencies; study values and site data"],
+      ['[data-lib="grp"]', "Where this event's value comes from"], ['[data-lib="item"]', "✓ = checked against a reference book; the others are typical values to verify"],
+      ['[data-lib="reset"]', "Put the library value back for this event"],
+      ["#gMove", "Move this gate and its whole branch under another gate"], ["#gToEv", "Turn this empty gate into a basic event"],
+      ["#eMove", "Move this event to another gate"], ["#eToGate", "Replace this event by a gate so you can develop its causes"],
+      ["#addSite", "Add your own value, e.g. from CMMS history or a vendor certificate"], ["#clrOv", "Remove every study value and go back to the library values"],
+      ['[data-slib]', "Pick a failure rate from the data library: sets λD and DC"],
+      ['[data-t="tree"]', "Draw and edit the tree: gates and events"],
+      ['[data-t="events"]', "All basic events with their failure models and data"],
+      ['[data-t="ccf"]', "Common-cause failure groups (β-factor)"],
+      ['[data-t="results"]', "Top-event probability, PFDavg, cut sets, importance and uncertainty"],
+      ['[data-t="sif"]', "IEC 61508 calculator for 1oo1, 1oo2, 2oo2, 1oo3 and 2oo3 functions"],
+      ["#aGate", "Add a gate below the selected gate"], ["#aEv", "Add a new basic event below the selected gate"],
+      ["#aEx", "Use an event that is already in the tree here as well (shared event)"],
+      ["#gCol", "Collapse or expand everything below this gate"], ["#gUp", "Select the gate above"], ["#gDel", "Delete this gate and everything below it"],
+      ["#eUp", "Select the gate above"], ["#eCopy", "Make this shared event independent here, with its own data"],
+      ["#eRm", "Take the event out of this gate (it stays in the event list)"],
+      ["#addE", "Add a basic event to the list without placing it in the tree"],
+      ["#addC", "Add a common-cause (β) group"], ["#runMc", "Run the Monte Carlo uncertainty analysis"],
+      ["#addSub", "Add a subsystem (sensor, logic or final element group)"], ["#mkFt", "Turn this SIF into a fault tree you can edit"]
+    ],
+    "Event Tree Analysis": [
+      ['[data-act="new"]', "Start a new, empty event tree (save or back up the current one first)"],
+      ['[data-t="tree"]', "The tree: initiating event, headings and end sequences"],
+      ['[data-t="headings"]', "Headings in time order, with their probabilities or fault-tree links"],
+      ['[data-t="cats"]', "Consequence categories with tolerable frequencies and costs"],
+      ['[data-t="results"]', "Frequency of each category against its target, sensitivity and uncertainty"],
+      ["#clr", "Clear the selection"], ["#nEnd", "Stop this branch here (later headings do not apply)"],
+      ["#addH", "Add a heading after the last one"], ["#insH0", "Add a heading before the first one"],
+      ["#impFt", "Bring in a fault tree (.fta.json) so a gate can supply a heading's probability"],
+      ["#addC", "Add a consequence category"], ["#runMc", "Run the Monte Carlo uncertainty analysis"]
+    ],
+    "LOPA Study Manager": [
+      ['[data-act="new"]', "Start a new, empty LOPA study (save or back up the current one first)"],
+      ['[data-act="importhazop"]', "Read the LOPA study list from a HAZOP study file: one scenario per initiating cause; a re-import keeps your LOPA entries"],
+      ['[data-v="dashboard"]', "Results of all scenarios: which meet the target, which need another IPL or a SIF"],
+      ['[data-v="study"]', "Title, team, scope and the HAZOP study this LOPA comes from"],
+      ['[data-v="criteria"]', "Explicit or implicit LOPA, receptors in use, and the target for each receptor and severity"],
+      ['[data-v="scenarios"]', "All LOPA scenarios with their result; add one or update from the HAZOP"],
+      ['[data-v="scenario"]', "Work through one scenario: initiating event, enabling conditions, modifiers, IPLs and the result"],
+      ['[data-v="ipls"]', "Every IPL credited in the study and the scenarios that rely on it"],
+      ['[data-v="scai"]', "Safety controls, alarms and interlocks credited: tag, SIL needed, set point, proof-test interval, response time"],
+      ['[data-act="exportbowtie"]', "Turn scenarios that share a top event into a bow tie file for the Bow Tie Analysis tool"], ["#xB", "Turn scenarios that share a top event into a bow tie file for the Bow Tie Analysis tool"],
+      ['[data-v="rules"]', "Common crediting errors across all scenarios, each with its source – fix them or record a justification"],
+      ['[data-v="log"]', "Who changed which IPL's adjudication, when and why"],
+      ["[data-ack]", "Record why this credit stands – the finding stays visible with your note"], ["[data-unack]", "Remove the justification – the finding is open again"],
+      ['[data-v="library"]', "Initiating-event frequencies, IPL PFDs and human error probabilities with their sources"],
+      ['[data-v="reports"]', "Print the LOPA report, export to Excel, or download a backup"],
+      ["#dImp", "Read the LOPA study list from a HAZOP study file"], ["#dSample", "Open the hot DRI transfer example to see a finished LOPA"],
+      ["#addSc", "Add a scenario by hand"], ["#impHz", "Read or update the scenarios from a HAZOP study file"],
+      ["#prevS", "Previous scenario"], ["#nextS", "Next scenario"], ["#addEn", "Add a condition that must be present for the consequence (e.g. time in that mode)"],
+      ['[data-addcm="ign"]', "Add the probability that the release ignites"], ['[data-addcm="pres"]', "Add the probability that someone is in the effect zone (safety only)"],
+      ['[data-addcm="inj"]', "Add the probability of injury or fatality given exposure (safety only)"], ['[data-addcm=""]', "Add another conditional modifier"],
+      ["#addIpl", "Add an existing independent protection layer"], ["#addProp", "Add a proposed IPL (a recommendation) – shown separately in the result"],
+      ["[data-scdel]", "Delete this scenario"], ["[data-rm]", "Remove this line"],
+      ["#crSync", "Fill one table from the other (credits = −log10 of the TMEL)"], ["#crReset", "Go back to the typical example criteria"],
+      ["#rPrint", "Print the report, or choose Save as PDF"], ["#rHtml", "Download the report as a web page"], ["#xX", "Export the scenarios, results and IPLs to Excel"], ["#xJ", "Download a backup (.json)"]
+    ],
+    "What-If Checklist Analysis": [
+      ['[data-act="new"]', "Start a new, empty study (save or back up the current one first)"],
+      ['[data-act="importhazid"]', "Bring in the HAZID register (.xlsx) so each What-If question can be linked to the hazards it examines"],
+      ['[data-act="exporthazop"]', "Download the questions marked Send to HAZOP as a HAZOP Study Manager file"],
+      ['[data-v="dashboard"]', "Progress of the study: checklist answered, What-If questions, risk, hand-over and HAZID coverage"],
+      ['[data-v="study"]', "Study title, scope, the HAZID it follows, the HAZOP it feeds, and the team"],
+      ['[data-v="hazid"]', "The HAZID register, and which What-If questions cover each hazard"],
+      ['[data-v="areas"]', "Divide the study into physical areas, functions or tasks, and choose their checklist packs"],
+      ['[data-v="checklist"]', "Answer the checklist for each area: Yes, No, N/A or ?; turn a gap into a What-If question"],
+      ['[data-v="worksheet"]', "What if · Hazard · Consequence · Safeguards · Recommendation, with risk and next step"],
+      ['[data-v="recs"]', "All recommendations, owners, due dates and status"],
+      ['[data-v="handover"]', "Questions sent to the HAZOP, grouped by node, and export to a HAZOP study file"],
+      ['[data-v="matrix"]', "The 5 × 5 risk matrix – the same as the HAZOP"],
+      ['[data-v="library"]', "All checklist items and What-If prompts in the four packs"],
+      ['[data-v="reports"]', "Print the report, export to Excel or to a HAZOP study file, or download a backup"],
+      ["#dSample", "Open the hot DRI transfer conveyor example to see a finished study"],
+      ["#addTeam", "Add a person to the study team"], ["#edStudy", "Edit the study details"],
+      ['[data-v="psi"]', "Drawings, procedures and data used in the study, and which areas they cover"], ["#addPsi", "Add a drawing or document used in the study"], ["#psiChk", "Add the usual PSI documents as a list to fill in"],
+      ["#impH", "Bring in the HAZID register from Excel"], ["#addH", "Add one HAZID item by hand"],
+      ["#addArea", "Add a physical area, function or task to review"], ["#addCk", "Add your own checklist question for this area"],
+      ["[data-pack]", "Use this checklist pack for the selected area (click again to remove it)"],
+      ["[data-mkwi]", "Raise a What-If question on the worksheet from this checklist item"],
+      ["[data-goto]", "Open the What-If question raised from this item"], ["[data-ans]", "Answer this checklist item (click again to clear)"],
+      ["#addWi", "Add a new What-If question for this area"], ["#toCk", "Go to the checklist for this area to find gaps"],
+      ["#w_sgadd", "Add this safeguard to the question"], ["[data-ipl]", "Claim this safeguard as an IPL for this scenario (click to toggle)"],
+      ["#w_rl", "Link the selected existing recommendation"], ["#w_ra", "Add a new recommendation and link it to this question"],
+      ["#addRec", "Add a recommendation"], ["#expH", "Download the hand-over as a HAZOP Study Manager file (.hazop.json)"],
+      ["#edM", "Edit the names and descriptions of the risk matrix"],
+      ["#rp", "Print the report, or choose Save as PDF"], ["#rx", "Export all tables to Excel"], ["#rh", "Export the hand-over to a HAZOP study file"], ["#rb", "Download a backup (.json)"]
+    ],
+    "Bow Tie Analysis": [
+      ['[data-act="new"]', "Start a new, empty bow tie (save or back up the current one first)"],
+      ["#btnHealth", "Switch between barriers at their design PFD and their current condition"],
+      ['[data-t="bowtie"]', "The diagram: threats, barriers, top event and consequences"],
+      ['[data-t="register"]', "All barriers: type, PFD, condition, owner, performance standard and verification"],
+      ['[data-t="lines"]', "Each threat and consequence line with its barriers in order"],
+      ['[data-t="results"]', "Risk ranking and how much each barrier matters"],
+      ['[data-t="matrix"]', "The risk matrix and frequency bands used for ranking"],
+      ["#addT", "Add a threat (a cause of the top event)"], ["#addC", "Add a consequence"],
+      ["#addB", "Add a new barrier to this line"], ["#addEx", "Add a barrier already in the register to this line"],
+      ["#up", "Move up"], ["#dn", "Move down"], ["#addEf", "Add an escalation factor that can defeat this barrier"],
+      ["#rm", "Remove the barrier from this line (it stays in the register)"], ["#addCt", "Add a control for this escalation factor"],
+      ["#bSel", "Select the barrier in the register"], ["#impFt", "Bring in a fault tree (.fta.json) so a gate can supply a barrier's PFD"]
+    ]
+  };
+  var LABELS = { // exact button labels, used when no selector rule matches
+    "Open worksheet": "Go to the HAZOP worksheet", "Apply": "Apply these settings", "Reset to default": "Go back to the default settings", "Columns…": "Show, hide or rename the worksheet columns", "Worksheet": "Open the worksheet for this item", "Checklist": "Open the checklist for this area", "Discard": "Discard this new question", "Save": "Save the changes", "Cancel": "Close without saving", "Delete": "Delete this record", "Link": "Link the selected item",
+    "All": "Show all recommendations", "Open": "Show only recommendations with this status", "In progress": "Show only recommendations with this status",
+    "Open + In progress": "Show recommendations that are still open or in progress", "Closed": "Show only recommendations with this status", "Rejected": "Show only recommendations with this status",
+    "Add": "Add this entry",
+    "Load the worked example": "Replace the current work with the example used in this guide", "Load the conveyor fire example": "Replace the current work with the example used in this guide",
+    "Print / save guide as PDF": "Print this guide, or choose Save as PDF in the print dialog",
+    "Rename": "Rename this imported fault tree", "Replace with newer version…": "Load a newer version of this fault tree (.fta.json)",
+    "Download .fta.json": "Save this fault tree as a file to open in the Fault Tree & PFD Calculator", "Remove": "Remove this imported fault tree from the file"
+  };
+  var ICONS = { "✕": "Remove", "🗑": "Delete", "↑": "Move up", "↓": "Move down", "⧉": "Duplicate", "◀": "Previous", "▶": "Next", "＋": "Add", "+": "Zoom in", "−": "Zoom out", "✎": "Edit", "→": "Go to" };
+  var RULES = COMMON.concat(TOOL[document.title] || []);
+
+  function tipFor(start) {
+    for (var el = start; el && el.nodeType === 1 && el !== document.body; el = el.parentNode) {
+      if (el.hasAttribute("data-tip")) return [el, el.getAttribute("data-tip")];
+      var t = el.getAttribute("title");
+      if (t) { el.removeAttribute("title"); if (t.trim()) { el.setAttribute("data-tip", t); return [el, t]; } }
+      if (el.namespaceURI === "http://www.w3.org/2000/svg") {
+        var st = null; for (var c = el.firstElementChild; c; c = c.nextElementSibling) if (c.tagName.toLowerCase() === "title") { st = c; break; }
+        if (st) { var s = st.textContent; st.remove(); if (s.trim()) { el.setAttribute("data-tip", s); return [el, s]; } }
+      }
+      for (var i = 0; i < RULES.length; i++) if (el.matches && el.matches(RULES[i][0])) return [el, RULES[i][1]];
+      if (el.tagName === "BUTTON") { var txt = el.textContent.trim(); if (ICONS[txt]) return [el, ICONS[txt]]; if (LABELS[txt]) return [el, LABELS[txt]]; }
+    }
+    return null;
+  }
+  var box, timer = null, cur = null;
+  function ensureBox() {
+    if (box) return box;
+    var st = document.createElement("style");
+    st.textContent = ".pst-tip{position:fixed;z-index:2147483000;max-width:320px;background:#172231;color:#f4f7fa;font:12.5px/1.35 system-ui,-apple-system,'Segoe UI',Arial,sans-serif;padding:6px 9px;border-radius:6px;box-shadow:0 6px 18px rgba(0,0,0,.25);pointer-events:none;opacity:0;transition:opacity .12s}.pst-tip.on{opacity:1}@media print{.pst-tip{display:none}}";
+    document.head.appendChild(st);
+    box = document.createElement("div"); box.className = "pst-tip"; box.setAttribute("role", "tooltip"); document.body.appendChild(box); return box;
+  }
+  function hide() { clearTimeout(timer); timer = null; cur = null; if (box) box.classList.remove("on"); }
+  function show(el, text) {
+    if (!el.isConnected) return;
+    var b = ensureBox(); b.textContent = text; b.classList.add("on");
+    var r = el.getBoundingClientRect(), w = b.offsetWidth, h = b.offsetHeight;
+    var x = Math.min(Math.max(6, r.left + r.width / 2 - w / 2), innerWidth - w - 6), y = r.bottom + 8;
+    if (y + h > innerHeight - 6) y = Math.max(6, r.top - h - 8);
+    b.style.left = x + "px"; b.style.top = y + "px";
+  }
+  function arm(e) {
+    var hit = tipFor(e.target);
+    if (hit && hit[0] === cur) return;
+    hide(); if (!hit) return;
+    cur = hit[0]; timer = setTimeout(function () { show(hit[0], hit[1]); }, DELAY);
+  }
+  document.addEventListener("mouseover", arm, true);
+  document.addEventListener("focusin", arm, true);
+  document.addEventListener("mouseout", function (e) { if (cur && !cur.contains(e.relatedTarget)) hide(); }, true);
+  ["focusout", "pointerdown", "wheel"].forEach(function (ev) { document.addEventListener(ev, hide, true); });
+  document.addEventListener("scroll", hide, true);
+  document.addEventListener("keydown", function (e) { if (e.key === "Escape") hide(); }, true);
+  window.PSTips = { delay: DELAY, tipFor: tipFor };
+})();
+
+</script>
+</body>
+</html>
