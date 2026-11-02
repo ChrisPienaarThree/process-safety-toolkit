@@ -37,6 +37,7 @@
   "hi_xlsx": "Propane storage - HAZID_Register.xlsx",
   "wi": "Propane storage - What-If WI-EX-PR-001.whatif.json",
   "wi_xlsx": "Propane storage - WhatIf_Checklist_Workbook.xlsx",
+  "lopa": "Propane storage - LOPA LP-EX-PR-001.lopa.json",
   "results": "results.json"
  },
  "constants": {

@@ -1,0 +1,1654 @@
+{
+ "app": "LOPA Study Manager",
+ "schema": 1,
+ "created": "2026-11-12T06:00:00.000Z",
+ "modified": "2026-11-12T16:00:00.000Z",
+ "study": {
+  "title": "LOPA – Propane storage and propane–air dilution system (worked example)",
+  "company": "Integrated steel works (illustrative example)",
+  "unit": "Utilities – LPG (propane) storage, vaporisation and propane–air (SNG) dilution",
+  "docNo": "LP-EX-PR-001",
+  "rev": "A",
+  "date": "2026-11-13",
+  "facilitator": "G. Safety",
+  "team": "G. Safety (LOPA facilitator), C. Process (process), E. Instrument (instrument / SIS), D. Operator (LPG plant operations), F. Mechanical (relief and mechanical)",
+  "hazopTitle": "PHA / HAZOP – Propane storage and propane–air dilution system (worked example)",
+  "hazopFile": "Propane storage - HAZOP HZ-EX-PR-001.hazop.json",
+  "hazopImported": "2026-11-13",
+  "scope": "The four HAZOP deviations ticked LOPA: bullet overfill (N01-06), loss of propane to the mixer (N03-01), tanker drive-away (N01-10) and bullet overpressure during unloading (N01-04). Illustrative values for training – not design data.",
+  "notes": ""
+ },
+ "settings": {
+  "mode": "explicit",
+  "credit": "accepted",
+  "alarpDec": 2,
+  "recOn": [
+   "S",
+   "E",
+   "A",
+   "R",
+   "C"
+  ],
+  "sev": [
+   "Negligible",
+   "Minor",
+   "Moderate",
+   "Major",
+   "Catastrophic"
+  ],
+  "tmel": {
+   "S": [
+    0.01,
+    0.001,
+    0.0001,
+    1e-05,
+    1e-06
+   ],
+   "E": [
+    0.01,
+    0.001,
+    0.0001,
+    1e-05,
+    1e-06
+   ],
+   "A": [
+    0.1,
+    0.01,
+    0.001,
+    0.0001,
+    1e-05
+   ],
+   "R": [
+    0.1,
+    0.01,
+    0.001,
+    0.0001,
+    1e-05
+   ],
+   "C": [
+    0.01,
+    0.001,
+    0.0001,
+    1e-05,
+    1e-06
+   ]
+  },
+  "req": {
+   "S": [
+    2,
+    3,
+    4,
+    5,
+    6
+   ],
+   "E": [
+    2,
+    3,
+    4,
+    5,
+    6
+   ],
+   "A": [
+    1,
+    2,
+    3,
+    4,
+    5
+   ],
+   "R": [
+    1,
+    2,
+    3,
+    4,
+    5
+   ],
+   "C": [
+    2,
+    3,
+    4,
+    5,
+    6
+   ]
+  },
+  "basis": "Typical example values – replace with the client's tolerable risk criteria before the study."
+ },
+ "scenarios": [
+  {
+   "id": "sc000404be21",
+   "no": "L-01",
+   "key": "dv000282|cz000283",
+   "devId": "dv000282",
+   "hazopRef": "N01-06",
+   "node": "N01 – Node 301 – Road tanker unloading to propane storage T-1/T-2/T-3",
+   "deviation": "Higher level in storage tank T-1/T-2/T-3 (overfill)",
+   "cause": "Transfer not stopped at high level (source)",
+   "consequence": "Source: tank pressurisation. Correctly: the bullet fills liquid-full; liquid propane reaches the relief valves – liquid relief and a large two-phase release at the tank farm; hydraulic overpressure of the liquid-full bullet as it warms",
+   "sev": {
+    "S": 5,
+    "E": 1,
+    "A": 4,
+    "R": 4,
+    "C": 3
+   },
+   "status": "Complete",
+   "ie": {
+    "desc": "Transfer not stopped at high level (source)",
+    "f": 0.15,
+    "libId": "",
+    "basis": "About 150 deliveries a year × 1E-3 per delivery that the operator does not stop at the fill limit (checklist in use) – illustrative"
+   },
+   "enabling": [],
+   "modifiers": [
+    {
+     "id": "cm000562bfcb",
+     "desc": "Probability of delayed ignition of the propane vented by the relief valves",
+     "p": 0.3,
+     "rec": [
+      "S",
+      "A",
+      "R",
+      "C"
+     ],
+     "basis": "CCPS ECCM (2014) §3.3 default (Moosemiller 2009); the operator and the driver attend every delivery, so no presence credit",
+     "libId": "cm-ign-delayed"
+    }
+   ],
+   "ipls": [
+    {
+     "id": "ip0001f91619",
+     "sgId": "sg000200",
+     "name": "LT-11/21/31 – High-high level trip LAHH (85 %) from LT-11/21/31 closes ROV-11/21/31 and stops the compressors (source: LT closes ROV)",
+     "type": "SIF / SIS",
+     "pfd": 0.011212509014400936,
+     "libId": "",
+     "basis": "FT-PR-01 gate G-005 – LAHH trip fails to close ROV-11 (PFDavg from the fault tree)",
+     "proposed": false,
+     "adj": {
+      "status": "Accepted with conditions",
+      "tests": {
+       "spec": "yes",
+       "indep": "yes",
+       "dep": "yes",
+       "aud": "yes",
+       "sec": "yes",
+       "time": "yes",
+       "cyber": "yes"
+      },
+      "evidence": "FT-PR-01 G-005; SRS draft for LAHH-11/21/31; proof-test records 2026",
+      "reviewer": "E. Instrument",
+      "date": "2026-11-12",
+      "accPfd": "",
+      "conditions": "Annual proof test of LT-11/21/31 and ROV-11/21/31 kept in the plan",
+      "reason": ""
+     },
+     "ftGate": "FT1|G-005"
+    },
+    {
+     "id": "ip0002b8f2f1",
+     "sgId": "sg000201",
+     "name": "LT-11/21/31 – High level alarm LAH at 80 % with operator response (stop unloading)",
+     "type": "Alarm with operator response",
+     "pfd": 0.10900000000000068,
+     "libId": "",
+     "basis": "FT-PR-01 gate G-004 – LAH not acted on",
+     "proposed": false,
+     "adj": {
+      "status": "Rejected",
+      "tests": {
+       "spec": "yes",
+       "indep": "no",
+       "dep": "yes",
+       "aud": "yes",
+       "sec": "yes",
+       "time": "yes",
+       "cyber": "yes"
+      },
+      "evidence": "FT-PR-01: LAH and LAHH share LT-11/21/31; the fault tree gives 3.9E-3 for both together, not 0.109 × 0.0112 = 1.2E-3",
+      "reviewer": "E. Instrument",
+      "date": "2026-11-12",
+      "accPfd": "",
+      "conditions": "",
+      "reason": "Not independent of the LAHH trip – both take their signal from LT-11/21/31"
+     },
+     "ftGate": "FT1|G-004"
+    },
+    {
+     "id": "ip00033cc1bf",
+     "sgId": "",
+     "name": "Independent high-high level switch LSHH-11/21/31 on its own tapping, SIL 2, closing ROV-11/21/31 (recommendation)",
+     "type": "SIF / SIS",
+     "pfd": 0.01,
+     "libId": "",
+     "basis": "Proposed – SIL 2 assumed; illustrative",
+     "proposed": true,
+     "adj": {
+      "status": "Claimed",
+      "tests": {},
+      "evidence": "",
+      "reviewer": "",
+      "date": "",
+      "accPfd": "",
+      "conditions": "",
+      "reason": ""
+     }
+    }
+   ],
+   "others": [
+    "Tanker unloading procedure OP-PR-010 and checklist: ullage check before unloading, operator in attendance throughout",
+    "PSV-11/21/31 – Bullet relief valves PSV-11/21/31 at 17.5 barg, fire-case sized, discharging vertically upwards (source: 'PSV provided')"
+   ],
+   "notes": "FT-PR-01 gives an overfill frequency of 1.9E-3 /yr with both protections. The LOPA rejects the LAH credit because it shares the transmitter with the trip – the same dependency the fault tree models.",
+   "ack": {},
+   "alarp": {
+    "options": "Second level measurement, reduced fill limit, automatic stop of the unloading compressor",
+    "decision": "Further risk reduction is reasonably practicable – recommendation raised",
+    "justification": "The gap is closed only by an independent level switch – recommendation raised",
+    "by": "G. Safety",
+    "date": "2026-11-12"
+   },
+   "result": "SIL 2 needed (Safety, RRF 505); with proposed IPLs: Gap ≤ 10× – one more IPL or SIL 1 – accepted IPLs only"
+  },
+  {
+   "id": "sc0009ba2309",
+   "no": "L-02",
+   "key": "dv000282|cz000284",
+   "devId": "dv000282",
+   "hazopRef": "N01-06",
+   "node": "N01 – Node 301 – Road tanker unloading to propane storage T-1/T-2/T-3",
+   "deviation": "Higher level in storage tank T-1/T-2/T-3 (overfill)",
+   "cause": "Wrong ullage – delivery larger than the free volume",
+   "consequence": "Source: tank pressurisation. Correctly: the bullet fills liquid-full; liquid propane reaches the relief valves – liquid relief and a large two-phase release at the tank farm; hydraulic overpressure of the liquid-full bullet as it warms",
+   "sev": {
+    "S": 5,
+    "E": 1,
+    "A": 4,
+    "R": 4,
+    "C": 3
+   },
+   "status": "Complete",
+   "ie": {
+    "desc": "Wrong ullage – delivery larger than the free volume",
+    "f": 0.45,
+    "libId": "",
+    "basis": "FT-PR-01 event BE-001: delivery larger than the free volume, ullage not checked – 0.45 /yr"
+   },
+   "enabling": [],
+   "modifiers": [
+    {
+     "id": "cm00104bd368",
+     "desc": "Probability of delayed ignition of the propane vented by the relief valves",
+     "p": 0.3,
+     "rec": [
+      "S",
+      "A",
+      "R",
+      "C"
+     ],
+     "basis": "CCPS ECCM (2014) §3.3 default (Moosemiller 2009); the operator and the driver attend every delivery, so no presence credit",
+     "libId": "cm-ign-delayed"
+    }
+   ],
+   "ipls": [
+    {
+     "id": "ip000672778c",
+     "sgId": "sg000200",
+     "name": "LT-11/21/31 – High-high level trip LAHH (85 %) from LT-11/21/31 closes ROV-11/21/31 and stops the compressors (source: LT closes ROV)",
+     "type": "SIF / SIS",
+     "pfd": 0.011212509014400936,
+     "libId": "",
+     "basis": "FT-PR-01 gate G-005 – LAHH trip fails to close ROV-11 (PFDavg from the fault tree)",
+     "proposed": false,
+     "adj": {
+      "status": "Accepted with conditions",
+      "tests": {
+       "spec": "yes",
+       "indep": "yes",
+       "dep": "yes",
+       "aud": "yes",
+       "sec": "yes",
+       "time": "yes",
+       "cyber": "yes"
+      },
+      "evidence": "FT-PR-01 G-005; SRS draft for LAHH-11/21/31; proof-test records 2026",
+      "reviewer": "E. Instrument",
+      "date": "2026-11-12",
+      "accPfd": "",
+      "conditions": "Annual proof test of LT-11/21/31 and ROV-11/21/31 kept in the plan",
+      "reason": ""
+     },
+     "ftGate": "FT1|G-005"
+    },
+    {
+     "id": "ip00075b6d9c",
+     "sgId": "sg000201",
+     "name": "LT-11/21/31 – High level alarm LAH at 80 % with operator response (stop unloading)",
+     "type": "Alarm with operator response",
+     "pfd": 0.10900000000000068,
+     "libId": "",
+     "basis": "FT-PR-01 gate G-004 – LAH not acted on",
+     "proposed": false,
+     "adj": {
+      "status": "Rejected",
+      "tests": {
+       "spec": "yes",
+       "indep": "no",
+       "dep": "yes",
+       "aud": "yes",
+       "sec": "yes",
+       "time": "yes",
+       "cyber": "yes"
+      },
+      "evidence": "FT-PR-01: LAH and LAHH share LT-11/21/31; the fault tree gives 3.9E-3 for both together, not 0.109 × 0.0112 = 1.2E-3",
+      "reviewer": "E. Instrument",
+      "date": "2026-11-12",
+      "accPfd": "",
+      "conditions": "",
+      "reason": "Not independent of the LAHH trip – both take their signal from LT-11/21/31"
+     },
+     "ftGate": "FT1|G-004"
+    },
+    {
+     "id": "ip0008ac53a4",
+     "sgId": "",
+     "name": "Independent high-high level switch LSHH-11/21/31 on its own tapping, SIL 2, closing ROV-11/21/31 (recommendation)",
+     "type": "SIF / SIS",
+     "pfd": 0.01,
+     "libId": "",
+     "basis": "Proposed – SIL 2 assumed; illustrative",
+     "proposed": true,
+     "adj": {
+      "status": "Claimed",
+      "tests": {},
+      "evidence": "",
+      "reviewer": "",
+      "date": "",
+      "accPfd": "",
+      "conditions": "",
+      "reason": ""
+     }
+    }
+   ],
+   "others": [
+    "Tanker unloading procedure OP-PR-010 and checklist: ullage check before unloading, operator in attendance throughout",
+    "PSV-11/21/31 – Bullet relief valves PSV-11/21/31 at 17.5 barg, fire-case sized, discharging vertically upwards (source: 'PSV provided')"
+   ],
+   "notes": "FT-PR-01 gives an overfill frequency of 1.9E-3 /yr with both protections. The LOPA rejects the LAH credit because it shares the transmitter with the trip – the same dependency the fault tree models.",
+   "ack": {},
+   "alarp": {
+    "options": "Second level measurement, reduced fill limit, automatic stop of the unloading compressor",
+    "decision": "Further risk reduction is reasonably practicable – recommendation raised",
+    "justification": "The gap is closed only by an independent level switch – recommendation raised",
+    "by": "G. Safety",
+    "date": "2026-11-12"
+   },
+   "result": "SIL 3 needed (Safety, RRF 1.5E+3); with proposed IPLs: SIL 1 needed – accepted IPLs only"
+  },
+  {
+   "id": "sc0014ca5351",
+   "no": "L-03",
+   "key": "dv000282|cz000285",
+   "devId": "dv000282",
+   "hazopRef": "N01-06",
+   "node": "N01 – Node 301 – Road tanker unloading to propane storage T-1/T-2/T-3",
+   "deviation": "Higher level in storage tank T-1/T-2/T-3 (overfill)",
+   "cause": "Level transmitter LT-11/21/31 reads low (drift, stuck float)",
+   "consequence": "Source: tank pressurisation. Correctly: the bullet fills liquid-full; liquid propane reaches the relief valves – liquid relief and a large two-phase release at the tank farm; hydraulic overpressure of the liquid-full bullet as it warms",
+   "sev": {
+    "S": 5,
+    "E": 1,
+    "A": 4,
+    "R": 4,
+    "C": 3
+   },
+   "status": "Complete",
+   "ie": {
+    "desc": "Level transmitter LT-11/21/31 reads low (drift, stuck float)",
+    "f": 0.05,
+    "libId": "",
+    "basis": "FT-PR-01 event BE-002: revealed failures of the level transmitter per year – 0.05 /yr"
+   },
+   "enabling": [],
+   "modifiers": [
+    {
+     "id": "cm0015c3f374",
+     "desc": "Probability of delayed ignition of the propane vented by the relief valves",
+     "p": 0.3,
+     "rec": [
+      "S",
+      "A",
+      "R",
+      "C"
+     ],
+     "basis": "CCPS ECCM (2014) §3.3 default (Moosemiller 2009); the operator and the driver attend every delivery, so no presence credit",
+     "libId": "cm-ign-delayed"
+    }
+   ],
+   "ipls": [
+    {
+     "id": "ip001121a0d5",
+     "sgId": "sg000200",
+     "name": "LT-11/21/31 – High-high level trip LAHH (85 %) from LT-11/21/31 closes ROV-11/21/31 and stops the compressors (source: LT closes ROV)",
+     "type": "SIF / SIS",
+     "pfd": 0.011212509014400936,
+     "libId": "",
+     "basis": "FT-PR-01 gate G-005 – LAHH trip fails to close ROV-11 (PFDavg from the fault tree)",
+     "proposed": false,
+     "adj": {
+      "status": "Rejected",
+      "tests": {
+       "spec": "yes",
+       "indep": "no",
+       "dep": "yes",
+       "aud": "yes",
+       "sec": "yes",
+       "time": "yes",
+       "cyber": "yes"
+      },
+      "evidence": "P&ID: LAHH uses the same transmitter LT-11/21/31 that fails in this scenario",
+      "reviewer": "E. Instrument",
+      "date": "2026-11-12",
+      "accPfd": "",
+      "conditions": "",
+      "reason": "Not independent of the initiating event – the trip reads the failed transmitter"
+     },
+     "ftGate": "FT1|G-005"
+    },
+    {
+     "id": "ip0012a7bb26",
+     "sgId": "sg000201",
+     "name": "LT-11/21/31 – High level alarm LAH at 80 % with operator response (stop unloading)",
+     "type": "Alarm with operator response",
+     "pfd": 0.10900000000000068,
+     "libId": "",
+     "basis": "FT-PR-01 gate G-004 – LAH not acted on",
+     "proposed": false,
+     "adj": {
+      "status": "Rejected",
+      "tests": {
+       "spec": "yes",
+       "indep": "no",
+       "dep": "yes",
+       "aud": "yes",
+       "sec": "yes",
+       "time": "yes",
+       "cyber": "yes"
+      },
+      "evidence": "FT-PR-01: LAH and LAHH share LT-11/21/31; the fault tree gives 3.9E-3 for both together, not 0.109 × 0.0112 = 1.2E-3",
+      "reviewer": "E. Instrument",
+      "date": "2026-11-12",
+      "accPfd": "",
+      "conditions": "",
+      "reason": "Not independent of the LAHH trip – both take their signal from LT-11/21/31"
+     },
+     "ftGate": "FT1|G-004"
+    },
+    {
+     "id": "ip0013bd9840",
+     "sgId": "",
+     "name": "Independent high-high level switch LSHH-11/21/31 on its own tapping, SIL 2, closing ROV-11/21/31 (recommendation)",
+     "type": "SIF / SIS",
+     "pfd": 0.01,
+     "libId": "",
+     "basis": "Proposed – SIL 2 assumed; illustrative",
+     "proposed": true,
+     "adj": {
+      "status": "Claimed",
+      "tests": {},
+      "evidence": "",
+      "reviewer": "",
+      "date": "",
+      "accPfd": "",
+      "conditions": "",
+      "reason": ""
+     }
+    }
+   ],
+   "others": [
+    "Tanker unloading procedure OP-PR-010 and checklist: ullage check before unloading, operator in attendance throughout",
+    "PSV-11/21/31 – Bullet relief valves PSV-11/21/31 at 17.5 barg, fire-case sized, discharging vertically upwards (source: 'PSV provided')"
+   ],
+   "notes": "FT-PR-01 gives an overfill frequency of 1.9E-3 /yr with both protections. The LOPA rejects the LAH credit because it shares the transmitter with the trip – the same dependency the fault tree models.",
+   "ack": {},
+   "alarp": {
+    "options": "Second level measurement, reduced fill limit, automatic stop of the unloading compressor",
+    "decision": "Further risk reduction is reasonably practicable – recommendation raised",
+    "justification": "The gap is closed only by an independent level switch – recommendation raised",
+    "by": "G. Safety",
+    "date": "2026-11-12"
+   },
+   "result": "Above SIL 3 – change the design (Safety, RRF 1.5E+4); with proposed IPLs: SIL 2 needed – accepted IPLs only"
+  },
+  {
+   "id": "sc001939ab17",
+   "no": "L-04",
+   "key": "dv000407|cz000408",
+   "devId": "dv000407",
+   "hazopRef": "N03-01",
+   "node": "N03 – Node 303 – Propane dilution system (propane–air mixing station)",
+   "deviation": "Less / no propane to the mixer while air continues – mixture moves into the flammable range",
+   "cause": "Loss of propane vapour supply (vaporiser trip, PCV-01 closes, header low pressure)",
+   "consequence": "Propane fraction falls from 55 % towards the flammable range (below 9.5 % in air) – explosive mixture in the mixer, surge tank ST-01 and the header to the burners; ignition at a burner flashes back – internal explosion of ST-01 and the header",
+   "sev": {
+    "S": 5,
+    "E": 1,
+    "A": 4,
+    "R": 3,
+    "C": 2
+   },
+   "status": "Complete",
+   "ie": {
+    "desc": "Loss of propane vapour supply (vaporiser trip, PCV-01 closes, header low pressure)",
+    "f": 0.5,
+    "libId": "",
+    "basis": "FT-PR-02 event BE-001: loss of propane vapour supply – 0.5 /yr"
+   },
+   "enabling": [],
+   "modifiers": [
+    {
+     "id": "cm00201430aa",
+     "desc": "Probability that a person is present at the mixing station",
+     "p": 0.1,
+     "rec": [
+      "S"
+     ],
+     "basis": "Unattended station; rounds about 17 h a week – CCPS ECCM (2014) Table 3.4",
+     "libId": "cm-pres-17h"
+    }
+   ],
+   "ipls": [
+    {
+     "id": "ip0016c18060",
+     "sgId": "sg000225",
+     "name": "PSLL-01 – Low propane pressure trip PSLL-01: stops B-01/B-02 and closes XV-01 / XV-02 (mixture trip)",
+     "type": "SIF / SIS",
+     "pfd": 0.1594233535951265,
+     "libId": "",
+     "basis": "FT-PR-02 gate G-003 – PSLL-01 fails to stop the air",
+     "proposed": false,
+     "adj": {
+      "status": "Accepted",
+      "tests": {
+       "spec": "yes",
+       "indep": "yes",
+       "dep": "yes",
+       "aud": "yes",
+       "sec": "yes",
+       "time": "yes",
+       "cyber": "yes"
+      },
+      "evidence": "FT-PR-02 G-003; trip test records",
+      "reviewer": "E. Instrument",
+      "date": "2026-11-12",
+      "accPfd": "",
+      "conditions": "",
+      "reason": ""
+     },
+     "ftGate": "FT2|G-003"
+    },
+    {
+     "id": "ip00175fb355",
+     "sgId": "sg000226",
+     "name": "AT-01 – Calorimeter / Wobbe analyser AT-01 with low-heating-value trip (independent of FFIC-01)",
+     "type": "SIF / SIS",
+     "pfd": 0.10978345189620395,
+     "libId": "",
+     "basis": "FT-PR-02 gate G-004 – calorimeter trip AT-01 fails",
+     "proposed": false,
+     "adj": {
+      "status": "Accepted with conditions",
+      "tests": {
+       "spec": "yes",
+       "indep": "yes",
+       "dep": "yes",
+       "aud": "yes",
+       "sec": "yes",
+       "time": "yes",
+       "cyber": "yes"
+      },
+      "evidence": "FT-PR-02 G-004; analyser maintenance records",
+      "reviewer": "E. Instrument",
+      "date": "2026-11-12",
+      "accPfd": "",
+      "conditions": "Monthly calibration check of AT-01 kept in the plan",
+      "reason": ""
+     },
+     "ftGate": "FT2|G-004"
+    },
+    {
+     "id": "ip001866fcac",
+     "sgId": "",
+     "name": "Propane / air ratio trip on an independent propane flow meter, SIL 2 (recommendation)",
+     "type": "SIF / SIS",
+     "pfd": 0.01,
+     "libId": "",
+     "basis": "Proposed – SIL 2 assumed; illustrative",
+     "proposed": true,
+     "adj": {
+      "status": "Claimed",
+      "tests": {},
+      "evidence": "",
+      "reviewer": "",
+      "date": "",
+      "accPfd": "",
+      "conditions": "",
+      "reason": ""
+     }
+    }
+   ],
+   "others": [
+    "FFIC-01 – Propane / air ratio controller FFIC-01 with cross-limiting (air follows propane)",
+    "FA-01 – In-line flame arrester FA-01 on the propane–air header to the users"
+   ],
+   "notes": "FT-PR-02 quantifies the same protection: PSLL-01 and AT-01 together fail with PFD 1.8E-2.",
+   "ack": {},
+   "alarp": {
+    "options": "Independent ratio trip; nitrogen blanketing of the surge tank",
+    "decision": "Further risk reduction is reasonably practicable – recommendation raised",
+    "justification": "Recommendation raised for the ratio trip",
+    "by": "G. Safety",
+    "date": "2026-11-12"
+   },
+   "result": "SIL 2 needed (Safety, RRF 875); with proposed IPLs: Gap ≤ 10× – one more IPL or SIL 1 – accepted IPLs only"
+  },
+  {
+   "id": "sc0024ba483a",
+   "no": "L-05",
+   "key": "dv000407|cz000409",
+   "devId": "dv000407",
+   "hazopRef": "N03-01",
+   "node": "N03 – Node 303 – Propane dilution system (propane–air mixing station)",
+   "deviation": "Less / no propane to the mixer while air continues – mixture moves into the flammable range",
+   "cause": "XV-01 closes spuriously",
+   "consequence": "Propane fraction falls from 55 % towards the flammable range (below 9.5 % in air) – explosive mixture in the mixer, surge tank ST-01 and the header to the burners; ignition at a burner flashes back – internal explosion of ST-01 and the header",
+   "sev": {
+    "S": 5,
+    "E": 1,
+    "A": 4,
+    "R": 3,
+    "C": 2
+   },
+   "status": "Complete",
+   "ie": {
+    "desc": "XV-01 closes spuriously",
+    "f": 0.1,
+    "libId": "ie-sis-spurious",
+    "basis": "CCPS LOPA (2001) Table 5.1 – spurious trip of a SIF (FT-PR-02 event BE-002)"
+   },
+   "enabling": [],
+   "modifiers": [
+    {
+     "id": "cm00257edd24",
+     "desc": "Probability that a person is present at the mixing station",
+     "p": 0.1,
+     "rec": [
+      "S"
+     ],
+     "basis": "Unattended station; rounds about 17 h a week – CCPS ECCM (2014) Table 3.4",
+     "libId": "cm-pres-17h"
+    }
+   ],
+   "ipls": [
+    {
+     "id": "ip0021cc8bb9",
+     "sgId": "sg000225",
+     "name": "PSLL-01 – Low propane pressure trip PSLL-01: stops B-01/B-02 and closes XV-01 / XV-02 (mixture trip)",
+     "type": "SIF / SIS",
+     "pfd": 0.1594233535951265,
+     "libId": "",
+     "basis": "FT-PR-02 gate G-003 – PSLL-01 fails to stop the air",
+     "proposed": false,
+     "adj": {
+      "status": "Accepted",
+      "tests": {
+       "spec": "yes",
+       "indep": "yes",
+       "dep": "yes",
+       "aud": "yes",
+       "sec": "yes",
+       "time": "yes",
+       "cyber": "yes"
+      },
+      "evidence": "FT-PR-02 G-003; trip test records",
+      "reviewer": "E. Instrument",
+      "date": "2026-11-12",
+      "accPfd": "",
+      "conditions": "",
+      "reason": ""
+     },
+     "ftGate": "FT2|G-003"
+    },
+    {
+     "id": "ip00222ff9f2",
+     "sgId": "sg000226",
+     "name": "AT-01 – Calorimeter / Wobbe analyser AT-01 with low-heating-value trip (independent of FFIC-01)",
+     "type": "SIF / SIS",
+     "pfd": 0.10978345189620395,
+     "libId": "",
+     "basis": "FT-PR-02 gate G-004 – calorimeter trip AT-01 fails",
+     "proposed": false,
+     "adj": {
+      "status": "Accepted with conditions",
+      "tests": {
+       "spec": "yes",
+       "indep": "yes",
+       "dep": "yes",
+       "aud": "yes",
+       "sec": "yes",
+       "time": "yes",
+       "cyber": "yes"
+      },
+      "evidence": "FT-PR-02 G-004; analyser maintenance records",
+      "reviewer": "E. Instrument",
+      "date": "2026-11-12",
+      "accPfd": "",
+      "conditions": "Monthly calibration check of AT-01 kept in the plan",
+      "reason": ""
+     },
+     "ftGate": "FT2|G-004"
+    },
+    {
+     "id": "ip00230adaad",
+     "sgId": "",
+     "name": "Propane / air ratio trip on an independent propane flow meter, SIL 2 (recommendation)",
+     "type": "SIF / SIS",
+     "pfd": 0.01,
+     "libId": "",
+     "basis": "Proposed – SIL 2 assumed; illustrative",
+     "proposed": true,
+     "adj": {
+      "status": "Claimed",
+      "tests": {},
+      "evidence": "",
+      "reviewer": "",
+      "date": "",
+      "accPfd": "",
+      "conditions": "",
+      "reason": ""
+     }
+    }
+   ],
+   "others": [
+    "FFIC-01 – Propane / air ratio controller FFIC-01 with cross-limiting (air follows propane)",
+    "FA-01 – In-line flame arrester FA-01 on the propane–air header to the users"
+   ],
+   "notes": "FT-PR-02 quantifies the same protection: PSLL-01 and AT-01 together fail with PFD 1.8E-2.",
+   "ack": {},
+   "alarp": {
+    "options": "Independent ratio trip; nitrogen blanketing of the surge tank",
+    "decision": "Further risk reduction is reasonably practicable – recommendation raised",
+    "justification": "Recommendation raised for the ratio trip",
+    "by": "G. Safety",
+    "date": "2026-11-12"
+   },
+   "result": "SIL 2 needed (Safety, RRF 175); with proposed IPLs: Gap ≤ 10× – one more IPL or SIL 1 – accepted IPLs only"
+  },
+  {
+   "id": "sc0029d3699f",
+   "no": "L-06",
+   "key": "dv000407|cz000410",
+   "devId": "dv000407",
+   "hazopRef": "N03-01",
+   "node": "N03 – Node 303 – Propane dilution system (propane–air mixing station)",
+   "deviation": "Less / no propane to the mixer while air continues – mixture moves into the flammable range",
+   "cause": "FFIC-01 propane flow transmitter fails high",
+   "consequence": "Propane fraction falls from 55 % towards the flammable range (below 9.5 % in air) – explosive mixture in the mixer, surge tank ST-01 and the header to the burners; ignition at a burner flashes back – internal explosion of ST-01 and the header",
+   "sev": {
+    "S": 5,
+    "E": 1,
+    "A": 4,
+    "R": 3,
+    "C": 2
+   },
+   "status": "Complete",
+   "ie": {
+    "desc": "FFIC-01 propane flow transmitter fails high",
+    "f": 0.1,
+    "libId": "ie-bpcs",
+    "basis": "CCPS LOPA (2001) Table 5.1 – BPCS loop failure (FT-PR-02 event BE-003)"
+   },
+   "enabling": [],
+   "modifiers": [
+    {
+     "id": "cm0030914275",
+     "desc": "Probability that a person is present at the mixing station",
+     "p": 0.1,
+     "rec": [
+      "S"
+     ],
+     "basis": "Unattended station; rounds about 17 h a week – CCPS ECCM (2014) Table 3.4",
+     "libId": "cm-pres-17h"
+    }
+   ],
+   "ipls": [
+    {
+     "id": "ip0026a837dc",
+     "sgId": "sg000225",
+     "name": "PSLL-01 – Low propane pressure trip PSLL-01: stops B-01/B-02 and closes XV-01 / XV-02 (mixture trip)",
+     "type": "SIF / SIS",
+     "pfd": 0.1594233535951265,
+     "libId": "",
+     "basis": "FT-PR-02 gate G-003 – PSLL-01 fails to stop the air",
+     "proposed": false,
+     "adj": {
+      "status": "Rejected",
+      "tests": {
+       "spec": "no",
+       "indep": "yes",
+       "dep": "yes",
+       "aud": "yes",
+       "sec": "yes",
+       "time": "yes",
+       "cyber": "yes"
+      },
+      "evidence": "FT-PR-02: PSLL-01 only sees a loss of propane pressure",
+      "reviewer": "E. Instrument",
+      "date": "2026-11-12",
+      "accPfd": "",
+      "conditions": "",
+      "reason": "Not specific – an FFIC-01 fault with air excess does not lower the propane pressure"
+     },
+     "ftGate": "FT2|G-003"
+    },
+    {
+     "id": "ip00272f989b",
+     "sgId": "sg000226",
+     "name": "AT-01 – Calorimeter / Wobbe analyser AT-01 with low-heating-value trip (independent of FFIC-01)",
+     "type": "SIF / SIS",
+     "pfd": 0.10978345189620395,
+     "libId": "",
+     "basis": "FT-PR-02 gate G-004 – calorimeter trip AT-01 fails",
+     "proposed": false,
+     "adj": {
+      "status": "Accepted with conditions",
+      "tests": {
+       "spec": "yes",
+       "indep": "yes",
+       "dep": "yes",
+       "aud": "yes",
+       "sec": "yes",
+       "time": "yes",
+       "cyber": "yes"
+      },
+      "evidence": "FT-PR-02 G-004; analyser maintenance records",
+      "reviewer": "E. Instrument",
+      "date": "2026-11-12",
+      "accPfd": "",
+      "conditions": "Monthly calibration check of AT-01 kept in the plan",
+      "reason": ""
+     },
+     "ftGate": "FT2|G-004"
+    },
+    {
+     "id": "ip0028fa4824",
+     "sgId": "",
+     "name": "Propane / air ratio trip on an independent propane flow meter, SIL 2 (recommendation)",
+     "type": "SIF / SIS",
+     "pfd": 0.01,
+     "libId": "",
+     "basis": "Proposed – SIL 2 assumed; illustrative",
+     "proposed": true,
+     "adj": {
+      "status": "Claimed",
+      "tests": {},
+      "evidence": "",
+      "reviewer": "",
+      "date": "",
+      "accPfd": "",
+      "conditions": "",
+      "reason": ""
+     }
+    }
+   ],
+   "others": [
+    "FFIC-01 – Propane / air ratio controller FFIC-01 with cross-limiting (air follows propane)",
+    "FA-01 – In-line flame arrester FA-01 on the propane–air header to the users"
+   ],
+   "notes": "FT-PR-02 quantifies the same protection: PSLL-01 and AT-01 together fail with PFD 1.8E-2.",
+   "ack": {},
+   "alarp": {
+    "options": "Independent ratio trip; nitrogen blanketing of the surge tank",
+    "decision": "Further risk reduction is reasonably practicable – recommendation raised",
+    "justification": "Recommendation raised for the ratio trip",
+    "by": "G. Safety",
+    "date": "2026-11-12"
+   },
+   "result": "SIL 3 needed (Safety, RRF 1.1E+3); with proposed IPLs: SIL 1 needed – accepted IPLs only"
+  },
+  {
+   "id": "sc00332f8c17",
+   "no": "L-07",
+   "key": "dv000317|cz000318",
+   "devId": "dv000317",
+   "hazopRef": "N01-10",
+   "node": "N01 – Node 301 – Road tanker unloading to propane storage T-1/T-2/T-3",
+   "deviation": "Tanker drive-away while still connected",
+   "cause": "Driver moves the tanker before disconnection",
+   "consequence": "Arm or hose pulled apart – liquid release from both the tanker and the plant side; severe if the excess-flow valves do not close",
+   "sev": {
+    "S": 5,
+    "E": 2,
+    "A": 3,
+    "R": 3,
+    "C": 2
+   },
+   "status": "Complete",
+   "ie": {
+    "desc": "Driver moves the tanker before disconnection",
+    "f": 0.01,
+    "libId": "",
+    "basis": "About 150 deliveries a year; the operator holds the tanker keys under OP-PR-010 – 1E-2 /yr drive-aways, illustrative"
+   },
+   "enabling": [],
+   "modifiers": [
+    {
+     "id": "cm00347c4bfb",
+     "desc": "Probability of delayed ignition of the released propane",
+     "p": 0.3,
+     "rec": [
+      "S",
+      "A",
+      "R",
+      "C"
+     ],
+     "basis": "CCPS ECCM (2014) §3.3 default (Moosemiller 2009)",
+     "libId": "cm-ign-delayed"
+    }
+   ],
+   "ipls": [
+    {
+     "id": "ip00313b9366",
+     "sgId": "sg000204",
+     "name": "ERC-1 – Emergency release coupling ERC-1 on the unloading arm with self-closing valves on both sides",
+     "type": "Mechanical device",
+     "pfd": 0.01,
+     "libId": "",
+     "basis": "Breakaway coupling with self-closing valves, as a mechanical device of CCPS IPS (2007) Table B.4 (RRF 100) – confirm with vendor data",
+     "proposed": false,
+     "adj": {
+      "status": "Accepted with conditions",
+      "tests": {
+       "spec": "yes",
+       "indep": "yes",
+       "dep": "yes",
+       "aud": "yes",
+       "sec": "yes",
+       "time": "yes",
+       "cyber": "yes"
+      },
+      "evidence": "Vendor certificate; annual function test of ERC-1",
+      "reviewer": "F. Mechanical",
+      "date": "2026-11-12",
+      "accPfd": "",
+      "conditions": "Annual function test of ERC-1 and of both self-closing valves",
+      "reason": ""
+     }
+    },
+    {
+     "id": "ip0032977058",
+     "sgId": "",
+     "name": "Wheel-chock / brake interlock with the unloading arm (recommendation)",
+     "type": "Mechanical device",
+     "pfd": 0.1,
+     "libId": "",
+     "basis": "Proposed – illustrative",
+     "proposed": true,
+     "adj": {
+      "status": "Claimed",
+      "tests": {},
+      "evidence": "",
+      "reviewer": "",
+      "date": "",
+      "accPfd": "",
+      "conditions": "",
+      "reason": ""
+     }
+    }
+   ],
+   "others": [
+    "Tanker brake interlock and wheel chocks; keys held by the unloading operator",
+    "Tanker unloading procedure OP-PR-010 and checklist: ullage check before unloading, operator in attendance throughout"
+   ],
+   "notes": "Safety needs SIL 1 equivalent risk reduction beyond the ERC; the interlock closes the gap.",
+   "ack": {},
+   "alarp": {
+    "options": "Wheel-chock interlock; key-holding procedure",
+    "decision": "Further risk reduction is reasonably practicable – recommendation raised",
+    "justification": "Recommendation raised",
+    "by": "G. Safety",
+    "date": "2026-11-12"
+   },
+   "result": "SIL 1 needed (Safety, RRF 30); with proposed IPLs: Gap ≤ 10× – one more IPL or SIL 1 – accepted IPLs only"
+  },
+  {
+   "id": "sc003736e43e",
+   "no": "L-08",
+   "key": "dv000317|cz000319",
+   "devId": "dv000317",
+   "hazopRef": "N01-10",
+   "node": "N01 – Node 301 – Road tanker unloading to propane storage T-1/T-2/T-3",
+   "deviation": "Tanker drive-away while still connected",
+   "cause": "Brakes not applied / chocks missing",
+   "consequence": "Arm or hose pulled apart – liquid release from both the tanker and the plant side; severe if the excess-flow valves do not close",
+   "sev": {
+    "S": 5,
+    "E": 2,
+    "A": 3,
+    "R": 3,
+    "C": 2
+   },
+   "status": "Complete",
+   "ie": {
+    "desc": "Brakes not applied / chocks missing",
+    "f": 0.005,
+    "libId": "",
+    "basis": "Brakes not applied / chocks missing and the tanker rolls – illustrative"
+   },
+   "enabling": [],
+   "modifiers": [
+    {
+     "id": "cm0038005517",
+     "desc": "Probability of delayed ignition of the released propane",
+     "p": 0.3,
+     "rec": [
+      "S",
+      "A",
+      "R",
+      "C"
+     ],
+     "basis": "CCPS ECCM (2014) §3.3 default (Moosemiller 2009)",
+     "libId": "cm-ign-delayed"
+    }
+   ],
+   "ipls": [
+    {
+     "id": "ip0035008a54",
+     "sgId": "sg000204",
+     "name": "ERC-1 – Emergency release coupling ERC-1 on the unloading arm with self-closing valves on both sides",
+     "type": "Mechanical device",
+     "pfd": 0.01,
+     "libId": "",
+     "basis": "Breakaway coupling with self-closing valves, as a mechanical device of CCPS IPS (2007) Table B.4 (RRF 100) – confirm with vendor data",
+     "proposed": false,
+     "adj": {
+      "status": "Accepted with conditions",
+      "tests": {
+       "spec": "yes",
+       "indep": "yes",
+       "dep": "yes",
+       "aud": "yes",
+       "sec": "yes",
+       "time": "yes",
+       "cyber": "yes"
+      },
+      "evidence": "Vendor certificate; annual function test of ERC-1",
+      "reviewer": "F. Mechanical",
+      "date": "2026-11-12",
+      "accPfd": "",
+      "conditions": "Annual function test of ERC-1 and of both self-closing valves",
+      "reason": ""
+     }
+    },
+    {
+     "id": "ip0036b5d459",
+     "sgId": "",
+     "name": "Wheel-chock / brake interlock with the unloading arm (recommendation)",
+     "type": "Mechanical device",
+     "pfd": 0.1,
+     "libId": "",
+     "basis": "Proposed – illustrative",
+     "proposed": true,
+     "adj": {
+      "status": "Claimed",
+      "tests": {},
+      "evidence": "",
+      "reviewer": "",
+      "date": "",
+      "accPfd": "",
+      "conditions": "",
+      "reason": ""
+     }
+    }
+   ],
+   "others": [
+    "Tanker brake interlock and wheel chocks; keys held by the unloading operator",
+    "Tanker unloading procedure OP-PR-010 and checklist: ullage check before unloading, operator in attendance throughout"
+   ],
+   "notes": "Safety needs SIL 1 equivalent risk reduction beyond the ERC; the interlock closes the gap.",
+   "ack": {},
+   "alarp": {
+    "options": "Wheel-chock interlock; key-holding procedure",
+    "decision": "Further risk reduction is reasonably practicable – recommendation raised",
+    "justification": "Recommendation raised",
+    "by": "G. Safety",
+    "date": "2026-11-12"
+   },
+   "result": "SIL 1 needed (Safety, RRF 15); with proposed IPLs: Gap ≤ 10× – one more IPL or SIL 1 – accepted IPLs only"
+  },
+  {
+   "id": "sc0041184e17",
+   "no": "L-09",
+   "key": "dv000270|cz000271",
+   "devId": "dv000270",
+   "hazopRef": "N01-04",
+   "node": "N01 – Node 301 – Road tanker unloading to propane storage T-1/T-2/T-3",
+   "deviation": "Higher pressure in the bullet during unloading",
+   "cause": "Tank inlet closed while the compressor delivers vapour to the tanker side",
+   "consequence": "Bullet pressure towards the 17.5 barg relief setting; PSV-11/21/31 lift and vent propane vapour; flammable cloud at the tank farm",
+   "sev": {
+    "S": 4,
+    "E": 2,
+    "A": 4,
+    "R": 3,
+    "C": 2
+   },
+   "status": "Complete",
+   "ie": {
+    "desc": "Tank inlet closed while the compressor delivers vapour to the tanker side",
+    "f": 0.1,
+    "libId": "",
+    "basis": "Line-up error: tank inlet closed while the compressor runs – about 1 in 10 years, illustrative"
+   },
+   "enabling": [],
+   "modifiers": [
+    {
+     "id": "cm0042b14fd1",
+     "desc": "Probability of delayed ignition of the vented propane",
+     "p": 0.3,
+     "rec": [
+      "S",
+      "A",
+      "R",
+      "C"
+     ],
+     "basis": "CCPS ECCM (2014) §3.3 default (Moosemiller 2009)",
+     "libId": "cm-ign-delayed"
+    },
+    {
+     "id": "cm00437cfcc1",
+     "desc": "Probability that a person is present at the tank farm",
+     "p": 0.1,
+     "rec": [
+      "S"
+     ],
+     "basis": "Rounds about 17 h a week – CCPS ECCM (2014) Table 3.4",
+     "libId": "cm-pres-17h"
+    }
+   ],
+   "ipls": [
+    {
+     "id": "ip0039b9d9f0",
+     "sgId": "sg000195",
+     "name": "PSV-11/21/31 – Bullet relief valves PSV-11/21/31 at 17.5 barg, fire-case sized, discharging vertically upwards (source: 'PSV provided')",
+     "type": "Relief device",
+     "pfd": 0.01,
+     "libId": "ips-prv-clean",
+     "basis": "CCPS IPS (2007) Table B.4 – relief valve, clean service, sized for the scenario",
+     "proposed": false,
+     "adj": {
+      "status": "Accepted",
+      "tests": {
+       "spec": "yes",
+       "indep": "yes",
+       "dep": "yes",
+       "aud": "yes",
+       "sec": "yes",
+       "time": "yes",
+       "cyber": "yes"
+      },
+      "evidence": "Relief sizing calculation (vapour, fire case and blocked inlet); inspection 2025",
+      "reviewer": "F. Mechanical",
+      "date": "2026-11-12",
+      "accPfd": "",
+      "conditions": "",
+      "reason": ""
+     }
+    },
+    {
+     "id": "ip0040a74fcc",
+     "sgId": "",
+     "name": "Unloading compressor trip on high bullet pressure, independent of the pressure gauges, SIL 1 (recommendation)",
+     "type": "SIF / SIS",
+     "pfd": 0.1,
+     "libId": "",
+     "basis": "Proposed – SIL 1 assumed; illustrative",
+     "proposed": true,
+     "adj": {
+      "status": "Claimed",
+      "tests": {},
+      "evidence": "",
+      "reviewer": "",
+      "date": "",
+      "accPfd": "",
+      "conditions": "",
+      "reason": ""
+     }
+    }
+   ],
+   "others": [
+    "PG-01 – Pressure gauges PG-01, PG-12, PG-13, PG-14 on the unloading header and bullets; tanker pressure gauge (source)",
+    "C-01/C-02/C-03 – Compressor discharge high-pressure trip at 20.6 barg (source: 21 kg/cm2)"
+   ],
+   "notes": "Liquid overfill (cause 3) uses the FT-PR-01 overfill frequency as its initiating event; the PSVs are not credited for it.",
+   "ack": {},
+   "alarp": {
+    "options": "Independent compressor trip on high bullet pressure; larger relief capacity; deluge on the bullets",
+    "decision": "Further risk reduction is reasonably practicable – recommendation raised",
+    "justification": "Recommendation raised for the independent compressor trip; the liquid overfill case (L-11) is addressed by N01-06",
+    "by": "G. Safety",
+    "date": "2026-11-12"
+   },
+   "result": "Gap ≤ 10× – one more IPL or SIL 1 (Safety, RRF 3); with proposed IPLs: Meets target – accepted IPLs only"
+  },
+  {
+   "id": "sc0046d579b0",
+   "no": "L-10",
+   "key": "dv000270|cz000272",
+   "devId": "dv000270",
+   "hazopRef": "N01-04",
+   "node": "N01 – Node 301 – Road tanker unloading to propane storage T-1/T-2/T-3",
+   "deviation": "Higher pressure in the bullet during unloading",
+   "cause": "Hot weather – vapour pressure 16 barg at 50 °C",
+   "consequence": "Bullet pressure towards the 17.5 barg relief setting; PSV-11/21/31 lift and vent propane vapour; flammable cloud at the tank farm",
+   "sev": {
+    "S": 4,
+    "E": 2,
+    "A": 4,
+    "R": 3,
+    "C": 2
+   },
+   "status": "Complete",
+   "ie": {
+    "desc": "Hot weather – vapour pressure 16 barg at 50 °C",
+    "f": 0.01,
+    "libId": "",
+    "basis": "Ambient above 50 °C with the bullet full – rare; illustrative"
+   },
+   "enabling": [],
+   "modifiers": [
+    {
+     "id": "cm0047137bc4",
+     "desc": "Probability of delayed ignition of the vented propane",
+     "p": 0.3,
+     "rec": [
+      "S",
+      "A",
+      "R",
+      "C"
+     ],
+     "basis": "CCPS ECCM (2014) §3.3 default (Moosemiller 2009)",
+     "libId": "cm-ign-delayed"
+    },
+    {
+     "id": "cm0048a3b30d",
+     "desc": "Probability that a person is present at the tank farm",
+     "p": 0.1,
+     "rec": [
+      "S"
+     ],
+     "basis": "Rounds about 17 h a week – CCPS ECCM (2014) Table 3.4",
+     "libId": "cm-pres-17h"
+    }
+   ],
+   "ipls": [
+    {
+     "id": "ip0044e9c0af",
+     "sgId": "sg000195",
+     "name": "PSV-11/21/31 – Bullet relief valves PSV-11/21/31 at 17.5 barg, fire-case sized, discharging vertically upwards (source: 'PSV provided')",
+     "type": "Relief device",
+     "pfd": 0.01,
+     "libId": "ips-prv-clean",
+     "basis": "CCPS IPS (2007) Table B.4 – relief valve, clean service, sized for the scenario",
+     "proposed": false,
+     "adj": {
+      "status": "Accepted",
+      "tests": {
+       "spec": "yes",
+       "indep": "yes",
+       "dep": "yes",
+       "aud": "yes",
+       "sec": "yes",
+       "time": "yes",
+       "cyber": "yes"
+      },
+      "evidence": "Relief sizing calculation (vapour, fire case and blocked inlet); inspection 2025",
+      "reviewer": "F. Mechanical",
+      "date": "2026-11-12",
+      "accPfd": "",
+      "conditions": "",
+      "reason": ""
+     }
+    },
+    {
+     "id": "ip004598bdd6",
+     "sgId": "",
+     "name": "Unloading compressor trip on high bullet pressure, independent of the pressure gauges, SIL 1 (recommendation)",
+     "type": "SIF / SIS",
+     "pfd": 0.1,
+     "libId": "",
+     "basis": "Proposed – SIL 1 assumed; illustrative",
+     "proposed": true,
+     "adj": {
+      "status": "Claimed",
+      "tests": {},
+      "evidence": "",
+      "reviewer": "",
+      "date": "",
+      "accPfd": "",
+      "conditions": "",
+      "reason": ""
+     }
+    }
+   ],
+   "others": [
+    "PG-01 – Pressure gauges PG-01, PG-12, PG-13, PG-14 on the unloading header and bullets; tanker pressure gauge (source)",
+    "C-01/C-02/C-03 – Compressor discharge high-pressure trip at 20.6 barg (source: 21 kg/cm2)"
+   ],
+   "notes": "Liquid overfill (cause 3) uses the FT-PR-01 overfill frequency as its initiating event; the PSVs are not credited for it.",
+   "ack": {},
+   "alarp": {
+    "options": "Independent compressor trip on high bullet pressure; larger relief capacity; deluge on the bullets",
+    "decision": "Further risk reduction is reasonably practicable – recommendation raised",
+    "justification": "Recommendation raised for the independent compressor trip; the liquid overfill case (L-11) is addressed by N01-06",
+    "by": "G. Safety",
+    "date": "2026-11-12"
+   },
+   "result": "Meets target (Safety); with proposed IPLs: Meets target – accepted IPLs only"
+  },
+  {
+   "id": "sc005171b619",
+   "no": "L-11",
+   "key": "dv000270|cz000273",
+   "devId": "dv000270",
+   "hazopRef": "N01-04",
+   "node": "N01 – Node 301 – Road tanker unloading to propane storage T-1/T-2/T-3",
+   "deviation": "Higher pressure in the bullet during unloading",
+   "cause": "Liquid overfill – no vapour space left (see N01-06)",
+   "consequence": "Bullet pressure towards the 17.5 barg relief setting; PSV-11/21/31 lift and vent propane vapour; flammable cloud at the tank farm",
+   "sev": {
+    "S": 4,
+    "E": 2,
+    "A": 4,
+    "R": 3,
+    "C": 2
+   },
+   "status": "Complete",
+   "ie": {
+    "desc": "Liquid overfill – no vapour space left (see N01-06)",
+    "f": 0.00193867292059019,
+    "libId": "",
+    "basis": "FT-PR-01 top event: bullet overfilled to liquid relief during unloading"
+   },
+   "enabling": [],
+   "modifiers": [
+    {
+     "id": "cm0052ad6c3b",
+     "desc": "Probability of delayed ignition of the vented propane",
+     "p": 0.3,
+     "rec": [
+      "S",
+      "A",
+      "R",
+      "C"
+     ],
+     "basis": "CCPS ECCM (2014) §3.3 default (Moosemiller 2009)",
+     "libId": "cm-ign-delayed"
+    },
+    {
+     "id": "cm005353d9c9",
+     "desc": "Probability that a person is present at the tank farm",
+     "p": 0.1,
+     "rec": [
+      "S"
+     ],
+     "basis": "Rounds about 17 h a week – CCPS ECCM (2014) Table 3.4",
+     "libId": "cm-pres-17h"
+    }
+   ],
+   "ipls": [
+    {
+     "id": "ip0049a44da1",
+     "sgId": "sg000195",
+     "name": "PSV-11/21/31 – Bullet relief valves PSV-11/21/31 at 17.5 barg, fire-case sized, discharging vertically upwards (source: 'PSV provided')",
+     "type": "Relief device",
+     "pfd": 0.01,
+     "libId": "ips-prv-clean",
+     "basis": "CCPS IPS (2007) Table B.4 – relief valve, clean service, sized for the scenario",
+     "proposed": false,
+     "adj": {
+      "status": "Rejected",
+      "tests": {
+       "spec": "no",
+       "indep": "yes",
+       "dep": "yes",
+       "aud": "yes",
+       "sec": "yes",
+       "time": "yes",
+       "cyber": "yes"
+      },
+      "evidence": "Relief sizing calculation covers vapour only",
+      "reviewer": "F. Mechanical",
+      "date": "2026-11-12",
+      "accPfd": "",
+      "conditions": "",
+      "reason": "Not specific – PSV-11/21/31 are not sized for liquid or two-phase relief after an overfill"
+     }
+    },
+    {
+     "id": "ip0050c0478a",
+     "sgId": "",
+     "name": "Unloading compressor trip on high bullet pressure, independent of the pressure gauges, SIL 1 (recommendation)",
+     "type": "SIF / SIS",
+     "pfd": 0.1,
+     "libId": "",
+     "basis": "Proposed – SIL 1 assumed; illustrative",
+     "proposed": true,
+     "adj": {
+      "status": "Claimed",
+      "tests": {},
+      "evidence": "",
+      "reviewer": "",
+      "date": "",
+      "accPfd": "",
+      "conditions": "",
+      "reason": ""
+     }
+    }
+   ],
+   "others": [
+    "PG-01 – Pressure gauges PG-01, PG-12, PG-13, PG-14 on the unloading header and bullets; tanker pressure gauge (source)",
+    "C-01/C-02/C-03 – Compressor discharge high-pressure trip at 20.6 barg (source: 21 kg/cm2)"
+   ],
+   "notes": "Liquid overfill (cause 3) uses the FT-PR-01 overfill frequency as its initiating event; the PSVs are not credited for it.",
+   "ack": {},
+   "alarp": {
+    "options": "Independent compressor trip on high bullet pressure; larger relief capacity; deluge on the bullets",
+    "decision": "Further risk reduction is reasonably practicable – recommendation raised",
+    "justification": "Recommendation raised for the independent compressor trip; the liquid overfill case (L-11) is addressed by N01-06",
+    "by": "G. Safety",
+    "date": "2026-11-12"
+   },
+   "result": "Gap ≤ 10× – one more IPL or SIL 1 (Safety, RRF 5.82); with proposed IPLs: Meets target – accepted IPLs only"
+  }
+ ],
+ "log": [
+  {
+   "ts": "2026-11-12T10:00:00.000Z",
+   "sc": "L-01",
+   "ipl": "LT-11/21/31 – High-high level trip LAHH (85 %) from LT-11/21/31 closes ROV-11/21/31 and stops the compressors (source: LT closes ROV)",
+   "from": "Under review",
+   "to": "Accepted with conditions",
+   "by": "E. Instrument",
+   "note": "Annual proof test of LT-11/21/31 and ROV-11/21/31 kept in the plan"
+  },
+  {
+   "ts": "2026-11-12T10:00:00.000Z",
+   "sc": "L-01",
+   "ipl": "LT-11/21/31 – High level alarm LAH at 80 % with operator response (stop unloading)",
+   "from": "Under review",
+   "to": "Rejected",
+   "by": "E. Instrument",
+   "note": "Not independent of the LAHH trip – both take their signal from LT-11/21/31"
+  },
+  {
+   "ts": "2026-11-12T10:00:00.000Z",
+   "sc": "L-02",
+   "ipl": "LT-11/21/31 – High-high level trip LAHH (85 %) from LT-11/21/31 closes ROV-11/21/31 and stops the compressors (source: LT closes ROV)",
+   "from": "Under review",
+   "to": "Accepted with conditions",
+   "by": "E. Instrument",
+   "note": "Annual proof test of LT-11/21/31 and ROV-11/21/31 kept in the plan"
+  },
+  {
+   "ts": "2026-11-12T10:00:00.000Z",
+   "sc": "L-02",
+   "ipl": "LT-11/21/31 – High level alarm LAH at 80 % with operator response (stop unloading)",
+   "from": "Under review",
+   "to": "Rejected",
+   "by": "E. Instrument",
+   "note": "Not independent of the LAHH trip – both take their signal from LT-11/21/31"
+  },
+  {
+   "ts": "2026-11-12T10:00:00.000Z",
+   "sc": "L-03",
+   "ipl": "LT-11/21/31 – High-high level trip LAHH (85 %) from LT-11/21/31 closes ROV-11/21/31 and stops the compressors (source: LT closes ROV)",
+   "from": "Under review",
+   "to": "Rejected",
+   "by": "E. Instrument",
+   "note": "Not independent of the initiating event – the trip reads the failed transmitter"
+  },
+  {
+   "ts": "2026-11-12T10:00:00.000Z",
+   "sc": "L-03",
+   "ipl": "LT-11/21/31 – High level alarm LAH at 80 % with operator response (stop unloading)",
+   "from": "Under review",
+   "to": "Rejected",
+   "by": "E. Instrument",
+   "note": "Not independent of the LAHH trip – both take their signal from LT-11/21/31"
+  },
+  {
+   "ts": "2026-11-12T10:00:00.000Z",
+   "sc": "L-04",
+   "ipl": "PSLL-01 – Low propane pressure trip PSLL-01: stops B-01/B-02 and closes XV-01 / XV-02 (mixture trip)",
+   "from": "Under review",
+   "to": "Accepted",
+   "by": "E. Instrument",
+   "note": ""
+  },
+  {
+   "ts": "2026-11-12T10:00:00.000Z",
+   "sc": "L-04",
+   "ipl": "AT-01 – Calorimeter / Wobbe analyser AT-01 with low-heating-value trip (independent of FFIC-01)",
+   "from": "Under review",
+   "to": "Accepted with conditions",
+   "by": "E. Instrument",
+   "note": "Monthly calibration check of AT-01 kept in the plan"
+  },
+  {
+   "ts": "2026-11-12T10:00:00.000Z",
+   "sc": "L-05",
+   "ipl": "PSLL-01 – Low propane pressure trip PSLL-01: stops B-01/B-02 and closes XV-01 / XV-02 (mixture trip)",
+   "from": "Under review",
+   "to": "Accepted",
+   "by": "E. Instrument",
+   "note": ""
+  },
+  {
+   "ts": "2026-11-12T10:00:00.000Z",
+   "sc": "L-05",
+   "ipl": "AT-01 – Calorimeter / Wobbe analyser AT-01 with low-heating-value trip (independent of FFIC-01)",
+   "from": "Under review",
+   "to": "Accepted with conditions",
+   "by": "E. Instrument",
+   "note": "Monthly calibration check of AT-01 kept in the plan"
+  },
+  {
+   "ts": "2026-11-12T10:00:00.000Z",
+   "sc": "L-06",
+   "ipl": "PSLL-01 – Low propane pressure trip PSLL-01: stops B-01/B-02 and closes XV-01 / XV-02 (mixture trip)",
+   "from": "Under review",
+   "to": "Rejected",
+   "by": "E. Instrument",
+   "note": "Not specific – an FFIC-01 fault with air excess does not lower the propane pressure"
+  },
+  {
+   "ts": "2026-11-12T10:00:00.000Z",
+   "sc": "L-06",
+   "ipl": "AT-01 – Calorimeter / Wobbe analyser AT-01 with low-heating-value trip (independent of FFIC-01)",
+   "from": "Under review",
+   "to": "Accepted with conditions",
+   "by": "E. Instrument",
+   "note": "Monthly calibration check of AT-01 kept in the plan"
+  },
+  {
+   "ts": "2026-11-12T10:00:00.000Z",
+   "sc": "L-07",
+   "ipl": "ERC-1 – Emergency release coupling ERC-1 on the unloading arm with self-closing valves on both sides",
+   "from": "Under review",
+   "to": "Accepted with conditions",
+   "by": "F. Mechanical",
+   "note": "Annual function test of ERC-1 and of both self-closing valves"
+  },
+  {
+   "ts": "2026-11-12T10:00:00.000Z",
+   "sc": "L-08",
+   "ipl": "ERC-1 – Emergency release coupling ERC-1 on the unloading arm with self-closing valves on both sides",
+   "from": "Under review",
+   "to": "Accepted with conditions",
+   "by": "F. Mechanical",
+   "note": "Annual function test of ERC-1 and of both self-closing valves"
+  },
+  {
+   "ts": "2026-11-12T10:00:00.000Z",
+   "sc": "L-09",
+   "ipl": "PSV-11/21/31 – Bullet relief valves PSV-11/21/31 at 17.5 barg, fire-case sized, discharging vertically upwards (source: 'PSV provided')",
+   "from": "Under review",
+   "to": "Accepted",
+   "by": "F. Mechanical",
+   "note": ""
+  },
+  {
+   "ts": "2026-11-12T10:00:00.000Z",
+   "sc": "L-10",
+   "ipl": "PSV-11/21/31 – Bullet relief valves PSV-11/21/31 at 17.5 barg, fire-case sized, discharging vertically upwards (source: 'PSV provided')",
+   "from": "Under review",
+   "to": "Accepted",
+   "by": "F. Mechanical",
+   "note": ""
+  },
+  {
+   "ts": "2026-11-12T10:00:00.000Z",
+   "sc": "L-11",
+   "ipl": "PSV-11/21/31 – Bullet relief valves PSV-11/21/31 at 17.5 barg, fire-case sized, discharging vertically upwards (source: 'PSV provided')",
+   "from": "Under review",
+   "to": "Rejected",
+   "by": "F. Mechanical",
+   "note": "Not specific – PSV-11/21/31 are not sized for liquid or two-phase relief after an overfill"
+  }
+ ],
+ "scai": {
+  "LT-11/21/31 – High-high level trip LAHH (85 %) from LT-11/21/31 closes ROV-11/21/31 and stops the compressors (source: LT closes ROV)": {
+   "setpoint": "LAHH 85 % – close ROV-11/21/31, stop compressors",
+   "testInterval": "12 months",
+   "responseTime": "< 30 s",
+   "owner": "E. Instrument",
+   "notes": "PFD from FT-PR-01 G-005",
+   "tag": "LT-11/21/31 – High-high level trip"
+  },
+  "PSLL-01 – Low propane pressure trip PSLL-01: stops B-01/B-02 and closes XV-01 / XV-02 (mixture trip)": {
+   "setpoint": "Low propane header pressure – stop B-01/B-02, close XV-01/02",
+   "testInterval": "12 months",
+   "responseTime": "< 5 s",
+   "owner": "E. Instrument",
+   "notes": "FT-PR-02 G-003",
+   "tag": "PSLL-01 – Low propane pressure trip"
+  },
+  "AT-01 – Calorimeter / Wobbe analyser AT-01 with low-heating-value trip (independent of FFIC-01)": {
+   "setpoint": "Low heating value – mixture trip",
+   "testInterval": "1 month (calibration)",
+   "responseTime": "< 60 s",
+   "owner": "E. Instrument",
+   "notes": "FT-PR-02 G-004",
+   "tag": "AT-01 – Calorimeter"
+  }
+ }
+}

@@ -32,6 +32,7 @@
   "fm_xlsm": "Steel works gas network - FMECA_Workbook_Macro.xlsm",
   "wi": "Steel works gas network - What-If WI-EX-GN-001.whatif.json",
   "wi_xlsx": "Steel works gas network - WhatIf_Checklist_Workbook.xlsx",
+  "lopa": "Steel works gas network - LOPA LP-EX-GN-001.lopa.json",
   "results": "results.json"
  },
  "constants": {

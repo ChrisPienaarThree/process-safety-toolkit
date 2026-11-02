@@ -801,7 +801,18 @@
    "likA": "1",
    "comments": "",
    "id": "dv000339",
-   "ref": "N02-01"
+   "ref": "N02-01",
+   "rcp": {
+    "B": {
+     "S": "5",
+     "E": "1",
+     "A": "4",
+     "R": "3",
+     "C": "1"
+    }
+   },
+   "lopaStatus": "Complete",
+   "lopaNotes": "L-07: Gap ≤ 10× – one more IPL or SIL 1 (Safety, RRF 10); with proposed IPLs: Meets target – accepted IPLs only; L-08: Gap ≤ 10× – one more IPL or SIL 1 (Safety, RRF 10); with proposed IPLs: Meets target – accepted IPLs only; L-09: Gap ≤ 10× – one more IPL or SIL 1 (Safety, RRF 5); with proposed IPLs: Meets target – accepted IPLs only"
   },
   {
    "nodeId": "nd000166",
@@ -961,7 +972,18 @@
    "likA": "4",
    "comments": "Quantified in fault tree FT-AM-02 (top 1.8E-2 /yr); threat T1 of bow tie BT-AM-02. Likelihood after safeguards from the calculated frequency 1.8E-2 /yr.",
    "id": "dv000396",
-   "ref": "N03-03"
+   "ref": "N03-03",
+   "rcp": {
+    "B": {
+     "S": "5",
+     "E": "2",
+     "A": "5",
+     "R": "4",
+     "C": "2"
+    }
+   },
+   "lopaStatus": "Complete",
+   "lopaNotes": "L-04: SIL 2 needed (Safety, RRF 102); with proposed IPLs: Gap ≤ 10× – one more IPL or SIL 1 – accepted IPLs only; L-05: SIL 2 needed (Safety, RRF 205); with proposed IPLs: Gap ≤ 10× – one more IPL or SIL 1 – accepted IPLs only; L-06: SIL 1 needed (Safety, RRF 51.1); with proposed IPLs: Meets target – accepted IPLs only"
   },
   {
    "nodeId": "nd000167",
@@ -1041,7 +1063,18 @@
    "likA": "2",
    "comments": "",
    "id": "dv000425",
-   "ref": "N03-08"
+   "ref": "N03-08",
+   "rcp": {
+    "B": {
+     "S": "5",
+     "E": "1",
+     "A": "5",
+     "R": "4",
+     "C": "2"
+    }
+   },
+   "lopaStatus": "Complete",
+   "lopaNotes": "L-10: SIL 1 needed (Safety, RRF 70); with proposed IPLs: Gap ≤ 10× – one more IPL or SIL 1 – accepted IPLs only; L-11: Gap ≤ 10× – one more IPL or SIL 1 (Safety, RRF 7); with proposed IPLs: Meets target – accepted IPLs only"
   },
   {
    "nodeId": "nd000167",
@@ -1073,7 +1106,18 @@
    "likA": "1",
    "comments": "Quantified in fault tree FT-AM-01 (top 2.4E-6 /yr); threat T1 of bow tie BT-AM-01. Likelihood after safeguards from the calculated frequency 2.4E-6 /yr.",
    "id": "dv000436",
-   "ref": "N04-01"
+   "ref": "N04-01",
+   "rcp": {
+    "B": {
+     "S": "5",
+     "E": "3",
+     "A": "4",
+     "R": "4",
+     "C": "5"
+    }
+   },
+   "lopaStatus": "Complete",
+   "lopaNotes": "L-01: SIL 1 needed (Community, RRF 10.2); with proposed IPLs: Gap ≤ 10× – one more IPL or SIL 1 – accepted IPLs only; L-02: SIL 1 needed (Community, RRF 10.2); with proposed IPLs: Gap ≤ 10× – one more IPL or SIL 1 – accepted IPLs only; L-03: Gap ≤ 10× – one more IPL or SIL 1 (Community, RRF 2.05); with proposed IPLs: Meets target – accepted IPLs only"
   },
   {
    "nodeId": "nd000168",
@@ -2334,14 +2378,16 @@
    "deviationId": "dv000339",
    "safeguardId": "sg000236",
    "ipl": true,
-   "seq": 1
+   "seq": 1,
+   "lopa": true
   },
   {
    "id": "ds000344",
    "deviationId": "dv000339",
    "safeguardId": "sg000235",
    "ipl": true,
-   "seq": 2
+   "seq": 2,
+   "lopa": true
   },
   {
    "id": "ds000345",
@@ -2460,14 +2506,16 @@
    "deviationId": "dv000396",
    "safeguardId": "sg000244",
    "ipl": true,
-   "seq": 1
+   "seq": 1,
+   "lopa": true
   },
   {
    "id": "ds000401",
    "deviationId": "dv000396",
    "safeguardId": "sg000245",
    "ipl": true,
-   "seq": 2
+   "seq": 2,
+   "lopa": true
   },
   {
    "id": "ds000402",
@@ -2530,7 +2578,8 @@
    "deviationId": "dv000425",
    "safeguardId": "sg000268",
    "ipl": true,
-   "seq": 1
+   "seq": 1,
+   "lopa": true
   },
   {
    "id": "ds000429",
@@ -2551,21 +2600,24 @@
    "deviationId": "dv000436",
    "safeguardId": "sg000252",
    "ipl": true,
-   "seq": 1
+   "seq": 1,
+   "lopa": true
   },
   {
    "id": "ds000441",
    "deviationId": "dv000436",
    "safeguardId": "sg000253",
    "ipl": true,
-   "seq": 2
+   "seq": 2,
+   "lopa": true
   },
   {
    "id": "ds000442",
    "deviationId": "dv000436",
    "safeguardId": "sg000254",
    "ipl": true,
-   "seq": 3
+   "seq": 3,
+   "lopa": true
   },
   {
    "id": "ds000443",

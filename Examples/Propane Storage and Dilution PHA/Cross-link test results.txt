@@ -1,5 +1,5 @@
 Propane storage and propane–air dilution system – cross-link test results
-Run 02 Nov 2026 08:53 · 475 checks · 475 passed · 0 failed
+Run 02 Nov 2026 12:08 · 491 checks · 491 passed · 0 failed
 
 
 A. Apps
@@ -111,6 +111,7 @@ C. References
   PASS  FM-EX-PR-001 exists as 'Propane storage - FMECA_Workbook.xlsx'
   PASS  HI-EX-PR-001 exists as 'Propane storage - HAZID_Register.xlsx'
   PASS  WI-EX-PR-001 exists as 'Propane storage - What-If WI-EX-PR-001.whatif.json'
+  PASS  LP-EX-PR-001 exists as 'Propane storage - LOPA LP-EX-PR-001.lopa.json'
   PASS  Propane storage - FT-PR-01 Bullet overfill.fta.json: every FT / ETA / BT code it mentions exists (2 codes)
   PASS  Propane storage - FT-PR-01 Bullet overfill.fta.json: every HAZOP deviation reference resolves (1 refs)
   PASS  Propane storage - FT-PR-01 Bullet overfill.fta.json: every recommendation reference resolves (2 refs)
@@ -264,7 +265,7 @@ D. Tags
   PASS  HAZOP IPL EP01 (EP-01) is the barrier 'Explosion vent panel EP-01 on surge ta' in BT2
 
 E. Workbooks
-  PASS  Propane storage - HAZOP_Study_Workbook.xlsx recalculates in LibreOffice with no formula errors (10101 formulas)
+  PASS  Propane storage - HAZOP_Study_Workbook.xlsx recalculates in LibreOffice with no formula errors (13069 formulas)
   PASS  Propane storage - FMECA_Workbook.xlsx recalculates in LibreOffice with no formula errors (9210 formulas)
   PASS  Propane storage - HAZID_Register.xlsx recalculates in LibreOffice with no formula errors (40 formulas)
   PASS  Propane storage - WhatIf_Checklist_Workbook.xlsx recalculates in LibreOffice with no formula errors (1120 formulas)
@@ -444,6 +445,22 @@ W. What-If
   PASS  What-If workbook: HAZID coverage column agrees with the study (20 items)
   PASS  What-If workbook: checklist sheet lists the packs of every area
 
+L. LOPA
+  PASS  LOPA study opens in the LOPA Study Manager and draws without errors (11 scenarios)
+  PASS  Every LOPA scenario is one HAZOP deviation × one of its causes (keys as File ▸ Import HAZOP study makes them)
+  PASS  Every cause of every HAZOP deviation on the LOPA study list has a LOPA scenario (4 deviations)
+  PASS  HAZOP IPLs ticked LOPA = the IPLs credited in the LOPA (6 links)
+  PASS  Severity by receptor in the LOPA = the HAZOP (receptors and S = highest)
+  PASS  IPL names in the LOPA = HAZOP safeguard register (tag – description)
+  PASS  IPL PFDs taken from fault-tree gates equal the gate values (12 IPL credits: FT1 G-004, FT1 G-005, FT2 G-003, FT2 G-004)
+  PASS  Mitigated frequencies recalculated independently = the tool (110 receptor results, max rel. diff 0.0E+00)
+  PASS  Every IPL credit adjudicated with reviewer and evidence; accepted = all 7 tests passed, rejected = a failed test and a reason (17 credits, 6 rejected)
+  PASS  Rules check: no open findings – each one fixed or justified (0 findings justified)
+  PASS  ALARP decision recorded wherever a result is in the ALARP band (9 scenarios)
+  PASS  HAZOP LOPA study list carries the LOPA status and results (as HAZOP ▸ Import LOPA results)
+  PASS  SCAI register lists every instrumented IPL with the SIL needed (6 functions)
+  PASS  SCAI tags are equipment tags of the HAZOP / FMECA
+
 F. Report
   PASS  Report refers to FT-PR-01
   PASS  Report refers to FT-PR-02
@@ -455,6 +472,7 @@ F. Report
   PASS  Report refers to FM-EX-PR-001
   PASS  Report refers to HI-EX-PR-001
   PASS  Report refers to WI-EX-PR-001
+  PASS  Report refers to LP-EX-PR-001
   PASS  Report quotes FT1_TOP = 1.9E-3 as calculated by the apps
   PASS  Report quotes FT1_PFD = 3.9E-3 as calculated by the apps
   PASS  Report quotes FT2_TOP = 1.2E-2 as calculated by the apps

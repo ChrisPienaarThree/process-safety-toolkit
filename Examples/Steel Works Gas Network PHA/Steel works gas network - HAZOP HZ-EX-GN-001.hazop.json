@@ -802,7 +802,18 @@
    "likA": "1",
    "comments": "Quantified: fault tree FT-GN-01 – top = MP header overpressure 3.6E-5 /yr; gate G-002 (monitor + slam-shut) PFDavg 2.0E-4; bow tie BT-GN-01 threat T1. PSV-1105 is a token relief and is not credited. Likelihood after safeguards from the calculated frequency 3.6E-5 /yr.",
    "id": "dv000383",
-   "ref": "N02-02"
+   "ref": "N02-02",
+   "rcp": {
+    "B": {
+     "S": "5",
+     "E": "2",
+     "A": "4",
+     "R": "4",
+     "C": "3"
+    }
+   },
+   "lopaStatus": "Complete",
+   "lopaNotes": "L-01: Meets target (Safety); with proposed IPLs: Meets target – accepted IPLs only; L-02: Gap ≤ 10× – one more IPL or SIL 1 (Safety, RRF 2.67); with proposed IPLs: Meets target – accepted IPLs only; L-03: Meets target (Safety); with proposed IPLs: Meets target – accepted IPLs only"
   },
   {
    "nodeId": "nd000174",
@@ -1026,7 +1037,18 @@
    "likA": "2",
    "comments": "FMECA S04 XV-2008 (hidden failure – passing in the closed position).",
    "id": "dv000485",
-   "ref": "N04-03"
+   "ref": "N04-03",
+   "rcp": {
+    "B": {
+     "S": "5",
+     "E": "1",
+     "A": "3",
+     "R": "3",
+     "C": "4"
+    }
+   },
+   "lopaStatus": "Complete",
+   "lopaNotes": "L-07: SIL 2 needed (Safety, RRF 1.0E+3); with proposed IPLs: Gap ≤ 10× – one more IPL or SIL 1 – accepted IPLs only; L-08: SIL 2 needed (Safety, RRF 500); with proposed IPLs: Gap ≤ 10× – one more IPL or SIL 1 – accepted IPLs only; L-09: SIL 2 needed (Safety, RRF 1.0E+3); with proposed IPLs: Gap ≤ 10× – one more IPL or SIL 1 – accepted IPLs only"
   },
   {
    "nodeId": "nd000176",
@@ -1074,7 +1096,18 @@
    "likA": "1",
    "comments": "FMECA S05 NRV-3010 (hidden failure).",
    "id": "dv000500",
-   "ref": "N05-01"
+   "ref": "N05-01",
+   "rcp": {
+    "B": {
+     "S": "5",
+     "E": "1",
+     "A": "4",
+     "R": "3",
+     "C": "1"
+    }
+   },
+   "lopaStatus": "Complete",
+   "lopaNotes": "L-10: SIL 1 needed (Safety, RRF 50); with proposed IPLs: Gap ≤ 10× – one more IPL or SIL 1 – accepted IPLs only; L-11: Gap ≤ 10× – one more IPL or SIL 1 (Safety, RRF 10); with proposed IPLs: Meets target – accepted IPLs only; L-12: SIL 1 needed (Safety, RRF 100); with proposed IPLs: Gap ≤ 10× – one more IPL or SIL 1 – accepted IPLs only"
   },
   {
    "nodeId": "nd000177",
@@ -1138,7 +1171,18 @@
    "likA": "2",
    "comments": "Quantified: fault tree FT-GN-03 (BMS flame-failure shut-off PFDavg 1.1E-2; top 9.2E-3 /yr), event tree ETA-GN-02 (explosion 9.2E-4 /yr vs target 1E-4), bow tie BT-GN-02 threat T1. Likelihood after safeguards from the calculated frequency 9.2E-4 /yr.",
    "id": "dv000527",
-   "ref": "N06-01"
+   "ref": "N06-01",
+   "rcp": {
+    "B": {
+     "S": "5",
+     "E": "1",
+     "A": "4",
+     "R": "3",
+     "C": "1"
+    }
+   },
+   "lopaStatus": "Complete",
+   "lopaNotes": "L-04: SIL 1 needed (Safety, RRF 57.3); with proposed IPLs: Gap ≤ 10× – one more IPL or SIL 1 – accepted IPLs only; L-05: SIL 1 needed (Safety, RRF 22.9); with proposed IPLs: Gap ≤ 10× – one more IPL or SIL 1 – accepted IPLs only; L-06: SIL 1 needed (Safety, RRF 11.5); with proposed IPLs: Gap ≤ 10× – one more IPL or SIL 1 – accepted IPLs only"
   },
   {
    "nodeId": "nd000178",
@@ -2825,14 +2869,16 @@
    "deviationId": "dv000383",
    "safeguardId": "sg000251",
    "ipl": true,
-   "seq": 1
+   "seq": 1,
+   "lopa": true
   },
   {
    "id": "ds000388",
    "deviationId": "dv000383",
    "safeguardId": "sg000252",
    "ipl": true,
-   "seq": 2
+   "seq": 2,
+   "lopa": true
   },
   {
    "id": "ds000389",
@@ -3098,7 +3144,8 @@
    "deviationId": "dv000485",
    "safeguardId": "sg000272",
    "ipl": true,
-   "seq": 1
+   "seq": 1,
+   "lopa": true
   },
   {
    "id": "ds000494",
@@ -3133,14 +3180,16 @@
    "deviationId": "dv000500",
    "safeguardId": "sg000273",
    "ipl": true,
-   "seq": 1
+   "seq": 1,
+   "lopa": true
   },
   {
    "id": "ds000505",
    "deviationId": "dv000500",
    "safeguardId": "sg000274",
    "ipl": true,
-   "seq": 2
+   "seq": 2,
+   "lopa": true
   },
   {
    "id": "ds000511",
@@ -3189,7 +3238,8 @@
    "deviationId": "dv000527",
    "safeguardId": "sg000277",
    "ipl": true,
-   "seq": 1
+   "seq": 1,
+   "lopa": true
   },
   {
    "id": "ds000532",
@@ -3203,7 +3253,8 @@
    "deviationId": "dv000527",
    "safeguardId": "sg000279",
    "ipl": true,
-   "seq": 3
+   "seq": 3,
+   "lopa": true
   },
   {
    "id": "ds000539",

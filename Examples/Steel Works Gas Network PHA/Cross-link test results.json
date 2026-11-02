@@ -553,6 +553,12 @@
  },
  {
   "group": "C. References",
+  "check": "LP-EX-GN-001 exists as 'Steel works gas network - LOPA LP-EX-GN-001.lopa.json'",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "group": "C. References",
   "check": "Steel works gas network - FT-GN-01 PRS-1 overpressure.fta.json: every FT / ETA / BT document code it mentions exists (2 codes)",
   "pass": true,
   "detail": ""
@@ -1765,9 +1771,9 @@
  },
  {
   "group": "E. Workbooks",
-  "check": "Steel works gas network - HAZOP_Study_Workbook.xlsx recalculates in LibreOffice with no formula errors (10101 formulas)",
+  "check": "Steel works gas network - HAZOP_Study_Workbook.xlsx recalculates in LibreOffice with no formula errors (13055 formulas)",
   "pass": true,
-  "detail": "{\"status\": \"success\", \"total_errors\": 0, \"error_summary\": {}, \"total_formulas\": 10101}"
+  "detail": "{\"status\": \"success\", \"total_errors\": 0, \"error_summary\": {}, \"total_formulas\": 13055}"
  },
  {
   "group": "E. Workbooks",
@@ -1803,43 +1809,43 @@
   "group": "E. Workbooks",
   "check": "HAZOP workbook N01-01 = app (parameter/guideword valid, 3 causes [0 from library], 3 safeguards, IPLs 1, risk 9 \u2192 6)",
   "pass": true,
-  "detail": "row 14: ['Flow', 'NO', 9, 1, 6]"
+  "detail": "row 14: ['Flow', 'NO', None, 1, 6]"
  },
  {
   "group": "E. Workbooks",
   "check": "HAZOP workbook N01-02 = app (parameter/guideword valid, 3 causes [2 from library], 3 safeguards, IPLs 2, risk 10 \u2192 5)",
   "pass": true,
-  "detail": "row 15: ['Pressure', 'MORE', 10, 2, 5]"
+  "detail": "row 15: ['Pressure', 'MORE', None, 2, 5]"
  },
  {
   "group": "E. Workbooks",
   "check": "HAZOP workbook N01-03 = app (parameter/guideword valid, 3 causes [1 from library], 2 safeguards, IPLs 0, risk 12 \u2192 8)",
   "pass": true,
-  "detail": "row 16: ['Flow', 'AS WELL AS', 12, 0, 8]"
+  "detail": "row 16: ['Flow', 'AS WELL AS', None, 0, 8]"
  },
  {
   "group": "E. Workbooks",
   "check": "HAZOP workbook N01-04 = app (parameter/guideword valid, 3 causes [1 from library], 2 safeguards, IPLs 0, risk 9 \u2192 6)",
   "pass": true,
-  "detail": "row 17: ['Composition', 'OTHER THAN', 9, 0, 6]"
+  "detail": "row 17: ['Composition', 'OTHER THAN', None, 0, 6]"
  },
  {
   "group": "E. Workbooks",
   "check": "HAZOP workbook N01-05 = app (parameter/guideword valid, 3 causes [1 from library], 5 safeguards, IPLs 2, risk 15 \u2192 5)",
   "pass": true,
-  "detail": "row 18: ['Process gas (CO, H2 \u2013 BFG, COG, LD gas, reducing gas)', 'LEAK OF', 15, 2, 5]"
+  "detail": "row 18: ['Process gas (CO, H2 \u2013 BFG, COG, LD gas, reducing gas)', 'LEAK OF', None, 2, 5]"
  },
  {
   "group": "E. Workbooks",
   "check": "HAZOP workbook N01-06 = app (parameter/guideword valid, 3 causes [1 from library], 2 safeguards, IPLs 0, risk 15 \u2192 10)",
   "pass": true,
-  "detail": "row 19: ['Corrosion / erosion', 'MORE', 15, 0, 10]"
+  "detail": "row 19: ['Corrosion / erosion', 'MORE', None, 0, 10]"
  },
  {
   "group": "E. Workbooks",
   "check": "HAZOP workbook N01-07 = app (parameter/guideword valid, 3 causes [2 from library], 3 safeguards, IPLs 1, risk 15 \u2192 5)",
   "pass": true,
-  "detail": "row 20: ['Maintenance', 'INADEQUATE', 15, 1, 5]"
+  "detail": "row 20: ['Maintenance', 'INADEQUATE', None, 1, 5]"
  },
  {
   "group": "E. Workbooks",
@@ -1857,43 +1863,43 @@
   "group": "E. Workbooks",
   "check": "HAZOP workbook N02-01 = app (parameter/guideword valid, 3 causes [1 from library], 3 safeguards, IPLs 0, risk 12 \u2192 8)",
   "pass": true,
-  "detail": "row 14: ['Temperature', 'LESS', 12, 0, 8]"
+  "detail": "row 14: ['Temperature', 'LESS', None, 0, 8]"
  },
  {
   "group": "E. Workbooks",
   "check": "HAZOP workbook N02-02 = app (parameter/guideword valid, 3 causes [1 from library], 5 safeguards, IPLs 2, risk 20 \u2192 5)",
   "pass": true,
-  "detail": "row 15: ['Pressure', 'MORE', 20, 2, 5]"
+  "detail": "row 15: ['Pressure', 'MORE', '4 \u2013 Major', 2, 5]"
  },
  {
   "group": "E. Workbooks",
   "check": "HAZOP workbook N02-03 = app (parameter/guideword valid, 3 causes [0 from library], 3 safeguards, IPLs 1, risk 9 \u2192 6)",
   "pass": true,
-  "detail": "row 16: ['Pressure', 'LESS', 9, 1, 6]"
+  "detail": "row 16: ['Pressure', 'LESS', None, 1, 6]"
  },
  {
   "group": "E. Workbooks",
   "check": "HAZOP workbook N02-04 = app (parameter/guideword valid, 2 causes [1 from library], 2 safeguards, IPLs 0, risk 6 \u2192 4)",
   "pass": true,
-  "detail": "row 17: ['Flow', 'MORE', 6, 0, 4]"
+  "detail": "row 17: ['Flow', 'MORE', None, 0, 4]"
  },
  {
   "group": "E. Workbooks",
   "check": "HAZOP workbook N02-05 = app (parameter/guideword valid, 3 causes [2 from library], 4 safeguards, IPLs 1, risk 15 \u2192 5)",
   "pass": true,
-  "detail": "row 18: ['Process gas (CO, H2 \u2013 BFG, COG, LD gas, reducing gas)', 'LEAK OF', 15, 1, 5]"
+  "detail": "row 18: ['Process gas (CO, H2 \u2013 BFG, COG, LD gas, reducing gas)', 'LEAK OF', None, 1, 5]"
  },
  {
   "group": "E. Workbooks",
   "check": "HAZOP workbook N02-06 = app (parameter/guideword valid, 3 causes [1 from library], 2 safeguards, IPLs 1, risk 12 \u2192 8)",
   "pass": true,
-  "detail": "row 19: ['Temperature', 'MORE', 12, 1, 8]"
+  "detail": "row 19: ['Temperature', 'MORE', None, 1, 8]"
  },
  {
   "group": "E. Workbooks",
   "check": "HAZOP workbook N02-07 = app (parameter/guideword valid, 2 causes [2 from library], 3 safeguards, IPLs 2, risk 10 \u2192 5)",
   "pass": true,
-  "detail": "row 20: ['Relief', 'INADEQUATE', 10, 2, 5]"
+  "detail": "row 20: ['Relief', 'INADEQUATE', None, 2, 5]"
  },
  {
   "group": "E. Workbooks",
@@ -1911,37 +1917,37 @@
   "group": "E. Workbooks",
   "check": "HAZOP workbook N03-01 = app (parameter/guideword valid, 4 causes [1 from library], 6 safeguards, IPLs 0, risk 15 \u2192 10)",
   "pass": true,
-  "detail": "row 14: ['Process gas (CO, H2 \u2013 BFG, COG, LD gas, reducing gas)', 'LEAK OF', 15, 0, 10]"
+  "detail": "row 14: ['Process gas (CO, H2 \u2013 BFG, COG, LD gas, reducing gas)', 'LEAK OF', None, 0, 10]"
  },
  {
   "group": "E. Workbooks",
   "check": "HAZOP workbook N03-02 = app (parameter/guideword valid, 2 causes [2 from library], 2 safeguards, IPLs 2, risk 20 \u2192 5)",
   "pass": true,
-  "detail": "row 15: ['Pressure', 'MORE', 20, 2, 5]"
+  "detail": "row 15: ['Pressure', 'MORE', None, 2, 5]"
  },
  {
   "group": "E. Workbooks",
   "check": "HAZOP workbook N03-03 = app (parameter/guideword valid, 2 causes [2 from library], 2 safeguards, IPLs 0, risk 10 \u2192 5)",
   "pass": true,
-  "detail": "row 16: ['Air / oxygen in process gas', 'AS WELL AS', 10, 0, 5]"
+  "detail": "row 16: ['Air / oxygen in process gas', 'AS WELL AS', None, 0, 5]"
  },
  {
   "group": "E. Workbooks",
   "check": "HAZOP workbook N03-04 = app (parameter/guideword valid, 3 causes [2 from library], 2 safeguards, IPLs 0, risk 15 \u2192 10)",
   "pass": true,
-  "detail": "row 17: ['Corrosion / erosion', 'MORE', 15, 0, 10]"
+  "detail": "row 17: ['Corrosion / erosion', 'MORE', None, 0, 10]"
  },
  {
   "group": "E. Workbooks",
   "check": "HAZOP workbook N03-05 = app (parameter/guideword valid, 2 causes [0 from library], 2 safeguards, IPLs 0, risk 12 \u2192 8)",
   "pass": true,
-  "detail": "row 18: ['Electrical safety / static', 'INADEQUATE', 12, 0, 8]"
+  "detail": "row 18: ['Electrical safety / static', 'INADEQUATE', None, 0, 8]"
  },
  {
   "group": "E. Workbooks",
   "check": "HAZOP workbook N03-06 = app (parameter/guideword valid, 2 causes [0 from library], 3 safeguards, IPLs 1, risk 12 \u2192 8)",
   "pass": true,
-  "detail": "row 19: ['Operator action', 'OTHER THAN', 12, 1, 8]"
+  "detail": "row 19: ['Operator action', 'OTHER THAN', None, 1, 8]"
  },
  {
   "group": "E. Workbooks",
@@ -1959,31 +1965,31 @@
   "group": "E. Workbooks",
   "check": "HAZOP workbook N04-01 = app (parameter/guideword valid, 2 causes [1 from library], 2 safeguards, IPLs 1, risk 12 \u2192 8)",
   "pass": true,
-  "detail": "row 14: ['Flow', 'MORE', 12, 1, 8]"
+  "detail": "row 14: ['Flow', 'MORE', None, 1, 8]"
  },
  {
   "group": "E. Workbooks",
   "check": "HAZOP workbook N04-02 = app (parameter/guideword valid, 2 causes [1 from library], 1 safeguards, IPLs 1, risk 9 \u2192 6)",
   "pass": true,
-  "detail": "row 15: ['Flow', 'NO', 9, 1, 6]"
+  "detail": "row 15: ['Flow', 'NO', None, 1, 6]"
  },
  {
   "group": "E. Workbooks",
   "check": "HAZOP workbook N04-03 = app (parameter/guideword valid, 3 causes [2 from library], 1 safeguards, IPLs 1, risk 15 \u2192 10)",
   "pass": true,
-  "detail": "row 16: ['Flow', 'REVERSE', 15, 1, 10]"
+  "detail": "row 16: ['Flow', 'REVERSE', '3 \u2013 Moderate', 1, 10]"
  },
  {
   "group": "E. Workbooks",
   "check": "HAZOP workbook N04-04 = app (parameter/guideword valid, 2 causes [1 from library], 2 safeguards, IPLs 0, risk 9 \u2192 6)",
   "pass": true,
-  "detail": "row 17: ['Composition', 'AS WELL AS', 9, 0, 6]"
+  "detail": "row 17: ['Composition', 'AS WELL AS', None, 0, 6]"
  },
  {
   "group": "E. Workbooks",
   "check": "HAZOP workbook N04-05 = app (parameter/guideword valid, 1 causes [1 from library], 2 safeguards, IPLs 1, risk 6 \u2192 4)",
   "pass": true,
-  "detail": "row 18: ['Pressure', 'MORE', 6, 1, 4]"
+  "detail": "row 18: ['Pressure', 'MORE', None, 1, 4]"
  },
  {
   "group": "E. Workbooks",
@@ -2001,25 +2007,25 @@
   "group": "E. Workbooks",
   "check": "HAZOP workbook N05-01 = app (parameter/guideword valid, 3 causes [0 from library], 2 safeguards, IPLs 2, risk 15 \u2192 5)",
   "pass": true,
-  "detail": "row 14: ['Oxygen (lances, burners, pipelines)', 'AS WELL AS', 15, 2, 5]"
+  "detail": "row 14: ['Oxygen (lances, burners, pipelines)', 'AS WELL AS', '4 \u2013 Major', 2, 5]"
  },
  {
   "group": "E. Workbooks",
   "check": "HAZOP workbook N05-02 = app (parameter/guideword valid, 3 causes [2 from library], 3 safeguards, IPLs 1, risk 12 \u2192 8)",
   "pass": true,
-  "detail": "row 15: ['Process gas (CO, H2 \u2013 BFG, COG, LD gas, reducing gas)', 'LEAK OF', 12, 1, 8]"
+  "detail": "row 15: ['Process gas (CO, H2 \u2013 BFG, COG, LD gas, reducing gas)', 'LEAK OF', None, 1, 8]"
  },
  {
   "group": "E. Workbooks",
   "check": "HAZOP workbook N05-03 = app (parameter/guideword valid, 2 causes [1 from library], 1 safeguards, IPLs 1, risk 12 \u2192 8)",
   "pass": true,
-  "detail": "row 16: ['Pressure', 'LESS', 12, 1, 8]"
+  "detail": "row 16: ['Pressure', 'LESS', None, 1, 8]"
  },
  {
   "group": "E. Workbooks",
   "check": "HAZOP workbook N05-04 = app (parameter/guideword valid, 2 causes [0 from library], 2 safeguards, IPLs 0, risk 12 \u2192 8)",
   "pass": true,
-  "detail": "row 17: ['Operator action', 'OTHER THAN', 12, 0, 8]"
+  "detail": "row 17: ['Operator action', 'OTHER THAN', None, 0, 8]"
  },
  {
   "group": "E. Workbooks",
@@ -2037,43 +2043,43 @@
   "group": "E. Workbooks",
   "check": "HAZOP workbook N06-01 = app (parameter/guideword valid, 3 causes [0 from library], 3 safeguards, IPLs 2, risk 25 \u2192 10)",
   "pass": true,
-  "detail": "row 14: ['Flow', 'NO', 25, 2, 10]"
+  "detail": "row 14: ['Flow', 'NO', '4 \u2013 Major', 2, 10]"
  },
  {
   "group": "E. Workbooks",
   "check": "HAZOP workbook N06-02 = app (parameter/guideword valid, 2 causes [2 from library], 2 safeguards, IPLs 1, risk 12 \u2192 8)",
   "pass": true,
-  "detail": "row 15: ['Pressure', 'MORE', 12, 1, 8]"
+  "detail": "row 15: ['Pressure', 'MORE', None, 1, 8]"
  },
  {
   "group": "E. Workbooks",
   "check": "HAZOP workbook N06-03 = app (parameter/guideword valid, 2 causes [1 from library], 2 safeguards, IPLs 1, risk 15 \u2192 5)",
   "pass": true,
-  "detail": "row 16: ['Flow', 'LESS', 15, 1, 5]"
+  "detail": "row 16: ['Flow', 'LESS', None, 1, 5]"
  },
  {
   "group": "E. Workbooks",
   "check": "HAZOP workbook N06-04 = app (parameter/guideword valid, 2 causes [0 from library], 2 safeguards, IPLs 1, risk 15 \u2192 10)",
   "pass": true,
-  "detail": "row 17: ['Timing / sequence', 'BEFORE', 15, 1, 10]"
+  "detail": "row 17: ['Timing / sequence', 'BEFORE', None, 1, 10]"
  },
  {
   "group": "E. Workbooks",
   "check": "HAZOP workbook N06-05 = app (parameter/guideword valid, 2 causes [1 from library], 2 safeguards, IPLs 1, risk 15 \u2192 10)",
   "pass": true,
-  "detail": "row 18: ['Process gas (CO, H2 \u2013 BFG, COG, LD gas, reducing gas)', 'LEAK OF', 15, 1, 10]"
+  "detail": "row 18: ['Process gas (CO, H2 \u2013 BFG, COG, LD gas, reducing gas)', 'LEAK OF', None, 1, 10]"
  },
  {
   "group": "E. Workbooks",
   "check": "HAZOP workbook N06-06 = app (parameter/guideword valid, 3 causes [3 from library], 2 safeguards, IPLs 0, risk 15 \u2192 10)",
   "pass": true,
-  "detail": "row 19: ['Process control / instrumentation', 'LOSS OF', 15, 0, 10]"
+  "detail": "row 19: ['Process control / instrumentation', 'LOSS OF', None, 0, 10]"
  },
  {
   "group": "E. Workbooks",
   "check": "HAZOP workbook N06-07 = app (parameter/guideword valid, 3 causes [3 from library], 3 safeguards, IPLs 0, risk 10 \u2192 5)",
   "pass": true,
-  "detail": "row 20: ['Maintenance', 'INADEQUATE', 10, 0, 5]"
+  "detail": "row 20: ['Maintenance', 'INADEQUATE', None, 0, 5]"
  },
  {
   "group": "E. Workbooks",
@@ -2091,37 +2097,37 @@
   "group": "E. Workbooks",
   "check": "HAZOP workbook N07-01 = app (parameter/guideword valid, 2 causes [1 from library], 1 safeguards, IPLs 0, risk 15 \u2192 10)",
   "pass": true,
-  "detail": "row 14: ['Air / oxygen in process gas', 'AS WELL AS', 15, 0, 10]"
+  "detail": "row 14: ['Air / oxygen in process gas', 'AS WELL AS', None, 0, 10]"
  },
  {
   "group": "E. Workbooks",
   "check": "HAZOP workbook N07-02 = app (parameter/guideword valid, 2 causes [2 from library], 2 safeguards, IPLs 0, risk 15 \u2192 10)",
   "pass": true,
-  "detail": "row 15: ['Inert gas (N2, Ar)', 'LEAK OF', 15, 0, 10]"
+  "detail": "row 15: ['Inert gas (N2, Ar)', 'LEAK OF', None, 0, 10]"
  },
  {
   "group": "E. Workbooks",
   "check": "HAZOP workbook N07-03 = app (parameter/guideword valid, 2 causes [0 from library], 1 safeguards, IPLs 0, risk 15 \u2192 10)",
   "pass": true,
-  "detail": "row 16: ['Flow', 'REVERSE', 15, 0, 10]"
+  "detail": "row 16: ['Flow', 'REVERSE', None, 0, 10]"
  },
  {
   "group": "E. Workbooks",
   "check": "HAZOP workbook N07-04 = app (parameter/guideword valid, 2 causes [2 from library], 1 safeguards, IPLs 0, risk 12 \u2192 8)",
   "pass": true,
-  "detail": "row 17: ['Relief', 'INADEQUATE', 12, 0, 8]"
+  "detail": "row 17: ['Relief', 'INADEQUATE', None, 0, 8]"
  },
  {
   "group": "E. Workbooks",
   "check": "HAZOP workbook N07-05 = app (parameter/guideword valid, 3 causes [3 from library], 2 safeguards, IPLs 0, risk 12 \u2192 8)",
   "pass": true,
-  "detail": "row 18: ['Maintenance', 'INADEQUATE', 12, 0, 8]"
+  "detail": "row 18: ['Maintenance', 'INADEQUATE', None, 0, 8]"
  },
  {
   "group": "E. Workbooks",
   "check": "HAZOP workbook N07-06 = app (parameter/guideword valid, 2 causes [0 from library], 2 safeguards, IPLs 0, risk 12 \u2192 8)",
   "pass": true,
-  "detail": "row 19: ['Operator action', 'NO', 12, 0, 8]"
+  "detail": "row 19: ['Operator action', 'NO', None, 0, 8]"
  },
  {
   "group": "E. Workbooks",
@@ -2139,25 +2145,25 @@
   "group": "E. Workbooks",
   "check": "HAZOP workbook N08-01 = app (parameter/guideword valid, 3 causes [3 from library], 2 safeguards, IPLs 0, risk 15 \u2192 5)",
   "pass": true,
-  "detail": "row 14: ['Process control / instrumentation', 'LOSS OF', 15, 0, 5]"
+  "detail": "row 14: ['Process control / instrumentation', 'LOSS OF', None, 0, 5]"
  },
  {
   "group": "E. Workbooks",
   "check": "HAZOP workbook N08-02 = app (parameter/guideword valid, 2 causes [0 from library], 2 safeguards, IPLs 1, risk 9 \u2192 6)",
   "pass": true,
-  "detail": "row 15: ['Utilities / services', 'LOSS OF', 9, 1, 6]"
+  "detail": "row 15: ['Utilities / services', 'LOSS OF', None, 1, 6]"
  },
  {
   "group": "E. Workbooks",
   "check": "HAZOP workbook N08-03 = app (parameter/guideword valid, 2 causes [0 from library], 1 safeguards, IPLs 0, risk 15 \u2192 10)",
   "pass": true,
-  "detail": "row 16: ['Operator action', 'NO', 15, 0, 10]"
+  "detail": "row 16: ['Operator action', 'NO', None, 0, 10]"
  },
  {
   "group": "E. Workbooks",
   "check": "HAZOP workbook N08-04 = app (parameter/guideword valid, 3 causes [2 from library], 2 safeguards, IPLs 0, risk 15 \u2192 10)",
   "pass": true,
-  "detail": "row 17: ['Maintenance', 'INADEQUATE', 15, 0, 10]"
+  "detail": "row 17: ['Maintenance', 'INADEQUATE', None, 0, 10]"
  },
  {
   "group": "E. Workbooks",
@@ -2634,6 +2640,90 @@
   "detail": ""
  },
  {
+  "group": "L. LOPA",
+  "check": "LOPA study opens in the LOPA Study Manager and draws without errors (12 scenarios)",
+  "pass": true,
+  "detail": "[]"
+ },
+ {
+  "group": "L. LOPA",
+  "check": "Every LOPA scenario is one HAZOP deviation \u00d7 one of its causes (keys as File \u25b8 Import HAZOP study makes them)",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "group": "L. LOPA",
+  "check": "Every cause of every HAZOP deviation on the LOPA study list has a LOPA scenario (4 deviations)",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "group": "L. LOPA",
+  "check": "HAZOP IPLs ticked LOPA = the IPLs credited in the LOPA (7 links)",
+  "pass": true,
+  "detail": "set()"
+ },
+ {
+  "group": "L. LOPA",
+  "check": "Severity by receptor in the LOPA = the HAZOP (receptors and S = highest)",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "group": "L. LOPA",
+  "check": "IPL names in the LOPA = HAZOP safeguard register (tag \u2013 description)",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "group": "L. LOPA",
+  "check": "IPL PFDs taken from fault-tree gates equal the gate values (9 IPL credits: FT1 G-004, FT1 G-005, FT3 G-002)",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "group": "L. LOPA",
+  "check": "Mitigated frequencies recalculated independently = the tool (120 receptor results, max rel. diff 0.0E+00)",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "group": "L. LOPA",
+  "check": "Every IPL credit adjudicated with reviewer and evidence; accepted = all 7 tests passed, rejected = a failed test and a reason (21 credits, 6 rejected)",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "group": "L. LOPA",
+  "check": "Rules check: no open findings \u2013 each one fixed or justified (0 findings justified)",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "group": "L. LOPA",
+  "check": "ALARP decision recorded wherever a result is in the ALARP band (12 scenarios)",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "group": "L. LOPA",
+  "check": "HAZOP LOPA study list carries the LOPA status and results (as HAZOP \u25b8 Import LOPA results)",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "group": "L. LOPA",
+  "check": "SCAI register lists every instrumented IPL with the SIL needed (7 functions)",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "group": "L. LOPA",
+  "check": "SCAI tags are equipment tags of the HAZOP / FMECA",
+  "pass": true,
+  "detail": ""
+ },
+ {
   "group": "F. Report",
   "check": "Report refers to FT-GN-01",
   "pass": true,
@@ -2684,6 +2774,12 @@
  {
   "group": "F. Report",
   "check": "Report refers to FM-EX-GN-001",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "group": "F. Report",
+  "check": "Report refers to LP-EX-GN-001",
   "pass": true,
   "detail": ""
  },

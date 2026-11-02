@@ -1,0 +1,1865 @@
+{
+ "app": "LOPA Study Manager",
+ "schema": 1,
+ "created": "2026-10-14T06:00:00.000Z",
+ "modified": "2026-10-14T16:00:00.000Z",
+ "study": {
+  "title": "LOPA – Steel works natural gas distribution network (worked example)",
+  "company": "Integrated DRI-EAF steel works (illustrative example)",
+  "unit": "Utilities – natural gas receiving, pressure reduction and plant distribution",
+  "docNo": "LP-EX-GN-001",
+  "rev": "A",
+  "date": "2026-10-16",
+  "facilitator": "G. Safety",
+  "team": "G. Safety (LOPA facilitator), C. Gas Network (process), E. Instrument (instrument / BMS), D. Operator (operations), F. Mechanical (regulators and valves)",
+  "hazopTitle": "PHA / HAZOP – Natural gas distribution network (worked example)",
+  "hazopFile": "Steel works gas network - HAZOP HZ-EX-GN-001.hazop.json",
+  "hazopImported": "2026-10-16",
+  "scope": "The four HAZOP deviations ticked LOPA: PRS-1 overpressure of the MP network (N02-02), reheat furnace flame loss with gas flowing (N06-01), reverse flow of process gas into the NG line (N04-03) and oxygen in the NG line at the oxy-fuel burners (N05-01). Illustrative values for training – not design data from any real plant.",
+  "notes": ""
+ },
+ "settings": {
+  "mode": "explicit",
+  "credit": "accepted",
+  "alarpDec": 2,
+  "recOn": [
+   "S",
+   "E",
+   "A",
+   "R",
+   "C"
+  ],
+  "sev": [
+   "Negligible",
+   "Minor",
+   "Moderate",
+   "Major",
+   "Catastrophic"
+  ],
+  "tmel": {
+   "S": [
+    0.01,
+    0.001,
+    0.0001,
+    1e-05,
+    1e-06
+   ],
+   "E": [
+    0.01,
+    0.001,
+    0.0001,
+    1e-05,
+    1e-06
+   ],
+   "A": [
+    0.1,
+    0.01,
+    0.001,
+    0.0001,
+    1e-05
+   ],
+   "R": [
+    0.1,
+    0.01,
+    0.001,
+    0.0001,
+    1e-05
+   ],
+   "C": [
+    0.01,
+    0.001,
+    0.0001,
+    1e-05,
+    1e-06
+   ]
+  },
+  "req": {
+   "S": [
+    2,
+    3,
+    4,
+    5,
+    6
+   ],
+   "E": [
+    2,
+    3,
+    4,
+    5,
+    6
+   ],
+   "A": [
+    1,
+    2,
+    3,
+    4,
+    5
+   ],
+   "R": [
+    1,
+    2,
+    3,
+    4,
+    5
+   ],
+   "C": [
+    2,
+    3,
+    4,
+    5,
+    6
+   ]
+  },
+  "basis": "Typical example values – replace with the client's tolerable risk criteria before the study."
+ },
+ "scenarios": [
+  {
+   "id": "sc000404be21",
+   "no": "L-01",
+   "key": "dv000383|cz000384",
+   "devId": "dv000383",
+   "hazopRef": "N02-02",
+   "node": "N02 – Gas heaters H-1101A/B and pressure reduction station PRS-1",
+   "deviation": "PRS outlet pressure above MP design pressure (10 barg)",
+   "cause": "Failed-open pressure control valves (PCVs)",
+   "consequence": "Overpressure of the whole MP network (inlet up to 42 barg vs 10 barg design): flange leaks and possible rupture across the site, overpressure of district stations and burner trains – fires / explosions at several locations",
+   "sev": {
+    "S": 5,
+    "E": 2,
+    "A": 4,
+    "R": 4,
+    "C": 3
+   },
+   "status": "Complete",
+   "ie": {
+    "desc": "Failed-open pressure control valves (PCVs)",
+    "f": 0.1,
+    "libId": "ie-regulator",
+    "basis": "CCPS LOPA (2001) Table 5.1 – pressure regulator failure (part of FT-GN-01 demand gate G-006)"
+   },
+   "enabling": [],
+   "modifiers": [
+    {
+     "id": "cm000562bfcb",
+     "desc": "Probability of ignition – gas release 1–50 kg/s",
+     "p": 0.07,
+     "rec": [
+      "S",
+      "A",
+      "R",
+      "C"
+     ],
+     "basis": "Cox, Lees & Ang (1990) as reproduced in Lees (2012) Table 16.72 – verify",
+     "libId": "cm-ign-gas-m"
+    },
+    {
+     "id": "cm000672778c",
+     "desc": "Probability that a person is present near the MP network when it leaks",
+     "p": 0.1,
+     "rec": [
+      "S"
+     ],
+     "basis": "Rounds about 17 h a week – CCPS ECCM (2014) Table 3.4",
+     "libId": "cm-pres-17h"
+    }
+   ],
+   "ipls": [
+    {
+     "id": "ip0001f91619",
+     "sgId": "sg000251",
+     "name": "PCV-1103A/B – Monitor regulator takes over on active-regulator failure (set 7.5 barg)",
+     "type": "Mechanical device",
+     "pfd": 0.01731714737364828,
+     "libId": "",
+     "basis": "FT-GN-01 gate G-004 – monitor regulator PCV-1103A fails to take over",
+     "proposed": false,
+     "adj": {
+      "status": "Accepted with conditions",
+      "tests": {
+       "spec": "yes",
+       "indep": "yes",
+       "dep": "yes",
+       "aud": "yes",
+       "sec": "yes",
+       "time": "yes",
+       "cyber": "yes"
+      },
+      "evidence": "FT-GN-01 G-004; annual lock-up and take-over test records",
+      "reviewer": "F. Mechanical",
+      "date": "2026-10-14",
+      "accPfd": "",
+      "conditions": "Annual lock-up test of PCV-1103A/B (R-003)",
+      "reason": ""
+     },
+     "ftGate": "FT1|G-004"
+    },
+    {
+     "id": "ip0002b8f2f1",
+     "sgId": "sg000252",
+     "name": "SSV-1102A/B – Slam-shut valve with over-pressure shut-off (OPSO 8.5 barg) on each regulator run",
+     "type": "Mechanical device",
+     "pfd": 0.007634023383706268,
+     "libId": "",
+     "basis": "FT-GN-01 gate G-005 – slam-shut SSV-1102A fails to close",
+     "proposed": false,
+     "adj": {
+      "status": "Accepted with conditions",
+      "tests": {
+       "spec": "yes",
+       "indep": "yes",
+       "dep": "yes",
+       "aud": "yes",
+       "sec": "yes",
+       "time": "yes",
+       "cyber": "yes"
+      },
+      "evidence": "FT-GN-01 G-005; six-monthly SSV trip test records; separate impulse line",
+      "reviewer": "F. Mechanical",
+      "date": "2026-10-14",
+      "accPfd": "",
+      "conditions": "Six-monthly SSV trip test (R-003)",
+      "reason": ""
+     },
+     "ftGate": "FT1|G-005"
+    },
+    {
+     "id": "ip00033cc1bf",
+     "sgId": "",
+     "name": "Separate impulse line for the monitor regulator, or an MP header high-pressure trip closing the inlet ESDV, SIL 1 (recommendation)",
+     "type": "SIF / SIS",
+     "pfd": 0.1,
+     "libId": "",
+     "basis": "Proposed – SIL 1 assumed; illustrative",
+     "proposed": true,
+     "adj": {
+      "status": "Claimed",
+      "tests": {},
+      "evidence": "",
+      "reviewer": "",
+      "date": "",
+      "accPfd": "",
+      "conditions": "",
+      "reason": ""
+     }
+    }
+   ],
+   "others": [
+    "PSV-1105 – Token relief valve (9.0 barg) to VS-1301 – lock-up creep / small leaks only, not sized for full regulator failure",
+    "PT-1106 – PRS outlet high-pressure alarm PAH-1106 (7.8 barg) with operator response",
+    "Regulator-run bypass valves car-sealed / locked closed (CSC register)"
+   ],
+   "notes": "FT-GN-01 gives 2.0E-4 for the two overpressure protections together – more than the 0.0173 × 0.00763 = 1.3E-4 a LOPA would take for two independent layers, because of their common causes (gate G-003).",
+   "ack": {},
+   "alarp": {
+    "options": "Separate impulse lines; MP header high-pressure trip; full-flow relief",
+    "decision": "Further risk reduction is reasonably practicable – recommendation raised",
+    "justification": "Recommendation raised for the separate impulse line / header trip",
+    "by": "G. Safety",
+    "date": "2026-10-14"
+   },
+   "result": "Meets target (Safety); with proposed IPLs: Meets target – accepted IPLs only"
+  },
+  {
+   "id": "sc00104bd368",
+   "no": "L-02",
+   "key": "dv000383|cz000385",
+   "devId": "dv000383",
+   "hazopRef": "N02-02",
+   "node": "N02 – Gas heaters H-1101A/B and pressure reduction station PRS-1",
+   "deviation": "PRS outlet pressure above MP design pressure (10 barg)",
+   "cause": "Regulator sensing line blocked or isolated",
+   "consequence": "Overpressure of the whole MP network (inlet up to 42 barg vs 10 barg design): flange leaks and possible rupture across the site, overpressure of district stations and burner trains – fires / explosions at several locations",
+   "sev": {
+    "S": 5,
+    "E": 2,
+    "A": 4,
+    "R": 4,
+    "C": 3
+   },
+   "status": "Complete",
+   "ie": {
+    "desc": "Regulator sensing line blocked or isolated",
+    "f": 0.05,
+    "libId": "",
+    "basis": "Sensing line blocked or isolated – part of the FT-GN-01 demand (0.18 /yr in total), illustrative"
+   },
+   "enabling": [],
+   "modifiers": [
+    {
+     "id": "cm001121a0d5",
+     "desc": "Probability of ignition – gas release 1–50 kg/s",
+     "p": 0.07,
+     "rec": [
+      "S",
+      "A",
+      "R",
+      "C"
+     ],
+     "basis": "Cox, Lees & Ang (1990) as reproduced in Lees (2012) Table 16.72 – verify",
+     "libId": "cm-ign-gas-m"
+    },
+    {
+     "id": "cm0012a7bb26",
+     "desc": "Probability that a person is present near the MP network when it leaks",
+     "p": 0.1,
+     "rec": [
+      "S"
+     ],
+     "basis": "Rounds about 17 h a week – CCPS ECCM (2014) Table 3.4",
+     "libId": "cm-pres-17h"
+    }
+   ],
+   "ipls": [
+    {
+     "id": "ip00075b6d9c",
+     "sgId": "sg000251",
+     "name": "PCV-1103A/B – Monitor regulator takes over on active-regulator failure (set 7.5 barg)",
+     "type": "Mechanical device",
+     "pfd": 0.01731714737364828,
+     "libId": "",
+     "basis": "FT-GN-01 gate G-004 – monitor regulator PCV-1103A fails to take over",
+     "proposed": false,
+     "adj": {
+      "status": "Rejected",
+      "tests": {
+       "spec": "yes",
+       "indep": "no",
+       "dep": "yes",
+       "aud": "yes",
+       "sec": "yes",
+       "time": "yes",
+       "cyber": "yes"
+      },
+      "evidence": "P&ID: the monitor regulator senses on the same impulse line as the active regulator",
+      "reviewer": "F. Mechanical",
+      "date": "2026-10-14",
+      "accPfd": "",
+      "conditions": "",
+      "reason": "Not independent – a blocked sensing line defeats the monitor regulator as well"
+     },
+     "ftGate": "FT1|G-004"
+    },
+    {
+     "id": "ip0008ac53a4",
+     "sgId": "sg000252",
+     "name": "SSV-1102A/B – Slam-shut valve with over-pressure shut-off (OPSO 8.5 barg) on each regulator run",
+     "type": "Mechanical device",
+     "pfd": 0.007634023383706268,
+     "libId": "",
+     "basis": "FT-GN-01 gate G-005 – slam-shut SSV-1102A fails to close",
+     "proposed": false,
+     "adj": {
+      "status": "Accepted with conditions",
+      "tests": {
+       "spec": "yes",
+       "indep": "yes",
+       "dep": "yes",
+       "aud": "yes",
+       "sec": "yes",
+       "time": "yes",
+       "cyber": "yes"
+      },
+      "evidence": "FT-GN-01 G-005; six-monthly SSV trip test records; separate impulse line",
+      "reviewer": "F. Mechanical",
+      "date": "2026-10-14",
+      "accPfd": "",
+      "conditions": "Six-monthly SSV trip test (R-003)",
+      "reason": ""
+     },
+     "ftGate": "FT1|G-005"
+    },
+    {
+     "id": "ip0009ba2309",
+     "sgId": "",
+     "name": "Separate impulse line for the monitor regulator, or an MP header high-pressure trip closing the inlet ESDV, SIL 1 (recommendation)",
+     "type": "SIF / SIS",
+     "pfd": 0.1,
+     "libId": "",
+     "basis": "Proposed – SIL 1 assumed; illustrative",
+     "proposed": true,
+     "adj": {
+      "status": "Claimed",
+      "tests": {},
+      "evidence": "",
+      "reviewer": "",
+      "date": "",
+      "accPfd": "",
+      "conditions": "",
+      "reason": ""
+     }
+    }
+   ],
+   "others": [
+    "PSV-1105 – Token relief valve (9.0 barg) to VS-1301 – lock-up creep / small leaks only, not sized for full regulator failure",
+    "PT-1106 – PRS outlet high-pressure alarm PAH-1106 (7.8 barg) with operator response",
+    "Regulator-run bypass valves car-sealed / locked closed (CSC register)"
+   ],
+   "notes": "FT-GN-01 gives 2.0E-4 for the two overpressure protections together – more than the 0.0173 × 0.00763 = 1.3E-4 a LOPA would take for two independent layers, because of their common causes (gate G-003).",
+   "ack": {},
+   "alarp": {
+    "options": "Separate impulse lines; MP header high-pressure trip; full-flow relief",
+    "decision": "Further risk reduction is reasonably practicable – recommendation raised",
+    "justification": "Recommendation raised for the separate impulse line / header trip",
+    "by": "G. Safety",
+    "date": "2026-10-14"
+   },
+   "result": "Gap ≤ 10× – one more IPL or SIL 1 (Safety, RRF 2.67); with proposed IPLs: Meets target – accepted IPLs only"
+  },
+  {
+   "id": "sc0016c18060",
+   "no": "L-03",
+   "key": "dv000383|cz000386",
+   "devId": "dv000383",
+   "hazopRef": "N02-02",
+   "node": "N02 – Gas heaters H-1101A/B and pressure reduction station PRS-1",
+   "deviation": "PRS outlet pressure above MP design pressure (10 barg)",
+   "cause": "Ice / debris in the active regulator pilot",
+   "consequence": "Overpressure of the whole MP network (inlet up to 42 barg vs 10 barg design): flange leaks and possible rupture across the site, overpressure of district stations and burner trains – fires / explosions at several locations",
+   "sev": {
+    "S": 5,
+    "E": 2,
+    "A": 4,
+    "R": 4,
+    "C": 3
+   },
+   "status": "Complete",
+   "ie": {
+    "desc": "Ice / debris in the active regulator pilot",
+    "f": 0.03,
+    "libId": "",
+    "basis": "Ice or debris in the active regulator pilot – part of the FT-GN-01 demand, illustrative"
+   },
+   "enabling": [],
+   "modifiers": [
+    {
+     "id": "cm00175fb355",
+     "desc": "Probability of ignition – gas release 1–50 kg/s",
+     "p": 0.07,
+     "rec": [
+      "S",
+      "A",
+      "R",
+      "C"
+     ],
+     "basis": "Cox, Lees & Ang (1990) as reproduced in Lees (2012) Table 16.72 – verify",
+     "libId": "cm-ign-gas-m"
+    },
+    {
+     "id": "cm001866fcac",
+     "desc": "Probability that a person is present near the MP network when it leaks",
+     "p": 0.1,
+     "rec": [
+      "S"
+     ],
+     "basis": "Rounds about 17 h a week – CCPS ECCM (2014) Table 3.4",
+     "libId": "cm-pres-17h"
+    }
+   ],
+   "ipls": [
+    {
+     "id": "ip0013bd9840",
+     "sgId": "sg000251",
+     "name": "PCV-1103A/B – Monitor regulator takes over on active-regulator failure (set 7.5 barg)",
+     "type": "Mechanical device",
+     "pfd": 0.01731714737364828,
+     "libId": "",
+     "basis": "FT-GN-01 gate G-004 – monitor regulator PCV-1103A fails to take over",
+     "proposed": false,
+     "adj": {
+      "status": "Accepted with conditions",
+      "tests": {
+       "spec": "yes",
+       "indep": "yes",
+       "dep": "yes",
+       "aud": "yes",
+       "sec": "yes",
+       "time": "yes",
+       "cyber": "yes"
+      },
+      "evidence": "FT-GN-01 G-004; annual lock-up and take-over test records",
+      "reviewer": "F. Mechanical",
+      "date": "2026-10-14",
+      "accPfd": "",
+      "conditions": "Annual lock-up test of PCV-1103A/B (R-003)",
+      "reason": ""
+     },
+     "ftGate": "FT1|G-004"
+    },
+    {
+     "id": "ip0014ca5351",
+     "sgId": "sg000252",
+     "name": "SSV-1102A/B – Slam-shut valve with over-pressure shut-off (OPSO 8.5 barg) on each regulator run",
+     "type": "Mechanical device",
+     "pfd": 0.007634023383706268,
+     "libId": "",
+     "basis": "FT-GN-01 gate G-005 – slam-shut SSV-1102A fails to close",
+     "proposed": false,
+     "adj": {
+      "status": "Accepted with conditions",
+      "tests": {
+       "spec": "yes",
+       "indep": "yes",
+       "dep": "yes",
+       "aud": "yes",
+       "sec": "yes",
+       "time": "yes",
+       "cyber": "yes"
+      },
+      "evidence": "FT-GN-01 G-005; six-monthly SSV trip test records; separate impulse line",
+      "reviewer": "F. Mechanical",
+      "date": "2026-10-14",
+      "accPfd": "",
+      "conditions": "Six-monthly SSV trip test (R-003)",
+      "reason": ""
+     },
+     "ftGate": "FT1|G-005"
+    },
+    {
+     "id": "ip0015c3f374",
+     "sgId": "",
+     "name": "Separate impulse line for the monitor regulator, or an MP header high-pressure trip closing the inlet ESDV, SIL 1 (recommendation)",
+     "type": "SIF / SIS",
+     "pfd": 0.1,
+     "libId": "",
+     "basis": "Proposed – SIL 1 assumed; illustrative",
+     "proposed": true,
+     "adj": {
+      "status": "Claimed",
+      "tests": {},
+      "evidence": "",
+      "reviewer": "",
+      "date": "",
+      "accPfd": "",
+      "conditions": "",
+      "reason": ""
+     }
+    }
+   ],
+   "others": [
+    "PSV-1105 – Token relief valve (9.0 barg) to VS-1301 – lock-up creep / small leaks only, not sized for full regulator failure",
+    "PT-1106 – PRS outlet high-pressure alarm PAH-1106 (7.8 barg) with operator response",
+    "Regulator-run bypass valves car-sealed / locked closed (CSC register)"
+   ],
+   "notes": "FT-GN-01 gives 2.0E-4 for the two overpressure protections together – more than the 0.0173 × 0.00763 = 1.3E-4 a LOPA would take for two independent layers, because of their common causes (gate G-003).",
+   "ack": {},
+   "alarp": {
+    "options": "Separate impulse lines; MP header high-pressure trip; full-flow relief",
+    "decision": "Further risk reduction is reasonably practicable – recommendation raised",
+    "justification": "Recommendation raised for the separate impulse line / header trip",
+    "by": "G. Safety",
+    "date": "2026-10-14"
+   },
+   "result": "Meets target (Safety); with proposed IPLs: Meets target – accepted IPLs only"
+  },
+  {
+   "id": "sc00222ff9f2",
+   "no": "L-04",
+   "key": "dv000527|cz000528",
+   "devId": "dv000527",
+   "hazopRef": "N06-01",
+   "node": "N06 – Rolling-mill reheat furnace fuel gas train and burner management",
+   "deviation": "Loss of flame with fuel gas still flowing",
+   "cause": "Burner flame-out with continued fuel supply",
+   "consequence": "Unburnt gas enters a furnace zone below auto-ignition temperature (start-up / low fire) – explosive mixture, furnace explosion: casing / door failure, fatalities on the furnace platforms",
+   "sev": {
+    "S": 5,
+    "E": 1,
+    "A": 4,
+    "R": 3,
+    "C": 1
+   },
+   "status": "Complete",
+   "ie": {
+    "desc": "Burner flame-out with continued fuel supply",
+    "f": 0.5,
+    "libId": "",
+    "basis": "Burner flame-out with fuel still flowing – part of the FT-GN-03 demand, illustrative"
+   },
+   "enabling": [
+    {
+     "id": "en00230adaad",
+     "desc": "Furnace below auto-ignition temperature (start-up or low fire)",
+     "p": 0.1,
+     "basis": "About 10 % of operating time; a flame failure is revealed at once by the scanners",
+     "tar": true,
+     "revealed": "yes"
+    }
+   ],
+   "modifiers": [
+    {
+     "id": "cm0024ba483a",
+     "desc": "Probability that a person is present on the burner platform",
+     "p": 0.1,
+     "rec": [
+      "S"
+     ],
+     "basis": "Rounds about 17 h a week – CCPS ECCM (2014) Table 3.4",
+     "libId": "cm-pres-17h"
+    }
+   ],
+   "ipls": [
+    {
+     "id": "ip001939ab17",
+     "sgId": "sg000277",
+     "name": "BMS-4000 – Reheat furnace BMS flame-failure shut-off (scanners BS-4010, logic BMS-4000, SSOVs XV-4002A/B)",
+     "type": "SIF / SIS",
+     "pfd": 0.011455248866667052,
+     "libId": "",
+     "basis": "FT-GN-03 gate G-002 – BMS fails to shut off the fuel gas on flame failure (PFDavg from the fault tree)",
+     "proposed": false,
+     "adj": {
+      "status": "Accepted with conditions",
+      "tests": {
+       "spec": "yes",
+       "indep": "yes",
+       "dep": "yes",
+       "aud": "yes",
+       "sec": "yes",
+       "time": "yes",
+       "cyber": "yes"
+      },
+      "evidence": "FT-GN-03 G-002; BMS SIL verification; scanner and SSOV test records",
+      "reviewer": "E. Instrument",
+      "date": "2026-10-14",
+      "accPfd": "",
+      "conditions": "Six-monthly scanner and safety shut-off valve tests",
+      "reason": ""
+     },
+     "ftGate": "FT3|G-002"
+    },
+    {
+     "id": "ip00201430aa",
+     "sgId": "sg000279",
+     "name": "Furnace explosion relief doors; no-go zone around burner platforms during light-off",
+     "type": "Passive / physical",
+     "pfd": 0.1,
+     "libId": "",
+     "basis": "Explosion relief doors and no-go zone – claimed in the HAZOP",
+     "proposed": false,
+     "adj": {
+      "status": "Rejected",
+      "tests": {
+       "spec": "no",
+       "indep": "yes",
+       "dep": "yes",
+       "aud": "yes",
+       "sec": "yes",
+       "time": "yes",
+       "cyber": "yes"
+      },
+      "evidence": "Marszal & Scharpf (2002) §9.4.6 – a layer that only lessens the consequence is not an IPL",
+      "reviewer": "E. Instrument",
+      "date": "2026-10-14",
+      "accPfd": "",
+      "conditions": "",
+      "reason": "Not specific – the doors limit the damage but do not prevent the furnace explosion"
+     }
+    },
+    {
+     "id": "ip0021cc8bb9",
+     "sgId": "",
+     "name": "BMS upgrade to SIL 2: second flame scanner per burner, 1oo2 voting (recommendation)",
+     "type": "SIF / SIS",
+     "pfd": 0.1,
+     "libId": "",
+     "basis": "Proposed – additional factor 10 over the present BMS; illustrative",
+     "proposed": true,
+     "adj": {
+      "status": "Claimed",
+      "tests": {},
+      "evidence": "",
+      "reviewer": "",
+      "date": "",
+      "accPfd": "",
+      "conditions": "",
+      "reason": ""
+     }
+    }
+   ],
+   "others": [
+    "Furnace draught / post-purge removes unburnt gas through the stack before it can ignite"
+   ],
+   "notes": "The explosion relief doors stay in the consequence analysis (they limit the damage) but are not credited as an IPL.",
+   "ack": {},
+   "alarp": {
+    "options": "BMS upgrade; longer pre-purge; remote light-off",
+    "decision": "Further risk reduction is reasonably practicable – recommendation raised",
+    "justification": "Recommendation raised for the BMS upgrade",
+    "by": "G. Safety",
+    "date": "2026-10-14"
+   },
+   "result": "SIL 1 needed (Safety, RRF 57.3); with proposed IPLs: Gap ≤ 10× – one more IPL or SIL 1 – accepted IPLs only"
+  },
+  {
+   "id": "sc0028fa4824",
+   "no": "L-05",
+   "key": "dv000527|cz000529",
+   "devId": "dv000527",
+   "hazopRef": "N06-01",
+   "node": "N06 – Rolling-mill reheat furnace fuel gas train and burner management",
+   "deviation": "Loss of flame with fuel gas still flowing",
+   "cause": "[S] Low fuel-gas pressure at burners (flame-out followed by re-ignition of accumulated gas)",
+   "consequence": "Unburnt gas enters a furnace zone below auto-ignition temperature (start-up / low fire) – explosive mixture, furnace explosion: casing / door failure, fatalities on the furnace platforms",
+   "sev": {
+    "S": 5,
+    "E": 1,
+    "A": 4,
+    "R": 3,
+    "C": 1
+   },
+   "status": "Complete",
+   "ie": {
+    "desc": "[S] Low fuel-gas pressure at burners (flame-out followed by re-ignition of accumulated gas)",
+    "f": 0.2,
+    "libId": "",
+    "basis": "Low fuel-gas pressure at the burners (flame-out, then re-ignition) – illustrative"
+   },
+   "enabling": [
+    {
+     "id": "en0029d3699f",
+     "desc": "Furnace below auto-ignition temperature (start-up or low fire)",
+     "p": 0.1,
+     "basis": "About 10 % of operating time; a flame failure is revealed at once by the scanners",
+     "tar": true,
+     "revealed": "yes"
+    }
+   ],
+   "modifiers": [
+    {
+     "id": "cm0030914275",
+     "desc": "Probability that a person is present on the burner platform",
+     "p": 0.1,
+     "rec": [
+      "S"
+     ],
+     "basis": "Rounds about 17 h a week – CCPS ECCM (2014) Table 3.4",
+     "libId": "cm-pres-17h"
+    }
+   ],
+   "ipls": [
+    {
+     "id": "ip00257edd24",
+     "sgId": "sg000277",
+     "name": "BMS-4000 – Reheat furnace BMS flame-failure shut-off (scanners BS-4010, logic BMS-4000, SSOVs XV-4002A/B)",
+     "type": "SIF / SIS",
+     "pfd": 0.011455248866667052,
+     "libId": "",
+     "basis": "FT-GN-03 gate G-002 – BMS fails to shut off the fuel gas on flame failure (PFDavg from the fault tree)",
+     "proposed": false,
+     "adj": {
+      "status": "Accepted with conditions",
+      "tests": {
+       "spec": "yes",
+       "indep": "yes",
+       "dep": "yes",
+       "aud": "yes",
+       "sec": "yes",
+       "time": "yes",
+       "cyber": "yes"
+      },
+      "evidence": "FT-GN-03 G-002; BMS SIL verification; scanner and SSOV test records",
+      "reviewer": "E. Instrument",
+      "date": "2026-10-14",
+      "accPfd": "",
+      "conditions": "Six-monthly scanner and safety shut-off valve tests",
+      "reason": ""
+     },
+     "ftGate": "FT3|G-002"
+    },
+    {
+     "id": "ip0026a837dc",
+     "sgId": "sg000279",
+     "name": "Furnace explosion relief doors; no-go zone around burner platforms during light-off",
+     "type": "Passive / physical",
+     "pfd": 0.1,
+     "libId": "",
+     "basis": "Explosion relief doors and no-go zone – claimed in the HAZOP",
+     "proposed": false,
+     "adj": {
+      "status": "Rejected",
+      "tests": {
+       "spec": "no",
+       "indep": "yes",
+       "dep": "yes",
+       "aud": "yes",
+       "sec": "yes",
+       "time": "yes",
+       "cyber": "yes"
+      },
+      "evidence": "Marszal & Scharpf (2002) §9.4.6 – a layer that only lessens the consequence is not an IPL",
+      "reviewer": "E. Instrument",
+      "date": "2026-10-14",
+      "accPfd": "",
+      "conditions": "",
+      "reason": "Not specific – the doors limit the damage but do not prevent the furnace explosion"
+     }
+    },
+    {
+     "id": "ip00272f989b",
+     "sgId": "",
+     "name": "BMS upgrade to SIL 2: second flame scanner per burner, 1oo2 voting (recommendation)",
+     "type": "SIF / SIS",
+     "pfd": 0.1,
+     "libId": "",
+     "basis": "Proposed – additional factor 10 over the present BMS; illustrative",
+     "proposed": true,
+     "adj": {
+      "status": "Claimed",
+      "tests": {},
+      "evidence": "",
+      "reviewer": "",
+      "date": "",
+      "accPfd": "",
+      "conditions": "",
+      "reason": ""
+     }
+    }
+   ],
+   "others": [
+    "Furnace draught / post-purge removes unburnt gas through the stack before it can ignite"
+   ],
+   "notes": "The explosion relief doors stay in the consequence analysis (they limit the damage) but are not credited as an IPL.",
+   "ack": {},
+   "alarp": {
+    "options": "BMS upgrade; longer pre-purge; remote light-off",
+    "decision": "Further risk reduction is reasonably practicable – recommendation raised",
+    "justification": "Recommendation raised for the BMS upgrade",
+    "by": "G. Safety",
+    "date": "2026-10-14"
+   },
+   "result": "SIL 1 needed (Safety, RRF 22.9); with proposed IPLs: Gap ≤ 10× – one more IPL or SIL 1 – accepted IPLs only"
+  },
+  {
+   "id": "sc00347c4bfb",
+   "no": "L-06",
+   "key": "dv000527|cz000530",
+   "devId": "dv000527",
+   "hazopRef": "N06-01",
+   "node": "N06 – Rolling-mill reheat furnace fuel gas train and burner management",
+   "deviation": "Loss of flame with fuel gas still flowing",
+   "cause": "Failed light-off of a main burner",
+   "consequence": "Unburnt gas enters a furnace zone below auto-ignition temperature (start-up / low fire) – explosive mixture, furnace explosion: casing / door failure, fatalities on the furnace platforms",
+   "sev": {
+    "S": 5,
+    "E": 1,
+    "A": 4,
+    "R": 3,
+    "C": 1
+   },
+   "status": "Complete",
+   "ie": {
+    "desc": "Failed light-off of a main burner",
+    "f": 0.1,
+    "libId": "",
+    "basis": "Failed light-off of a main burner – illustrative"
+   },
+   "enabling": [
+    {
+     "id": "en0035008a54",
+     "desc": "Furnace below auto-ignition temperature (start-up or low fire)",
+     "p": 0.1,
+     "basis": "About 10 % of operating time; a flame failure is revealed at once by the scanners",
+     "tar": true,
+     "revealed": "yes"
+    }
+   ],
+   "modifiers": [
+    {
+     "id": "cm0036b5d459",
+     "desc": "Probability that a person is present on the burner platform",
+     "p": 0.1,
+     "rec": [
+      "S"
+     ],
+     "basis": "Rounds about 17 h a week – CCPS ECCM (2014) Table 3.4",
+     "libId": "cm-pres-17h"
+    }
+   ],
+   "ipls": [
+    {
+     "id": "ip00313b9366",
+     "sgId": "sg000277",
+     "name": "BMS-4000 – Reheat furnace BMS flame-failure shut-off (scanners BS-4010, logic BMS-4000, SSOVs XV-4002A/B)",
+     "type": "SIF / SIS",
+     "pfd": 0.011455248866667052,
+     "libId": "",
+     "basis": "FT-GN-03 gate G-002 – BMS fails to shut off the fuel gas on flame failure (PFDavg from the fault tree)",
+     "proposed": false,
+     "adj": {
+      "status": "Accepted with conditions",
+      "tests": {
+       "spec": "yes",
+       "indep": "yes",
+       "dep": "yes",
+       "aud": "yes",
+       "sec": "yes",
+       "time": "yes",
+       "cyber": "yes"
+      },
+      "evidence": "FT-GN-03 G-002; BMS SIL verification; scanner and SSOV test records",
+      "reviewer": "E. Instrument",
+      "date": "2026-10-14",
+      "accPfd": "",
+      "conditions": "Six-monthly scanner and safety shut-off valve tests",
+      "reason": ""
+     },
+     "ftGate": "FT3|G-002"
+    },
+    {
+     "id": "ip0032977058",
+     "sgId": "sg000279",
+     "name": "Furnace explosion relief doors; no-go zone around burner platforms during light-off",
+     "type": "Passive / physical",
+     "pfd": 0.1,
+     "libId": "",
+     "basis": "Explosion relief doors and no-go zone – claimed in the HAZOP",
+     "proposed": false,
+     "adj": {
+      "status": "Rejected",
+      "tests": {
+       "spec": "no",
+       "indep": "yes",
+       "dep": "yes",
+       "aud": "yes",
+       "sec": "yes",
+       "time": "yes",
+       "cyber": "yes"
+      },
+      "evidence": "Marszal & Scharpf (2002) §9.4.6 – a layer that only lessens the consequence is not an IPL",
+      "reviewer": "E. Instrument",
+      "date": "2026-10-14",
+      "accPfd": "",
+      "conditions": "",
+      "reason": "Not specific – the doors limit the damage but do not prevent the furnace explosion"
+     }
+    },
+    {
+     "id": "ip00332f8c17",
+     "sgId": "",
+     "name": "BMS upgrade to SIL 2: second flame scanner per burner, 1oo2 voting (recommendation)",
+     "type": "SIF / SIS",
+     "pfd": 0.1,
+     "libId": "",
+     "basis": "Proposed – additional factor 10 over the present BMS; illustrative",
+     "proposed": true,
+     "adj": {
+      "status": "Claimed",
+      "tests": {},
+      "evidence": "",
+      "reviewer": "",
+      "date": "",
+      "accPfd": "",
+      "conditions": "",
+      "reason": ""
+     }
+    }
+   ],
+   "others": [
+    "Furnace draught / post-purge removes unburnt gas through the stack before it can ignite"
+   ],
+   "notes": "The explosion relief doors stay in the consequence analysis (they limit the damage) but are not credited as an IPL.",
+   "ack": {},
+   "alarp": {
+    "options": "BMS upgrade; longer pre-purge; remote light-off",
+    "decision": "Further risk reduction is reasonably practicable – recommendation raised",
+    "justification": "Recommendation raised for the BMS upgrade",
+    "by": "G. Safety",
+    "date": "2026-10-14"
+   },
+   "result": "SIL 1 needed (Safety, RRF 11.5); with proposed IPLs: Gap ≤ 10× – one more IPL or SIL 1 – accepted IPLs only"
+  },
+  {
+   "id": "sc0039b9d9f0",
+   "no": "L-07",
+   "key": "dv000485|cz000486",
+   "devId": "dv000485",
+   "hazopRef": "N04-03",
+   "node": "N04 – DRI plant gas supply – district station DS-2",
+   "deviation": "Reverse flow of process gas into the NG line",
+   "cause": "Defective or passing non-return valve",
+   "consequence": "H2 / CO-rich reducing gas flows back into the NG system – CO toxic exposure at other users' burners and vents, flame instability",
+   "sev": {
+    "S": 5,
+    "E": 1,
+    "A": 3,
+    "R": 3,
+    "C": 4
+   },
+   "status": "Complete",
+   "ie": {
+    "desc": "Defective or passing non-return valve",
+    "f": 0.01,
+    "libId": "",
+    "basis": "Passing non-return valve while the process-gas pressure exceeds the NG pressure – illustrative"
+   },
+   "enabling": [],
+   "modifiers": [
+    {
+     "id": "cm0040a74fcc",
+     "desc": "Probability that a person is present at a burner or vent where CO escapes",
+     "p": 0.1,
+     "rec": [
+      "S"
+     ],
+     "basis": "Rounds about 17 h a week – CCPS ECCM (2014) Table 3.4",
+     "libId": "cm-pres-17h"
+    }
+   ],
+   "ipls": [
+    {
+     "id": "ip003736e43e",
+     "sgId": "sg000272",
+     "name": "XV-2008 – Double non-return valves + XV-2008 closes on low NG / process-gas differential pressure PDALL-2009",
+     "type": "SIF / SIS",
+     "pfd": 0.1,
+     "libId": "ipl-sil1",
+     "basis": "CCPS LOPA (2001) Table 6.4 – SIF, SIL 1 (XV-2008 on low differential pressure)",
+     "proposed": false,
+     "adj": {
+      "status": "Rejected",
+      "tests": {
+       "spec": "yes",
+       "indep": "no",
+       "dep": "yes",
+       "aud": "yes",
+       "sec": "yes",
+       "time": "yes",
+       "cyber": "yes"
+      },
+      "evidence": "The double non-return valves are part of this IPL",
+      "reviewer": "E. Instrument",
+      "date": "2026-10-14",
+      "accPfd": "",
+      "conditions": "",
+      "reason": "Not independent – the failed non-return valve is part of the IPL"
+     }
+    },
+    {
+     "id": "ip0038005517",
+     "sgId": "",
+     "name": "Independent XV-2008 trip on a separate differential-pressure transmitter, SIL 2 (recommendation)",
+     "type": "SIF / SIS",
+     "pfd": 0.01,
+     "libId": "",
+     "basis": "Proposed – SIL 2 assumed; illustrative",
+     "proposed": true,
+     "adj": {
+      "status": "Claimed",
+      "tests": {},
+      "evidence": "",
+      "reviewer": "",
+      "date": "",
+      "accPfd": "",
+      "conditions": "",
+      "reason": ""
+     }
+    }
+   ],
+   "others": [],
+   "notes": "Safety and community (CO reaching other users' burners and vents) need the same risk reduction – the tool reports the first of the tied receptors.",
+   "ack": {},
+   "alarp": {
+    "options": "Independent differential-pressure trip; CO detection at the burners",
+    "decision": "Further risk reduction is reasonably practicable – recommendation raised",
+    "justification": "Recommendation raised",
+    "by": "G. Safety",
+    "date": "2026-10-14"
+   },
+   "result": "SIL 2 needed (Safety, RRF 1.0E+3); with proposed IPLs: Gap ≤ 10× – one more IPL or SIL 1 – accepted IPLs only"
+  },
+  {
+   "id": "sc00437cfcc1",
+   "no": "L-08",
+   "key": "dv000485|cz000487",
+   "devId": "dv000485",
+   "hazopRef": "N04-03",
+   "node": "N04 – DRI plant gas supply – district station DS-2",
+   "deviation": "Reverse flow of process gas into the NG line",
+   "cause": "Two-way flow in common headers",
+   "consequence": "H2 / CO-rich reducing gas flows back into the NG system – CO toxic exposure at other users' burners and vents, flame instability",
+   "sev": {
+    "S": 5,
+    "E": 1,
+    "A": 3,
+    "R": 3,
+    "C": 4
+   },
+   "status": "Complete",
+   "ie": {
+    "desc": "Two-way flow in common headers",
+    "f": 0.05,
+    "libId": "",
+    "basis": "Two-way flow in a common header – illustrative"
+   },
+   "enabling": [],
+   "modifiers": [
+    {
+     "id": "cm0044e9c0af",
+     "desc": "Probability that a person is present at a burner or vent where CO escapes",
+     "p": 0.1,
+     "rec": [
+      "S"
+     ],
+     "basis": "Rounds about 17 h a week – CCPS ECCM (2014) Table 3.4",
+     "libId": "cm-pres-17h"
+    }
+   ],
+   "ipls": [
+    {
+     "id": "ip0041184e17",
+     "sgId": "sg000272",
+     "name": "XV-2008 – Double non-return valves + XV-2008 closes on low NG / process-gas differential pressure PDALL-2009",
+     "type": "SIF / SIS",
+     "pfd": 0.1,
+     "libId": "ipl-sil1",
+     "basis": "CCPS LOPA (2001) Table 6.4 – SIF, SIL 1 (XV-2008 on low differential pressure)",
+     "proposed": false,
+     "adj": {
+      "status": "Accepted with conditions",
+      "tests": {
+       "spec": "yes",
+       "indep": "yes",
+       "dep": "yes",
+       "aud": "yes",
+       "sec": "yes",
+       "time": "yes",
+       "cyber": "yes"
+      },
+      "evidence": "SRS; PDT and XV-2008 proof-test records",
+      "reviewer": "E. Instrument",
+      "date": "2026-10-14",
+      "accPfd": "",
+      "conditions": "Annual proof test of the differential-pressure trip and XV-2008",
+      "reason": ""
+     }
+    },
+    {
+     "id": "ip0042b14fd1",
+     "sgId": "",
+     "name": "Independent XV-2008 trip on a separate differential-pressure transmitter, SIL 2 (recommendation)",
+     "type": "SIF / SIS",
+     "pfd": 0.01,
+     "libId": "",
+     "basis": "Proposed – SIL 2 assumed; illustrative",
+     "proposed": true,
+     "adj": {
+      "status": "Claimed",
+      "tests": {},
+      "evidence": "",
+      "reviewer": "",
+      "date": "",
+      "accPfd": "",
+      "conditions": "",
+      "reason": ""
+     }
+    }
+   ],
+   "others": [],
+   "notes": "Safety and community (CO reaching other users' burners and vents) need the same risk reduction – the tool reports the first of the tied receptors.",
+   "ack": {},
+   "alarp": {
+    "options": "Independent differential-pressure trip; CO detection at the burners",
+    "decision": "Further risk reduction is reasonably practicable – recommendation raised",
+    "justification": "Recommendation raised",
+    "by": "G. Safety",
+    "date": "2026-10-14"
+   },
+   "result": "SIL 2 needed (Safety, RRF 500); with proposed IPLs: Gap ≤ 10× – one more IPL or SIL 1 – accepted IPLs only"
+  },
+  {
+   "id": "sc0047137bc4",
+   "no": "L-09",
+   "key": "dv000485|cz000488",
+   "devId": "dv000485",
+   "hazopRef": "N04-03",
+   "node": "N04 – DRI plant gas supply – district station DS-2",
+   "deviation": "Reverse flow of process gas into the NG line",
+   "cause": "Low NG pressure at the make-up point (supply loss)",
+   "consequence": "H2 / CO-rich reducing gas flows back into the NG system – CO toxic exposure at other users' burners and vents, flame instability",
+   "sev": {
+    "S": 5,
+    "E": 1,
+    "A": 3,
+    "R": 3,
+    "C": 4
+   },
+   "status": "Complete",
+   "ie": {
+    "desc": "Low NG pressure at the make-up point (supply loss)",
+    "f": 0.1,
+    "libId": "ie-regulator",
+    "basis": "CCPS LOPA (2001) Table 5.1 – pressure regulator failure (low NG pressure at the make-up point)"
+   },
+   "enabling": [],
+   "modifiers": [
+    {
+     "id": "cm0048a3b30d",
+     "desc": "Probability that a person is present at a burner or vent where CO escapes",
+     "p": 0.1,
+     "rec": [
+      "S"
+     ],
+     "basis": "Rounds about 17 h a week – CCPS ECCM (2014) Table 3.4",
+     "libId": "cm-pres-17h"
+    }
+   ],
+   "ipls": [
+    {
+     "id": "ip004598bdd6",
+     "sgId": "sg000272",
+     "name": "XV-2008 – Double non-return valves + XV-2008 closes on low NG / process-gas differential pressure PDALL-2009",
+     "type": "SIF / SIS",
+     "pfd": 0.1,
+     "libId": "ipl-sil1",
+     "basis": "CCPS LOPA (2001) Table 6.4 – SIF, SIL 1 (XV-2008 on low differential pressure)",
+     "proposed": false,
+     "adj": {
+      "status": "Accepted with conditions",
+      "tests": {
+       "spec": "yes",
+       "indep": "yes",
+       "dep": "yes",
+       "aud": "yes",
+       "sec": "yes",
+       "time": "yes",
+       "cyber": "yes"
+      },
+      "evidence": "SRS; PDT and XV-2008 proof-test records",
+      "reviewer": "E. Instrument",
+      "date": "2026-10-14",
+      "accPfd": "",
+      "conditions": "Annual proof test of the differential-pressure trip and XV-2008",
+      "reason": ""
+     }
+    },
+    {
+     "id": "ip0046d579b0",
+     "sgId": "",
+     "name": "Independent XV-2008 trip on a separate differential-pressure transmitter, SIL 2 (recommendation)",
+     "type": "SIF / SIS",
+     "pfd": 0.01,
+     "libId": "",
+     "basis": "Proposed – SIL 2 assumed; illustrative",
+     "proposed": true,
+     "adj": {
+      "status": "Claimed",
+      "tests": {},
+      "evidence": "",
+      "reviewer": "",
+      "date": "",
+      "accPfd": "",
+      "conditions": "",
+      "reason": ""
+     }
+    }
+   ],
+   "others": [],
+   "notes": "Safety and community (CO reaching other users' burners and vents) need the same risk reduction – the tool reports the first of the tied receptors.",
+   "ack": {},
+   "alarp": {
+    "options": "Independent differential-pressure trip; CO detection at the burners",
+    "decision": "Further risk reduction is reasonably practicable – recommendation raised",
+    "justification": "Recommendation raised",
+    "by": "G. Safety",
+    "date": "2026-10-14"
+   },
+   "result": "SIL 2 needed (Safety, RRF 1.0E+3); with proposed IPLs: Gap ≤ 10× – one more IPL or SIL 1 – accepted IPLs only"
+  },
+  {
+   "id": "sc0052ad6c3b",
+   "no": "L-10",
+   "key": "dv000500|cz000501",
+   "devId": "dv000500",
+   "hazopRef": "N05-01",
+   "node": "N05 – Melt shop gas supply – DS-3, EAF oxy-fuel burners and ladle preheaters",
+   "deviation": "Oxygen in the NG line at the oxy-fuel burners",
+   "cause": "Burner flame-out with continued fuel supply",
+   "consequence": "Explosive NG / O2 mixture inside the NG line – flashback, detonation in the burner line, fire in the melt shop next to the EAF",
+   "sev": {
+    "S": 5,
+    "E": 1,
+    "A": 4,
+    "R": 3,
+    "C": 1
+   },
+   "status": "Complete",
+   "ie": {
+    "desc": "Burner flame-out with continued fuel supply",
+    "f": 0.5,
+    "libId": "",
+    "basis": "Burner flame-out with continued fuel supply – illustrative"
+   },
+   "enabling": [],
+   "modifiers": [
+    {
+     "id": "cm005353d9c9",
+     "desc": "Probability that a person is present in the melt shop next to the burner line",
+     "p": 0.1,
+     "rec": [
+      "S"
+     ],
+     "basis": "Rounds about 17 h a week – CCPS ECCM (2014) Table 3.4",
+     "libId": "cm-pres-17h"
+    }
+   ],
+   "ipls": [
+    {
+     "id": "ip0049a44da1",
+     "sgId": "sg000273",
+     "name": "NRV-3010 – Non-return valves and flashback arrestors on the NG and O2 lines at each oxy-fuel burner and preheater",
+     "type": "Mechanical device",
+     "pfd": 0.01,
+     "libId": "ips-flamearr",
+     "basis": "CCPS IPS (2007) Table B.4 – flame arrester designed for the hazard, inspected",
+     "proposed": false,
+     "adj": {
+      "status": "Accepted with conditions",
+      "tests": {
+       "spec": "yes",
+       "indep": "yes",
+       "dep": "yes",
+       "aud": "yes",
+       "sec": "yes",
+       "time": "yes",
+       "cyber": "yes"
+      },
+      "evidence": "Arrester data sheet (detonation rated); inspection records",
+      "reviewer": "F. Mechanical",
+      "date": "2026-10-14",
+      "accPfd": "",
+      "conditions": "Annual inspection of the arresters and non-return valves",
+      "reason": ""
+     }
+    },
+    {
+     "id": "ip0050c0478a",
+     "sgId": "sg000274",
+     "name": "XV-3011 – Burner management: O2 and NG shut off on low NG pressure PSLL-3012; N2 purge of burner after shutdown",
+     "type": "SIF / SIS",
+     "pfd": 0.1,
+     "libId": "ipl-sil1",
+     "basis": "CCPS LOPA (2001) Table 6.4 – SIF, SIL 1 (O2 and NG shut-off on low NG pressure PSLL-3012)",
+     "proposed": false,
+     "adj": {
+      "status": "Accepted",
+      "tests": {
+       "spec": "yes",
+       "indep": "yes",
+       "dep": "yes",
+       "aud": "yes",
+       "sec": "yes",
+       "time": "yes",
+       "cyber": "yes"
+      },
+      "evidence": "SRS; PSLL-3012 and XV-3011 proof-test records",
+      "reviewer": "E. Instrument",
+      "date": "2026-10-14",
+      "accPfd": "",
+      "conditions": "",
+      "reason": ""
+     }
+    },
+    {
+     "id": "ip005171b619",
+     "sgId": "",
+     "name": "Second, diverse O2 shut-off on low NG pressure, SIL 1 (recommendation)",
+     "type": "SIF / SIS",
+     "pfd": 0.1,
+     "libId": "",
+     "basis": "Proposed – SIL 1 assumed; illustrative",
+     "proposed": true,
+     "adj": {
+      "status": "Claimed",
+      "tests": {},
+      "evidence": "",
+      "reviewer": "",
+      "date": "",
+      "accPfd": "",
+      "conditions": "",
+      "reason": ""
+     }
+    }
+   ],
+   "others": [],
+   "notes": "Flashback arresters are credited for gas-side causes, not when the passing non-return valve of the same assembly is the cause.",
+   "ack": {},
+   "alarp": {
+    "options": "Diverse O2 shut-off; N2 purge after every flame-out",
+    "decision": "Further risk reduction is reasonably practicable – recommendation raised",
+    "justification": "Recommendation raised",
+    "by": "G. Safety",
+    "date": "2026-10-14"
+   },
+   "result": "SIL 1 needed (Safety, RRF 50); with proposed IPLs: Gap ≤ 10× – one more IPL or SIL 1 – accepted IPLs only"
+  },
+  {
+   "id": "sc0057eab62d",
+   "no": "L-11",
+   "key": "dv000500|cz000502",
+   "devId": "dv000500",
+   "hazopRef": "N05-01",
+   "node": "N05 – Melt shop gas supply – DS-3, EAF oxy-fuel burners and ladle preheaters",
+   "deviation": "Oxygen in the NG line at the oxy-fuel burners",
+   "cause": "O2 back-flow through the burner when NG pressure is lost",
+   "consequence": "Explosive NG / O2 mixture inside the NG line – flashback, detonation in the burner line, fire in the melt shop next to the EAF",
+   "sev": {
+    "S": 5,
+    "E": 1,
+    "A": 4,
+    "R": 3,
+    "C": 1
+   },
+   "status": "Complete",
+   "ie": {
+    "desc": "O2 back-flow through the burner when NG pressure is lost",
+    "f": 0.1,
+    "libId": "",
+    "basis": "O2 back-flow through the burner when NG pressure is lost – illustrative"
+   },
+   "enabling": [],
+   "modifiers": [
+    {
+     "id": "cm0058751026",
+     "desc": "Probability that a person is present in the melt shop next to the burner line",
+     "p": 0.1,
+     "rec": [
+      "S"
+     ],
+     "basis": "Rounds about 17 h a week – CCPS ECCM (2014) Table 3.4",
+     "libId": "cm-pres-17h"
+    }
+   ],
+   "ipls": [
+    {
+     "id": "ip0054d440fa",
+     "sgId": "sg000273",
+     "name": "NRV-3010 – Non-return valves and flashback arrestors on the NG and O2 lines at each oxy-fuel burner and preheater",
+     "type": "Mechanical device",
+     "pfd": 0.01,
+     "libId": "ips-flamearr",
+     "basis": "CCPS IPS (2007) Table B.4 – flame arrester designed for the hazard, inspected",
+     "proposed": false,
+     "adj": {
+      "status": "Accepted with conditions",
+      "tests": {
+       "spec": "yes",
+       "indep": "yes",
+       "dep": "yes",
+       "aud": "yes",
+       "sec": "yes",
+       "time": "yes",
+       "cyber": "yes"
+      },
+      "evidence": "Arrester data sheet (detonation rated); inspection records",
+      "reviewer": "F. Mechanical",
+      "date": "2026-10-14",
+      "accPfd": "",
+      "conditions": "Annual inspection of the arresters and non-return valves",
+      "reason": ""
+     }
+    },
+    {
+     "id": "ip00552fe0e7",
+     "sgId": "sg000274",
+     "name": "XV-3011 – Burner management: O2 and NG shut off on low NG pressure PSLL-3012; N2 purge of burner after shutdown",
+     "type": "SIF / SIS",
+     "pfd": 0.1,
+     "libId": "ipl-sil1",
+     "basis": "CCPS LOPA (2001) Table 6.4 – SIF, SIL 1 (O2 and NG shut-off on low NG pressure PSLL-3012)",
+     "proposed": false,
+     "adj": {
+      "status": "Accepted",
+      "tests": {
+       "spec": "yes",
+       "indep": "yes",
+       "dep": "yes",
+       "aud": "yes",
+       "sec": "yes",
+       "time": "yes",
+       "cyber": "yes"
+      },
+      "evidence": "SRS; PSLL-3012 and XV-3011 proof-test records",
+      "reviewer": "E. Instrument",
+      "date": "2026-10-14",
+      "accPfd": "",
+      "conditions": "",
+      "reason": ""
+     }
+    },
+    {
+     "id": "ip005672cddf",
+     "sgId": "",
+     "name": "Second, diverse O2 shut-off on low NG pressure, SIL 1 (recommendation)",
+     "type": "SIF / SIS",
+     "pfd": 0.1,
+     "libId": "",
+     "basis": "Proposed – SIL 1 assumed; illustrative",
+     "proposed": true,
+     "adj": {
+      "status": "Claimed",
+      "tests": {},
+      "evidence": "",
+      "reviewer": "",
+      "date": "",
+      "accPfd": "",
+      "conditions": "",
+      "reason": ""
+     }
+    }
+   ],
+   "others": [],
+   "notes": "Flashback arresters are credited for gas-side causes, not when the passing non-return valve of the same assembly is the cause.",
+   "ack": {},
+   "alarp": {
+    "options": "Diverse O2 shut-off; N2 purge after every flame-out",
+    "decision": "Further risk reduction is reasonably practicable – recommendation raised",
+    "justification": "Recommendation raised",
+    "by": "G. Safety",
+    "date": "2026-10-14"
+   },
+   "result": "Gap ≤ 10× – one more IPL or SIL 1 (Safety, RRF 10); with proposed IPLs: Meets target – accepted IPLs only"
+  },
+  {
+   "id": "sc0062111d41",
+   "no": "L-12",
+   "key": "dv000500|cz000503",
+   "devId": "dv000500",
+   "hazopRef": "N05-01",
+   "node": "N05 – Melt shop gas supply – DS-3, EAF oxy-fuel burners and ladle preheaters",
+   "deviation": "Oxygen in the NG line at the oxy-fuel burners",
+   "cause": "Defective or passing non-return valve",
+   "consequence": "Explosive NG / O2 mixture inside the NG line – flashback, detonation in the burner line, fire in the melt shop next to the EAF",
+   "sev": {
+    "S": 5,
+    "E": 1,
+    "A": 4,
+    "R": 3,
+    "C": 1
+   },
+   "status": "Complete",
+   "ie": {
+    "desc": "Defective or passing non-return valve",
+    "f": 0.01,
+    "libId": "",
+    "basis": "Defective or passing non-return valve – illustrative"
+   },
+   "enabling": [],
+   "modifiers": [
+    {
+     "id": "cm006302a1a0",
+     "desc": "Probability that a person is present in the melt shop next to the burner line",
+     "p": 0.1,
+     "rec": [
+      "S"
+     ],
+     "basis": "Rounds about 17 h a week – CCPS ECCM (2014) Table 3.4",
+     "libId": "cm-pres-17h"
+    }
+   ],
+   "ipls": [
+    {
+     "id": "ip00598cec2e",
+     "sgId": "sg000273",
+     "name": "NRV-3010 – Non-return valves and flashback arrestors on the NG and O2 lines at each oxy-fuel burner and preheater",
+     "type": "Mechanical device",
+     "pfd": 0.01,
+     "libId": "ips-flamearr",
+     "basis": "CCPS IPS (2007) Table B.4 – flame arrester designed for the hazard, inspected",
+     "proposed": false,
+     "adj": {
+      "status": "Rejected",
+      "tests": {
+       "spec": "yes",
+       "indep": "no",
+       "dep": "yes",
+       "aud": "yes",
+       "sec": "yes",
+       "time": "yes",
+       "cyber": "yes"
+      },
+      "evidence": "The non-return valves and arresters form one assembly",
+      "reviewer": "F. Mechanical",
+      "date": "2026-10-14",
+      "accPfd": "",
+      "conditions": "",
+      "reason": "Not independent – the failed non-return valve is part of the same assembly"
+     }
+    },
+    {
+     "id": "ip0060e997fb",
+     "sgId": "sg000274",
+     "name": "XV-3011 – Burner management: O2 and NG shut off on low NG pressure PSLL-3012; N2 purge of burner after shutdown",
+     "type": "SIF / SIS",
+     "pfd": 0.1,
+     "libId": "ipl-sil1",
+     "basis": "CCPS LOPA (2001) Table 6.4 – SIF, SIL 1 (O2 and NG shut-off on low NG pressure PSLL-3012)",
+     "proposed": false,
+     "adj": {
+      "status": "Accepted",
+      "tests": {
+       "spec": "yes",
+       "indep": "yes",
+       "dep": "yes",
+       "aud": "yes",
+       "sec": "yes",
+       "time": "yes",
+       "cyber": "yes"
+      },
+      "evidence": "SRS; PSLL-3012 and XV-3011 proof-test records",
+      "reviewer": "E. Instrument",
+      "date": "2026-10-14",
+      "accPfd": "",
+      "conditions": "",
+      "reason": ""
+     }
+    },
+    {
+     "id": "ip0061d5e0eb",
+     "sgId": "",
+     "name": "Second, diverse O2 shut-off on low NG pressure, SIL 1 (recommendation)",
+     "type": "SIF / SIS",
+     "pfd": 0.1,
+     "libId": "",
+     "basis": "Proposed – SIL 1 assumed; illustrative",
+     "proposed": true,
+     "adj": {
+      "status": "Claimed",
+      "tests": {},
+      "evidence": "",
+      "reviewer": "",
+      "date": "",
+      "accPfd": "",
+      "conditions": "",
+      "reason": ""
+     }
+    }
+   ],
+   "others": [],
+   "notes": "Flashback arresters are credited for gas-side causes, not when the passing non-return valve of the same assembly is the cause.",
+   "ack": {},
+   "alarp": {
+    "options": "Diverse O2 shut-off; N2 purge after every flame-out",
+    "decision": "Further risk reduction is reasonably practicable – recommendation raised",
+    "justification": "Recommendation raised",
+    "by": "G. Safety",
+    "date": "2026-10-14"
+   },
+   "result": "SIL 1 needed (Safety, RRF 100); with proposed IPLs: Gap ≤ 10× – one more IPL or SIL 1 – accepted IPLs only"
+  }
+ ],
+ "log": [
+  {
+   "ts": "2026-10-14T10:00:00.000Z",
+   "sc": "L-01",
+   "ipl": "PCV-1103A/B – Monitor regulator takes over on active-regulator failure (set 7.5 barg)",
+   "from": "Under review",
+   "to": "Accepted with conditions",
+   "by": "F. Mechanical",
+   "note": "Annual lock-up test of PCV-1103A/B (R-003)"
+  },
+  {
+   "ts": "2026-10-14T10:00:00.000Z",
+   "sc": "L-01",
+   "ipl": "SSV-1102A/B – Slam-shut valve with over-pressure shut-off (OPSO 8.5 barg) on each regulator run",
+   "from": "Under review",
+   "to": "Accepted with conditions",
+   "by": "F. Mechanical",
+   "note": "Six-monthly SSV trip test (R-003)"
+  },
+  {
+   "ts": "2026-10-14T10:00:00.000Z",
+   "sc": "L-02",
+   "ipl": "PCV-1103A/B – Monitor regulator takes over on active-regulator failure (set 7.5 barg)",
+   "from": "Under review",
+   "to": "Rejected",
+   "by": "F. Mechanical",
+   "note": "Not independent – a blocked sensing line defeats the monitor regulator as well"
+  },
+  {
+   "ts": "2026-10-14T10:00:00.000Z",
+   "sc": "L-02",
+   "ipl": "SSV-1102A/B – Slam-shut valve with over-pressure shut-off (OPSO 8.5 barg) on each regulator run",
+   "from": "Under review",
+   "to": "Accepted with conditions",
+   "by": "F. Mechanical",
+   "note": "Six-monthly SSV trip test (R-003)"
+  },
+  {
+   "ts": "2026-10-14T10:00:00.000Z",
+   "sc": "L-03",
+   "ipl": "PCV-1103A/B – Monitor regulator takes over on active-regulator failure (set 7.5 barg)",
+   "from": "Under review",
+   "to": "Accepted with conditions",
+   "by": "F. Mechanical",
+   "note": "Annual lock-up test of PCV-1103A/B (R-003)"
+  },
+  {
+   "ts": "2026-10-14T10:00:00.000Z",
+   "sc": "L-03",
+   "ipl": "SSV-1102A/B – Slam-shut valve with over-pressure shut-off (OPSO 8.5 barg) on each regulator run",
+   "from": "Under review",
+   "to": "Accepted with conditions",
+   "by": "F. Mechanical",
+   "note": "Six-monthly SSV trip test (R-003)"
+  },
+  {
+   "ts": "2026-10-14T10:00:00.000Z",
+   "sc": "L-04",
+   "ipl": "BMS-4000 – Reheat furnace BMS flame-failure shut-off (scanners BS-4010, logic BMS-4000, SSOVs XV-4002A/B)",
+   "from": "Under review",
+   "to": "Accepted with conditions",
+   "by": "E. Instrument",
+   "note": "Six-monthly scanner and safety shut-off valve tests"
+  },
+  {
+   "ts": "2026-10-14T10:00:00.000Z",
+   "sc": "L-04",
+   "ipl": "Furnace explosion relief doors; no-go zone around burner platforms during light-off",
+   "from": "Under review",
+   "to": "Rejected",
+   "by": "E. Instrument",
+   "note": "Not specific – the doors limit the damage but do not prevent the furnace explosion"
+  },
+  {
+   "ts": "2026-10-14T10:00:00.000Z",
+   "sc": "L-05",
+   "ipl": "BMS-4000 – Reheat furnace BMS flame-failure shut-off (scanners BS-4010, logic BMS-4000, SSOVs XV-4002A/B)",
+   "from": "Under review",
+   "to": "Accepted with conditions",
+   "by": "E. Instrument",
+   "note": "Six-monthly scanner and safety shut-off valve tests"
+  },
+  {
+   "ts": "2026-10-14T10:00:00.000Z",
+   "sc": "L-05",
+   "ipl": "Furnace explosion relief doors; no-go zone around burner platforms during light-off",
+   "from": "Under review",
+   "to": "Rejected",
+   "by": "E. Instrument",
+   "note": "Not specific – the doors limit the damage but do not prevent the furnace explosion"
+  },
+  {
+   "ts": "2026-10-14T10:00:00.000Z",
+   "sc": "L-06",
+   "ipl": "BMS-4000 – Reheat furnace BMS flame-failure shut-off (scanners BS-4010, logic BMS-4000, SSOVs XV-4002A/B)",
+   "from": "Under review",
+   "to": "Accepted with conditions",
+   "by": "E. Instrument",
+   "note": "Six-monthly scanner and safety shut-off valve tests"
+  },
+  {
+   "ts": "2026-10-14T10:00:00.000Z",
+   "sc": "L-06",
+   "ipl": "Furnace explosion relief doors; no-go zone around burner platforms during light-off",
+   "from": "Under review",
+   "to": "Rejected",
+   "by": "E. Instrument",
+   "note": "Not specific – the doors limit the damage but do not prevent the furnace explosion"
+  },
+  {
+   "ts": "2026-10-14T10:00:00.000Z",
+   "sc": "L-07",
+   "ipl": "XV-2008 – Double non-return valves + XV-2008 closes on low NG / process-gas differential pressure PDALL-2009",
+   "from": "Under review",
+   "to": "Rejected",
+   "by": "E. Instrument",
+   "note": "Not independent – the failed non-return valve is part of the IPL"
+  },
+  {
+   "ts": "2026-10-14T10:00:00.000Z",
+   "sc": "L-08",
+   "ipl": "XV-2008 – Double non-return valves + XV-2008 closes on low NG / process-gas differential pressure PDALL-2009",
+   "from": "Under review",
+   "to": "Accepted with conditions",
+   "by": "E. Instrument",
+   "note": "Annual proof test of the differential-pressure trip and XV-2008"
+  },
+  {
+   "ts": "2026-10-14T10:00:00.000Z",
+   "sc": "L-09",
+   "ipl": "XV-2008 – Double non-return valves + XV-2008 closes on low NG / process-gas differential pressure PDALL-2009",
+   "from": "Under review",
+   "to": "Accepted with conditions",
+   "by": "E. Instrument",
+   "note": "Annual proof test of the differential-pressure trip and XV-2008"
+  },
+  {
+   "ts": "2026-10-14T10:00:00.000Z",
+   "sc": "L-10",
+   "ipl": "NRV-3010 – Non-return valves and flashback arrestors on the NG and O2 lines at each oxy-fuel burner and preheater",
+   "from": "Under review",
+   "to": "Accepted with conditions",
+   "by": "F. Mechanical",
+   "note": "Annual inspection of the arresters and non-return valves"
+  },
+  {
+   "ts": "2026-10-14T10:00:00.000Z",
+   "sc": "L-10",
+   "ipl": "XV-3011 – Burner management: O2 and NG shut off on low NG pressure PSLL-3012; N2 purge of burner after shutdown",
+   "from": "Under review",
+   "to": "Accepted",
+   "by": "E. Instrument",
+   "note": ""
+  },
+  {
+   "ts": "2026-10-14T10:00:00.000Z",
+   "sc": "L-11",
+   "ipl": "NRV-3010 – Non-return valves and flashback arrestors on the NG and O2 lines at each oxy-fuel burner and preheater",
+   "from": "Under review",
+   "to": "Accepted with conditions",
+   "by": "F. Mechanical",
+   "note": "Annual inspection of the arresters and non-return valves"
+  },
+  {
+   "ts": "2026-10-14T10:00:00.000Z",
+   "sc": "L-11",
+   "ipl": "XV-3011 – Burner management: O2 and NG shut off on low NG pressure PSLL-3012; N2 purge of burner after shutdown",
+   "from": "Under review",
+   "to": "Accepted",
+   "by": "E. Instrument",
+   "note": ""
+  },
+  {
+   "ts": "2026-10-14T10:00:00.000Z",
+   "sc": "L-12",
+   "ipl": "NRV-3010 – Non-return valves and flashback arrestors on the NG and O2 lines at each oxy-fuel burner and preheater",
+   "from": "Under review",
+   "to": "Rejected",
+   "by": "F. Mechanical",
+   "note": "Not independent – the failed non-return valve is part of the same assembly"
+  },
+  {
+   "ts": "2026-10-14T10:00:00.000Z",
+   "sc": "L-12",
+   "ipl": "XV-3011 – Burner management: O2 and NG shut off on low NG pressure PSLL-3012; N2 purge of burner after shutdown",
+   "from": "Under review",
+   "to": "Accepted",
+   "by": "E. Instrument",
+   "note": ""
+  }
+ ],
+ "scai": {
+  "BMS-4000 – Reheat furnace BMS flame-failure shut-off (scanners BS-4010, logic BMS-4000, SSOVs XV-4002A/B)": {
+   "setpoint": "Flame failure – close the safety shut-off valves",
+   "testInterval": "6 months",
+   "responseTime": "< 4 s",
+   "owner": "E. Instrument",
+   "notes": "FT-GN-03 G-002",
+   "tag": "BMS-4000 – "
+  },
+  "XV-2008 – Double non-return valves + XV-2008 closes on low NG / process-gas differential pressure PDALL-2009": {
+   "setpoint": "Low NG / process-gas differential pressure – close XV-2008",
+   "testInterval": "12 months",
+   "responseTime": "< 10 s",
+   "owner": "E. Instrument",
+   "tag": "XV-2008 – "
+  },
+  "XV-3011 – Burner management: O2 and NG shut off on low NG pressure PSLL-3012; N2 purge of burner after shutdown": {
+   "setpoint": "PSLL-3012 low NG pressure – shut off O2 and NG, N2 purge",
+   "testInterval": "12 months",
+   "responseTime": "< 5 s",
+   "owner": "E. Instrument",
+   "tag": "XV-3011 – "
+  }
+ }
+}

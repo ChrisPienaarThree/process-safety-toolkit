@@ -1,0 +1,1868 @@
+{
+ "app": "LOPA Study Manager",
+ "schema": 1,
+ "created": "2026-11-24T06:00:00.000Z",
+ "modified": "2026-11-24T16:00:00.000Z",
+ "study": {
+  "title": "LOPA – Ammonia unit (worked example)",
+  "company": "Fertiliser complex (illustrative example)",
+  "unit": "Ammonia unit (about 2 000 t/d) – selected nodes",
+  "docNo": "LP-EX-AM-001",
+  "rev": "A",
+  "date": "2026-11-20",
+  "facilitator": "G. Safety",
+  "team": "G. Safety (LOPA facilitator), C. Process (process), E. Instrument (instrument / SIS), D. Operations (shift supervisor), F. Mechanical (rotating equipment and relief)",
+  "hazopTitle": "PHA / HAZOP – Ammonia unit: reforming, fuel gas, synthesis, refrigeration and purge recovery (worked example)",
+  "hazopFile": "Ammonia unit - HAZOP HZ-EX-AM-001.hazop.json",
+  "hazopImported": "2026-11-20",
+  "scope": "The four HAZOP deviations ticked LOPA: refrigerant condenser overpressure (N04-01), converter over-temperature (N03-03), reformer burner flame-out (N02-01) and syngas leak in the compressor house (N03-08). Illustrative values for training – not design data.",
+  "notes": ""
+ },
+ "settings": {
+  "mode": "explicit",
+  "credit": "accepted",
+  "alarpDec": 2,
+  "recOn": [
+   "S",
+   "E",
+   "A",
+   "R",
+   "C"
+  ],
+  "sev": [
+   "Negligible",
+   "Minor",
+   "Moderate",
+   "Major",
+   "Catastrophic"
+  ],
+  "tmel": {
+   "S": [
+    0.01,
+    0.001,
+    0.0001,
+    1e-05,
+    1e-06
+   ],
+   "E": [
+    0.01,
+    0.001,
+    0.0001,
+    1e-05,
+    1e-06
+   ],
+   "A": [
+    0.1,
+    0.01,
+    0.001,
+    0.0001,
+    1e-05
+   ],
+   "R": [
+    0.1,
+    0.01,
+    0.001,
+    0.0001,
+    1e-05
+   ],
+   "C": [
+    0.01,
+    0.001,
+    0.0001,
+    1e-05,
+    1e-06
+   ]
+  },
+  "req": {
+   "S": [
+    2,
+    3,
+    4,
+    5,
+    6
+   ],
+   "E": [
+    2,
+    3,
+    4,
+    5,
+    6
+   ],
+   "A": [
+    1,
+    2,
+    3,
+    4,
+    5
+   ],
+   "R": [
+    1,
+    2,
+    3,
+    4,
+    5
+   ],
+   "C": [
+    2,
+    3,
+    4,
+    5,
+    6
+   ]
+  },
+  "basis": "Typical example values – replace with the client's tolerable risk criteria before the study."
+ },
+ "scenarios": [
+  {
+   "id": "sc000562bfcb",
+   "no": "L-01",
+   "key": "dv000436|cz000437",
+   "devId": "dv000436",
+   "hazopRef": "N04-01",
+   "node": "N04 – Source node 17 – Ammonia refrigeration: 105-J, unitized chiller 120-C, flash drums 120-CF1…CF4, condenser 127-C, receiver 149-D",
+   "deviation": "High pressure in the refrigerant condenser 127-C and receiver 149-D",
+   "cause": "Loss of cooling water to 127-C",
+   "consequence": "Refrigerant system above design; PSV-1109 lifts to the flare; if relief fails – rupture and large liquid ammonia release (toxic cloud)",
+   "sev": {
+    "S": 5,
+    "E": 3,
+    "A": 4,
+    "R": 4,
+    "C": 5
+   },
+   "status": "Complete",
+   "ie": {
+    "desc": "Loss of cooling water to 127-C",
+    "f": 0.1,
+    "libId": "ie-cw",
+    "basis": "CCPS LOPA (2001) Table 5.1 – cooling-water failure (FT-AM-01 event BE-001)"
+   },
+   "enabling": [],
+   "modifiers": [
+    {
+     "id": "cm000672778c",
+     "desc": "Probability that a person is present in the refrigeration area",
+     "p": 0.1,
+     "rec": [
+      "S"
+     ],
+     "basis": "Rounds about 17 h a week – CCPS ECCM (2014) Table 3.4",
+     "libId": "cm-pres-17h"
+    }
+   ],
+   "ipls": [
+    {
+     "id": "ip0001f91619",
+     "sgId": "sg000253",
+     "name": "PSHH-1110 – 105-J discharge high-high pressure trip PSHH-1110",
+     "type": "SIF / SIS",
+     "pfd": 0.010230660342208065,
+     "libId": "",
+     "basis": "FT-AM-01 gate G-005 – PSHH-1110 fails to stop 105-J (PFDavg from the fault tree)",
+     "proposed": false,
+     "adj": {
+      "status": "Accepted with conditions",
+      "tests": {
+       "spec": "yes",
+       "indep": "yes",
+       "dep": "yes",
+       "aud": "yes",
+       "sec": "yes",
+       "time": "yes",
+       "cyber": "yes"
+      },
+      "evidence": "FT-AM-01 G-005; SRS; proof-test records",
+      "reviewer": "E. Instrument",
+      "date": "2026-11-24",
+      "accPfd": "",
+      "conditions": "Annual proof test of PSHH-1110 and the 105-J trip valve",
+      "reason": ""
+     },
+     "ftGate": "FT1|G-005"
+    },
+    {
+     "id": "ip0002b8f2f1",
+     "sgId": "sg000252",
+     "name": "PAH-1009 – Refrigerant pressure alarm PAH-1009 / PAH-1109 with operator response (source)",
+     "type": "Alarm with operator response",
+     "pfd": 0.10118876472715699,
+     "libId": "",
+     "basis": "FT-AM-01 gate G-004 – PAH-1009 not acted on",
+     "proposed": false,
+     "adj": {
+      "status": "Rejected",
+      "tests": {
+       "spec": "yes",
+       "indep": "no",
+       "dep": "yes",
+       "aud": "yes",
+       "sec": "yes",
+       "time": "yes",
+       "cyber": "yes"
+      },
+      "evidence": "FT-AM-01 event BE-009: PSHH-1110 and PIC-1009 share one pressure transmitter (q = 0.05)",
+      "reviewer": "E. Instrument",
+      "date": "2026-11-24",
+      "accPfd": "",
+      "conditions": "",
+      "reason": "Not independent of the PSHH-1110 trip – one transmitter blinds both (HAZOP R-011)"
+     },
+     "ftGate": "FT1|G-004"
+    },
+    {
+     "id": "ip00033cc1bf",
+     "sgId": "sg000254",
+     "name": "PSV-1109 – Receiver 149-D relief valve PSV-1109 at 20 barg to the flare",
+     "type": "Relief device",
+     "pfd": 0.01,
+     "libId": "ipl-prv",
+     "basis": "CCPS LOPA (2001) Table 6.3 – relief valve (LOPA credit 0.01; the fault tree uses the PERD mean 2.1E-4)",
+     "proposed": false,
+     "adj": {
+      "status": "Accepted",
+      "tests": {
+       "spec": "yes",
+       "indep": "yes",
+       "dep": "yes",
+       "aud": "yes",
+       "sec": "yes",
+       "time": "yes",
+       "cyber": "yes"
+      },
+      "evidence": "Relief sizing for loss of cooling and blocked outlet; PSV test records",
+      "reviewer": "F. Mechanical",
+      "date": "2026-11-24",
+      "accPfd": "",
+      "conditions": "",
+      "reason": ""
+     }
+    },
+    {
+     "id": "ip000404be21",
+     "sgId": "",
+     "name": "PAH-1009 on its own transmitter, separate from PSHH-1110 (R-011)",
+     "type": "Alarm with operator response",
+     "pfd": 0.1,
+     "libId": "",
+     "basis": "Proposed – restores the alarm credit, CCPS LOPA (2001) Table 6.5",
+     "proposed": true,
+     "adj": {
+      "status": "Claimed",
+      "tests": {},
+      "evidence": "",
+      "reviewer": "",
+      "date": "",
+      "accPfd": "",
+      "conditions": "",
+      "reason": ""
+     }
+    }
+   ],
+   "others": [
+    "Cooling-water low-flow alarm at condenser 127-C"
+   ],
+   "notes": "FT-AM-01 shows why the alarm cannot be credited: the shared transmitter puts the alarm-and-trip pair at 0.051, fifty times worse than the 1.0E-3 an independent pair would give.",
+   "ack": {
+    "opt-ip000404be21": {
+     "by": "G. Safety",
+     "note": "About 20 min from PAH-1009 to the PSV set pressure on loss of cooling – response time to be confirmed in the R-011 design",
+     "date": "2026-11-24"
+    }
+   },
+   "alarp": {
+    "options": "Separate transmitters (R-011); a second relief valve",
+    "decision": "Further risk reduction is reasonably practicable – recommendation raised",
+    "justification": "Recommendation R-011 raised",
+    "by": "G. Safety",
+    "date": "2026-11-24"
+   },
+   "result": "SIL 1 needed (Community, RRF 10.2); with proposed IPLs: Gap ≤ 10× – one more IPL or SIL 1 – accepted IPLs only"
+  },
+  {
+   "id": "sc001121a0d5",
+   "no": "L-02",
+   "key": "dv000436|cz000438",
+   "devId": "dv000436",
+   "hazopRef": "N04-01",
+   "node": "N04 – Source node 17 – Ammonia refrigeration: 105-J, unitized chiller 120-C, flash drums 120-CF1…CF4, condenser 127-C, receiver 149-D",
+   "deviation": "High pressure in the refrigerant condenser 127-C and receiver 149-D",
+   "cause": "Non-condensables accumulation",
+   "consequence": "Refrigerant system above design; PSV-1109 lifts to the flare; if relief fails – rupture and large liquid ammonia release (toxic cloud)",
+   "sev": {
+    "S": 5,
+    "E": 3,
+    "A": 4,
+    "R": 4,
+    "C": 5
+   },
+   "status": "Complete",
+   "ie": {
+    "desc": "Non-condensables accumulation",
+    "f": 0.1,
+    "libId": "",
+    "basis": "FT-AM-01 event BE-002: non-condensables accumulate (purge not operated) – illustrative"
+   },
+   "enabling": [],
+   "modifiers": [
+    {
+     "id": "cm0012a7bb26",
+     "desc": "Probability that a person is present in the refrigeration area",
+     "p": 0.1,
+     "rec": [
+      "S"
+     ],
+     "basis": "Rounds about 17 h a week – CCPS ECCM (2014) Table 3.4",
+     "libId": "cm-pres-17h"
+    }
+   ],
+   "ipls": [
+    {
+     "id": "ip00075b6d9c",
+     "sgId": "sg000253",
+     "name": "PSHH-1110 – 105-J discharge high-high pressure trip PSHH-1110",
+     "type": "SIF / SIS",
+     "pfd": 0.010230660342208065,
+     "libId": "",
+     "basis": "FT-AM-01 gate G-005 – PSHH-1110 fails to stop 105-J (PFDavg from the fault tree)",
+     "proposed": false,
+     "adj": {
+      "status": "Accepted with conditions",
+      "tests": {
+       "spec": "yes",
+       "indep": "yes",
+       "dep": "yes",
+       "aud": "yes",
+       "sec": "yes",
+       "time": "yes",
+       "cyber": "yes"
+      },
+      "evidence": "FT-AM-01 G-005; SRS; proof-test records",
+      "reviewer": "E. Instrument",
+      "date": "2026-11-24",
+      "accPfd": "",
+      "conditions": "Annual proof test of PSHH-1110 and the 105-J trip valve",
+      "reason": ""
+     },
+     "ftGate": "FT1|G-005"
+    },
+    {
+     "id": "ip0008ac53a4",
+     "sgId": "sg000252",
+     "name": "PAH-1009 – Refrigerant pressure alarm PAH-1009 / PAH-1109 with operator response (source)",
+     "type": "Alarm with operator response",
+     "pfd": 0.10118876472715699,
+     "libId": "",
+     "basis": "FT-AM-01 gate G-004 – PAH-1009 not acted on",
+     "proposed": false,
+     "adj": {
+      "status": "Rejected",
+      "tests": {
+       "spec": "yes",
+       "indep": "no",
+       "dep": "yes",
+       "aud": "yes",
+       "sec": "yes",
+       "time": "yes",
+       "cyber": "yes"
+      },
+      "evidence": "FT-AM-01 event BE-009: PSHH-1110 and PIC-1009 share one pressure transmitter (q = 0.05)",
+      "reviewer": "E. Instrument",
+      "date": "2026-11-24",
+      "accPfd": "",
+      "conditions": "",
+      "reason": "Not independent of the PSHH-1110 trip – one transmitter blinds both (HAZOP R-011)"
+     },
+     "ftGate": "FT1|G-004"
+    },
+    {
+     "id": "ip0009ba2309",
+     "sgId": "sg000254",
+     "name": "PSV-1109 – Receiver 149-D relief valve PSV-1109 at 20 barg to the flare",
+     "type": "Relief device",
+     "pfd": 0.01,
+     "libId": "ipl-prv",
+     "basis": "CCPS LOPA (2001) Table 6.3 – relief valve (LOPA credit 0.01; the fault tree uses the PERD mean 2.1E-4)",
+     "proposed": false,
+     "adj": {
+      "status": "Accepted",
+      "tests": {
+       "spec": "yes",
+       "indep": "yes",
+       "dep": "yes",
+       "aud": "yes",
+       "sec": "yes",
+       "time": "yes",
+       "cyber": "yes"
+      },
+      "evidence": "Relief sizing for loss of cooling and blocked outlet; PSV test records",
+      "reviewer": "F. Mechanical",
+      "date": "2026-11-24",
+      "accPfd": "",
+      "conditions": "",
+      "reason": ""
+     }
+    },
+    {
+     "id": "ip00104bd368",
+     "sgId": "",
+     "name": "PAH-1009 on its own transmitter, separate from PSHH-1110 (R-011)",
+     "type": "Alarm with operator response",
+     "pfd": 0.1,
+     "libId": "",
+     "basis": "Proposed – restores the alarm credit, CCPS LOPA (2001) Table 6.5",
+     "proposed": true,
+     "adj": {
+      "status": "Claimed",
+      "tests": {},
+      "evidence": "",
+      "reviewer": "",
+      "date": "",
+      "accPfd": "",
+      "conditions": "",
+      "reason": ""
+     }
+    }
+   ],
+   "others": [
+    "Cooling-water low-flow alarm at condenser 127-C"
+   ],
+   "notes": "FT-AM-01 shows why the alarm cannot be credited: the shared transmitter puts the alarm-and-trip pair at 0.051, fifty times worse than the 1.0E-3 an independent pair would give.",
+   "ack": {
+    "opt-ip00104bd368": {
+     "by": "G. Safety",
+     "note": "About 20 min from PAH-1009 to the PSV set pressure on loss of cooling – response time to be confirmed in the R-011 design",
+     "date": "2026-11-24"
+    }
+   },
+   "alarp": {
+    "options": "Separate transmitters (R-011); a second relief valve",
+    "decision": "Further risk reduction is reasonably practicable – recommendation raised",
+    "justification": "Recommendation R-011 raised",
+    "by": "G. Safety",
+    "date": "2026-11-24"
+   },
+   "result": "SIL 1 needed (Community, RRF 10.2); with proposed IPLs: Gap ≤ 10× – one more IPL or SIL 1 – accepted IPLs only"
+  },
+  {
+   "id": "sc00175fb355",
+   "no": "L-03",
+   "key": "dv000436|cz000439",
+   "devId": "dv000436",
+   "hazopRef": "N04-01",
+   "node": "N04 – Source node 17 – Ammonia refrigeration: 105-J, unitized chiller 120-C, flash drums 120-CF1…CF4, condenser 127-C, receiver 149-D",
+   "deviation": "High pressure in the refrigerant condenser 127-C and receiver 149-D",
+   "cause": "Discharge valve closed",
+   "consequence": "Refrigerant system above design; PSV-1109 lifts to the flare; if relief fails – rupture and large liquid ammonia release (toxic cloud)",
+   "sev": {
+    "S": 5,
+    "E": 3,
+    "A": 4,
+    "R": 4,
+    "C": 5
+   },
+   "status": "Complete",
+   "ie": {
+    "desc": "Discharge valve closed",
+    "f": 0.02,
+    "libId": "",
+    "basis": "FT-AM-01 event BE-003: receiver outlet valve left closed after maintenance – illustrative"
+   },
+   "enabling": [],
+   "modifiers": [
+    {
+     "id": "cm001866fcac",
+     "desc": "Probability that a person is present in the refrigeration area",
+     "p": 0.1,
+     "rec": [
+      "S"
+     ],
+     "basis": "Rounds about 17 h a week – CCPS ECCM (2014) Table 3.4",
+     "libId": "cm-pres-17h"
+    }
+   ],
+   "ipls": [
+    {
+     "id": "ip0013bd9840",
+     "sgId": "sg000253",
+     "name": "PSHH-1110 – 105-J discharge high-high pressure trip PSHH-1110",
+     "type": "SIF / SIS",
+     "pfd": 0.010230660342208065,
+     "libId": "",
+     "basis": "FT-AM-01 gate G-005 – PSHH-1110 fails to stop 105-J (PFDavg from the fault tree)",
+     "proposed": false,
+     "adj": {
+      "status": "Accepted with conditions",
+      "tests": {
+       "spec": "yes",
+       "indep": "yes",
+       "dep": "yes",
+       "aud": "yes",
+       "sec": "yes",
+       "time": "yes",
+       "cyber": "yes"
+      },
+      "evidence": "FT-AM-01 G-005; SRS; proof-test records",
+      "reviewer": "E. Instrument",
+      "date": "2026-11-24",
+      "accPfd": "",
+      "conditions": "Annual proof test of PSHH-1110 and the 105-J trip valve",
+      "reason": ""
+     },
+     "ftGate": "FT1|G-005"
+    },
+    {
+     "id": "ip0014ca5351",
+     "sgId": "sg000252",
+     "name": "PAH-1009 – Refrigerant pressure alarm PAH-1009 / PAH-1109 with operator response (source)",
+     "type": "Alarm with operator response",
+     "pfd": 0.10118876472715699,
+     "libId": "",
+     "basis": "FT-AM-01 gate G-004 – PAH-1009 not acted on",
+     "proposed": false,
+     "adj": {
+      "status": "Rejected",
+      "tests": {
+       "spec": "yes",
+       "indep": "no",
+       "dep": "yes",
+       "aud": "yes",
+       "sec": "yes",
+       "time": "yes",
+       "cyber": "yes"
+      },
+      "evidence": "FT-AM-01 event BE-009: PSHH-1110 and PIC-1009 share one pressure transmitter (q = 0.05)",
+      "reviewer": "E. Instrument",
+      "date": "2026-11-24",
+      "accPfd": "",
+      "conditions": "",
+      "reason": "Not independent of the PSHH-1110 trip – one transmitter blinds both (HAZOP R-011)"
+     },
+     "ftGate": "FT1|G-004"
+    },
+    {
+     "id": "ip0015c3f374",
+     "sgId": "sg000254",
+     "name": "PSV-1109 – Receiver 149-D relief valve PSV-1109 at 20 barg to the flare",
+     "type": "Relief device",
+     "pfd": 0.01,
+     "libId": "ipl-prv",
+     "basis": "CCPS LOPA (2001) Table 6.3 – relief valve (LOPA credit 0.01; the fault tree uses the PERD mean 2.1E-4)",
+     "proposed": false,
+     "adj": {
+      "status": "Accepted",
+      "tests": {
+       "spec": "yes",
+       "indep": "yes",
+       "dep": "yes",
+       "aud": "yes",
+       "sec": "yes",
+       "time": "yes",
+       "cyber": "yes"
+      },
+      "evidence": "Relief sizing for loss of cooling and blocked outlet; PSV test records",
+      "reviewer": "F. Mechanical",
+      "date": "2026-11-24",
+      "accPfd": "",
+      "conditions": "",
+      "reason": ""
+     }
+    },
+    {
+     "id": "ip0016c18060",
+     "sgId": "",
+     "name": "PAH-1009 on its own transmitter, separate from PSHH-1110 (R-011)",
+     "type": "Alarm with operator response",
+     "pfd": 0.1,
+     "libId": "",
+     "basis": "Proposed – restores the alarm credit, CCPS LOPA (2001) Table 6.5",
+     "proposed": true,
+     "adj": {
+      "status": "Claimed",
+      "tests": {},
+      "evidence": "",
+      "reviewer": "",
+      "date": "",
+      "accPfd": "",
+      "conditions": "",
+      "reason": ""
+     }
+    }
+   ],
+   "others": [
+    "Cooling-water low-flow alarm at condenser 127-C"
+   ],
+   "notes": "FT-AM-01 shows why the alarm cannot be credited: the shared transmitter puts the alarm-and-trip pair at 0.051, fifty times worse than the 1.0E-3 an independent pair would give.",
+   "ack": {
+    "opt-ip0016c18060": {
+     "by": "G. Safety",
+     "note": "About 20 min from PAH-1009 to the PSV set pressure on loss of cooling – response time to be confirmed in the R-011 design",
+     "date": "2026-11-24"
+    }
+   },
+   "alarp": {
+    "options": "Separate transmitters (R-011); a second relief valve",
+    "decision": "Further risk reduction is reasonably practicable – recommendation raised",
+    "justification": "Recommendation R-011 raised",
+    "by": "G. Safety",
+    "date": "2026-11-24"
+   },
+   "result": "Gap ≤ 10× – one more IPL or SIL 1 (Community, RRF 2.05); with proposed IPLs: Meets target – accepted IPLs only"
+  },
+  {
+   "id": "sc00222ff9f2",
+   "no": "L-04",
+   "key": "dv000396|cz000397",
+   "devId": "dv000396",
+   "hazopRef": "N03-03",
+   "node": "N03 – Source node 15 – Synthesis gas compressor 103-J and ammonia converter 105-D",
+   "deviation": "Converter catalyst over-temperature",
+   "cause": "Loss of quench / bypass control",
+   "consequence": "Catalyst damage; converter shell and outlet exchanger above design temperature – flange leak or rupture, high-temperature hydrogen attack; syngas fire",
+   "sev": {
+    "S": 5,
+    "E": 2,
+    "A": 5,
+    "R": 4,
+    "C": 2
+   },
+   "status": "Complete",
+   "ie": {
+    "desc": "Loss of quench / bypass control",
+    "f": 0.1,
+    "libId": "ie-bpcs",
+    "basis": "CCPS LOPA (2001) Table 5.1 – BPCS loop failure, quench / bypass control (FT-AM-02 event BE-001)"
+   },
+   "enabling": [],
+   "modifiers": [
+    {
+     "id": "cm00230adaad",
+     "desc": "Probability that a person is present at the converter",
+     "p": 0.1,
+     "rec": [
+      "S"
+     ],
+     "basis": "Rounds about 17 h a week – CCPS ECCM (2014) Table 3.4",
+     "libId": "cm-pres-17h"
+    }
+   ],
+   "ipls": [
+    {
+     "id": "ip001939ab17",
+     "sgId": "sg000244",
+     "name": "TSHH-1396 – Converter high-high catalyst temperature trip TSHH-1396: trips 103-J and closes the converter feed (source TAH-1383 / TSHH-1396)",
+     "type": "SIF / SIS",
+     "pfd": 0.010229074622995873,
+     "libId": "",
+     "basis": "FT-AM-02 gate G-005 – TSHH-1396 trip fails (PFDavg from the fault tree)",
+     "proposed": false,
+     "adj": {
+      "status": "Accepted with conditions",
+      "tests": {
+       "spec": "yes",
+       "indep": "yes",
+       "dep": "yes",
+       "aud": "yes",
+       "sec": "yes",
+       "time": "yes",
+       "cyber": "yes"
+      },
+      "evidence": "FT-AM-02 G-005; SRS; proof-test records",
+      "reviewer": "E. Instrument",
+      "date": "2026-11-24",
+      "accPfd": "",
+      "conditions": "Annual proof test of TSHH-1396 and XV-1250A",
+      "reason": ""
+     },
+     "ftGate": "FT2|G-005"
+    },
+    {
+     "id": "ip00201430aa",
+     "sgId": "sg000245",
+     "name": "TAH-1383 – Converter bed temperature alarm TAH-1383 with operator response",
+     "type": "Alarm with operator response",
+     "pfd": 0.10118732472715701,
+     "libId": "",
+     "basis": "FT-AM-02 gate G-004 – TAH-1383 not acted on",
+     "proposed": false,
+     "adj": {
+      "status": "Rejected",
+      "tests": {
+       "spec": "yes",
+       "indep": "no",
+       "dep": "yes",
+       "aud": "yes",
+       "sec": "yes",
+       "time": "yes",
+       "cyber": "yes"
+      },
+      "evidence": "FT-AM-02 event BE-010: TAH-1383 and TSHH-1396 on the same bed thermocouple",
+      "reviewer": "E. Instrument",
+      "date": "2026-11-24",
+      "accPfd": "",
+      "conditions": "",
+      "reason": "Not independent of the TSHH-1396 trip – one thermocouple blinds both (HAZOP R-008)"
+     },
+     "ftGate": "FT2|G-004"
+    },
+    {
+     "id": "ip0021cc8bb9",
+     "sgId": "",
+     "name": "Second converter trip on a separate bed thermocouple, SIL 2 (R-008)",
+     "type": "SIF / SIS",
+     "pfd": 0.01,
+     "libId": "",
+     "basis": "Proposed – SIL 2 assumed; illustrative",
+     "proposed": true,
+     "adj": {
+      "status": "Claimed",
+      "tests": {},
+      "evidence": "",
+      "reviewer": "",
+      "date": "",
+      "accPfd": "",
+      "conditions": "",
+      "reason": ""
+     }
+    }
+   ],
+   "others": [
+    "Loop equipment designed for 160 barg; materials selected per the Nelson curves (hydrogen service)"
+   ],
+   "notes": "Hot hydrogen-rich syngas ignites on release (above its auto-ignition temperature), so no ignition credit is taken.",
+   "ack": {},
+   "alarp": {
+    "options": "Separate thermocouples (R-008); improved quench control",
+    "decision": "Further risk reduction is reasonably practicable – recommendation raised",
+    "justification": "Recommendation R-008 raised",
+    "by": "G. Safety",
+    "date": "2026-11-24"
+   },
+   "result": "SIL 2 needed (Safety, RRF 102); with proposed IPLs: Gap ≤ 10× – one more IPL or SIL 1 – accepted IPLs only"
+  },
+  {
+   "id": "sc00272f989b",
+   "no": "L-05",
+   "key": "dv000396|cz000398",
+   "devId": "dv000396",
+   "hazopRef": "N03-03",
+   "node": "N03 – Source node 15 – Synthesis gas compressor 103-J and ammonia converter 105-D",
+   "deviation": "Converter catalyst over-temperature",
+   "cause": "High H2 / N2 ratio",
+   "consequence": "Catalyst damage; converter shell and outlet exchanger above design temperature – flange leak or rupture, high-temperature hydrogen attack; syngas fire",
+   "sev": {
+    "S": 5,
+    "E": 2,
+    "A": 5,
+    "R": 4,
+    "C": 2
+   },
+   "status": "Complete",
+   "ie": {
+    "desc": "High H2 / N2 ratio",
+    "f": 0.2,
+    "libId": "",
+    "basis": "FT-AM-02 event BE-002: H2 / N2 ratio upset from the front end – illustrative"
+   },
+   "enabling": [],
+   "modifiers": [
+    {
+     "id": "cm0028fa4824",
+     "desc": "Probability that a person is present at the converter",
+     "p": 0.1,
+     "rec": [
+      "S"
+     ],
+     "basis": "Rounds about 17 h a week – CCPS ECCM (2014) Table 3.4",
+     "libId": "cm-pres-17h"
+    }
+   ],
+   "ipls": [
+    {
+     "id": "ip0024ba483a",
+     "sgId": "sg000244",
+     "name": "TSHH-1396 – Converter high-high catalyst temperature trip TSHH-1396: trips 103-J and closes the converter feed (source TAH-1383 / TSHH-1396)",
+     "type": "SIF / SIS",
+     "pfd": 0.010229074622995873,
+     "libId": "",
+     "basis": "FT-AM-02 gate G-005 – TSHH-1396 trip fails (PFDavg from the fault tree)",
+     "proposed": false,
+     "adj": {
+      "status": "Accepted with conditions",
+      "tests": {
+       "spec": "yes",
+       "indep": "yes",
+       "dep": "yes",
+       "aud": "yes",
+       "sec": "yes",
+       "time": "yes",
+       "cyber": "yes"
+      },
+      "evidence": "FT-AM-02 G-005; SRS; proof-test records",
+      "reviewer": "E. Instrument",
+      "date": "2026-11-24",
+      "accPfd": "",
+      "conditions": "Annual proof test of TSHH-1396 and XV-1250A",
+      "reason": ""
+     },
+     "ftGate": "FT2|G-005"
+    },
+    {
+     "id": "ip00257edd24",
+     "sgId": "sg000245",
+     "name": "TAH-1383 – Converter bed temperature alarm TAH-1383 with operator response",
+     "type": "Alarm with operator response",
+     "pfd": 0.10118732472715701,
+     "libId": "",
+     "basis": "FT-AM-02 gate G-004 – TAH-1383 not acted on",
+     "proposed": false,
+     "adj": {
+      "status": "Rejected",
+      "tests": {
+       "spec": "yes",
+       "indep": "no",
+       "dep": "yes",
+       "aud": "yes",
+       "sec": "yes",
+       "time": "yes",
+       "cyber": "yes"
+      },
+      "evidence": "FT-AM-02 event BE-010: TAH-1383 and TSHH-1396 on the same bed thermocouple",
+      "reviewer": "E. Instrument",
+      "date": "2026-11-24",
+      "accPfd": "",
+      "conditions": "",
+      "reason": "Not independent of the TSHH-1396 trip – one thermocouple blinds both (HAZOP R-008)"
+     },
+     "ftGate": "FT2|G-004"
+    },
+    {
+     "id": "ip0026a837dc",
+     "sgId": "",
+     "name": "Second converter trip on a separate bed thermocouple, SIL 2 (R-008)",
+     "type": "SIF / SIS",
+     "pfd": 0.01,
+     "libId": "",
+     "basis": "Proposed – SIL 2 assumed; illustrative",
+     "proposed": true,
+     "adj": {
+      "status": "Claimed",
+      "tests": {},
+      "evidence": "",
+      "reviewer": "",
+      "date": "",
+      "accPfd": "",
+      "conditions": "",
+      "reason": ""
+     }
+    }
+   ],
+   "others": [
+    "Loop equipment designed for 160 barg; materials selected per the Nelson curves (hydrogen service)"
+   ],
+   "notes": "Hot hydrogen-rich syngas ignites on release (above its auto-ignition temperature), so no ignition credit is taken.",
+   "ack": {},
+   "alarp": {
+    "options": "Separate thermocouples (R-008); improved quench control",
+    "decision": "Further risk reduction is reasonably practicable – recommendation raised",
+    "justification": "Recommendation R-008 raised",
+    "by": "G. Safety",
+    "date": "2026-11-24"
+   },
+   "result": "SIL 2 needed (Safety, RRF 205); with proposed IPLs: Gap ≤ 10× – one more IPL or SIL 1 – accepted IPLs only"
+  },
+  {
+   "id": "sc0032977058",
+   "no": "L-06",
+   "key": "dv000396|cz000399",
+   "devId": "dv000396",
+   "hazopRef": "N03-03",
+   "node": "N03 – Source node 15 – Synthesis gas compressor 103-J and ammonia converter 105-D",
+   "deviation": "Converter catalyst over-temperature",
+   "cause": "Start-up heater 102-B over-firing",
+   "consequence": "Catalyst damage; converter shell and outlet exchanger above design temperature – flange leak or rupture, high-temperature hydrogen attack; syngas fire",
+   "sev": {
+    "S": 5,
+    "E": 2,
+    "A": 5,
+    "R": 4,
+    "C": 2
+   },
+   "status": "Complete",
+   "ie": {
+    "desc": "Start-up heater 102-B over-firing",
+    "f": 0.05,
+    "libId": "",
+    "basis": "FT-AM-02 event BE-003: start-up heater over-fires without loop circulation – illustrative"
+   },
+   "enabling": [],
+   "modifiers": [
+    {
+     "id": "cm00332f8c17",
+     "desc": "Probability that a person is present at the converter",
+     "p": 0.1,
+     "rec": [
+      "S"
+     ],
+     "basis": "Rounds about 17 h a week – CCPS ECCM (2014) Table 3.4",
+     "libId": "cm-pres-17h"
+    }
+   ],
+   "ipls": [
+    {
+     "id": "ip0029d3699f",
+     "sgId": "sg000244",
+     "name": "TSHH-1396 – Converter high-high catalyst temperature trip TSHH-1396: trips 103-J and closes the converter feed (source TAH-1383 / TSHH-1396)",
+     "type": "SIF / SIS",
+     "pfd": 0.010229074622995873,
+     "libId": "",
+     "basis": "FT-AM-02 gate G-005 – TSHH-1396 trip fails (PFDavg from the fault tree)",
+     "proposed": false,
+     "adj": {
+      "status": "Accepted with conditions",
+      "tests": {
+       "spec": "yes",
+       "indep": "yes",
+       "dep": "yes",
+       "aud": "yes",
+       "sec": "yes",
+       "time": "yes",
+       "cyber": "yes"
+      },
+      "evidence": "FT-AM-02 G-005; SRS; proof-test records",
+      "reviewer": "E. Instrument",
+      "date": "2026-11-24",
+      "accPfd": "",
+      "conditions": "Annual proof test of TSHH-1396 and XV-1250A",
+      "reason": ""
+     },
+     "ftGate": "FT2|G-005"
+    },
+    {
+     "id": "ip0030914275",
+     "sgId": "sg000245",
+     "name": "TAH-1383 – Converter bed temperature alarm TAH-1383 with operator response",
+     "type": "Alarm with operator response",
+     "pfd": 0.10118732472715701,
+     "libId": "",
+     "basis": "FT-AM-02 gate G-004 – TAH-1383 not acted on",
+     "proposed": false,
+     "adj": {
+      "status": "Rejected",
+      "tests": {
+       "spec": "yes",
+       "indep": "no",
+       "dep": "yes",
+       "aud": "yes",
+       "sec": "yes",
+       "time": "yes",
+       "cyber": "yes"
+      },
+      "evidence": "FT-AM-02 event BE-010: TAH-1383 and TSHH-1396 on the same bed thermocouple",
+      "reviewer": "E. Instrument",
+      "date": "2026-11-24",
+      "accPfd": "",
+      "conditions": "",
+      "reason": "Not independent of the TSHH-1396 trip – one thermocouple blinds both (HAZOP R-008)"
+     },
+     "ftGate": "FT2|G-004"
+    },
+    {
+     "id": "ip00313b9366",
+     "sgId": "",
+     "name": "Second converter trip on a separate bed thermocouple, SIL 2 (R-008)",
+     "type": "SIF / SIS",
+     "pfd": 0.01,
+     "libId": "",
+     "basis": "Proposed – SIL 2 assumed; illustrative",
+     "proposed": true,
+     "adj": {
+      "status": "Claimed",
+      "tests": {},
+      "evidence": "",
+      "reviewer": "",
+      "date": "",
+      "accPfd": "",
+      "conditions": "",
+      "reason": ""
+     }
+    }
+   ],
+   "others": [
+    "Loop equipment designed for 160 barg; materials selected per the Nelson curves (hydrogen service)"
+   ],
+   "notes": "Hot hydrogen-rich syngas ignites on release (above its auto-ignition temperature), so no ignition credit is taken.",
+   "ack": {},
+   "alarp": {
+    "options": "Separate thermocouples (R-008); improved quench control",
+    "decision": "Further risk reduction is reasonably practicable – recommendation raised",
+    "justification": "Recommendation R-008 raised",
+    "by": "G. Safety",
+    "date": "2026-11-24"
+   },
+   "result": "SIL 1 needed (Safety, RRF 51.1); with proposed IPLs: Meets target – accepted IPLs only"
+  },
+  {
+   "id": "sc003736e43e",
+   "no": "L-07",
+   "key": "dv000339|cz000340",
+   "devId": "dv000339",
+   "hazopRef": "N02-01",
+   "node": "N02 – Source node 23 – Fuel gas to the primary reformer arch burners 101-BBA, tunnel burners 101-BBT and superheater burners 101-BBS",
+   "deviation": "Loss of fuel gas – burner flame-out",
+   "cause": "Fuel-gas supply failure",
+   "consequence": "Burners go out; if gas returns with the valves open, unburnt gas accumulates in the 101-B firebox – explosion on relight",
+   "sev": {
+    "S": 5,
+    "E": 1,
+    "A": 4,
+    "R": 3,
+    "C": 1
+   },
+   "status": "Complete",
+   "ie": {
+    "desc": "Fuel-gas supply failure",
+    "f": 0.1,
+    "libId": "",
+    "basis": "Fuel-gas supply failure – about 1 in 10 years, illustrative"
+   },
+   "enabling": [],
+   "modifiers": [
+    {
+     "id": "cm0038005517",
+     "desc": "Probability that a person is on the burner platform",
+     "p": 0.1,
+     "rec": [
+      "S"
+     ],
+     "basis": "Rounds and burner checks about 17 h a week – CCPS ECCM (2014) Table 3.4",
+     "libId": "cm-pres-17h"
+    }
+   ],
+   "ipls": [
+    {
+     "id": "ip00347c4bfb",
+     "sgId": "sg000236",
+     "name": "PSLL-1221 – Low-low fuel gas pressure trip PSLL-1221 (source)",
+     "type": "SIF / SIS",
+     "pfd": 0.1,
+     "libId": "ipl-sil1",
+     "basis": "CCPS LOPA (2001) Table 6.4 – SIF, SIL 1",
+     "proposed": false,
+     "adj": {
+      "status": "Accepted",
+      "tests": {
+       "spec": "yes",
+       "indep": "yes",
+       "dep": "yes",
+       "aud": "yes",
+       "sec": "yes",
+       "time": "yes",
+       "cyber": "yes"
+      },
+      "evidence": "SRS; proof-test records of PSLL-1221 and XV-1220",
+      "reviewer": "E. Instrument",
+      "date": "2026-11-24",
+      "accPfd": "",
+      "conditions": "",
+      "reason": ""
+     }
+    },
+    {
+     "id": "ip0035008a54",
+     "sgId": "sg000235",
+     "name": "BSLL-1200 – Reformer BMS: flame scanners BSLL-1200 / BSLL-1201 shut the arch-burner valves XV-1220A/C and XV-1222A/C on flame failure",
+     "type": "SIF / SIS",
+     "pfd": 0.01,
+     "libId": "ipl-bms",
+     "basis": "Burner management flame-failure shut-off, typically SIL 2 – verify against the SIL verification",
+     "proposed": false,
+     "adj": {
+      "status": "Accepted with conditions",
+      "tests": {
+       "spec": "yes",
+       "indep": "yes",
+       "dep": "yes",
+       "aud": "yes",
+       "sec": "yes",
+       "time": "yes",
+       "cyber": "yes"
+      },
+      "evidence": "BMS SIL verification report (draft); scanner test records",
+      "reviewer": "E. Instrument",
+      "date": "2026-11-24",
+      "accPfd": "",
+      "conditions": "Confirm SIL 2 in the final SIL verification",
+      "reason": ""
+     }
+    },
+    {
+     "id": "ip0036b5d459",
+     "sgId": "",
+     "name": "Fuel-gas double block and bleed, interlocked with the pre-ignition purge (recommendation)",
+     "type": "SIF / SIS",
+     "pfd": 0.1,
+     "libId": "",
+     "basis": "Proposed – SIL 1 assumed; illustrative",
+     "proposed": true,
+     "adj": {
+      "status": "Claimed",
+      "tests": {},
+      "evidence": "",
+      "reviewer": "",
+      "date": "",
+      "accPfd": "",
+      "conditions": "",
+      "reason": ""
+     }
+    }
+   ],
+   "others": [
+    "Fuel-gas knock-out drum with high-level alarm LAH-1299"
+   ],
+   "notes": "Two instrumented layers on different sensors (pressure and flame) are independent of each other and of the causes.",
+   "ack": {},
+   "alarp": {
+    "options": "Double block and bleed; flame-out alarm with operator response",
+    "decision": "Further risk reduction is reasonably practicable – recommendation raised",
+    "justification": "Recommendation raised for the double block and bleed",
+    "by": "G. Safety",
+    "date": "2026-11-24"
+   },
+   "result": "Gap ≤ 10× – one more IPL or SIL 1 (Safety, RRF 10); with proposed IPLs: Meets target – accepted IPLs only"
+  },
+  {
+   "id": "sc0042b14fd1",
+   "no": "L-08",
+   "key": "dv000339|cz000341",
+   "devId": "dv000339",
+   "hazopRef": "N02-01",
+   "node": "N02 – Source node 23 – Fuel gas to the primary reformer arch burners 101-BBA, tunnel burners 101-BBT and superheater burners 101-BBS",
+   "deviation": "Loss of fuel gas – burner flame-out",
+   "cause": "PV-1001B closes",
+   "consequence": "Burners go out; if gas returns with the valves open, unburnt gas accumulates in the 101-B firebox – explosion on relight",
+   "sev": {
+    "S": 5,
+    "E": 1,
+    "A": 4,
+    "R": 3,
+    "C": 1
+   },
+   "status": "Complete",
+   "ie": {
+    "desc": "PV-1001B closes",
+    "f": 0.1,
+    "libId": "ie-bpcs",
+    "basis": "CCPS LOPA (2001) Table 5.1 – BPCS loop failure (PV-1001B closes)"
+   },
+   "enabling": [],
+   "modifiers": [
+    {
+     "id": "cm00437cfcc1",
+     "desc": "Probability that a person is on the burner platform",
+     "p": 0.1,
+     "rec": [
+      "S"
+     ],
+     "basis": "Rounds and burner checks about 17 h a week – CCPS ECCM (2014) Table 3.4",
+     "libId": "cm-pres-17h"
+    }
+   ],
+   "ipls": [
+    {
+     "id": "ip0039b9d9f0",
+     "sgId": "sg000236",
+     "name": "PSLL-1221 – Low-low fuel gas pressure trip PSLL-1221 (source)",
+     "type": "SIF / SIS",
+     "pfd": 0.1,
+     "libId": "ipl-sil1",
+     "basis": "CCPS LOPA (2001) Table 6.4 – SIF, SIL 1",
+     "proposed": false,
+     "adj": {
+      "status": "Accepted",
+      "tests": {
+       "spec": "yes",
+       "indep": "yes",
+       "dep": "yes",
+       "aud": "yes",
+       "sec": "yes",
+       "time": "yes",
+       "cyber": "yes"
+      },
+      "evidence": "SRS; proof-test records of PSLL-1221 and XV-1220",
+      "reviewer": "E. Instrument",
+      "date": "2026-11-24",
+      "accPfd": "",
+      "conditions": "",
+      "reason": ""
+     }
+    },
+    {
+     "id": "ip0040a74fcc",
+     "sgId": "sg000235",
+     "name": "BSLL-1200 – Reformer BMS: flame scanners BSLL-1200 / BSLL-1201 shut the arch-burner valves XV-1220A/C and XV-1222A/C on flame failure",
+     "type": "SIF / SIS",
+     "pfd": 0.01,
+     "libId": "ipl-bms",
+     "basis": "Burner management flame-failure shut-off, typically SIL 2 – verify against the SIL verification",
+     "proposed": false,
+     "adj": {
+      "status": "Accepted with conditions",
+      "tests": {
+       "spec": "yes",
+       "indep": "yes",
+       "dep": "yes",
+       "aud": "yes",
+       "sec": "yes",
+       "time": "yes",
+       "cyber": "yes"
+      },
+      "evidence": "BMS SIL verification report (draft); scanner test records",
+      "reviewer": "E. Instrument",
+      "date": "2026-11-24",
+      "accPfd": "",
+      "conditions": "Confirm SIL 2 in the final SIL verification",
+      "reason": ""
+     }
+    },
+    {
+     "id": "ip0041184e17",
+     "sgId": "",
+     "name": "Fuel-gas double block and bleed, interlocked with the pre-ignition purge (recommendation)",
+     "type": "SIF / SIS",
+     "pfd": 0.1,
+     "libId": "",
+     "basis": "Proposed – SIL 1 assumed; illustrative",
+     "proposed": true,
+     "adj": {
+      "status": "Claimed",
+      "tests": {},
+      "evidence": "",
+      "reviewer": "",
+      "date": "",
+      "accPfd": "",
+      "conditions": "",
+      "reason": ""
+     }
+    }
+   ],
+   "others": [
+    "Fuel-gas knock-out drum with high-level alarm LAH-1299"
+   ],
+   "notes": "Two instrumented layers on different sensors (pressure and flame) are independent of each other and of the causes.",
+   "ack": {},
+   "alarp": {
+    "options": "Double block and bleed; flame-out alarm with operator response",
+    "decision": "Further risk reduction is reasonably practicable – recommendation raised",
+    "justification": "Recommendation raised for the double block and bleed",
+    "by": "G. Safety",
+    "date": "2026-11-24"
+   },
+   "result": "Gap ≤ 10× – one more IPL or SIL 1 (Safety, RRF 10); with proposed IPLs: Meets target – accepted IPLs only"
+  },
+  {
+   "id": "sc0047137bc4",
+   "no": "L-09",
+   "key": "dv000339|cz000342",
+   "devId": "dv000339",
+   "hazopRef": "N02-01",
+   "node": "N02 – Source node 23 – Fuel gas to the primary reformer arch burners 101-BBA, tunnel burners 101-BBT and superheater burners 101-BBS",
+   "deviation": "Loss of fuel gas – burner flame-out",
+   "cause": "Liquid slug in the fuel gas",
+   "consequence": "Burners go out; if gas returns with the valves open, unburnt gas accumulates in the 101-B firebox – explosion on relight",
+   "sev": {
+    "S": 5,
+    "E": 1,
+    "A": 4,
+    "R": 3,
+    "C": 1
+   },
+   "status": "Complete",
+   "ie": {
+    "desc": "Liquid slug in the fuel gas",
+    "f": 0.05,
+    "libId": "",
+    "basis": "Liquid slug in the fuel gas – illustrative"
+   },
+   "enabling": [],
+   "modifiers": [
+    {
+     "id": "cm0048a3b30d",
+     "desc": "Probability that a person is on the burner platform",
+     "p": 0.1,
+     "rec": [
+      "S"
+     ],
+     "basis": "Rounds and burner checks about 17 h a week – CCPS ECCM (2014) Table 3.4",
+     "libId": "cm-pres-17h"
+    }
+   ],
+   "ipls": [
+    {
+     "id": "ip0044e9c0af",
+     "sgId": "sg000236",
+     "name": "PSLL-1221 – Low-low fuel gas pressure trip PSLL-1221 (source)",
+     "type": "SIF / SIS",
+     "pfd": 0.1,
+     "libId": "ipl-sil1",
+     "basis": "CCPS LOPA (2001) Table 6.4 – SIF, SIL 1",
+     "proposed": false,
+     "adj": {
+      "status": "Accepted",
+      "tests": {
+       "spec": "yes",
+       "indep": "yes",
+       "dep": "yes",
+       "aud": "yes",
+       "sec": "yes",
+       "time": "yes",
+       "cyber": "yes"
+      },
+      "evidence": "SRS; proof-test records of PSLL-1221 and XV-1220",
+      "reviewer": "E. Instrument",
+      "date": "2026-11-24",
+      "accPfd": "",
+      "conditions": "",
+      "reason": ""
+     }
+    },
+    {
+     "id": "ip004598bdd6",
+     "sgId": "sg000235",
+     "name": "BSLL-1200 – Reformer BMS: flame scanners BSLL-1200 / BSLL-1201 shut the arch-burner valves XV-1220A/C and XV-1222A/C on flame failure",
+     "type": "SIF / SIS",
+     "pfd": 0.01,
+     "libId": "ipl-bms",
+     "basis": "Burner management flame-failure shut-off, typically SIL 2 – verify against the SIL verification",
+     "proposed": false,
+     "adj": {
+      "status": "Accepted with conditions",
+      "tests": {
+       "spec": "yes",
+       "indep": "yes",
+       "dep": "yes",
+       "aud": "yes",
+       "sec": "yes",
+       "time": "yes",
+       "cyber": "yes"
+      },
+      "evidence": "BMS SIL verification report (draft); scanner test records",
+      "reviewer": "E. Instrument",
+      "date": "2026-11-24",
+      "accPfd": "",
+      "conditions": "Confirm SIL 2 in the final SIL verification",
+      "reason": ""
+     }
+    },
+    {
+     "id": "ip0046d579b0",
+     "sgId": "",
+     "name": "Fuel-gas double block and bleed, interlocked with the pre-ignition purge (recommendation)",
+     "type": "SIF / SIS",
+     "pfd": 0.1,
+     "libId": "",
+     "basis": "Proposed – SIL 1 assumed; illustrative",
+     "proposed": true,
+     "adj": {
+      "status": "Claimed",
+      "tests": {},
+      "evidence": "",
+      "reviewer": "",
+      "date": "",
+      "accPfd": "",
+      "conditions": "",
+      "reason": ""
+     }
+    }
+   ],
+   "others": [
+    "Fuel-gas knock-out drum with high-level alarm LAH-1299"
+   ],
+   "notes": "Two instrumented layers on different sensors (pressure and flame) are independent of each other and of the causes.",
+   "ack": {},
+   "alarp": {
+    "options": "Double block and bleed; flame-out alarm with operator response",
+    "decision": "Further risk reduction is reasonably practicable – recommendation raised",
+    "justification": "Recommendation raised for the double block and bleed",
+    "by": "G. Safety",
+    "date": "2026-11-24"
+   },
+   "result": "Gap ≤ 10× – one more IPL or SIL 1 (Safety, RRF 5); with proposed IPLs: Meets target – accepted IPLs only"
+  },
+  {
+   "id": "sc005171b619",
+   "no": "L-10",
+   "key": "dv000425|cz000426",
+   "devId": "dv000425",
+   "hazopRef": "N03-08",
+   "node": "N03 – Source node 15 – Synthesis gas compressor 103-J and ammonia converter 105-D",
+   "deviation": "Syngas leak at the compressor or loop flanges",
+   "cause": "Seal failure",
+   "consequence": "Hydrogen-rich jet fire; vapour cloud explosion in the congested compressor house",
+   "sev": {
+    "S": 5,
+    "E": 1,
+    "A": 5,
+    "R": 4,
+    "C": 2
+   },
+   "status": "Complete",
+   "ie": {
+    "desc": "Seal failure",
+    "f": 0.1,
+    "libId": "ie15-seal-fail",
+    "basis": "CCPS IE & IPL (2015) Data Table – complete primary seal failure"
+   },
+   "enabling": [],
+   "modifiers": [
+    {
+     "id": "cm0052ad6c3b",
+     "desc": "Probability of ignition – gas release 1–50 kg/s",
+     "p": 0.07,
+     "rec": [
+      "S",
+      "A",
+      "R",
+      "C"
+     ],
+     "basis": "Cox, Lees & Ang (1990) as reproduced in Lees (2012) Table 16.72 – verify",
+     "libId": "cm-ign-gas-m"
+    },
+    {
+     "id": "cm005353d9c9",
+     "desc": "Probability that a person is in the compressor house",
+     "p": 0.1,
+     "rec": [
+      "S"
+     ],
+     "basis": "Rounds about 17 h a week – CCPS ECCM (2014) Table 3.4",
+     "libId": "cm-pres-17h"
+    }
+   ],
+   "ipls": [
+    {
+     "id": "ip0049a44da1",
+     "sgId": "sg000268",
+     "name": "UCP-1000 – Unit ESD and emergency depressurisation (logic UCP-1000)",
+     "type": "SIF / SIS",
+     "pfd": 0.1,
+     "libId": "ips-gds",
+     "basis": "CCPS IPS (2007) Table B.5 – gas detection with automatic isolation and depressurisation, limited to RRF 10",
+     "proposed": false,
+     "adj": {
+      "status": "Accepted with conditions",
+      "tests": {
+       "spec": "yes",
+       "indep": "yes",
+       "dep": "yes",
+       "aud": "yes",
+       "sec": "yes",
+       "time": "yes",
+       "cyber": "yes"
+      },
+      "evidence": "Gas detector layout study; ESD cause & effect; test records",
+      "reviewer": "E. Instrument",
+      "date": "2026-11-24",
+      "accPfd": "",
+      "conditions": "Detector coverage of the seal and flange locations confirmed by mapping",
+      "reason": ""
+     }
+    },
+    {
+     "id": "ip0050c0478a",
+     "sgId": "",
+     "name": "Dry gas seals with seal-gas pressure trip (recommendation)",
+     "type": "SIF / SIS",
+     "pfd": 0.1,
+     "libId": "",
+     "basis": "Proposed – illustrative",
+     "proposed": true,
+     "adj": {
+      "status": "Claimed",
+      "tests": {},
+      "evidence": "",
+      "reviewer": "",
+      "date": "",
+      "accPfd": "",
+      "conditions": "",
+      "reason": ""
+     }
+    }
+   ],
+   "others": [
+    "HV-1019 – Remote depressurisation of the synthesis loop to the flare via HV-1019"
+   ],
+   "notes": "The ignition probability uses the Cox, Lees & Ang values (marked verify in the library) – a hydrogen-rich release may ignite more readily; use site data where available.",
+   "ack": {},
+   "alarp": {
+    "options": "Dry gas seals; reduced congestion in the compressor house",
+    "decision": "Further risk reduction is reasonably practicable – recommendation raised",
+    "justification": "Recommendation raised for the dry gas seals",
+    "by": "G. Safety",
+    "date": "2026-11-24"
+   },
+   "result": "SIL 1 needed (Safety, RRF 70); with proposed IPLs: Gap ≤ 10× – one more IPL or SIL 1 – accepted IPLs only"
+  },
+  {
+   "id": "sc005672cddf",
+   "no": "L-11",
+   "key": "dv000425|cz000427",
+   "devId": "dv000425",
+   "hazopRef": "N03-08",
+   "node": "N03 – Source node 15 – Synthesis gas compressor 103-J and ammonia converter 105-D",
+   "deviation": "Syngas leak at the compressor or loop flanges",
+   "cause": "Flange leak on hot hydrogen service",
+   "consequence": "Hydrogen-rich jet fire; vapour cloud explosion in the congested compressor house",
+   "sev": {
+    "S": 5,
+    "E": 1,
+    "A": 5,
+    "R": 4,
+    "C": 2
+   },
+   "status": "Complete",
+   "ie": {
+    "desc": "Flange leak on hot hydrogen service",
+    "f": 0.01,
+    "libId": "ie-flange-hot",
+    "basis": "Flange leak on hot or thermally cycled service"
+   },
+   "enabling": [],
+   "modifiers": [
+    {
+     "id": "cm0057eab62d",
+     "desc": "Probability of ignition – gas release 1–50 kg/s",
+     "p": 0.07,
+     "rec": [
+      "S",
+      "A",
+      "R",
+      "C"
+     ],
+     "basis": "Cox, Lees & Ang (1990) as reproduced in Lees (2012) Table 16.72 – verify",
+     "libId": "cm-ign-gas-m"
+    },
+    {
+     "id": "cm0058751026",
+     "desc": "Probability that a person is in the compressor house",
+     "p": 0.1,
+     "rec": [
+      "S"
+     ],
+     "basis": "Rounds about 17 h a week – CCPS ECCM (2014) Table 3.4",
+     "libId": "cm-pres-17h"
+    }
+   ],
+   "ipls": [
+    {
+     "id": "ip0054d440fa",
+     "sgId": "sg000268",
+     "name": "UCP-1000 – Unit ESD and emergency depressurisation (logic UCP-1000)",
+     "type": "SIF / SIS",
+     "pfd": 0.1,
+     "libId": "ips-gds",
+     "basis": "CCPS IPS (2007) Table B.5 – gas detection with automatic isolation and depressurisation, limited to RRF 10",
+     "proposed": false,
+     "adj": {
+      "status": "Accepted with conditions",
+      "tests": {
+       "spec": "yes",
+       "indep": "yes",
+       "dep": "yes",
+       "aud": "yes",
+       "sec": "yes",
+       "time": "yes",
+       "cyber": "yes"
+      },
+      "evidence": "Gas detector layout study; ESD cause & effect; test records",
+      "reviewer": "E. Instrument",
+      "date": "2026-11-24",
+      "accPfd": "",
+      "conditions": "Detector coverage of the seal and flange locations confirmed by mapping",
+      "reason": ""
+     }
+    },
+    {
+     "id": "ip00552fe0e7",
+     "sgId": "",
+     "name": "Dry gas seals with seal-gas pressure trip (recommendation)",
+     "type": "SIF / SIS",
+     "pfd": 0.1,
+     "libId": "",
+     "basis": "Proposed – illustrative",
+     "proposed": true,
+     "adj": {
+      "status": "Claimed",
+      "tests": {},
+      "evidence": "",
+      "reviewer": "",
+      "date": "",
+      "accPfd": "",
+      "conditions": "",
+      "reason": ""
+     }
+    }
+   ],
+   "others": [
+    "HV-1019 – Remote depressurisation of the synthesis loop to the flare via HV-1019"
+   ],
+   "notes": "The ignition probability uses the Cox, Lees & Ang values (marked verify in the library) – a hydrogen-rich release may ignite more readily; use site data where available.",
+   "ack": {},
+   "alarp": {
+    "options": "Dry gas seals; reduced congestion in the compressor house",
+    "decision": "Further risk reduction is reasonably practicable – recommendation raised",
+    "justification": "Recommendation raised for the dry gas seals",
+    "by": "G. Safety",
+    "date": "2026-11-24"
+   },
+   "result": "Gap ≤ 10× – one more IPL or SIL 1 (Safety, RRF 7); with proposed IPLs: Meets target – accepted IPLs only"
+  }
+ ],
+ "log": [
+  {
+   "ts": "2026-11-24T10:00:00.000Z",
+   "sc": "L-01",
+   "ipl": "PSHH-1110 – 105-J discharge high-high pressure trip PSHH-1110",
+   "from": "Under review",
+   "to": "Accepted with conditions",
+   "by": "E. Instrument",
+   "note": "Annual proof test of PSHH-1110 and the 105-J trip valve"
+  },
+  {
+   "ts": "2026-11-24T10:00:00.000Z",
+   "sc": "L-01",
+   "ipl": "PAH-1009 – Refrigerant pressure alarm PAH-1009 / PAH-1109 with operator response (source)",
+   "from": "Under review",
+   "to": "Rejected",
+   "by": "E. Instrument",
+   "note": "Not independent of the PSHH-1110 trip – one transmitter blinds both (HAZOP R-011)"
+  },
+  {
+   "ts": "2026-11-24T10:00:00.000Z",
+   "sc": "L-01",
+   "ipl": "PSV-1109 – Receiver 149-D relief valve PSV-1109 at 20 barg to the flare",
+   "from": "Under review",
+   "to": "Accepted",
+   "by": "F. Mechanical",
+   "note": ""
+  },
+  {
+   "ts": "2026-11-24T10:00:00.000Z",
+   "sc": "L-02",
+   "ipl": "PSHH-1110 – 105-J discharge high-high pressure trip PSHH-1110",
+   "from": "Under review",
+   "to": "Accepted with conditions",
+   "by": "E. Instrument",
+   "note": "Annual proof test of PSHH-1110 and the 105-J trip valve"
+  },
+  {
+   "ts": "2026-11-24T10:00:00.000Z",
+   "sc": "L-02",
+   "ipl": "PAH-1009 – Refrigerant pressure alarm PAH-1009 / PAH-1109 with operator response (source)",
+   "from": "Under review",
+   "to": "Rejected",
+   "by": "E. Instrument",
+   "note": "Not independent of the PSHH-1110 trip – one transmitter blinds both (HAZOP R-011)"
+  },
+  {
+   "ts": "2026-11-24T10:00:00.000Z",
+   "sc": "L-02",
+   "ipl": "PSV-1109 – Receiver 149-D relief valve PSV-1109 at 20 barg to the flare",
+   "from": "Under review",
+   "to": "Accepted",
+   "by": "F. Mechanical",
+   "note": ""
+  },
+  {
+   "ts": "2026-11-24T10:00:00.000Z",
+   "sc": "L-03",
+   "ipl": "PSHH-1110 – 105-J discharge high-high pressure trip PSHH-1110",
+   "from": "Under review",
+   "to": "Accepted with conditions",
+   "by": "E. Instrument",
+   "note": "Annual proof test of PSHH-1110 and the 105-J trip valve"
+  },
+  {
+   "ts": "2026-11-24T10:00:00.000Z",
+   "sc": "L-03",
+   "ipl": "PAH-1009 – Refrigerant pressure alarm PAH-1009 / PAH-1109 with operator response (source)",
+   "from": "Under review",
+   "to": "Rejected",
+   "by": "E. Instrument",
+   "note": "Not independent of the PSHH-1110 trip – one transmitter blinds both (HAZOP R-011)"
+  },
+  {
+   "ts": "2026-11-24T10:00:00.000Z",
+   "sc": "L-03",
+   "ipl": "PSV-1109 – Receiver 149-D relief valve PSV-1109 at 20 barg to the flare",
+   "from": "Under review",
+   "to": "Accepted",
+   "by": "F. Mechanical",
+   "note": ""
+  },
+  {
+   "ts": "2026-11-24T10:00:00.000Z",
+   "sc": "L-04",
+   "ipl": "TSHH-1396 – Converter high-high catalyst temperature trip TSHH-1396: trips 103-J and closes the converter feed (source TAH-1383 / TSHH-1396)",
+   "from": "Under review",
+   "to": "Accepted with conditions",
+   "by": "E. Instrument",
+   "note": "Annual proof test of TSHH-1396 and XV-1250A"
+  },
+  {
+   "ts": "2026-11-24T10:00:00.000Z",
+   "sc": "L-04",
+   "ipl": "TAH-1383 – Converter bed temperature alarm TAH-1383 with operator response",
+   "from": "Under review",
+   "to": "Rejected",
+   "by": "E. Instrument",
+   "note": "Not independent of the TSHH-1396 trip – one thermocouple blinds both (HAZOP R-008)"
+  },
+  {
+   "ts": "2026-11-24T10:00:00.000Z",
+   "sc": "L-05",
+   "ipl": "TSHH-1396 – Converter high-high catalyst temperature trip TSHH-1396: trips 103-J and closes the converter feed (source TAH-1383 / TSHH-1396)",
+   "from": "Under review",
+   "to": "Accepted with conditions",
+   "by": "E. Instrument",
+   "note": "Annual proof test of TSHH-1396 and XV-1250A"
+  },
+  {
+   "ts": "2026-11-24T10:00:00.000Z",
+   "sc": "L-05",
+   "ipl": "TAH-1383 – Converter bed temperature alarm TAH-1383 with operator response",
+   "from": "Under review",
+   "to": "Rejected",
+   "by": "E. Instrument",
+   "note": "Not independent of the TSHH-1396 trip – one thermocouple blinds both (HAZOP R-008)"
+  },
+  {
+   "ts": "2026-11-24T10:00:00.000Z",
+   "sc": "L-06",
+   "ipl": "TSHH-1396 – Converter high-high catalyst temperature trip TSHH-1396: trips 103-J and closes the converter feed (source TAH-1383 / TSHH-1396)",
+   "from": "Under review",
+   "to": "Accepted with conditions",
+   "by": "E. Instrument",
+   "note": "Annual proof test of TSHH-1396 and XV-1250A"
+  },
+  {
+   "ts": "2026-11-24T10:00:00.000Z",
+   "sc": "L-06",
+   "ipl": "TAH-1383 – Converter bed temperature alarm TAH-1383 with operator response",
+   "from": "Under review",
+   "to": "Rejected",
+   "by": "E. Instrument",
+   "note": "Not independent of the TSHH-1396 trip – one thermocouple blinds both (HAZOP R-008)"
+  },
+  {
+   "ts": "2026-11-24T10:00:00.000Z",
+   "sc": "L-07",
+   "ipl": "PSLL-1221 – Low-low fuel gas pressure trip PSLL-1221 (source)",
+   "from": "Under review",
+   "to": "Accepted",
+   "by": "E. Instrument",
+   "note": ""
+  },
+  {
+   "ts": "2026-11-24T10:00:00.000Z",
+   "sc": "L-07",
+   "ipl": "BSLL-1200 – Reformer BMS: flame scanners BSLL-1200 / BSLL-1201 shut the arch-burner valves XV-1220A/C and XV-1222A/C on flame failure",
+   "from": "Under review",
+   "to": "Accepted with conditions",
+   "by": "E. Instrument",
+   "note": "Confirm SIL 2 in the final SIL verification"
+  },
+  {
+   "ts": "2026-11-24T10:00:00.000Z",
+   "sc": "L-08",
+   "ipl": "PSLL-1221 – Low-low fuel gas pressure trip PSLL-1221 (source)",
+   "from": "Under review",
+   "to": "Accepted",
+   "by": "E. Instrument",
+   "note": ""
+  },
+  {
+   "ts": "2026-11-24T10:00:00.000Z",
+   "sc": "L-08",
+   "ipl": "BSLL-1200 – Reformer BMS: flame scanners BSLL-1200 / BSLL-1201 shut the arch-burner valves XV-1220A/C and XV-1222A/C on flame failure",
+   "from": "Under review",
+   "to": "Accepted with conditions",
+   "by": "E. Instrument",
+   "note": "Confirm SIL 2 in the final SIL verification"
+  },
+  {
+   "ts": "2026-11-24T10:00:00.000Z",
+   "sc": "L-09",
+   "ipl": "PSLL-1221 – Low-low fuel gas pressure trip PSLL-1221 (source)",
+   "from": "Under review",
+   "to": "Accepted",
+   "by": "E. Instrument",
+   "note": ""
+  },
+  {
+   "ts": "2026-11-24T10:00:00.000Z",
+   "sc": "L-09",
+   "ipl": "BSLL-1200 – Reformer BMS: flame scanners BSLL-1200 / BSLL-1201 shut the arch-burner valves XV-1220A/C and XV-1222A/C on flame failure",
+   "from": "Under review",
+   "to": "Accepted with conditions",
+   "by": "E. Instrument",
+   "note": "Confirm SIL 2 in the final SIL verification"
+  },
+  {
+   "ts": "2026-11-24T10:00:00.000Z",
+   "sc": "L-10",
+   "ipl": "UCP-1000 – Unit ESD and emergency depressurisation (logic UCP-1000)",
+   "from": "Under review",
+   "to": "Accepted with conditions",
+   "by": "E. Instrument",
+   "note": "Detector coverage of the seal and flange locations confirmed by mapping"
+  },
+  {
+   "ts": "2026-11-24T10:00:00.000Z",
+   "sc": "L-11",
+   "ipl": "UCP-1000 – Unit ESD and emergency depressurisation (logic UCP-1000)",
+   "from": "Under review",
+   "to": "Accepted with conditions",
+   "by": "E. Instrument",
+   "note": "Detector coverage of the seal and flange locations confirmed by mapping"
+  }
+ ],
+ "scai": {
+  "PSHH-1110 – 105-J discharge high-high pressure trip PSHH-1110": {
+   "setpoint": "105-J discharge high-high pressure – trip 105-J",
+   "testInterval": "12 months",
+   "responseTime": "< 10 s",
+   "owner": "E. Instrument",
+   "notes": "FT-AM-01 G-005",
+   "tag": "PSHH-1110 – "
+  },
+  "TSHH-1396 – Converter high-high catalyst temperature trip TSHH-1396: trips 103-J and closes the converter feed (source TAH-1383 / TSHH-1396)": {
+   "setpoint": "Converter bed high-high temperature – trip 103-J, close XV-1250A",
+   "testInterval": "12 months",
+   "responseTime": "< 30 s",
+   "owner": "E. Instrument",
+   "notes": "FT-AM-02 G-005",
+   "tag": "TSHH-1396 – "
+  },
+  "PSLL-1221 – Low-low fuel gas pressure trip PSLL-1221 (source)": {
+   "setpoint": "Low-low fuel-gas pressure – close the fuel-gas valves",
+   "testInterval": "12 months",
+   "responseTime": "< 5 s",
+   "owner": "E. Instrument",
+   "tag": "PSLL-1221 – "
+  },
+  "BSLL-1200 – Reformer BMS: flame scanners BSLL-1200 / BSLL-1201 shut the arch-burner valves XV-1220A/C and XV-1222A/C on flame failure": {
+   "setpoint": "Flame failure – close XV-1220A/C",
+   "testInterval": "6 months",
+   "responseTime": "< 4 s",
+   "owner": "E. Instrument",
+   "tag": "BSLL-1200 – "
+  },
+  "UCP-1000 – Unit ESD and emergency depressurisation (logic UCP-1000)": {
+   "setpoint": "Gas detection 2ooN – unit ESD and depressurisation",
+   "testInterval": "12 months",
+   "responseTime": "< 30 s",
+   "owner": "E. Instrument",
+   "tag": "UCP-1000 – "
+  }
+ }
+}
