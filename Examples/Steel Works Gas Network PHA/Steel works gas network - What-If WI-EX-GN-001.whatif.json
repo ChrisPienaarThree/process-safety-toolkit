@@ -1,0 +1,1149 @@
+{
+ "app": "What-If Checklist Analysis",
+ "schema": 1,
+ "created": "2026-10-14T16:00:00.000Z",
+ "modified": "2026-10-14T16:00:00.000Z",
+ "study": {
+  "title": "What-If / Checklist – non-routine work on the natural gas network (worked example)",
+  "company": "Integrated DRI-EAF steel works (illustrative example)",
+  "unit": "Natural gas distribution network",
+  "docNo": "WI-EX-GN-001",
+  "rev": "A",
+  "start": "2026-10-05",
+  "end": "2026-10-05",
+  "venue": "Utilities training room",
+  "hazidRef": "",
+  "hazopRef": "HZ-EX-GN-001",
+  "facilitator": "A. Facilitator",
+  "scribe": "B. Scribe",
+  "scope": "Four non-routine tasks on the natural gas network: purging a main into and out of service, maintenance isolation of a ring-main section, restarting the network after a site-wide gas shutdown, and the reheat furnace light-off. Questions that need a systematic deviation analysis are sent to HAZOP nodes N03–N08.",
+  "exclusions": "Routine operation of the network (covered by the HAZOP nodes).",
+  "basis": "Purge plan OP-GN-020, pigging procedure OP-GN-010, light-off procedure OP-RM-040, P&IDs of nodes N01–N08. Illustrative example – not data of any real plant."
+ },
+ "settings": {
+  "sev": [
+   "Negligible",
+   "Minor",
+   "Moderate",
+   "Major",
+   "Catastrophic"
+  ],
+  "sevDesc": [
+   "First aid; no lost time / minor on-site release / negligible damage",
+   "Medical treatment / reportable release contained on site / minor damage",
+   "Lost-time injury / off-site short-term impact / significant damage",
+   "Single fatality or permanent disability / significant off-site impact / major damage",
+   "Multiple fatalities / major off-site release / loss of unit"
+  ],
+  "lik": [
+   "Rare",
+   "Unlikely",
+   "Possible",
+   "Likely",
+   "Almost certain"
+  ],
+  "likDesc": [
+   "< 1 in 10 000 years",
+   "1 in 1 000 – 10 000 years",
+   "1 in 100 – 1 000 years",
+   "1 in 10 – 100 years",
+   "> 1 in 10 years"
+  ],
+  "grid": [
+   [
+    1,
+    2,
+    3,
+    4,
+    5
+   ],
+   [
+    2,
+    4,
+    6,
+    8,
+    10
+   ],
+   [
+    3,
+    6,
+    9,
+    12,
+    15
+   ],
+   [
+    4,
+    8,
+    12,
+    16,
+    20
+   ],
+   [
+    5,
+    10,
+    15,
+    20,
+    25
+   ]
+  ],
+  "bands": {
+   "Medium": 5,
+   "High": 10,
+   "Very High": 20
+  }
+ },
+ "team": [
+  {
+   "id": "t0001a47e3b",
+   "name": "A. Facilitator",
+   "company": "Istec",
+   "role": "Facilitator",
+   "attendance": "Day 1"
+  },
+  {
+   "id": "t0002d7a052",
+   "name": "B. Scribe",
+   "company": "Istec",
+   "role": "Scribe",
+   "attendance": "Day 1"
+  },
+  {
+   "id": "t0003e03a1a",
+   "name": "C. Process",
+   "company": "Owner",
+   "role": "Process engineer",
+   "attendance": "Day 1"
+  },
+  {
+   "id": "t000452d4db",
+   "name": "D. Operations",
+   "company": "Owner",
+   "role": "Gas network supervisor",
+   "attendance": "Day 1"
+  },
+  {
+   "id": "t0005cc01ff",
+   "name": "E. Maintenance",
+   "company": "Owner",
+   "role": "Pipe fitter foreman",
+   "attendance": "Day 1"
+  },
+  {
+   "id": "t00067cecc9",
+   "name": "F. Furnace",
+   "company": "Owner",
+   "role": "Reheat furnace operator",
+   "attendance": "Day 1"
+  }
+ ],
+ "psi": [
+  {
+   "id": "p0011955edc",
+   "ref": "PSI-01",
+   "category": "Procedures",
+   "docNo": "OP-GN-020",
+   "title": "Purge plan – gas-in and gas-out of mains",
+   "rev": "2",
+   "date": "",
+   "owner": "",
+   "status": "Available",
+   "areaIds": [
+    "a00073e58b2",
+    "a0008ccfad3"
+   ],
+   "comments": ""
+  },
+  {
+   "id": "p0012b8d0d2",
+   "ref": "PSI-02",
+   "category": "Procedures",
+   "docNo": "OP-GN-010",
+   "title": "Pigging and GRMS maintenance procedure",
+   "rev": "1",
+   "date": "",
+   "owner": "",
+   "status": "Available",
+   "areaIds": [
+    "a0008ccfad3"
+   ],
+   "comments": ""
+  },
+  {
+   "id": "p0013b4d762",
+   "ref": "PSI-03",
+   "category": "Procedures",
+   "docNo": "OP-RM-040",
+   "title": "Reheat furnace light-off procedure and checklist",
+   "rev": "5",
+   "date": "",
+   "owner": "",
+   "status": "Available",
+   "areaIds": [
+    "a0010644779"
+   ],
+   "comments": ""
+  },
+  {
+   "id": "p001424631a",
+   "ref": "PSI-04",
+   "category": "Drawings",
+   "docNo": "P&ID-GN-101…801",
+   "title": "P&IDs of the gas network nodes N01–N08",
+   "rev": "C",
+   "date": "",
+   "owner": "",
+   "status": "Available",
+   "areaIds": [
+    "a00073e58b2",
+    "a0008ccfad3",
+    "a0009d8edd6",
+    "a0010644779"
+   ],
+   "comments": ""
+  },
+  {
+   "id": "p001580f1d3",
+   "ref": "PSI-05",
+   "category": "Procedures",
+   "docNo": "–",
+   "title": "Site-wide gas restart procedure",
+   "rev": "",
+   "date": "",
+   "owner": "",
+   "status": "Outstanding",
+   "areaIds": [
+    "a0009d8edd6"
+   ],
+   "comments": ""
+  }
+ ],
+ "areas": [
+  {
+   "id": "a00073e58b2",
+   "no": "A01",
+   "name": "Purging a gas main into and out of service",
+   "kind": "Task / procedure",
+   "status": "Complete",
+   "drawings": "OP-GN-020",
+   "hazopNode": "N07",
+   "packs": [
+    "GEN",
+    "FG"
+   ],
+   "description": "Nitrogen purge of a ring-main section before gas-in and after gas-out; venting through VS-1301 and the section vents."
+  },
+  {
+   "id": "a0008ccfad3",
+   "no": "A02",
+   "name": "Maintenance isolation of a ring-main section",
+   "kind": "Task / procedure",
+   "status": "Complete",
+   "drawings": "OP-GN-020",
+   "hazopNode": "N03, N07",
+   "packs": [
+    "GEN",
+    "FG"
+   ],
+   "description": "Isolate, depressurise, purge and prove gas-free a section of the 7 barg ring main for repair, then reinstate it."
+  },
+  {
+   "id": "a0009d8edd6",
+   "no": "A03",
+   "name": "Restart of the gas network after a site-wide gas shutdown",
+   "kind": "Task / procedure",
+   "status": "Complete",
+   "drawings": "–",
+   "hazopNode": "N04, N05, N08",
+   "packs": [
+    "GEN",
+    "FG"
+   ],
+   "description": "Re-pressure the network through PRS-1 and the district stations after a grid or supply failure, then release the users one by one."
+  },
+  {
+   "id": "a0010644779",
+   "no": "A04",
+   "name": "Reheat furnace light-off",
+   "kind": "Task / procedure",
+   "status": "Complete",
+   "drawings": "OP-RM-040",
+   "hazopNode": "N06",
+   "packs": [
+    "GEN",
+    "FG"
+   ],
+   "description": "Pre-purge, valve proving, pilot and main-burner light-off of the rolling-mill reheat furnace under BMS-4000."
+  }
+ ],
+ "checks": [
+  {
+   "id": "c0045d19a83",
+   "areaId": "a00073e58b2",
+   "itemId": "FG-SSD-01",
+   "custom": false,
+   "answer": "Yes",
+   "note": "OP-GN-020",
+   "whatifId": ""
+  },
+  {
+   "id": "c004677ebeb",
+   "areaId": "a00073e58b2",
+   "itemId": "GEN-SSD-02",
+   "custom": false,
+   "answer": "Q",
+   "note": "End-point O2 test not recorded",
+   "whatifId": "w0023c6d430"
+  },
+  {
+   "id": "c00475b13bf",
+   "areaId": "a00073e58b2",
+   "itemId": "GEN-UTL-04",
+   "custom": false,
+   "answer": "Yes",
+   "note": "Personal O2 monitors",
+   "whatifId": ""
+  },
+  {
+   "id": "c00482aa777",
+   "areaId": "a00073e58b2",
+   "itemId": "GEN-UTL-07",
+   "custom": false,
+   "answer": "Yes",
+   "note": "Removable N2 spool",
+   "whatifId": ""
+  },
+  {
+   "id": "c0049141980",
+   "areaId": "a00073e58b2",
+   "itemId": "FG-MAT-01",
+   "custom": false,
+   "answer": "NA",
+   "note": "Natural gas only – no CO-rich gases on this network",
+   "whatifId": ""
+  },
+  {
+   "id": "c0050d37f35",
+   "areaId": "a00073e58b2",
+   "itemId": "FG-MAT-02",
+   "custom": false,
+   "answer": "NA",
+   "note": "No coke-oven gas",
+   "whatifId": ""
+  },
+  {
+   "id": "c005133df2d",
+   "areaId": "a00073e58b2",
+   "itemId": "FG-REL-01",
+   "custom": false,
+   "answer": "Yes",
+   "note": "VS-1301 3 m above platforms",
+   "whatifId": ""
+  },
+  {
+   "id": "c00526858ad",
+   "areaId": "a00073e58b2",
+   "itemId": "FG-SSD-02",
+   "custom": false,
+   "answer": "Q",
+   "note": "No written restart sequence",
+   "whatifId": ""
+  },
+  {
+   "id": "c005333e2d3",
+   "areaId": "a0008ccfad3",
+   "itemId": "FG-MNT-01",
+   "custom": false,
+   "answer": "No",
+   "note": "Isolation by closed valve is common",
+   "whatifId": "w002811cb72"
+  },
+  {
+   "id": "c0054ffab48",
+   "areaId": "a0008ccfad3",
+   "itemId": "FG-MNT-02",
+   "custom": false,
+   "answer": "Yes",
+   "note": "Gas-free test for flammables",
+   "whatifId": ""
+  },
+  {
+   "id": "c005582fcd9",
+   "areaId": "a0008ccfad3",
+   "itemId": "FG-MNT-03",
+   "custom": false,
+   "answer": "Q",
+   "note": "Bleeders not on the certificate",
+   "whatifId": "w003138f752"
+  },
+  {
+   "id": "c0056eb82bc",
+   "areaId": "a0008ccfad3",
+   "itemId": "GEN-MNT-04",
+   "custom": false,
+   "answer": "Yes",
+   "note": "Hot-work permit with gas test",
+   "whatifId": ""
+  },
+  {
+   "id": "c0057cc4786",
+   "areaId": "a0008ccfad3",
+   "itemId": "GEN-MNT-08",
+   "custom": false,
+   "answer": "Yes",
+   "note": "Leak test before handover",
+   "whatifId": ""
+  },
+  {
+   "id": "c0058a13f90",
+   "areaId": "a0008ccfad3",
+   "itemId": "GEN-OPS-04",
+   "custom": false,
+   "answer": "Yes",
+   "note": "Line-up checklist",
+   "whatifId": ""
+  },
+  {
+   "id": "c0059ea3d66",
+   "areaId": "a0009d8edd6",
+   "itemId": "FG-SSD-02",
+   "custom": false,
+   "answer": "No",
+   "note": "No site-wide restart procedure",
+   "whatifId": "w00338dee39"
+  },
+  {
+   "id": "c0060fbe5cc",
+   "areaId": "a0009d8edd6",
+   "itemId": "GEN-SSD-04",
+   "custom": false,
+   "answer": "Q",
+   "note": "Detector inhibits not checked after shutdown",
+   "whatifId": "w00375cbebb"
+  },
+  {
+   "id": "c00610d8bd7",
+   "areaId": "a0009d8edd6",
+   "itemId": "GEN-UTL-08",
+   "custom": false,
+   "answer": "Yes",
+   "note": "Fail-closed valves",
+   "whatifId": ""
+  },
+  {
+   "id": "c0062e834aa",
+   "areaId": "a0009d8edd6",
+   "itemId": "FG-EQP-01",
+   "custom": false,
+   "answer": "Yes",
+   "note": "SSV-1102A on PRS-1",
+   "whatifId": ""
+  },
+  {
+   "id": "c0063b261a6",
+   "areaId": "a0009d8edd6",
+   "itemId": "GEN-EMR-08",
+   "custom": false,
+   "answer": "Yes",
+   "note": "Remote ESD",
+   "whatifId": ""
+  },
+  {
+   "id": "c0064b0380c",
+   "areaId": "a0010644779",
+   "itemId": "FG-OPS-01",
+   "custom": false,
+   "answer": "Yes",
+   "note": "BMS-4000 pre-purge interlock",
+   "whatifId": ""
+  },
+  {
+   "id": "c0065d1762d",
+   "areaId": "a0010644779",
+   "itemId": "FG-INS-02",
+   "custom": false,
+   "answer": "Yes",
+   "note": "BMS-4000",
+   "whatifId": ""
+  },
+  {
+   "id": "c0066c40dc5",
+   "areaId": "a0010644779",
+   "itemId": "FG-INS-03",
+   "custom": false,
+   "answer": "Yes",
+   "note": "PSLL-4005 tested yearly",
+   "whatifId": ""
+  },
+  {
+   "id": "c0067d0969f",
+   "areaId": "a0010644779",
+   "itemId": "GEN-INS-03",
+   "custom": false,
+   "answer": "Q",
+   "note": "Bypasses not logged",
+   "whatifId": "w0041ceb129"
+  },
+  {
+   "id": "c00684de6b3",
+   "areaId": "a0010644779",
+   "itemId": "GEN-MNT-05",
+   "custom": false,
+   "answer": "Yes",
+   "note": "Entry permit",
+   "whatifId": ""
+  }
+ ],
+ "whatifs": [
+  {
+   "id": "w0023c6d430",
+   "areaId": "a00073e58b2",
+   "seq": 1,
+   "question": "What if the main is purged with too little nitrogen and air remains when gas is admitted?",
+   "source": "Checklist GEN-SSD-02",
+   "hazard": "Air left in the main",
+   "consequence": "Flammable mixture in the main – ignition at a vent or user",
+   "safeguards": [
+    {
+     "text": "Purge plan OP-GN-020 (O2 < 2 %)",
+     "ipl": false
+    }
+   ],
+   "sevB": "5",
+   "likB": "3",
+   "sevA": "5",
+   "likA": "1",
+   "recIds": [
+    "r001621c285"
+   ],
+   "disposition": "HAZOP",
+   "target": "N07-01",
+   "hazidRefs": [],
+   "comments": ""
+  },
+  {
+   "id": "w00245eb714",
+   "areaId": "a00073e58b2",
+   "seq": 2,
+   "question": "What if purge nitrogen is vented inside the PRS shelter?",
+   "source": "Brainstorm",
+   "hazard": "Nitrogen in an enclosed space",
+   "consequence": "Asphyxiation of the operator",
+   "safeguards": [
+    {
+     "text": "Personal O2 monitors",
+     "ipl": false
+    },
+    {
+     "text": "Confined-space entry permit",
+     "ipl": false
+    }
+   ],
+   "sevB": "5",
+   "likB": "2",
+   "sevA": "5",
+   "likA": "1",
+   "recIds": [],
+   "disposition": "HAZOP",
+   "target": "N07-02",
+   "hazidRefs": [],
+   "comments": ""
+  },
+  {
+   "id": "w0025315334",
+   "areaId": "a00073e58b2",
+   "seq": 3,
+   "question": "What if natural gas flows back into the plant nitrogen system through the purge connection?",
+   "source": "Brainstorm",
+   "hazard": "Gas in the N2 header",
+   "consequence": "Gas released wherever nitrogen is used",
+   "safeguards": [
+    {
+     "text": "Removable N2 spool with check valve",
+     "ipl": false
+    }
+   ],
+   "sevB": "4",
+   "likB": "3",
+   "sevA": "4",
+   "likA": "2",
+   "recIds": [],
+   "disposition": "HAZOP",
+   "target": "N07-03",
+   "hazidRefs": [],
+   "comments": ""
+  },
+  {
+   "id": "w0026f236d3",
+   "areaId": "a00073e58b2",
+   "seq": 4,
+   "question": "What if the vent stack discharges where people are working?",
+   "source": "Brainstorm",
+   "hazard": "Gas or N2 at a platform",
+   "consequence": "Fire or asphyxiation at the platform",
+   "safeguards": [
+    {
+     "text": "VS-1301 – Vent stack 3 m above the nearest platform",
+     "ipl": false
+    }
+   ],
+   "sevB": "4",
+   "likB": "2",
+   "sevA": "4",
+   "likA": "1",
+   "recIds": [],
+   "disposition": "HAZOP",
+   "target": "N07-04",
+   "hazidRefs": [],
+   "comments": ""
+  },
+  {
+   "id": "w0027c5e816",
+   "areaId": "a00073e58b2",
+   "seq": 5,
+   "question": "What if gas-in starts before every burner valve on the section is closed?",
+   "source": "Brainstorm",
+   "hazard": "Gas reaches an open burner",
+   "consequence": "Explosion in a user furnace or preheater",
+   "safeguards": [
+    {
+     "text": "PSLL-2006 – Low-low pressure trips in the users' BMS",
+     "ipl": true
+    }
+   ],
+   "sevB": "5",
+   "likB": "3",
+   "sevA": "5",
+   "likA": "1",
+   "recIds": [
+    "r0017f72dde"
+   ],
+   "disposition": "HAZOP",
+   "target": "N03-03",
+   "hazidRefs": [],
+   "comments": ""
+  },
+  {
+   "id": "w002811cb72",
+   "areaId": "a0008ccfad3",
+   "seq": 1,
+   "question": "What if a section is isolated by one closed valve only?",
+   "source": "Checklist FG-MNT-01",
+   "hazard": "Passing valve",
+   "consequence": "Gas leaks into the section being worked on – fire",
+   "safeguards": [
+    {
+     "text": "Permit-to-work with isolation verification",
+     "ipl": false
+    }
+   ],
+   "sevB": "5",
+   "likB": "3",
+   "sevA": "5",
+   "likA": "1",
+   "recIds": [
+    "r0018b743a1"
+   ],
+   "disposition": "HAZOP",
+   "target": "N07-06",
+   "hazidRefs": [],
+   "comments": ""
+  },
+  {
+   "id": "w00294fe0fb",
+   "areaId": "a0008ccfad3",
+   "seq": 2,
+   "question": "What if hot work starts on a main that has not been proven gas-free?",
+   "source": "Brainstorm",
+   "hazard": "Gas inside the main",
+   "consequence": "Explosion during cutting or welding",
+   "safeguards": [
+    {
+     "text": "Hot-tapping and hot-work procedures",
+     "ipl": false
+    },
+    {
+     "text": "Gas test before hot work",
+     "ipl": false
+    }
+   ],
+   "sevB": "5",
+   "likB": "2",
+   "sevA": "5",
+   "likA": "1",
+   "recIds": [],
+   "disposition": "HAZOP",
+   "target": "N07-05",
+   "hazidRefs": [],
+   "comments": ""
+  },
+  {
+   "id": "w0030196cff",
+   "areaId": "a0008ccfad3",
+   "seq": 3,
+   "question": "What if the wrong sectionalising valve is closed?",
+   "source": "Brainstorm",
+   "hazard": "Live section opened",
+   "consequence": "Gas release when the flange is broken",
+   "safeguards": [
+    {
+     "text": "XV-1201 – Remote sectionalising valves",
+     "ipl": false
+    },
+    {
+     "text": "Valve line-up checklist",
+     "ipl": false
+    }
+   ],
+   "sevB": "4",
+   "likB": "3",
+   "sevA": "4",
+   "likA": "2",
+   "recIds": [],
+   "disposition": "HAZOP",
+   "target": "N03-06",
+   "hazidRefs": [],
+   "comments": ""
+  },
+  {
+   "id": "w003138f752",
+   "areaId": "a0008ccfad3",
+   "seq": 4,
+   "question": "What if a bleeder is left closed during the isolation?",
+   "source": "Checklist FG-MNT-03",
+   "hazard": "Pressure builds between valves",
+   "consequence": "Gas release at the work point",
+   "safeguards": [
+    {
+     "text": "Isolation certificate",
+     "ipl": false
+    }
+   ],
+   "sevB": "4",
+   "likB": "3",
+   "sevA": "4",
+   "likA": "1",
+   "recIds": [
+    "r00199aaafc"
+   ],
+   "disposition": "Closed",
+   "target": "",
+   "hazidRefs": [],
+   "comments": ""
+  },
+  {
+   "id": "w003243d38d",
+   "areaId": "a0008ccfad3",
+   "seq": 5,
+   "question": "What if an excavation near the ring main damages the pipe?",
+   "source": "Brainstorm",
+   "hazard": "Mechanical damage to a buried main",
+   "consequence": "Gas leak from the ring main",
+   "safeguards": [
+    {
+     "text": "Ground-disturbance permit with buried-services check",
+     "ipl": false
+    }
+   ],
+   "sevB": "5",
+   "likB": "2",
+   "sevA": "5",
+   "likA": "1",
+   "recIds": [],
+   "disposition": "HAZOP",
+   "target": "N03-01",
+   "hazidRefs": [],
+   "comments": ""
+  },
+  {
+   "id": "w00338dee39",
+   "areaId": "a0009d8edd6",
+   "seq": 1,
+   "question": "What if gas is re-admitted while users' burners are still open?",
+   "source": "Checklist FG-SSD-02",
+   "hazard": "Gas to open burners",
+   "consequence": "Unburnt gas in a furnace – explosion at re-ignition",
+   "safeguards": [
+    {
+     "text": "BMS-4000 – Burner management",
+     "ipl": true
+    },
+    {
+     "text": "PSLL-4005 – Low-low gas pressure trip",
+     "ipl": true
+    }
+   ],
+   "sevB": "5",
+   "likB": "3",
+   "sevA": "5",
+   "likA": "2",
+   "recIds": [
+    "r002079dca4"
+   ],
+   "disposition": "Quant",
+   "target": "FT-GN-03",
+   "hazidRefs": [],
+   "comments": ""
+  },
+  {
+   "id": "w0034185aa8",
+   "areaId": "a0009d8edd6",
+   "seq": 2,
+   "question": "What if the PRS regulator fails open when the network is re-pressured?",
+   "source": "Brainstorm",
+   "hazard": "Full inlet pressure on the 7 barg main",
+   "consequence": "Ring-main overpressure – flange leaks",
+   "safeguards": [
+    {
+     "text": "SSV-1102A – Slam-shut valve",
+     "ipl": true
+    },
+    {
+     "text": "PSV-1105 – Token relief valve",
+     "ipl": false
+    }
+   ],
+   "sevB": "5",
+   "likB": "2",
+   "sevA": "5",
+   "likA": "1",
+   "recIds": [],
+   "disposition": "Quant",
+   "target": "FT-GN-01",
+   "hazidRefs": [],
+   "comments": ""
+  },
+  {
+   "id": "w0035e0f02b",
+   "areaId": "a0009d8edd6",
+   "seq": 3,
+   "question": "What if a district-station regulator fails open at restart?",
+   "source": "Brainstorm",
+   "hazard": "High pressure downstream of the district station",
+   "consequence": "User piping over-pressured",
+   "safeguards": [
+    {
+     "text": "District-station piping designed for full MP pressure",
+     "ipl": true
+    }
+   ],
+   "sevB": "4",
+   "likB": "3",
+   "sevA": "4",
+   "likA": "2",
+   "recIds": [],
+   "disposition": "HAZOP",
+   "target": "N04-05",
+   "hazidRefs": [],
+   "comments": ""
+  },
+  {
+   "id": "w003687a8c6",
+   "areaId": "a0009d8edd6",
+   "seq": 4,
+   "question": "What if oxygen is in the gas line at the oxy-fuel burners after the restart?",
+   "source": "Brainstorm",
+   "hazard": "O2 in the NG line",
+   "consequence": "Explosion in the burner line",
+   "safeguards": [
+    {
+     "text": "XV-3011 – O2 and NG shut-off on low NG pressure",
+     "ipl": true
+    }
+   ],
+   "sevB": "5",
+   "likB": "2",
+   "sevA": "5",
+   "likA": "1",
+   "recIds": [],
+   "disposition": "HAZOP",
+   "target": "N05-01",
+   "hazidRefs": [],
+   "comments": ""
+  },
+  {
+   "id": "w00375cbebb",
+   "areaId": "a0009d8edd6",
+   "seq": 5,
+   "question": "What if gas detectors are still inhibited after the shutdown?",
+   "source": "Checklist GEN-SSD-04",
+   "hazard": "Detection not available",
+   "consequence": "Leak at restart not detected; no ESD",
+   "safeguards": [
+    {
+     "text": "Quarterly detector bump tests",
+     "ipl": false
+    }
+   ],
+   "sevB": "5",
+   "likB": "3",
+   "sevA": "5",
+   "likA": "2",
+   "recIds": [
+    "r0021238b9b"
+   ],
+   "disposition": "Quant",
+   "target": "FT-GN-02",
+   "hazidRefs": [],
+   "comments": ""
+  },
+  {
+   "id": "w00389a43cc",
+   "areaId": "a0009d8edd6",
+   "seq": 6,
+   "question": "What if power returns and valves reopen by themselves?",
+   "source": "Brainstorm",
+   "hazard": "Uncontrolled restart",
+   "consequence": "Gas sent to users before they are ready",
+   "safeguards": [
+    {
+     "text": "UPS-1000 – UPS for SIS and F&G",
+     "ipl": false
+    },
+    {
+     "text": "De-energise-to-trip valves",
+     "ipl": false
+    }
+   ],
+   "sevB": "4",
+   "likB": "3",
+   "sevA": "4",
+   "likA": "2",
+   "recIds": [],
+   "disposition": "HAZOP",
+   "target": "N08-02",
+   "hazidRefs": [],
+   "comments": ""
+  },
+  {
+   "id": "w003920ce36",
+   "areaId": "a0010644779",
+   "seq": 1,
+   "question": "What if a burner is lit before the pre-purge is complete?",
+   "source": "Brainstorm",
+   "hazard": "Gas in the furnace",
+   "consequence": "Furnace explosion",
+   "safeguards": [
+    {
+     "text": "BMS-4000 – Pre-purge interlock",
+     "ipl": true
+    },
+    {
+     "text": "Light-off procedure OP-RM-040",
+     "ipl": false
+    }
+   ],
+   "sevB": "5",
+   "likB": "3",
+   "sevA": "5",
+   "likA": "1",
+   "recIds": [],
+   "disposition": "HAZOP",
+   "target": "N06-04",
+   "hazidRefs": [],
+   "comments": ""
+  },
+  {
+   "id": "w00408177b2",
+   "areaId": "a0010644779",
+   "seq": 2,
+   "question": "What if the safety shut-off valves pass gas into the furnace during the purge?",
+   "source": "Brainstorm",
+   "hazard": "Gas leaking through closed valves",
+   "consequence": "Explosive mixture at light-off",
+   "safeguards": [
+    {
+     "text": "VPS-4004 – Valve proving of XV-4002A/B",
+     "ipl": true
+    }
+   ],
+   "sevB": "5",
+   "likB": "2",
+   "sevA": "5",
+   "likA": "1",
+   "recIds": [],
+   "disposition": "HAZOP",
+   "target": "N06-05",
+   "hazidRefs": [],
+   "comments": ""
+  },
+  {
+   "id": "w0041ceb129",
+   "areaId": "a0010644779",
+   "seq": 3,
+   "question": "What if the BMS is bypassed to get the furnace going?",
+   "source": "Checklist GEN-INS-03",
+   "hazard": "Protection defeated",
+   "consequence": "Explosion on flame failure",
+   "safeguards": [
+    {
+     "text": "Management of change for BMS logic",
+     "ipl": false
+    }
+   ],
+   "sevB": "5",
+   "likB": "3",
+   "sevA": "5",
+   "likA": "1",
+   "recIds": [
+    "r0022667212"
+   ],
+   "disposition": "HAZOP",
+   "target": "N06-06",
+   "hazidRefs": [],
+   "comments": ""
+  },
+  {
+   "id": "w0042bfb403",
+   "areaId": "a0010644779",
+   "seq": 4,
+   "question": "What if a ladle preheater is lit by hand with its burner management bypassed?",
+   "source": "Brainstorm",
+   "hazard": "Manual light-off",
+   "consequence": "Explosion in the preheater",
+   "safeguards": [
+    {
+     "text": "LPH-3020 – Preheater burner management",
+     "ipl": true
+    }
+   ],
+   "sevB": "5",
+   "likB": "3",
+   "sevA": "5",
+   "likA": "2",
+   "recIds": [],
+   "disposition": "HAZOP",
+   "target": "N05-04",
+   "hazidRefs": [],
+   "comments": ""
+  },
+  {
+   "id": "w00437bd009",
+   "areaId": "a0010644779",
+   "seq": 5,
+   "question": "What if the flame goes out with fuel gas still flowing?",
+   "source": "Brainstorm",
+   "hazard": "Flame failure",
+   "consequence": "Unburnt gas in the furnace – explosion",
+   "safeguards": [
+    {
+     "text": "BMS-4000 – Flame-failure shut-off",
+     "ipl": true
+    },
+    {
+     "text": "PSLL-4005 – Low-low gas pressure trip",
+     "ipl": true
+    }
+   ],
+   "sevB": "5",
+   "likB": "2",
+   "sevA": "5",
+   "likA": "1",
+   "recIds": [],
+   "disposition": "Quant",
+   "target": "ETA-GN-02",
+   "hazidRefs": [],
+   "comments": ""
+  },
+  {
+   "id": "w0044d2d878",
+   "areaId": "a0010644779",
+   "seq": 6,
+   "question": "What if someone enters the furnace with the gas not positively isolated?",
+   "source": "Brainstorm",
+   "hazard": "Gas in the furnace during entry",
+   "consequence": "Asphyxiation or fire inside the furnace",
+   "safeguards": [
+    {
+     "text": "Spade isolation of the fuel gas",
+     "ipl": false
+    },
+    {
+     "text": "Confined-space entry permit",
+     "ipl": false
+    }
+   ],
+   "sevB": "5",
+   "likB": "2",
+   "sevA": "5",
+   "likA": "1",
+   "recIds": [],
+   "disposition": "HAZOP",
+   "target": "N06-07",
+   "hazidRefs": [],
+   "comments": ""
+  }
+ ],
+ "recs": [
+  {
+   "id": "r001621c285",
+   "no": "WR-01",
+   "text": "Record the O2 end-point (< 2 %) at the far-end vent with a calibrated analyser on the purge sheet before gas-in.",
+   "responsible": "Gas network supervisor",
+   "priority": "High",
+   "dueDate": "",
+   "status": "Open",
+   "closeout": ""
+  },
+  {
+   "id": "r0017f72dde",
+   "no": "WR-02",
+   "text": "Add a users' valve check-list to the gas-in procedure: every burner valve on the section proven closed before gas-in.",
+   "responsible": "Gas network supervisor",
+   "priority": "High",
+   "dueDate": "",
+   "status": "Open",
+   "closeout": ""
+  },
+  {
+   "id": "r0018b743a1",
+   "no": "WR-03",
+   "text": "Make spades or spectacle blinds mandatory for every section isolation; single-valve isolation only for gas-tight tests.",
+   "responsible": "Maintenance",
+   "priority": "High",
+   "dueDate": "",
+   "status": "Open",
+   "closeout": ""
+  },
+  {
+   "id": "r00199aaafc",
+   "no": "WR-04",
+   "text": "Open and check the bleeders at each isolation point and record them on the isolation certificate.",
+   "responsible": "Maintenance",
+   "priority": "Medium",
+   "dueDate": "",
+   "status": "Open",
+   "closeout": ""
+  },
+  {
+   "id": "r002079dca4",
+   "no": "WR-05",
+   "text": "Write a site-wide gas restart procedure: PRS-1 first, then district stations one at a time, users released only by their own operators.",
+   "responsible": "Process engineer",
+   "priority": "High",
+   "dueDate": "",
+   "status": "Open",
+   "closeout": ""
+  },
+  {
+   "id": "r0021238b9b",
+   "no": "WR-06",
+   "text": "Check and clear all gas-detector inhibits before the network is re-pressured; list them on the restart checklist.",
+   "responsible": "Instrument / SIS engineer",
+   "priority": "High",
+   "dueDate": "",
+   "status": "Open",
+   "closeout": ""
+  },
+  {
+   "id": "r0022667212",
+   "no": "WR-07",
+   "text": "Enforce the bypass register for BMS-4000: no bypass during light-off; supervisor sign-off and time limit.",
+   "responsible": "Instrument / SIS engineer",
+   "priority": "High",
+   "dueDate": "",
+   "status": "Open",
+   "closeout": ""
+  }
+ ],
+ "hazid": []
+}

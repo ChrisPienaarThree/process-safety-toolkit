@@ -35,6 +35,8 @@
   "fm_xlsx": "Propane storage - FMECA_Workbook.xlsx",
   "fm_xlsm": "Propane storage - FMECA_Workbook_Macro.xlsm",
   "hi_xlsx": "Propane storage - HAZID_Register.xlsx",
+  "wi": "Propane storage - What-If WI-EX-PR-001.whatif.json",
+  "wi_xlsx": "Propane storage - WhatIf_Checklist_Workbook.xlsx",
   "results": "results.json"
  },
  "constants": {

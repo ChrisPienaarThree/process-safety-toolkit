@@ -1,5 +1,5 @@
 Propane storage and propane–air dilution system – cross-link test results
-Run 01 Nov 2026 22:10 · 433 checks · 433 passed · 0 failed
+Run 02 Nov 2026 08:53 · 475 checks · 475 passed · 0 failed
 
 
 A. Apps
@@ -110,6 +110,7 @@ C. References
   PASS  HZ-EX-PR-001 exists as 'Propane storage - HAZOP HZ-EX-PR-001.hazop.json'
   PASS  FM-EX-PR-001 exists as 'Propane storage - FMECA_Workbook.xlsx'
   PASS  HI-EX-PR-001 exists as 'Propane storage - HAZID_Register.xlsx'
+  PASS  WI-EX-PR-001 exists as 'Propane storage - What-If WI-EX-PR-001.whatif.json'
   PASS  Propane storage - FT-PR-01 Bullet overfill.fta.json: every FT / ETA / BT code it mentions exists (2 codes)
   PASS  Propane storage - FT-PR-01 Bullet overfill.fta.json: every HAZOP deviation reference resolves (1 refs)
   PASS  Propane storage - FT-PR-01 Bullet overfill.fta.json: every recommendation reference resolves (2 refs)
@@ -166,6 +167,10 @@ C. References
   PASS  Propane storage - HAZID_Register.xlsx: every HAZOP deviation reference resolves (21 refs)
   PASS  Propane storage - HAZID_Register.xlsx: every recommendation reference resolves (17 refs)
   PASS  Propane storage - HAZID_Register.xlsx: every FMECA system reference resolves (0 refs)
+  PASS  Propane storage - WhatIf_Checklist_Workbook.xlsx: every FT / ETA / BT code it mentions exists (6 codes)
+  PASS  Propane storage - WhatIf_Checklist_Workbook.xlsx: every HAZOP deviation reference resolves (22 refs)
+  PASS  Propane storage - WhatIf_Checklist_Workbook.xlsx: every recommendation reference resolves (0 refs)
+  PASS  Propane storage - WhatIf_Checklist_Workbook.xlsx: every FMECA system reference resolves (0 refs)
   PASS  Every HAZOP recommendation is linked to at least one deviation
   PASS  HAZOP N01-01 complete (causes, consequence, safeguards, risk before / after; risk not increased)
   PASS  HAZOP N01-02 complete (causes, consequence, safeguards, risk before / after; risk not increased)
@@ -259,9 +264,10 @@ D. Tags
   PASS  HAZOP IPL EP01 (EP-01) is the barrier 'Explosion vent panel EP-01 on surge ta' in BT2
 
 E. Workbooks
-  PASS  Propane storage - HAZOP_Study_Workbook.xlsx recalculates in LibreOffice with no formula errors (9101 formulas)
+  PASS  Propane storage - HAZOP_Study_Workbook.xlsx recalculates in LibreOffice with no formula errors (10101 formulas)
   PASS  Propane storage - FMECA_Workbook.xlsx recalculates in LibreOffice with no formula errors (9210 formulas)
   PASS  Propane storage - HAZID_Register.xlsx recalculates in LibreOffice with no formula errors (40 formulas)
+  PASS  Propane storage - WhatIf_Checklist_Workbook.xlsx recalculates in LibreOffice with no formula errors (1120 formulas)
   PASS  HAZOP workbook: cover shows 3 nodes
   PASS  HAZOP workbook Node 01 is 'N01' with the node details
   PASS  HAZOP workbook Node 01 has the same 13 deviations as the app
@@ -401,6 +407,43 @@ G. HAZID
   PASS  HZD-20 risk score 6 and rank Medium calculated by the workbook
   PASS  Every HAZOP node is reached from the HAZID
 
+W. What-If
+  PASS  What-If study has areas, checklist answers and What-If questions (3 areas, 25 answers, 23 questions)
+  PASS  Document numbers: follows HAZID HI-EX-PR-001, feeds HAZOP HZ-EX-PR-001
+  PASS  Every checklist answer is a library item of the area's packs (25 answers)
+  PASS  Every checklist gap (No / ?) that raised a question links to it in the same area
+  PASS  A01-01 complete: question, hazard, consequence, safeguards; risk 6 → 3; Closed at What-If; HAZID –
+  PASS  A01-02 complete: question, hazard, consequence, safeguards; risk 12 → 8; Send to HAZOP N01-03; HAZID HZD-06
+  PASS  A01-03 complete: question, hazard, consequence, safeguards; risk 15 → 5; Send to HAZOP N01-10; HAZID HZD-01, HZD-07
+  PASS  A01-04 complete: question, hazard, consequence, safeguards; risk 15 → 10; Send to quantified study (FT / ETA / bow tie) ETA-PR-01; HAZID HZD-01
+  PASS  A01-05 complete: question, hazard, consequence, safeguards; risk 12 → 8; Closed at What-If; HAZID HZD-02
+  PASS  A01-06 complete: question, hazard, consequence, safeguards; risk 15 → 10; Send to quantified study (FT / ETA / bow tie) FT-PR-01; HAZID HZD-02
+  PASS  A01-07 complete: question, hazard, consequence, safeguards; risk 9 → 6; Closed at What-If; HAZID HZD-08
+  PASS  A01-08 complete: question, hazard, consequence, safeguards; risk 9 → 6; Send to HAZOP N01-02; HAZID –
+  PASS  A02-01 complete: question, hazard, consequence, safeguards; risk 10 → 5; Send to quantified study (FT / ETA / bow tie) ETA-PR-01; HAZID HZD-03
+  PASS  A02-02 complete: question, hazard, consequence, safeguards; risk 10 → 5; Send to HAZOP N01-08; HAZID HZD-05
+  PASS  A02-03 complete: question, hazard, consequence, safeguards; risk 12 → 4; Closed at What-If; HAZID HZD-07
+  PASS  A02-04 complete: question, hazard, consequence, safeguards; risk 12 → 4; Closed at What-If; HAZID HZD-01
+  PASS  A02-05 complete: question, hazard, consequence, safeguards; risk 12 → 8; Send to HAZOP N01-13; HAZID HZD-16
+  PASS  A02-06 complete: question, hazard, consequence, safeguards; risk 10 → 5; Closed at What-If; HAZID HZD-19
+  PASS  A02-07 complete: question, hazard, consequence, safeguards; risk 6 → 4; Closed at What-If; HAZID HZD-17
+  PASS  A03-01 complete: question, hazard, consequence, safeguards; risk 12 → 8; Send to HAZOP N02-08; HAZID HZD-09
+  PASS  A03-02 complete: question, hazard, consequence, safeguards; risk 12 → 8; Send to HAZOP N02-04; HAZID HZD-10
+  PASS  A03-03 complete: question, hazard, consequence, safeguards; risk 12 → 4; Send to HAZOP N02-03; HAZID HZD-11
+  PASS  A03-04 complete: question, hazard, consequence, safeguards; risk 15 → 10; Send to quantified study (FT / ETA / bow tie) FT-PR-02; HAZID HZD-12
+  PASS  A03-05 complete: question, hazard, consequence, safeguards; risk 15 → 5; Send to HAZOP N03-06; HAZID HZD-13
+  PASS  A03-06 complete: question, hazard, consequence, safeguards; risk 12 → 8; Send to HAZOP N03-07; HAZID HZD-14
+  PASS  A03-07 complete: question, hazard, consequence, safeguards; risk 9 → 6; Send to HAZOP N03-09; HAZID HZD-15
+  PASS  A03-08 complete: question, hazard, consequence, safeguards; risk 10 → 5; Closed at What-If; HAZID HZD-12
+  PASS  Every What-If recommendation is used by a question (11)
+  PASS  Every High / Very High HAZID item is examined by a What-If question (14 items)
+  PASS  Questions sent to the HAZOP land on existing HAZOP nodes / deviations (11)
+  PASS  Each area that feeds the HAZOP names an existing node
+  PASS  Equipment tags in the What-If are defined in the HAZOP / FMECA (24 tags)
+  PASS  What-If workbook: 23 rows, risk and rank calculated as the tool
+  PASS  What-If workbook: HAZID coverage column agrees with the study (20 items)
+  PASS  What-If workbook: checklist sheet lists the packs of every area
+
 F. Report
   PASS  Report refers to FT-PR-01
   PASS  Report refers to FT-PR-02
@@ -411,6 +454,7 @@ F. Report
   PASS  Report refers to HZ-EX-PR-001
   PASS  Report refers to FM-EX-PR-001
   PASS  Report refers to HI-EX-PR-001
+  PASS  Report refers to WI-EX-PR-001
   PASS  Report quotes FT1_TOP = 1.9E-3 as calculated by the apps
   PASS  Report quotes FT1_PFD = 3.9E-3 as calculated by the apps
   PASS  Report quotes FT2_TOP = 1.2E-2 as calculated by the apps

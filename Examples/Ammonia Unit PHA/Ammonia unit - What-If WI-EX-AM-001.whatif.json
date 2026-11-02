@@ -1,0 +1,1525 @@
+{
+ "app": "What-If Checklist Analysis",
+ "schema": 1,
+ "created": "2026-11-24T16:00:00.000Z",
+ "modified": "2026-11-24T16:00:00.000Z",
+ "study": {
+  "title": "What-If / Checklist – ammonia unit non-routine tasks and toxic-gas readiness (worked example)",
+  "company": "Fertiliser complex (illustrative example)",
+  "unit": "Ammonia unit (about 2 000 t/d)",
+  "docNo": "WI-EX-AM-001",
+  "rev": "A",
+  "start": "2026-11-13",
+  "end": "2026-11-13",
+  "venue": "Ammonia control room annex",
+  "hazidRef": "HI-EX-AM-001",
+  "hazopRef": "HZ-EX-AM-001",
+  "facilitator": "A. Facilitator",
+  "scribe": "B. Scribe",
+  "scope": "Three non-routine tasks the HAZID flagged – refrigeration maintenance, synthesis-loop start-up and reformer light-off – and the toxic-gas readiness of the refrigeration and purge-recovery areas. Questions that need a systematic deviation analysis are sent to HAZOP nodes N01–N05.",
+  "exclusions": "CO shift, CO2 removal and the steam system (outside this example).",
+  "basis": "P&IDs P&ID-AM-003/015/017/018/023, start-up procedures SU-AM-01/02, maintenance procedure MP-AM-11, HAZID HI-EX-AM-001. Illustrative example – not data of any real plant."
+ },
+ "settings": {
+  "sev": [
+   "Negligible",
+   "Minor",
+   "Moderate",
+   "Major",
+   "Catastrophic"
+  ],
+  "sevDesc": [
+   "First aid; no lost time / minor on-site release / negligible damage",
+   "Medical treatment / reportable release contained on site / minor damage",
+   "Lost-time injury / off-site short-term impact / significant damage",
+   "Single fatality or permanent disability / significant off-site impact / major damage",
+   "Multiple fatalities / major off-site release / loss of unit"
+  ],
+  "lik": [
+   "Rare",
+   "Unlikely",
+   "Possible",
+   "Likely",
+   "Almost certain"
+  ],
+  "likDesc": [
+   "< 1 in 10 000 years",
+   "1 in 1 000 – 10 000 years",
+   "1 in 100 – 1 000 years",
+   "1 in 10 – 100 years",
+   "> 1 in 10 years"
+  ],
+  "grid": [
+   [
+    1,
+    2,
+    3,
+    4,
+    5
+   ],
+   [
+    2,
+    4,
+    6,
+    8,
+    10
+   ],
+   [
+    3,
+    6,
+    9,
+    12,
+    15
+   ],
+   [
+    4,
+    8,
+    12,
+    16,
+    20
+   ],
+   [
+    5,
+    10,
+    15,
+    20,
+    25
+   ]
+  ],
+  "bands": {
+   "Medium": 5,
+   "High": 10,
+   "Very High": 20
+  }
+ },
+ "team": [
+  {
+   "id": "t0001a47e3b",
+   "name": "A. Facilitator",
+   "company": "Istec",
+   "role": "Facilitator",
+   "attendance": "Day 1"
+  },
+  {
+   "id": "t0002d7a052",
+   "name": "B. Scribe",
+   "company": "Istec",
+   "role": "Scribe",
+   "attendance": "Day 1"
+  },
+  {
+   "id": "t0003e03a1a",
+   "name": "C. Process",
+   "company": "Owner",
+   "role": "Process engineer",
+   "attendance": "Day 1"
+  },
+  {
+   "id": "t000452d4db",
+   "name": "D. Operations",
+   "company": "Owner",
+   "role": "Shift supervisor",
+   "attendance": "Day 1"
+  },
+  {
+   "id": "t0005cc01ff",
+   "name": "E. Maintenance",
+   "company": "Owner",
+   "role": "Maintenance planner",
+   "attendance": "Day 1"
+  },
+  {
+   "id": "t00067cecc9",
+   "name": "G. Safety",
+   "company": "Owner",
+   "role": "HSE / process safety",
+   "attendance": "Day 1"
+  }
+ ],
+ "psi": [
+  {
+   "id": "p0011955edc",
+   "ref": "PSI-01",
+   "category": "Drawings",
+   "docNo": "P&ID-AM-003/015/017/018/023",
+   "title": "P&IDs of the five study nodes",
+   "rev": "C",
+   "date": "",
+   "owner": "",
+   "status": "Available",
+   "areaIds": [
+    "a00073e58b2",
+    "a0008ccfad3",
+    "a0009d8edd6",
+    "a0010644779"
+   ],
+   "comments": ""
+  },
+  {
+   "id": "p0012b8d0d2",
+   "ref": "PSI-02",
+   "category": "Procedures",
+   "docNo": "SU-AM-01",
+   "title": "Reformer light-off and steam-feed sequence",
+   "rev": "4",
+   "date": "",
+   "owner": "",
+   "status": "Available",
+   "areaIds": [
+    "a0009d8edd6"
+   ],
+   "comments": ""
+  },
+  {
+   "id": "p0013b4d762",
+   "ref": "PSI-03",
+   "category": "Procedures",
+   "docNo": "SU-AM-02",
+   "title": "Synthesis loop start-up",
+   "rev": "2",
+   "date": "",
+   "owner": "",
+   "status": "Available",
+   "areaIds": [
+    "a0008ccfad3"
+   ],
+   "comments": ""
+  },
+  {
+   "id": "p001424631a",
+   "ref": "PSI-04",
+   "category": "Procedures",
+   "docNo": "MP-AM-11",
+   "title": "Ammonia equipment draining and line-break procedure",
+   "rev": "1",
+   "date": "",
+   "owner": "",
+   "status": "Available",
+   "areaIds": [
+    "a00073e58b2"
+   ],
+   "comments": ""
+  },
+  {
+   "id": "p001580f1d3",
+   "ref": "PSI-05",
+   "category": "Previous studies",
+   "docNo": "HI-EX-AM-001",
+   "title": "HAZID register – ammonia unit",
+   "rev": "A",
+   "date": "",
+   "owner": "",
+   "status": "Available",
+   "areaIds": [
+    "a00073e58b2",
+    "a0008ccfad3",
+    "a0009d8edd6",
+    "a0010644779"
+   ],
+   "comments": ""
+  },
+  {
+   "id": "p001621c285",
+   "ref": "PSI-06",
+   "category": "Hazardous materials",
+   "docNo": "SDS-NH3",
+   "title": "Ammonia safety data sheet",
+   "rev": "5",
+   "date": "",
+   "owner": "",
+   "status": "Available",
+   "areaIds": [
+    "a00073e58b2",
+    "a0010644779"
+   ],
+   "comments": ""
+  }
+ ],
+ "areas": [
+  {
+   "id": "a00073e58b2",
+   "no": "A01",
+   "name": "Refrigeration system maintenance – draining, line breaks, PSV removal",
+   "kind": "Task / procedure",
+   "status": "Complete",
+   "drawings": "MP-AM-11",
+   "hazopNode": "N04",
+   "packs": [
+    "GEN",
+    "NH3"
+   ],
+   "description": "Maintenance on the refrigeration loop: drain and isolate equipment around 105-J, 127-C and 149-D, change strainers, remove PSV-1109 for testing."
+  },
+  {
+   "id": "a0008ccfad3",
+   "no": "A02",
+   "name": "Synthesis loop start-up",
+   "kind": "Task / procedure",
+   "status": "Complete",
+   "drawings": "SU-AM-02",
+   "hazopNode": "N03",
+   "packs": [
+    "GEN",
+    "NH3"
+   ],
+   "description": "Pressure up the loop with 103-J, establish circulation, heat the converter 105-D with the start-up heater 102-B, bring the catalyst to reaction temperature."
+  },
+  {
+   "id": "a0009d8edd6",
+   "no": "A03",
+   "name": "Reformer light-off and steam-feed sequence",
+   "kind": "Task / procedure",
+   "status": "Complete",
+   "drawings": "SU-AM-01",
+   "hazopNode": "N01, N02",
+   "packs": [
+    "GEN",
+    "NH3"
+   ],
+   "description": "Purge the 101-B firebox, light the burners, raise steam through the tubes, then admit feed gas and process air to 103-D."
+  },
+  {
+   "id": "a0010644779",
+   "no": "A04",
+   "name": "Toxic-gas readiness – refrigeration and purge-recovery areas, control room",
+   "kind": "Physical area",
+   "status": "Complete",
+   "drawings": "P&ID-AM-017/018",
+   "hazopNode": "N04, N05",
+   "packs": [
+    "GEN",
+    "NH3"
+   ],
+   "description": "Detection, isolation, water curtain, refuge and escape for a liquid ammonia release around 149-D, 105-J and the purge recovery 124-D / 160-C."
+  }
+ ],
+ "checks": [
+  {
+   "id": "c0072b9c6e9",
+   "areaId": "a00073e58b2",
+   "itemId": "NH3-OPS-01",
+   "custom": false,
+   "answer": "No",
+   "note": "Open drain used in the past",
+   "whatifId": "w0049141980"
+  },
+  {
+   "id": "c0073507dd9",
+   "areaId": "a00073e58b2",
+   "itemId": "NH3-MNT-01",
+   "custom": false,
+   "answer": "Q",
+   "note": "MP-AM-11 silent on trapped liquid",
+   "whatifId": "w0050d37f35"
+  },
+  {
+   "id": "c00744a45be",
+   "areaId": "a00073e58b2",
+   "itemId": "NH3-MNT-02",
+   "custom": false,
+   "answer": "No",
+   "note": "PSV removed with receiver in service",
+   "whatifId": "w005133df2d"
+  },
+  {
+   "id": "c00750144ac",
+   "areaId": "a00073e58b2",
+   "itemId": "NH3-EQP-01",
+   "custom": false,
+   "answer": "Yes",
+   "note": "Two cooling-water pumps",
+   "whatifId": ""
+  },
+  {
+   "id": "c0076bf576e",
+   "areaId": "a00073e58b2",
+   "itemId": "NH3-EQP-02",
+   "custom": false,
+   "answer": "Yes",
+   "note": "LSHH-1214 trip",
+   "whatifId": ""
+  },
+  {
+   "id": "c0077f124bd",
+   "areaId": "a00073e58b2",
+   "itemId": "GEN-MNT-01",
+   "custom": false,
+   "answer": "Yes",
+   "note": "PTW in use",
+   "whatifId": ""
+  },
+  {
+   "id": "c0078653434",
+   "areaId": "a00073e58b2",
+   "itemId": "GEN-MNT-02",
+   "custom": false,
+   "answer": "Yes",
+   "note": "Spades on line breaks",
+   "whatifId": ""
+  },
+  {
+   "id": "c00796d2bbd",
+   "areaId": "a00073e58b2",
+   "itemId": "NH3-MAT-02",
+   "custom": false,
+   "answer": "Yes",
+   "note": "Water content kept above 0.2 %",
+   "whatifId": ""
+  },
+  {
+   "id": "c0080425df1",
+   "areaId": "a0008ccfad3",
+   "itemId": "NH3-SSD-01",
+   "custom": false,
+   "answer": "Yes",
+   "note": "SU-AM-02",
+   "whatifId": ""
+  },
+  {
+   "id": "c00811b5b2b",
+   "areaId": "a0008ccfad3",
+   "itemId": "NH3-INS-01",
+   "custom": false,
+   "answer": "No",
+   "note": "Alarm and trip on one thermocouple",
+   "whatifId": "w0056eb82bc"
+  },
+  {
+   "id": "c00822c00fe",
+   "areaId": "a0008ccfad3",
+   "itemId": "NH3-MAT-03",
+   "custom": false,
+   "answer": "Q",
+   "note": "Start-up temperatures not checked against the Nelson curve",
+   "whatifId": "w0057cc4786"
+  },
+  {
+   "id": "c0083e6f76c",
+   "areaId": "a0008ccfad3",
+   "itemId": "GEN-SSD-04",
+   "custom": false,
+   "answer": "Yes",
+   "note": "Start-up inhibits time out",
+   "whatifId": ""
+  },
+  {
+   "id": "c008402b9a5",
+   "areaId": "a0008ccfad3",
+   "itemId": "GEN-SSD-05",
+   "custom": false,
+   "answer": "Yes",
+   "note": "Heat-up rate in SU-AM-02",
+   "whatifId": ""
+  },
+  {
+   "id": "c0085b35af6",
+   "areaId": "a0009d8edd6",
+   "itemId": "NH3-SSD-02",
+   "custom": false,
+   "answer": "Q",
+   "note": "Purge timed by the operator",
+   "whatifId": "w00610d8bd7"
+  },
+  {
+   "id": "c0086796eed",
+   "areaId": "a0009d8edd6",
+   "itemId": "NH3-INS-03",
+   "custom": false,
+   "answer": "Yes",
+   "note": "FFSLL-1201",
+   "whatifId": ""
+  },
+  {
+   "id": "c0087ecfb56",
+   "areaId": "a0009d8edd6",
+   "itemId": "NH3-INS-04",
+   "custom": false,
+   "answer": "Yes",
+   "note": "BMS on 101-B",
+   "whatifId": ""
+  },
+  {
+   "id": "c0088517630",
+   "areaId": "a0009d8edd6",
+   "itemId": "GEN-SSD-01",
+   "custom": false,
+   "answer": "Yes",
+   "note": "SU-AM-01",
+   "whatifId": ""
+  },
+  {
+   "id": "c008901645a",
+   "areaId": "a0010644779",
+   "itemId": "NH3-EMR-01",
+   "custom": false,
+   "answer": "Q",
+   "note": "Manual start only",
+   "whatifId": "w0067d0969f"
+  },
+  {
+   "id": "c0090656845",
+   "areaId": "a0010644779",
+   "itemId": "NH3-EMR-02",
+   "custom": false,
+   "answer": "No",
+   "note": "No HVAC trip",
+   "whatifId": "w00684de6b3"
+  },
+  {
+   "id": "c0091c504f1",
+   "areaId": "a0010644779",
+   "itemId": "NH3-EMR-03",
+   "custom": false,
+   "answer": "Q",
+   "note": "Escape sets in one cabinet only",
+   "whatifId": "w0069f7aec4"
+  },
+  {
+   "id": "c0092a59e0f",
+   "areaId": "a0010644779",
+   "itemId": "NH3-INS-02",
+   "custom": false,
+   "answer": "No",
+   "note": "No detector at the pump bay",
+   "whatifId": "w0066c40dc5"
+  },
+  {
+   "id": "c0093f69c16",
+   "areaId": "a0010644779",
+   "itemId": "NH3-MAT-01",
+   "custom": false,
+   "answer": "Yes",
+   "note": "Limits in the SDS and procedures",
+   "whatifId": ""
+  },
+  {
+   "id": "c00944783ec",
+   "areaId": "a0010644779",
+   "itemId": "GEN-EMR-01",
+   "custom": false,
+   "answer": "Yes",
+   "note": "Toxic-gas drill yearly",
+   "whatifId": ""
+  },
+  {
+   "id": "c00950ca591",
+   "areaId": "a0010644779",
+   "itemId": "GEN-EMR-08",
+   "custom": false,
+   "answer": "Yes",
+   "note": "XV-1290 / XV-1801 remote",
+   "whatifId": ""
+  }
+ ],
+ "whatifs": [
+  {
+   "id": "w0049141980",
+   "areaId": "a00073e58b2",
+   "seq": 1,
+   "question": "What if liquid ammonia is drained to the open sewer?",
+   "source": "Checklist NH3-OPS-01",
+   "hazard": "Ammonia in an open drain",
+   "consequence": "Toxic vapour in the area; ammonia to the effluent",
+   "safeguards": [
+    {
+     "text": "Permit-to-work",
+     "ipl": false
+    }
+   ],
+   "sevB": "4",
+   "likB": "3",
+   "sevA": "4",
+   "likA": "1",
+   "recIds": [
+    "r003920ce36"
+   ],
+   "disposition": "Closed",
+   "target": "",
+   "hazidRefs": [
+    "HZD-15"
+   ],
+   "comments": ""
+  },
+  {
+   "id": "w0050d37f35",
+   "areaId": "a00073e58b2",
+   "seq": 2,
+   "question": "What if a line is broken with liquid ammonia still trapped between closed valves?",
+   "source": "Checklist NH3-MNT-01",
+   "hazard": "Trapped liquid ammonia",
+   "consequence": "Ammonia spray onto the maintenance crew",
+   "safeguards": [
+    {
+     "text": "Permit-to-work with positive isolation",
+     "ipl": false
+    },
+    {
+     "text": "Ammonia PPE",
+     "ipl": false
+    }
+   ],
+   "sevB": "4",
+   "likB": "3",
+   "sevA": "4",
+   "likA": "2",
+   "recIds": [
+    "r0041ceb129"
+   ],
+   "disposition": "HAZOP",
+   "target": "N04-08",
+   "hazidRefs": [
+    "HZD-15"
+   ],
+   "comments": ""
+  },
+  {
+   "id": "w005133df2d",
+   "areaId": "a00073e58b2",
+   "seq": 3,
+   "question": "What if PSV-1109 is removed for testing while the receiver 149-D is in service?",
+   "source": "Checklist NH3-MNT-02",
+   "hazard": "Receiver without relief",
+   "consequence": "Overpressure of 149-D not relieved",
+   "safeguards": [
+    {
+     "text": "PSHH-1110 – High-high pressure trip",
+     "ipl": true
+    }
+   ],
+   "sevB": "5",
+   "likB": "2",
+   "sevA": "5",
+   "likA": "1",
+   "recIds": [
+    "r00408177b2"
+   ],
+   "disposition": "Closed",
+   "target": "",
+   "hazidRefs": [
+    "HZD-12"
+   ],
+   "comments": ""
+  },
+  {
+   "id": "w00526858ad",
+   "areaId": "a00073e58b2",
+   "seq": 4,
+   "question": "What if cooling water to 127-C is lost while 105-J is restarted after maintenance?",
+   "source": "Brainstorm",
+   "hazard": "Loss of condensing",
+   "consequence": "Receiver pressure rises to the relief set point",
+   "safeguards": [
+    {
+     "text": "PAH-1009 – High-pressure alarm",
+     "ipl": true
+    },
+    {
+     "text": "PSHH-1110 – High-high pressure trip",
+     "ipl": true
+    },
+    {
+     "text": "PSV-1109 – Receiver relief valve",
+     "ipl": true
+    }
+   ],
+   "sevB": "5",
+   "likB": "3",
+   "sevA": "5",
+   "likA": "1",
+   "recIds": [],
+   "disposition": "Quant",
+   "target": "FT-AM-01",
+   "hazidRefs": [
+    "HZD-12"
+   ],
+   "comments": ""
+  },
+  {
+   "id": "w005333e2d3",
+   "areaId": "a00073e58b2",
+   "seq": 5,
+   "question": "What if a drained section is depressurised quickly and the pipe gets very cold?",
+   "source": "Brainstorm",
+   "hazard": "Auto-refrigeration of ammonia",
+   "consequence": "Brittle fracture of carbon steel",
+   "safeguards": [
+    {
+     "text": "Low-temperature steel",
+     "ipl": true
+    }
+   ],
+   "sevB": "5",
+   "likB": "2",
+   "sevA": "5",
+   "likA": "1",
+   "recIds": [],
+   "disposition": "HAZOP",
+   "target": "N04-05",
+   "hazidRefs": [
+    "HZD-13"
+   ],
+   "comments": ""
+  },
+  {
+   "id": "w0054ffab48",
+   "areaId": "a00073e58b2",
+   "seq": 6,
+   "question": "What if a flash drum is refilled too fast after maintenance and liquid reaches 105-J?",
+   "source": "Brainstorm",
+   "hazard": "Liquid carry-over",
+   "consequence": "Compressor damage and seal leak",
+   "safeguards": [
+    {
+     "text": "LSHH-1214 – Flash-drum high-high level trip",
+     "ipl": true
+    }
+   ],
+   "sevB": "4",
+   "likB": "3",
+   "sevA": "4",
+   "likA": "2",
+   "recIds": [],
+   "disposition": "HAZOP",
+   "target": "N04-02",
+   "hazidRefs": [
+    "HZD-14"
+   ],
+   "comments": ""
+  },
+  {
+   "id": "w005582fcd9",
+   "areaId": "a0008ccfad3",
+   "seq": 1,
+   "question": "What if the start-up heater 102-B fires without loop circulation?",
+   "source": "Brainstorm",
+   "hazard": "Heat with no flow",
+   "consequence": "Local overheating of the converter and the loop",
+   "safeguards": [
+    {
+     "text": "Start-up procedure SU-AM-02",
+     "ipl": false
+    }
+   ],
+   "sevB": "5",
+   "likB": "3",
+   "sevA": "5",
+   "likA": "2",
+   "recIds": [],
+   "disposition": "HAZOP",
+   "target": "N03-09",
+   "hazidRefs": [
+    "HZD-07"
+   ],
+   "comments": ""
+  },
+  {
+   "id": "w0056eb82bc",
+   "areaId": "a0008ccfad3",
+   "seq": 2,
+   "question": "What if the converter temperature alarm and trip read the same thermocouple?",
+   "source": "Checklist NH3-INS-01",
+   "hazard": "Common-cause failure of protection",
+   "consequence": "Converter over-temperature not stopped",
+   "safeguards": [
+    {
+     "text": "TAH-1383 – Bed temperature alarm",
+     "ipl": false
+    },
+    {
+     "text": "TSHH-1396 – High-high temperature trip",
+     "ipl": true
+    }
+   ],
+   "sevB": "5",
+   "likB": "4",
+   "sevA": "5",
+   "likA": "2",
+   "recIds": [
+    "r0042bfb403"
+   ],
+   "disposition": "Quant",
+   "target": "FT-AM-02",
+   "hazidRefs": [
+    "HZD-07"
+   ],
+   "comments": ""
+  },
+  {
+   "id": "w0057cc4786",
+   "areaId": "a0008ccfad3",
+   "seq": 3,
+   "question": "What if the loop exchanger runs above its design temperature during start-up?",
+   "source": "Checklist NH3-MAT-03",
+   "hazard": "High-temperature hydrogen attack",
+   "consequence": "Sudden exchanger failure – syngas release",
+   "safeguards": [
+    {
+     "text": "Material selection to API RP 941",
+     "ipl": false
+    }
+   ],
+   "sevB": "5",
+   "likB": "2",
+   "sevA": "5",
+   "likA": "1",
+   "recIds": [
+    "r00437bd009"
+   ],
+   "disposition": "HAZOP",
+   "target": "N03-06",
+   "hazidRefs": [
+    "HZD-09"
+   ],
+   "comments": "Standard reference to be verified against the edition in use."
+  },
+  {
+   "id": "w0058a13f90",
+   "areaId": "a0008ccfad3",
+   "seq": 4,
+   "question": "What if 103-J surges during the run-up?",
+   "source": "Brainstorm",
+   "hazard": "Compressor surge",
+   "consequence": "Seal damage – syngas release",
+   "safeguards": [
+    {
+     "text": "Anti-surge control",
+     "ipl": false
+    },
+    {
+     "text": "PSLL-1155 – Seal-gas low-low pressure trip",
+     "ipl": true
+    }
+   ],
+   "sevB": "4",
+   "likB": "3",
+   "sevA": "4",
+   "likA": "2",
+   "recIds": [],
+   "disposition": "HAZOP",
+   "target": "N03-02",
+   "hazidRefs": [
+    "HZD-10"
+   ],
+   "comments": ""
+  },
+  {
+   "id": "w0059ea3d66",
+   "areaId": "a0008ccfad3",
+   "seq": 5,
+   "question": "What if the loop is pressured up with the purge to recovery closed?",
+   "source": "Brainstorm",
+   "hazard": "Inerts and pressure build up",
+   "consequence": "Loop overpressure – flange leak",
+   "safeguards": [
+    {
+     "text": "PSV-1018 – Synthesis loop relief valve",
+     "ipl": true
+    }
+   ],
+   "sevB": "5",
+   "likB": "2",
+   "sevA": "5",
+   "likA": "1",
+   "recIds": [],
+   "disposition": "HAZOP",
+   "target": "N03-04",
+   "hazidRefs": [
+    "HZD-08"
+   ],
+   "comments": ""
+  },
+  {
+   "id": "w0060fbe5cc",
+   "areaId": "a0008ccfad3",
+   "seq": 6,
+   "question": "What if a loop flange leaks during heat-up?",
+   "source": "Brainstorm",
+   "hazard": "Hot hydrogen-rich gas",
+   "consequence": "Jet fire or explosion in the compressor house",
+   "safeguards": [
+    {
+     "text": "HV-1019 – Emergency depressurisation",
+     "ipl": false
+    },
+    {
+     "text": "UCP-1000 – Unit ESD",
+     "ipl": true
+    }
+   ],
+   "sevB": "5",
+   "likB": "3",
+   "sevA": "5",
+   "likA": "2",
+   "recIds": [],
+   "disposition": "Quant",
+   "target": "ETA-AM-02",
+   "hazidRefs": [
+    "HZD-06"
+   ],
+   "comments": ""
+  },
+  {
+   "id": "w00610d8bd7",
+   "areaId": "a0009d8edd6",
+   "seq": 1,
+   "question": "What if a burner is lit before the firebox purge is complete?",
+   "source": "Checklist NH3-SSD-02",
+   "hazard": "Fuel gas in the firebox",
+   "consequence": "Firebox explosion",
+   "safeguards": [
+    {
+     "text": "BSLL-1200 – Flame scanners and BMS",
+     "ipl": true
+    },
+    {
+     "text": "Light-off procedure SU-AM-01",
+     "ipl": false
+    }
+   ],
+   "sevB": "5",
+   "likB": "3",
+   "sevA": "5",
+   "likA": "1",
+   "recIds": [
+    "r0044d2d878"
+   ],
+   "disposition": "HAZOP",
+   "target": "N02-06",
+   "hazidRefs": [
+    "HZD-03"
+   ],
+   "comments": ""
+  },
+  {
+   "id": "w0062e834aa",
+   "areaId": "a0009d8edd6",
+   "seq": 2,
+   "question": "What if feed gas is admitted before steam is established through the tubes?",
+   "source": "Brainstorm",
+   "hazard": "Low steam-to-carbon ratio",
+   "consequence": "Carbon on the catalyst – tube overheating and rupture",
+   "safeguards": [
+    {
+     "text": "FFSLL-1201 – Low steam-to-carbon trip",
+     "ipl": true
+    },
+    {
+     "text": "XV-1201 – Feed shut-off valve",
+     "ipl": false
+    }
+   ],
+   "sevB": "4",
+   "likB": "3",
+   "sevA": "4",
+   "likA": "2",
+   "recIds": [],
+   "disposition": "HAZOP",
+   "target": "N01-09",
+   "hazidRefs": [
+    "HZD-01"
+   ],
+   "comments": ""
+  },
+  {
+   "id": "w0063b261a6",
+   "areaId": "a0009d8edd6",
+   "seq": 3,
+   "question": "What if process air is introduced too early or too fast?",
+   "source": "Brainstorm",
+   "hazard": "Excess air to 103-D",
+   "consequence": "Secondary reformer over-temperature",
+   "safeguards": [
+    {
+     "text": "FFSHH-1203 – High air-to-feed trip",
+     "ipl": true
+    }
+   ],
+   "sevB": "4",
+   "likB": "3",
+   "sevA": "4",
+   "likA": "2",
+   "recIds": [],
+   "disposition": "HAZOP",
+   "target": "N01-06",
+   "hazidRefs": [
+    "HZD-02"
+   ],
+   "comments": ""
+  },
+  {
+   "id": "w0064b0380c",
+   "areaId": "a0009d8edd6",
+   "seq": 4,
+   "question": "What if a burner hose leaks while the burners are lit by hand?",
+   "source": "Brainstorm",
+   "hazard": "Fuel gas at the burner platform",
+   "consequence": "Flash fire at the burner platform",
+   "safeguards": [
+    {
+     "text": "Hose inspection before light-off",
+     "ipl": false
+    },
+    {
+     "text": "Fire-resistant clothing",
+     "ipl": false
+    }
+   ],
+   "sevB": "4",
+   "likB": "3",
+   "sevA": "4",
+   "likA": "2",
+   "recIds": [],
+   "disposition": "HAZOP",
+   "target": "N02-08",
+   "hazidRefs": [
+    "HZD-04"
+   ],
+   "comments": ""
+  },
+  {
+   "id": "w0065d1762d",
+   "areaId": "a0010644779",
+   "seq": 1,
+   "question": "What if a large ammonia leak occurs at the receiver 149-D?",
+   "source": "Brainstorm",
+   "hazard": "Liquid ammonia release",
+   "consequence": "Toxic cloud on and off site",
+   "safeguards": [
+    {
+     "text": "AT-1801A/B/C – Ammonia detection and ESD",
+     "ipl": true
+    },
+    {
+     "text": "Water-spray curtain",
+     "ipl": false
+    }
+   ],
+   "sevB": "5",
+   "likB": "3",
+   "sevA": "5",
+   "likA": "2",
+   "recIds": [],
+   "disposition": "Quant",
+   "target": "ETA-AM-01",
+   "hazidRefs": [
+    "HZD-11"
+   ],
+   "comments": ""
+  },
+  {
+   "id": "w0066c40dc5",
+   "areaId": "a0010644779",
+   "seq": 2,
+   "question": "What if the ammonia detectors do not cover the pump bay?",
+   "source": "Checklist NH3-INS-02",
+   "hazard": "Leak not detected",
+   "consequence": "ESD not started; larger toxic cloud",
+   "safeguards": [
+    {
+     "text": "Operator rounds",
+     "ipl": false
+    }
+   ],
+   "sevB": "5",
+   "likB": "3",
+   "sevA": "5",
+   "likA": "2",
+   "recIds": [
+    "r00482aa777"
+   ],
+   "disposition": "Quant",
+   "target": "FT-AM-03",
+   "hazidRefs": [
+    "HZD-11",
+    "HZD-17"
+   ],
+   "comments": ""
+  },
+  {
+   "id": "w0067d0969f",
+   "areaId": "a0010644779",
+   "seq": 3,
+   "question": "What if the water curtain does not start during an ammonia release?",
+   "source": "Checklist NH3-EMR-01",
+   "hazard": "Curtain started manually only",
+   "consequence": "Vapour not knocked down; cloud reaches occupied areas",
+   "safeguards": [
+    {
+     "text": "Manual start from the control room",
+     "ipl": false
+    }
+   ],
+   "sevB": "5",
+   "likB": "3",
+   "sevA": "5",
+   "likA": "2",
+   "recIds": [
+    "r004677ebeb"
+   ],
+   "disposition": "Quant",
+   "target": "ETA-AM-01",
+   "hazidRefs": [
+    "HZD-11"
+   ],
+   "comments": ""
+  },
+  {
+   "id": "w00684de6b3",
+   "areaId": "a0010644779",
+   "seq": 4,
+   "question": "What if ammonia enters the control room through the ventilation?",
+   "source": "Checklist NH3-EMR-02",
+   "hazard": "Toxic gas in an occupied building",
+   "consequence": "Control-room staff overcome; plant left unattended",
+   "safeguards": [
+    {
+     "text": "Escape sets in the control room",
+     "ipl": false
+    }
+   ],
+   "sevB": "5",
+   "likB": "2",
+   "sevA": "5",
+   "likA": "1",
+   "recIds": [
+    "r0045d19a83"
+   ],
+   "disposition": "Closed",
+   "target": "",
+   "hazidRefs": [
+    "HZD-18"
+   ],
+   "comments": ""
+  },
+  {
+   "id": "w0069f7aec4",
+   "areaId": "a0010644779",
+   "seq": 5,
+   "question": "What if people cannot reach escape sets during a release?",
+   "source": "Checklist NH3-EMR-03",
+   "hazard": "Escape sets in one place only",
+   "consequence": "Exposure above IDLH while escaping",
+   "safeguards": [
+    {
+     "text": "Ammonia drills",
+     "ipl": false
+    }
+   ],
+   "sevB": "5",
+   "likB": "2",
+   "sevA": "5",
+   "likA": "1",
+   "recIds": [
+    "r00475b13bf"
+   ],
+   "disposition": "Closed",
+   "target": "",
+   "hazidRefs": [
+    "HZD-18"
+   ],
+   "comments": ""
+  },
+  {
+   "id": "w0070b70f0e",
+   "areaId": "a0010644779",
+   "seq": 6,
+   "question": "What if the purge let-down valve PV-1033A fails open?",
+   "source": "Brainstorm",
+   "hazard": "Gas blow-by to 160-C",
+   "consequence": "Column over-pressured – toxic release",
+   "safeguards": [
+    {
+     "text": "PSV-1033 – Column relief valve",
+     "ipl": true
+    }
+   ],
+   "sevB": "5",
+   "likB": "3",
+   "sevA": "5",
+   "likA": "2",
+   "recIds": [],
+   "disposition": "HAZOP",
+   "target": "N05-02",
+   "hazidRefs": [
+    "HZD-16"
+   ],
+   "comments": ""
+  },
+  {
+   "id": "w007163d6f4",
+   "areaId": "a0010644779",
+   "seq": 7,
+   "question": "What if a seal leaks on the reflux pump 161-J?",
+   "source": "Brainstorm",
+   "hazard": "Ammonia at the column pumps",
+   "consequence": "Toxic exposure of the operator",
+   "safeguards": [
+    {
+     "text": "Gas detection",
+     "ipl": false
+    },
+    {
+     "text": "Ammonia PPE",
+     "ipl": false
+    }
+   ],
+   "sevB": "4",
+   "likB": "3",
+   "sevA": "4",
+   "likA": "2",
+   "recIds": [],
+   "disposition": "HAZOP",
+   "target": "N05-06",
+   "hazidRefs": [
+    "HZD-17"
+   ],
+   "comments": ""
+  }
+ ],
+ "recs": [
+  {
+   "id": "r003920ce36",
+   "no": "WR-01",
+   "text": "Drain ammonia only through the closed drain system to the recovery drum; blank the open drain connections.",
+   "responsible": "Process engineer",
+   "priority": "High",
+   "dueDate": "",
+   "status": "Open",
+   "closeout": ""
+  },
+  {
+   "id": "r00408177b2",
+   "no": "WR-02",
+   "text": "Remove PSV-1109 only with the receiver isolated and depressurised, or fit a spare PSV on a changeover valve.",
+   "responsible": "Maintenance planner",
+   "priority": "High",
+   "dueDate": "",
+   "status": "Open",
+   "closeout": ""
+  },
+  {
+   "id": "r0041ceb129",
+   "no": "WR-03",
+   "text": "Add a trapped-liquid check (bleed and wait) to MP-AM-11 before any flange is broken on ammonia service.",
+   "responsible": "Maintenance planner",
+   "priority": "High",
+   "dueDate": "",
+   "status": "Open",
+   "closeout": ""
+  },
+  {
+   "id": "r0042bfb403",
+   "no": "WR-04",
+   "text": "Add a second, independent converter bed thermocouple for the high-high trip (see HAZOP R-008).",
+   "responsible": "Instrument / SIS engineer",
+   "priority": "High",
+   "dueDate": "",
+   "status": "Open",
+   "closeout": ""
+  },
+  {
+   "id": "r00437bd009",
+   "no": "WR-05",
+   "text": "Hold the loop exchanger below its Nelson-curve limit during start-up; add a temperature alarm on the exchanger shell.",
+   "responsible": "Materials engineer",
+   "priority": "Medium",
+   "dueDate": "",
+   "status": "Open",
+   "closeout": ""
+  },
+  {
+   "id": "r0044d2d878",
+   "no": "WR-06",
+   "text": "Make the firebox purge a hard permissive in the BMS; light-off only with the purge-complete lamp on.",
+   "responsible": "Instrument / SIS engineer",
+   "priority": "High",
+   "dueDate": "",
+   "status": "Open",
+   "closeout": ""
+  },
+  {
+   "id": "r0045d19a83",
+   "no": "WR-07",
+   "text": "Trip the control-room HVAC on ammonia detected at the air intake.",
+   "responsible": "HSE / process safety",
+   "priority": "High",
+   "dueDate": "",
+   "status": "Open",
+   "closeout": ""
+  },
+  {
+   "id": "r004677ebeb",
+   "no": "WR-08",
+   "text": "Start the water curtain automatically on two ammonia detectors (2oo3).",
+   "responsible": "Fire officer",
+   "priority": "High",
+   "dueDate": "",
+   "status": "Open",
+   "closeout": ""
+  },
+  {
+   "id": "r00475b13bf",
+   "no": "WR-09",
+   "text": "Place escape sets at every exit of the compressor house and the control room; check them weekly.",
+   "responsible": "HSE / process safety",
+   "priority": "Medium",
+   "dueDate": "",
+   "status": "Open",
+   "closeout": ""
+  },
+  {
+   "id": "r00482aa777",
+   "no": "WR-10",
+   "text": "Carry out ammonia detector mapping for the pump bay and the compressor house.",
+   "responsible": "Instrument / SIS engineer",
+   "priority": "High",
+   "dueDate": "",
+   "status": "Open",
+   "closeout": ""
+  }
+ ],
+ "hazid": [
+  {
+   "id": "h0017f72dde",
+   "ref": "HZD-01",
+   "area": "Reforming",
+   "hazard": "Reformer tube rupture",
+   "cause": "Low steam-to-carbon, over-firing, creep",
+   "consequence": "Syngas fire in the 101-B firebox",
+   "S": "4",
+   "L": "3",
+   "further": "HAZOP N01-01, N01-04"
+  },
+  {
+   "id": "h0018b743a1",
+   "ref": "HZD-02",
+   "area": "Reforming",
+   "hazard": "Secondary reformer over-temperature",
+   "cause": "Excess process air",
+   "consequence": "Refractory and shell damage, hot spots",
+   "S": "4",
+   "L": "3",
+   "further": "HAZOP N01-06"
+  },
+  {
+   "id": "h00199aaafc",
+   "ref": "HZD-03",
+   "area": "Reforming",
+   "hazard": "Firebox explosion",
+   "cause": "Flame-out with fuel flowing; light-off without purge",
+   "consequence": "Furnace casing failure, fatalities",
+   "S": "5",
+   "L": "3",
+   "further": "HAZOP N02-01, N02-06"
+  },
+  {
+   "id": "h002079dca4",
+   "ref": "HZD-04",
+   "area": "Reforming",
+   "hazard": "Fuel-gas leak at burner manifolds",
+   "cause": "Flexible hose / flange failure",
+   "consequence": "Burner-platform fire",
+   "S": "4",
+   "L": "3",
+   "further": "HAZOP N02-08"
+  },
+  {
+   "id": "h0021238b9b",
+   "ref": "HZD-05",
+   "area": "Reforming",
+   "hazard": "Ammonia in fuel gas",
+   "cause": "Carry-over from purge recovery",
+   "consequence": "NOx, flame instability",
+   "S": "3",
+   "L": "3",
+   "further": "HAZOP N02-04"
+  },
+  {
+   "id": "h0022667212",
+   "ref": "HZD-06",
+   "area": "Synthesis",
+   "hazard": "Syngas release at the compressor or loop",
+   "cause": "Seal failure, flange leak, HTHA",
+   "consequence": "Hydrogen jet fire, VCE",
+   "S": "5",
+   "L": "3",
+   "further": "HAZOP N03-08; ETA-AM-02; BT-AM-02"
+  },
+  {
+   "id": "h0023c6d430",
+   "ref": "HZD-07",
+   "area": "Synthesis",
+   "hazard": "Converter over-temperature",
+   "cause": "Quench control failure, ratio upset, start-up heater",
+   "consequence": "Converter / exchanger failure",
+   "S": "5",
+   "L": "4",
+   "further": "HAZOP N03-03; FT-AM-02; BT-AM-02 T1"
+  },
+  {
+   "id": "h00245eb714",
+   "ref": "HZD-08",
+   "area": "Synthesis",
+   "hazard": "Loop overpressure",
+   "cause": "Blocked outlet, high inerts",
+   "consequence": "Flange failure, large release",
+   "S": "5",
+   "L": "3",
+   "further": "HAZOP N03-04"
+  },
+  {
+   "id": "h0025315334",
+   "ref": "HZD-09",
+   "area": "Synthesis",
+   "hazard": "High-temperature hydrogen attack",
+   "cause": "Operation outside the Nelson-curve limits",
+   "consequence": "Sudden exchanger failure",
+   "S": "5",
+   "L": "2",
+   "further": "HAZOP N03-06"
+  },
+  {
+   "id": "h0026f236d3",
+   "ref": "HZD-10",
+   "area": "Synthesis",
+   "hazard": "Compressor surge / damage",
+   "cause": "Strainer choking, anti-surge failure",
+   "consequence": "Seal damage, release",
+   "S": "4",
+   "L": "3",
+   "further": "HAZOP N03-02"
+  },
+  {
+   "id": "h0027c5e816",
+   "ref": "HZD-11",
+   "area": "Refrigeration",
+   "hazard": "Large liquid ammonia release",
+   "cause": "Overpressure, seal / flange failure, maintenance error",
+   "consequence": "Toxic cloud on and off site",
+   "S": "5",
+   "L": "3",
+   "further": "HAZOP N04-01, N04-07; FT-AM-01; FT-AM-03; ETA-AM-01; BT-AM-01"
+  },
+  {
+   "id": "h002811cb72",
+   "ref": "HZD-12",
+   "area": "Refrigeration",
+   "hazard": "Receiver overpressure",
+   "cause": "Loss of cooling water to the condenser",
+   "consequence": "Relief to flare; rupture if relief fails",
+   "S": "5",
+   "L": "4",
+   "further": "HAZOP N04-01; FT-AM-01"
+  },
+  {
+   "id": "h00294fe0fb",
+   "ref": "HZD-13",
+   "area": "Refrigeration",
+   "hazard": "Brittle fracture",
+   "cause": "Auto-refrigeration on depressurisation",
+   "consequence": "Sudden ammonia release",
+   "S": "5",
+   "L": "2",
+   "further": "HAZOP N04-05"
+  },
+  {
+   "id": "h0030196cff",
+   "ref": "HZD-14",
+   "area": "Refrigeration",
+   "hazard": "Liquid carry-over to the refrigeration compressor",
+   "cause": "High flash-drum level",
+   "consequence": "Compressor damage, seal leak",
+   "S": "4",
+   "L": "3",
+   "further": "HAZOP N04-02"
+  },
+  {
+   "id": "h003138f752",
+   "ref": "HZD-15",
+   "area": "Refrigeration",
+   "hazard": "Line break with ammonia inside",
+   "cause": "Incomplete draining",
+   "consequence": "Chemical burns, inhalation",
+   "S": "4",
+   "L": "3",
+   "further": "HAZOP N04-08"
+  },
+  {
+   "id": "h003243d38d",
+   "ref": "HZD-16",
+   "area": "Purge recovery",
+   "hazard": "Gas blow-by into the distillation column",
+   "cause": "Let-down valve fails open",
+   "consequence": "Column rupture – toxic release",
+   "S": "5",
+   "L": "3",
+   "further": "HAZOP N05-02, N05-04; BT-AM-01 T6"
+  },
+  {
+   "id": "h00338dee39",
+   "ref": "HZD-17",
+   "area": "Purge recovery",
+   "hazard": "Ammonia leak at the recovery pumps",
+   "cause": "Seal failure",
+   "consequence": "Toxic exposure",
+   "S": "4",
+   "L": "3",
+   "further": "HAZOP N05-06"
+  },
+  {
+   "id": "h0034185aa8",
+   "ref": "HZD-18",
+   "area": "Whole unit",
+   "hazard": "Toxic-gas emergency",
+   "cause": "Large ammonia release",
+   "consequence": "Exposure of control-room and plant staff",
+   "S": "5",
+   "L": "2",
+   "further": "ETA-AM-01 H4"
+  },
+  {
+   "id": "h0035e0f02b",
+   "ref": "HZD-19",
+   "area": "Whole unit",
+   "hazard": "Loss of instrument air / power",
+   "cause": "Compressor trip, grid failure",
+   "consequence": "Plant trip; restart hazards",
+   "S": "3",
+   "L": "3",
+   "further": "HAZOP N01-08, N05-07"
+  },
+  {
+   "id": "h003687a8c6",
+   "ref": "HZD-20",
+   "area": "Whole unit",
+   "hazard": "Lightning / storms",
+   "cause": "Summer storms",
+   "consequence": "Ignition at vents; power loss",
+   "S": "3",
+   "L": "2",
+   "further": "–"
+  },
+  {
+   "id": "h00375cbebb",
+   "ref": "HZD-21",
+   "area": "Whole unit",
+   "hazard": "Ammonia and NOx emissions",
+   "cause": "Relief to flare, ammonia in fuel",
+   "consequence": "Permit exceedance",
+   "S": "3",
+   "L": "3",
+   "further": "HAZOP N04-09, N02-04"
+  },
+  {
+   "id": "h00389a43cc",
+   "ref": "HZD-22",
+   "area": "Whole unit",
+   "hazard": "Unauthorised access",
+   "cause": "Contractor traffic",
+   "consequence": "Tampering with valves",
+   "S": "3",
+   "L": "2",
+   "further": "–"
+  }
+ ]
+}

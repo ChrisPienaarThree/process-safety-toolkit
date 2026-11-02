@@ -95,7 +95,7 @@ body.web .usbonly{display:none!important} body.usb .webonly{display:none!importa
     <h1>Process Safety Toolkit</h1>
   </div>
   <nav class="views" id="views" aria-label="Views">
-    <button class="vbtn on" data-view="launch" title="The four tools, the overview and the quick links">Launch</button>
+    <button class="vbtn on" data-view="launch" title="The five tools, the overview and the quick links">Launch</button>
     <button class="vbtn" data-view="run" title="Work in a tool on this page, with its quick start, examples and saving notes beside it">Open a tool</button>
     <button class="vbtn" data-view="path" title="The order of a full PHA – HAZID, HAZOP, FMECA, fault tree, event tree, bow tie – and what moves between the steps">Study path</button>
     <button class="vbtn" data-view="library" title="Guides, reference, Excel workbooks and example files">Library</button>
@@ -111,7 +111,7 @@ body.web .usbonly{display:none!important} body.usb .webonly{display:none!importa
 <main>
   <!-- ================= launch ================= -->
   <section class="view on" id="view-launch">
-    <p class="lead">Four offline tools for recording and calculating a process hazard analysis, plus Excel workbooks, guides and worked examples. Everything runs in the browser: no installation and no internet. <span id="leadMode"></span></p>
+    <p class="lead">Five offline tools for recording and calculating a process hazard analysis, plus Excel workbooks, guides and worked examples. Everything runs in the browser: no installation and no internet. <span id="leadMode"></span></p>
     <div class="note">
       <div><b>New here? Start with the overview.</b><br><span class="muted small">What each tool is for, how information moves between them, which tool to choose – and the hot DRI conveyor fire traced through all of them with consistent numbers (6 pages).</span></div>
       <a class="act" href="Guides/Toolkit Overview - How the Tools Fit Together.pdf" target="_blank" rel="noopener" title="Opens the 6-page overview (PDF) in a new tab">Read the overview (PDF)</a>
@@ -155,6 +155,7 @@ body.web .usbonly{display:none!important} body.usb .webonly{display:none!importa
         <div class="tablewrap"><table>
           <tr><th>Question</th><th>Use</th></tr>
           <tr><td>What can go wrong in this area or activity?</td><td>HAZID checklist</td></tr>
+          <tr><td>What if something goes wrong in this task or area – and is good practice in place?</td><td>What-If / Checklist Analysis or What-If workbook</td></tr>
           <tr><td>What deviations can happen at this node, why, and what protects against them?</td><td>HAZOP Study Manager or HAZOP workbook</td></tr>
           <tr><td>How can this piece of equipment fail, and how bad is it?</td><td>FMECA workbook</td></tr>
           <tr><td>How likely is it that this protection fails on demand (PFDavg, SIL)?</td><td>Fault Tree &amp; PFD Calculator</td></tr>
@@ -164,9 +165,9 @@ body.web .usbonly{display:none!important} body.usb .webonly{display:none!importa
       </article>
       <article class="panel">
         <h2>Traced through every step</h2>
-        <p><b>Hot DRI conveyor fire</b> – the built-in example in all four tools. The HAZOP finds “no flow – stoppage under load”, the fault tree quantifies the N2 fire protection (gate G-002, PFDavg 0.0285), the event tree uses that gate as a heading, and the bow tie uses it as a barrier.</p>
-        <p><b>Steel works gas network PHA</b> – a complete worked study: HAZOP (8 nodes, 46 deviations), FMECA, 3 fault trees, 2 event trees and 2 bow ties sharing the same tags, nodes and recommendations, with a 20-page study report and 437 automated consistency checks.</p>
-        <p><b>Propane storage and dilution PHA</b> and <b>Ammonia unit PHA</b> – two more complete studies that start with a HAZID register and run HAZID → HAZOP → FMECA → fault trees → event trees → bow ties. Both are built on published HAZOP case studies, completed and corrected, with a study report each (433 and 498 automated consistency checks).</p>
+        <p><b>Hot DRI conveyor fire</b> – the built-in example in all five tools. The HAZOP finds “no flow – stoppage under load”, the fault tree quantifies the N2 fire protection (gate G-002, PFDavg 0.0285), the event tree uses that gate as a heading, and the bow tie uses it as a barrier.</p>
+        <p><b>Steel works gas network PHA</b> – a complete worked study: HAZOP (8 nodes, 46 deviations), FMECA, 3 fault trees, 2 event trees and 2 bow ties sharing the same tags, nodes and recommendations, with a What-If of the non-routine work, a 23-page study report and 470 automated consistency checks.</p>
+        <p><b>Propane storage and dilution PHA</b> and <b>Ammonia unit PHA</b> – two more complete studies that start with a HAZID register and run HAZID → What-If / Checklist → HAZOP → FMECA → fault trees → event trees → bow ties. Both are built on published HAZOP case studies, completed and corrected, with a study report each (475 and 540 automated consistency checks).</p>
         <p><button class="mini" data-goto="library#lib-examples" title="List of all example files and which tool opens them">See the example files</button></p>
         <p class="muted small">All example data are illustrative – replace them with site and vendor data before use.</p>
       </article>
@@ -217,7 +218,7 @@ body.web .usbonly{display:none!important} body.usb .webonly{display:none!importa
       </nav>
       <div class="panel">
         <section id="g-what"><h2>1. What this toolkit is</h2>
-          <p>Four tools for recording and calculating a process hazard analysis (PHA): the <b>HAZOP Study Manager</b>, the <b>Fault Tree &amp; PFD Calculator</b>, <b>Event Tree Analysis</b> and <b>Bow Tie Analysis</b>. They are study-recording tools and calculators, not simulators: what you enter is your study record. Around them are the HAZOP and FMECA Excel workbooks, the HAZID checklist, the HAZOP guidewords, user guides and worked examples.</p>
+          <p>Five tools for recording and calculating a process hazard analysis (PHA): <b>What-If / Checklist Analysis</b>, the <b>HAZOP Study Manager</b>, the <b>Fault Tree &amp; PFD Calculator</b>, <b>Event Tree Analysis</b> and <b>Bow Tie Analysis</b>. They are study-recording tools and calculators, not simulators: what you enter is your study record. Around them are the HAZOP and FMECA Excel workbooks, the HAZID checklist, the HAZOP guidewords, user guides and worked examples.</p>
           <p>Each tool is one HTML page that runs in the browser with no installation and no internet connection. Nothing you type is sent anywhere.</p></section>
         <section id="g-start"><h2>2. Quick start</h2>
           <ol>
@@ -228,7 +229,7 @@ body.web .usbonly{display:none!important} body.usb .webonly{display:none!importa
           </ol></section>
         <section id="g-views"><h2>3. The views on this page</h2>
           <ul>
-            <li><b>Launch</b> – the four tools, the overview and quick links.</li>
+            <li><b>Launch</b> – the five tools, the overview and quick links.</li>
             <li><b>Open a tool</b> – the tool on this page, with its purpose, quick start, examples and saving notes beside it. Switch tools with the selector at the top.</li>
             <li><b>Study path</b> – the order of a full PHA, what each step hands to the next, and which tool answers which question.</li>
             <li><b>Library</b> – guides, reference, workbooks and example files.</li>
@@ -274,7 +275,7 @@ body.web .usbonly{display:none!important} body.usb .webonly{display:none!importa
 <footer><span>Process Safety Analysis Toolkit · offline · all example data illustrative</span><span id="buildInfo"></span></footer>
 </div>
 <script>
-window.PST_BUILD = '01 Nov 2026';
+window.PST_BUILD = '02 Nov 2026';
 /* Process Safety Toolkit Launch Centre. Views: launch, run (tool in a frame + side panel), path, library, guide.
    All paths are relative to the toolkit folder; the same page runs from a USB stick (file://) and from the website (https). */
 (function () {
@@ -289,11 +290,18 @@ var PR = 'Examples/Propane Storage and Dilution PHA/', PRP = PR + 'Propane stora
 var AM = 'Examples/Ammonia Unit PHA/', AMP = AM + 'Ammonia unit - ';
 
 var TOOLS = [
+  { id: 'whatif', file: 'Tools/What-If Checklist Analysis.html', title: 'What-If / Checklist Analysis', topic: 'Qualitative · questions, checklist, hand-over',
+    summary: 'What-If / Checklist study (CCPS 5.2) between the HAZID and the HAZOP: areas and tasks, a 150-item checklist, What-If worksheet, hand-over to the HAZOP.',
+    features: ['Checklist packs – generic, fuel gas, LPG, ammonia', 'HAZID import and HAZID coverage', 'Export to a HAZOP study file'], ext: '.whatif.json',
+    guide: 'Guides/What-If Checklist Analysis - Quick Guide.pdf',
+    quick: ['File ▸ New study; fill in the study details, team and PSI.', 'Import the HAZID register (File ▸ Import HAZID register).', 'Add the areas, functions or tasks and choose their checklist packs.', 'List What-If questions; then answer the checklist and turn each No or ? into a question.', 'Evaluate each question and choose its next step; export the HAZOP hand-over.'],
+    examples: ['File ▸ Load example study – hot DRI conveyor restart and belt maintenance', GNP + 'What-If WI-EX-GN-001.whatif.json', PRP + 'What-If WI-EX-PR-001.whatif.json', AMP + 'What-If WI-EX-AM-001.whatif.json'],
+    save: 'File ▸ Save study as… (link file)' },
   { id: 'hazop', file: 'Tools/HAZOP Study Manager.html', title: 'HAZOP Study Manager', topic: 'Qualitative · nodes, deviations, safeguards',
     summary: 'Relational HAZOP database: study, team, PSI, nodes, deviations with causes, safeguards (IPL) and recommendations.',
     features: ['Guideword library – chemical, steel & metals', 'Safeguard register built as you go', 'Reports and Excel export'], ext: '.hazop.json',
     guide: 'Guides/HAZOP Study Manager - Quick Guide.pdf',
-    quick: ['File ▸ New study, then fill in the study details and the team.', 'Add the PSI documents and the nodes.', 'For each node, add deviations from the guideword library and pick the causes.', 'Type or pick safeguards in the Safeguards cell; tick IPL where it qualifies.', 'Rank the risk before and after, and add recommendations.'],
+    quick: ['File ▸ New study, then fill in the study details and the team.', 'Add the PSI documents and the nodes.', 'For each node, add deviations from the guideword library and pick the causes.', 'Type or pick safeguards; set each to Safeguard or IPL, and tick LOPA for an IPL that needs a LOPA.', 'Rank the risk before and after, and add recommendations.'],
     examples: ['File ▸ Load example study – hot DRI transfer conveyor and N2 fire protection', 'Examples/Example - Hot DRI transfer conveyor.hazop.json', GNP + 'HAZOP HZ-EX-GN-001.hazop.json'],
     save: 'File ▸ Save study as… (link file)' },
   { id: 'fta', file: 'Tools/Fault Tree and PFD Calculator.html', title: 'Fault Tree & PFD Calculator', topic: 'Quantitative · PFDavg, cut sets, SIL',
@@ -321,15 +329,17 @@ var TOOLS = [
 
 var PATH = [
   { n: 1, t: 'HAZID', use: { label: 'HAZID checklist (Word)', href: 'Guides/HAZID_Checklist_Steel_Smelting_and_Rolling.docx' }, what: 'Screen the area or activity for hazards with the checklist.', out: 'Hazard list and the nodes worth a HAZOP' },
-  { n: 2, t: 'HAZOP', tool: 'hazop', alt: { label: 'HAZOP workbook', href: 'Workbooks/HAZOP_Study_Workbook.xlsx' }, what: 'Work node by node through the guidewords: causes, consequences, safeguards, risk.', out: 'Scenarios, safeguards (IPL), recommendations' },
-  { n: 3, t: 'FMECA', use: { label: 'FMECA workbook', href: 'Workbooks/FMECA_Workbook.xlsx' }, what: 'Failure modes, effects and criticality of the equipment in the critical scenarios.', out: 'Failure modes and rates of protective equipment' },
-  { n: 4, t: 'Fault tree', tool: 'fta', what: 'Quantify how often a protection fails on demand.', out: 'PFDavg of each protective function (gate)' },
-  { n: 5, t: 'Event tree', tool: 'eta', what: 'Follow the event through each protection to its outcomes.', out: 'Frequency of each outcome against its target' },
-  { n: 6, t: 'Bow tie', tool: 'bowtie', what: 'Show and manage the barriers between threats and consequences.', out: 'Barrier register, criticality, actions back to the HAZOP' }
+  { n: 2, t: 'What-If / Checklist', tool: 'whatif', alt: { label: 'What-If workbook', href: 'Workbooks/WhatIf_Checklist_Workbook.xlsx' }, what: 'Ask “What if …?” for each area or task; use the checklist to cover gaps.', out: 'Questions closed, or sent on to HAZOP nodes and quantified studies' },
+  { n: 3, t: 'HAZOP', tool: 'hazop', alt: { label: 'HAZOP workbook', href: 'Workbooks/HAZOP_Study_Workbook.xlsx' }, what: 'Work node by node through the guidewords: causes, consequences, safeguards, risk.', out: 'Scenarios, safeguards (IPL), recommendations' },
+  { n: 4, t: 'FMECA', use: { label: 'FMECA workbook', href: 'Workbooks/FMECA_Workbook.xlsx' }, what: 'Failure modes, effects and criticality of the equipment in the critical scenarios.', out: 'Failure modes and rates of protective equipment' },
+  { n: 5, t: 'Fault tree', tool: 'fta', what: 'Quantify how often a protection fails on demand.', out: 'PFDavg of each protective function (gate)' },
+  { n: 6, t: 'Event tree', tool: 'eta', what: 'Follow the event through each protection to its outcomes.', out: 'Frequency of each outcome against its target' },
+  { n: 7, t: 'Bow tie', tool: 'bowtie', what: 'Show and manage the barriers between threats and consequences.', out: 'Barrier register, criticality, actions back to the HAZOP' }
 ];
 
 var GUIDES = [
   ['Toolkit Overview - How the Tools Fit Together', ['Guides/Toolkit Overview - How the Tools Fit Together.pdf', 'Guides/Toolkit Overview - How the Tools Fit Together.docx'], 'What each tool is for, how results move between them, choosing a tool, the conveyor fire traced through all tools (6 pages)'],
+  ['What-If / Checklist Analysis – Quick Guide', ['Guides/What-If Checklist Analysis - Quick Guide.pdf'], 'The five CCPS steps, the checklist library, next steps and the hand-over to the HAZOP'],
   ['HAZOP Study Manager – Quick Guide', ['Guides/HAZOP Study Manager - Quick Guide.pdf'], 'Setting up a study, nodes, deviations, safeguards, reports'],
   ['Fault Tree & PFD Calculator – User Guide', ['Guides/Fault Tree and PFD Calculator - User Guide.pdf'], 'Symbols, event models and formulas, β-factor, calculation method, SIF calculator, worked example'],
   ['Event Tree Analysis – User Guide', ['Guides/Event Tree Analysis - User Guide.pdf'], 'Headings, sequences, linking to fault trees, targets, sensitivity'],
@@ -339,6 +349,7 @@ var GUIDES = [
 ];
 
 var WORKBOOKS = [
+  ['What-If / Checklist Workbook', 'Workbooks/WhatIf_Checklist_Workbook.xlsx', '.xlsx – no macros', 'Cover, PSI, HAZID, areas, What-If worksheet with risk ranking, checklist, recommendations, library (150 items)'],
   ['HAZOP Study Workbook', 'Workbooks/HAZOP_Study_Workbook.xlsx', '.xlsx – no macros', 'Cover, PSI register, nodes, guideword lists, 5×5 risk matrix, one worksheet per node – one row per deviation, IPL per safeguard'],
   ['HAZOP Study Workbook (macros)', 'Workbooks/HAZOP_Study_Workbook_Macro.xlsm', '.xlsm – enable macros', 'Same, with a multi-select cause drop-down, double-click safeguard entry with IPL / non-IPL, and AddNodeSheet'],
   ['FMECA Workbook', 'Workbooks/FMECA_Workbook.xlsx', '.xlsx – no macros', 'Systems, equipment register, failure-mode library (29 equipment types, ISO 14224 modes), S / O / D 1–10, RPN, Action Priority, one sheet per system'],
@@ -350,7 +361,8 @@ var EXAMPLES = [
   ['Examples/Example - Hot DRI conveyor N2 fire protection.fta.json', 'fta', 'N2 fire detection and extinguishing on demand (gate G-002)'],
   ['Examples/Example - Hot DRI conveyor fire.eta.json', 'eta', 'Conveyor trip / stoppage under load, headings to fire spread'],
   ['Examples/Example - Hot DRI conveyor fire.bowtie.json', 'bowtie', 'Conveyor fire: threats, barriers, consequences'],
-  [GN + 'PHA Study Report - Steel works gas distribution network (worked example).pdf', '', 'Complete worked PHA – start here (20 pages; Word version alongside)'],
+  [GN + 'PHA Study Report - Steel works gas distribution network (worked example).pdf', '', 'Complete worked PHA – start here (23 pages; Word version alongside)'],
+  [GNP + 'What-If WI-EX-GN-001.whatif.json', 'whatif', 'What-If of the non-routine work: 4 tasks, 22 questions (workbook alongside)'],
   [GNP + 'HAZOP HZ-EX-GN-001.hazop.json', 'hazop', '8 nodes, 46 deviations, 21 recommendations'],
   [GNP + 'HAZOP_Study_Workbook.xlsx', 'excel', 'The same HAZOP in the workbook (macro version alongside)'],
   [GNP + 'FMECA_Workbook.xlsx', 'excel', 'FMECA of the 8 systems, 48 tags (macro version alongside)'],
@@ -361,9 +373,10 @@ var EXAMPLES = [
   [GNP + 'ETA-GN-02 Reheat furnace flame failure.eta.json', 'eta', 'Reheat furnace flame failure'],
   [GNP + 'BT-GN-01 Loss of containment.bowtie.json', 'bowtie', 'Loss of containment of the gas system'],
   [GNP + 'BT-GN-02 Reheat furnace explosion.bowtie.json', 'bowtie', 'Explosive mixture in the reheat furnace'],
-  [GN + 'Cross-link test results.txt', '', 'The 437 automated consistency checks across all the files'],
-  [PR + 'PHA Study Report - Propane storage and propane–air dilution system (worked example).pdf', '', 'Propane storage and dilution: HAZID → HAZOP → FMECA → FT → ETA → bow tie (21 pages; Word version alongside)'],
+  [GN + 'Cross-link test results.txt', '', 'The 470 automated consistency checks across all the files'],
+  [PR + 'PHA Study Report - Propane storage and propane–air dilution system (worked example).pdf', '', 'Propane storage and dilution: HAZID → What-If → HAZOP → FMECA → FT → ETA → bow tie (24 pages; Word version alongside)'],
   [PRP + 'HAZID_Register.xlsx', 'excel', 'HAZID register: 20 hazards, routed to the HAZOP nodes and quantified studies'],
+  [PRP + 'What-If WI-EX-PR-001.whatif.json', 'whatif', 'What-If: tanker unloading task, storage, mixing – 23 questions (workbook alongside)'],
   [PRP + 'HAZOP HZ-EX-PR-001.hazop.json', 'hazop', '3 nodes, 32 deviations, 17 recommendations (workbooks alongside)'],
   [PRP + 'FMECA_Workbook.xlsx', 'excel', 'FMECA of the 3 systems, 36 tags (macro version alongside)'],
   [PRP + 'FT-PR-01 Bullet overfill.fta.json', 'fta', 'Bullet overfill during tanker unloading'],
@@ -372,8 +385,9 @@ var EXAMPLES = [
   [PRP + 'ETA-PR-01 Major propane release.eta.json', 'eta', 'Major propane release – jet fire, flash fire, VCE, BLEVE'],
   [PRP + 'BT-PR-01 Loss of containment.bowtie.json', 'bowtie', 'Loss of containment of propane'],
   [PRP + 'BT-PR-02 Propane-air ignition.bowtie.json', 'bowtie', 'Ignition in the propane–air mixing station'],
-  [AM + 'PHA Study Report - Ammonia unit – reforming, synthesis, refrigeration and purge recovery (worked example).pdf', '', 'Ammonia unit: HAZID → HAZOP → FMECA → FT → ETA → bow tie (22 pages; Word version alongside)'],
+  [AM + 'PHA Study Report - Ammonia unit – reforming, synthesis, refrigeration and purge recovery (worked example).pdf', '', 'Ammonia unit: HAZID → What-If → HAZOP → FMECA → FT → ETA → bow tie (25 pages; Word version alongside)'],
   [AMP + 'HAZID_Register.xlsx', 'excel', 'HAZID register: 22 hazards, routed to the HAZOP nodes and quantified studies'],
+  [AMP + 'What-If WI-EX-AM-001.whatif.json', 'whatif', 'What-If: non-routine tasks and toxic-gas readiness – 23 questions (workbook alongside)'],
   [AMP + 'HAZOP HZ-EX-AM-001.hazop.json', 'hazop', '5 nodes, 42 deviations, 20 recommendations (workbooks alongside)'],
   [AMP + 'FMECA_Workbook.xlsx', 'excel', 'FMECA of the 5 systems, 43 tags (macro version alongside)'],
   [AMP + 'FT-AM-01 Refrigeration overpressure.fta.json', 'fta', 'Refrigerant receiver over-pressured beyond design'],

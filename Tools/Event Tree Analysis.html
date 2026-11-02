@@ -605,12 +605,12 @@ function modal({ title, body, buttons, onClose }) {
 function ask(msg, ok = "OK", danger) { return new Promise(res => modal({ title: "Please confirm", body: `<p>${esc(msg).replace(/\n/g, "<br>")}</p>`, buttons: [{ label: "Cancel", cls: "sec", fn: () => res(false) }, { label: ok, cls: danger ? "danger" : "", fn: () => res(true) }], onClose: () => res(false) })); }
 
 /* ---------- tabs ---------- */
-const TABS = [["tree", "Event tree"], ["headings", "Headings & data"], ["cats", "Consequence categories"], ["results", "Results"], ["fts", "Fault tree links"], ["settings", "Settings"], ["guide", "User guide"]];
+const TABS = [["dash", "Dashboard"], ["tree", "Event tree"], ["headings", "Headings & data"], ["cats", "Consequence categories"], ["results", "Results"], ["fts", "Fault tree links"], ["settings", "Settings"], ["guide", "User guide"]];
 function render() {
   $("#hdrProj").textContent = E.title || "Untitled event tree";
   $("#tabs").innerHTML = TABS.map(([k, l]) => `<button class="${ui.tab === k ? "active" : ""}" data-t="${k}">${l}</button>`).join("");
   $$("#tabs button").forEach(b => b.onclick = () => { ui.tab = b.dataset.t; render(); });
-  const m = $("#main"); m.innerHTML = ""; ({ tree: vTree, headings: vHeadings, cats: vCats, results: vResults, fts: vFts, settings: vSettings, guide: vGuide })[ui.tab](m);
+  const m = $("#main"); m.innerHTML = ""; ({ dash: m => PSStudy.view(m, { doc: E, kind: 'event tree', changed: () => changed(), render: () => render(), stats: () => { const t = R ? E.cats.filter(c => c.target !== "" && (R.tot[c.id] || 0) > num(c.target)).length : 0; return [["Initiating event /yr", fmt(num(E.ie.freq))], ["Headings", E.headings.length], ["End states", R ? R.seqs.length : "–"], ["Categories above target", t]]; } }), tree: vTree, headings: vHeadings, cats: vCats, results: vResults, fts: vFts, settings: vSettings, guide: vGuide })[ui.tab](m);
 }
 
 /* ---------- drawing ---------- */
@@ -799,7 +799,7 @@ function vSettings(m) {
 /* ---------- export / guide ---------- */
 function exportXlsx() {
   if (typeof XLSX === "undefined") { toast("Excel library not available"); return; }
-  const wb = XLSX.utils.book_new(); const add = (n, rows, w) => { const ws = XLSX.utils.aoa_to_sheet(rows); ws["!cols"] = (w || rows[0].map(() => 16)).map(x => ({ wch: x })); XLSX.utils.book_append_sheet(wb, ws, n); };
+  const wb = XLSX.utils.book_new(); const add = (n, rows, w) => { const ws = XLSX.utils.aoa_to_sheet(rows); ws["!cols"] = (w || rows[0].map(() => 16)).map(x => ({ wch: x })); XLSX.utils.book_append_sheet(wb, ws, n); }; PSStudy.sheets(XLSX, wb, E);
   add("Summary", [["Item", "Value"], ["Title", E.title], ["Initiating event", E.ie.name], ["IE frequency /yr", num(E.ie.freq)], ["Sequences", R.seqs.length], ["Notes", R.warn.join(" | ")], ["Generated", new Date().toLocaleString()]], [26, 70]);
   add("Headings", [["Code", "Heading", "Success label", "Failure label", "Source", "P(failure)", "Fault tree / gate", "EF", "Notes"], ...E.headings.map((h, i) => { const ft = E.fts.find(f => f.id === h.ftId); const g = ft && (ft.project.gates || []).find(x => x.id === h.gateId); return [h.code, h.name, h.sLabel, h.fLabel, h.source, headingP(i), ft ? ft.name + " / " + (g ? g.code + " " + g.name : "?") : "", num(h.ef), h.notes]; })], [8, 46, 14, 14, 10, 12, 40, 6, 30]);
   add("Sequences", [["#", ...E.headings.map(h => h.code), "End state", "Category", "Frequency /yr", "% of IE"], ...R.seqs.map(s => [s.no, ...E.headings.map((h, i) => { const p = s.path.find(x => x.h === i); return !p || p.o === "–" ? "–" : p.o; }), s.leaf.label, (catOf(s.leaf.cat) || {}).code || "", s.f, num(E.ie.freq) > 0 ? s.f / num(E.ie.freq) : ""])], [5, ...E.headings.map(() => 6), 50, 10, 14, 10]);
@@ -873,16 +873,108 @@ function bindMenu() {
   $("#btnReconnect").onclick = async () => { if (await writeFile(true)) toast("Reconnected"); };
 }
 async function boot() {
+  ui.tab = "dash";   // open on the study dashboard (tools can be used on their own)
   bindMenu(); evalFts(); recalc(); render();
   try { const d = await IDB.get("current"); if (d && d.headings && d.root) E = normalise(d); else buildConveyorExample(); }
   catch (e) { try { const s = localStorage.getItem("eta_current"); if (s) E = normalise(JSON.parse(s)); else buildConveyorExample(); } catch (e2) { buildConveyorExample(); } }
   try { const h = await IDB.get("handle"); if (h) { fileHandle = h; const p = await h.queryPermission({ mode: "readwrite" }); if (p === "granted") { fileState = "linked"; setPill("Linked to " + h.name, "ok"); } else { fileState = "needs-permission"; setPill("Linked file " + h.name + " – Reconnect", "warn"); $("#btnReconnect").style.display = ""; } }
     else setPill(E.modified ? "Saved in this browser" : "Example – not saved yet", E.modified ? "" : "warn"); } catch (e) { setPill("Saved in this browser"); }
-  ui.view.fit = true; evalFts(); recalc(); render();
+  ui.view.fit = true; evalFts(); recalc(); ui.tab = "dash"; render();
 }
 window.addEventListener("DOMContentLoaded", boot);
 </script>
 <script>
+/* Study dashboard for the Process Safety Analysis Toolkit tools that can be used on their own (Fault Tree, Event Tree, Bow Tie).
+   Same study details, team and PSI register as the HAZOP Study Manager. Injected by each build_*_app.py before the tool's own script.
+   The tool calls PSStudy.view(container, opts) from its "Dashboard" tab and PSStudy.sheets(XLSX, wb, doc) in its Excel export.
+   opts: { doc, changed(), render(), kind: "fault tree" | "event tree" | "bow tie", stats: () => [[label, valueHtml]], notes: () => html }
+   Data lives in the tool's own file: doc.title / doc.description (existing) + doc.study, doc.team, doc.psi (added when first used). */
+(function () {
+  "use strict";
+  if (window.PSStudy) return;
+  var esc = function (s) { return String(s == null ? "" : s).replace(/[&<>"']/g, function (c) { return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]; }); };
+  var nl = function (s) { return esc(s).replace(/\n/g, "<br>"); };
+  var uid = function () { return Date.now().toString(36) + Math.random().toString(36).slice(2, 8); };
+  var ROLES = ["Facilitator", "Scribe", "Process engineer", "Operations representative", "Instrument / control engineer", "Mechanical engineer", "Electrical engineer",
+    "Maintenance", "HSE / process safety", "Reliability engineer", "Metallurgist", "Vendor specialist", "Other"];
+  var PSI_CATS = ["Drawings", "Process technology", "Hazardous materials", "Equipment", "Procedures", "Previous studies", "Reliability data", "Other"];
+  var PSI_STATUS = ["Available", "Outstanding", "Superseded", "Not applicable"];
+  var PSI_USUAL = [["Drawings", "P&IDs of the system studied"], ["Drawings", "Process flow diagram (PFD) and heat and material balance"], ["Equipment", "Equipment data sheets"],
+    ["Equipment", "Relief device data and sizing basis"], ["Equipment", "Cause and effect charts / SIS logic"], ["Procedures", "Operating procedures"],
+    ["Hazardous materials", "Safety data sheets"], ["Previous studies", "HAZID / HAZOP report and recommendations"], ["Reliability data", "Failure data sources used (site, vendor, published)"]];
+  var FIELDS = [["title", "Study title", 1], ["company", "Company / site"], ["unit", "Plant / unit / area"], ["project", "Project / MOC"], ["docNo", "Document number"], ["rev", "Revision"],
+    ["start", "Start date", 0, "date"], ["end", "End date", 0, "date"], ["venue", "Venue"], ["related", "Related studies (HAZID, HAZOP, LOPA …)"], ["facilitator", "Analyst / facilitator"], ["scribe", "Scribe / checker"],
+    ["description", "Scope and description", 1, "area"], ["exclusions", "Exclusions", 1, "area"], ["basis", "Basis – data, assumptions and documents used", 1, "area"]];
+  var CSS = ".pss-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,240px),1fr));gap:8px 14px}.pss-f .l{font-size:11px;color:#5b6578}.pss-f.w{grid-column:1/-1}" +
+    ".pss-t{width:100%;border-collapse:collapse;font-size:13px}.pss-t th{text-align:left;background:#eef1f6;padding:5px 7px;font-weight:600}.pss-t td{border-bottom:1px solid #e1e5ec;padding:5px 7px;vertical-align:top}" +
+    ".pss-t tr.pss-r{cursor:pointer}.pss-t tr.pss-r:hover td{background:#f6f8fc}.pss-h{display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin-bottom:6px}.pss-h b{flex:1;color:#1f3864;font-size:15px}" +
+    ".pss-stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,170px),1fr));gap:10px;margin-bottom:12px}.pss-stat{background:#fff;border:1px solid #d7dce6;border-radius:10px;padding:10px 12px}" +
+    ".pss-stat .v{font-size:20px;font-weight:700;color:#1f3864}.pss-stat .l{font-size:12px;color:#5b6578}.pss-form{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,240px),1fr));gap:8px 12px}" +
+    ".pss-form label{font-size:12px;color:#5b6578;display:block}.pss-form .w{grid-column:1/-1}.pss-form input,.pss-form select,.pss-form textarea{width:100%;box-sizing:border-box;border:1px solid #d7dce6;border-radius:6px;padding:5px 7px;font:inherit;background:#fff8e1}" +
+    ".pss-wrap{overflow-x:auto}.pss-empty{color:#5b6578;font-size:13px;padding:6px 0}";
+  function addCss() { if (document.getElementById("pss-css")) return; var s = document.createElement("style"); s.id = "pss-css"; s.textContent = CSS; document.head.appendChild(s); }
+  function ensure(doc) {
+    var d = { company: "", unit: "", project: "", docNo: "", rev: "0", start: "", end: "", venue: "", related: "", facilitator: "", scribe: "", exclusions: "", basis: "" };
+    doc.study = Object.assign(d, doc.study || {}); if (!Array.isArray(doc.team)) doc.team = []; if (!Array.isArray(doc.psi)) doc.psi = [];
+    return doc;
+  }
+  var get = function (doc, k) { return k === "title" || k === "description" ? doc[k] || "" : doc.study[k] || ""; };
+  function form(title, fields, rec, onSave, onDelete) {
+    var b = document.createElement("div"); b.className = "pss-form";
+    b.innerHTML = fields.map(function (f) {
+      var id = "pss_" + f.k, v = rec[f.k] == null ? "" : rec[f.k], w = f.w ? ' class="w"' : "";
+      var inp = f.type === "area" ? '<textarea id="' + id + '" rows="3">' + esc(v) + "</textarea>" : f.opts ? '<input id="' + id + '" list="' + id + '_l" value="' + esc(v) + '"><datalist id="' + id + '_l">' + f.opts.map(function (o) { return '<option value="' + esc(o) + '">'; }).join("") + "</datalist>"
+        : '<input id="' + id + '" type="' + (f.type === "date" ? "date" : "text") + '" value="' + esc(v) + '">';
+      return "<div" + w + '><label for="' + id + '">' + esc(f.l) + "</label>" + inp + "</div>";
+    }).join("");
+    var btns = [{ label: "Cancel", cls: "sec" }, { label: "Save", fn: function (ov) { var o = {}; fields.forEach(function (f) { o[f.k] = ov.querySelector("#pss_" + f.k).value.trim(); }); if (fields[0].req && !o[fields[0].k]) { if (window.toast) toast(fields[0].l + " is required"); return false; } onSave(o); } }];
+    if (onDelete) btns.unshift({ label: "Delete", cls: "danger", fn: function () { onDelete(); } });
+    modal({ title: title, body: b, buttons: btns });
+    var f0 = b.querySelector("input,textarea"); if (f0 && document.activeElement !== f0 && !b.contains(document.activeElement)) f0.focus();
+  }
+  var teamF = [{ k: "name", l: "Name", req: 1 }, { k: "company", l: "Company / department" }, { k: "role", l: "Discipline / role", opts: ROLES }, { k: "attendance", l: "Attendance / involvement" }];
+  var psiF = [{ k: "title", l: "Title / description", req: 1, w: 1 }, { k: "category", l: "Category", opts: PSI_CATS }, { k: "docNo", l: "Document number" }, { k: "rev", l: "Revision" },
+    { k: "date", l: "Date", type: "date" }, { k: "owner", l: "Owner" }, { k: "status", l: "Status", opts: PSI_STATUS }, { k: "comments", l: "Comments", w: 1, type: "area" }];
+  var nextRef = function (doc) { var m = 0; doc.psi.forEach(function (p) { var n = parseInt(String(p.ref || "").replace(/\D/g, ""), 10); if (n > m) m = n; }); return "PSI-" + String(m + 1).padStart(2, "0"); };
+
+  function view(m, o) {
+    addCss(); var doc = ensure(o.doc), S = doc.study;
+    var stats = (o.stats ? o.stats() : []).concat([["Team members", doc.team.length], ["PSI documents", doc.psi.length + (doc.psi.length ? ' <span style="font-size:12px;color:#5b6578">(' + doc.psi.filter(function (p) { return p.status === "Outstanding"; }).length + " outstanding)</span>" : "")]]);
+    m.innerHTML = '<h2>Dashboard</h2><p class="sub">' + esc(doc.title || "Untitled " + o.kind) + (S.unit ? " · " + esc(S.unit) : "") + (S.docNo ? " · " + esc(S.docNo) + (S.rev ? " rev " + esc(S.rev) : "") : "") +
+      ". This " + esc(o.kind) + " can be a study on its own: record its scope, team and the documents (PSI) it is based on here.</p>" +
+      '<div class="pss-stats">' + stats.map(function (s) { return '<div class="pss-stat"><div class="v">' + s[1] + '</div><div class="l">' + esc(s[0]) + "</div></div>"; }).join("") + "</div>" +
+      (o.notes ? o.notes() : "") +
+      '<div class="card"><div class="pss-h"><b>Study details</b><button class="btn sm" id="pssEdit">Edit study details</button></div><div class="pss-grid">' +
+      FIELDS.map(function (f) { var v = get(doc, f[0]); return '<div class="pss-f' + (f[2] ? " w" : "") + '"><div class="l">' + esc(f[1]) + "</div><div>" + (v ? nl(v) : '<span style="color:#9aa3b2">–</span>') + "</div></div>"; }).join("") + "</div></div>" +
+      '<div class="card"><div class="pss-h"><b>Team</b><button class="btn sm" id="pssAddT">Add team member</button></div><div class="pss-wrap">' +
+      (doc.team.length ? '<table class="pss-t"><tr><th>Name</th><th>Company</th><th>Role</th><th>Attendance</th></tr>' + doc.team.map(function (t) { return '<tr class="pss-r" data-team="' + t.id + '"><td>' + esc(t.name) + "</td><td>" + esc(t.company) + "</td><td>" + esc(t.role) + "</td><td>" + esc(t.attendance) + "</td></tr>"; }).join("") + "</table>" : '<div class="pss-empty">No team members yet.</div>') + "</div></div>" +
+      '<div class="card"><div class="pss-h"><b>Process safety information (PSI)</b><button class="btn sm sec" id="pssUsual">Add the usual PSI list</button><button class="btn sm" id="pssAddP">Add document</button></div><div class="pss-wrap">' +
+      (doc.psi.length ? '<table class="pss-t"><tr><th>Ref</th><th>Category</th><th>Document no.</th><th>Title / description</th><th>Rev</th><th>Owner</th><th>Status</th></tr>' + doc.psi.map(function (p) { return '<tr class="pss-r" data-psi="' + p.id + '"><td>' + esc(p.ref) + "</td><td>" + esc(p.category) + "</td><td>" + esc(p.docNo) + "</td><td>" + esc(p.title) + "</td><td>" + esc(p.rev) + "</td><td>" + esc(p.owner) + "</td><td>" + esc(p.status) + "</td></tr>"; }).join("") + "</table>" : '<div class="pss-empty">No documents listed yet.</div>') + "</div></div>";
+    var done = function () { o.changed(); o.render(); };
+    m.querySelector("#pssEdit").onclick = function () {
+      var rec = {}; FIELDS.forEach(function (f) { rec[f[0]] = get(doc, f[0]); });
+      form("Study details", FIELDS.map(function (f) { return { k: f[0], l: f[1], w: f[2], type: f[3], req: f[0] === "title" }; }), rec, function (v) {
+        FIELDS.forEach(function (f) { if (f[0] === "title" || f[0] === "description") doc[f[0]] = v[f[0]]; else doc.study[f[0]] = v[f[0]]; }); done(); });
+    };
+    m.querySelector("#pssAddT").onclick = function () { form("Add team member", teamF, {}, function (v) { v.id = uid(); doc.team.push(v); done(); }); };
+    m.querySelectorAll("[data-team]").forEach(function (tr) { tr.onclick = function () { var t = doc.team.find(function (x) { return x.id === tr.dataset.team; });
+      form("Edit team member", teamF, t, function (v) { Object.assign(t, v); done(); }, function () { doc.team = doc.team.filter(function (x) { return x !== t; }); done(); }); }; });
+    m.querySelector("#pssAddP").onclick = function () { form("Add PSI document", psiF, { status: "Available" }, function (v) { v.id = uid(); v.ref = nextRef(doc); doc.psi.push(v); done(); }); };
+    m.querySelector("#pssUsual").onclick = function () { var have = {}; doc.psi.forEach(function (p) { have[p.title] = 1; }); var n = 0;
+      PSI_USUAL.forEach(function (u) { if (!have[u[1]]) { doc.psi.push({ id: uid(), ref: nextRef(doc), category: u[0], title: u[1], docNo: "", rev: "", date: "", owner: "", status: "Outstanding", comments: "" }); n++; } });
+      if (window.toast) toast(n ? n + " usual PSI documents added as Outstanding – fill in the numbers" : "The usual PSI documents are already listed"); done(); };
+    m.querySelectorAll("[data-psi]").forEach(function (tr) { tr.onclick = function () { var p = doc.psi.find(function (x) { return x.id === tr.dataset.psi; });
+      form("Edit " + p.ref, psiF, p, function (v) { Object.assign(p, v); done(); }, function () { doc.psi = doc.psi.filter(function (x) { return x !== p; }); done(); }); }; });
+  }
+  function sheets(X, wb, doc) {
+    ensure(doc); var add = function (name, head, rows, w) { var ws = X.utils.aoa_to_sheet([head].concat(rows)); ws["!cols"] = w.map(function (x) { return { wch: x }; }); X.utils.book_append_sheet(wb, ws, name); };
+    add("Study", ["Field", "Value"], FIELDS.map(function (f) { return [f[1], get(doc, f[0])]; }), [36, 90]);
+    add("Team", ["Name", "Company", "Role", "Attendance"], doc.team.map(function (t) { return [t.name, t.company, t.role, t.attendance]; }), [26, 22, 30, 20]);
+    add("PSI", ["Ref", "Category", "Document number", "Title / description", "Revision", "Date", "Owner", "Status", "Comments"], doc.psi.map(function (p) { return [p.ref, p.category, p.docNo, p.title, p.rev, p.date, p.owner, p.status, p.comments]; }), [8, 18, 20, 50, 8, 12, 18, 12, 30]);
+  }
+  window.PSStudy = { view: view, sheets: sheets, ensure: ensure, FIELDS: FIELDS };
+})();
+
 /* Hover tips with a 0.4 s delay for the Process Safety Analysis Toolkit tools (injected by each build_*_app.py).
    - Existing title attributes and SVG <title> elements become tips when hovered (works on redrawn content too).
    - Buttons, tabs and menu items without a title get the tips below, matched by CSS selector or by their label.
@@ -907,6 +999,9 @@ window.addEventListener("DOMContentLoaded", boot);
     ['[data-act="sample"]', "Replace the current work with the built-in example"],
     ['[data-act="guide"]', "Open the user guide"],
     ['[data-act="about"]', "Open the help and user guide"],
+    ['[data-t="dash"]', "Study details, team, process safety information (PSI) and the key results"],
+    ["#pssEdit", "Edit the study title, scope, document number and other details"], ["#pssAddT", "Add a person to the study team"],
+    ["#pssAddP", "Add a drawing, data sheet or other document the study is based on"], ["#pssUsual", "Add the usual PSI documents as Outstanding, to fill in"],
     ["#zIn", "Zoom in"], ["#zOut", "Zoom out"], ["#zFit", "Fit the whole diagram on screen"],
     ['[data-t="settings"]', "Units, calculation options and display settings"],
     ['[data-t="guide"]', "How to use this tool, with formulas and a worked example"],
@@ -922,6 +1017,8 @@ window.addEventListener("DOMContentLoaded", boot);
       ['[data-v="worksheet"]', "Work through deviations node by node: causes, consequences, safeguards, risk and recommendations"],
       ['[data-v="safeguards"]', "All safeguards in the study, which deviations use them, and which are claimed as IPLs"],
       ['[data-v="recs"]', "All recommendations, owners, due dates and status"],
+      ['[data-v="lopa"]', "Scenarios with an IPL flagged for LOPA: causes, consequence (top event), IPLs, status"],
+      ["[data-gows]", "Open this deviation on the HAZOP worksheet"],
       ['[data-v="matrix"]', "The 5 × 5 risk matrix and the risk bands used for ranking"],
       ['[data-v="library"]', "Parameters, guidewords and typical causes offered in the worksheet"],
       ['[data-v="reports"]', "Print the report, download it as HTML, or export to Excel"],
@@ -980,6 +1077,36 @@ window.addEventListener("DOMContentLoaded", boot);
       ["#impFt", "Bring in a fault tree (.fta.json) so a gate can supply a heading's probability"],
       ["#addC", "Add a consequence category"], ["#runMc", "Run the Monte Carlo uncertainty analysis"]
     ],
+    "What-If Checklist Analysis": [
+      ['[data-act="new"]', "Start a new, empty study (save or back up the current one first)"],
+      ['[data-act="importhazid"]', "Bring in the HAZID register (.xlsx) so each What-If question can be linked to the hazards it examines"],
+      ['[data-act="exporthazop"]', "Download the questions marked Send to HAZOP as a HAZOP Study Manager file"],
+      ['[data-v="dashboard"]', "Progress of the study: checklist answered, What-If questions, risk, hand-over and HAZID coverage"],
+      ['[data-v="study"]', "Study title, scope, the HAZID it follows, the HAZOP it feeds, and the team"],
+      ['[data-v="hazid"]', "The HAZID register, and which What-If questions cover each hazard"],
+      ['[data-v="areas"]', "Divide the study into physical areas, functions or tasks, and choose their checklist packs"],
+      ['[data-v="checklist"]', "Answer the checklist for each area: Yes, No, N/A or ?; turn a gap into a What-If question"],
+      ['[data-v="worksheet"]', "What if · Hazard · Consequence · Safeguards · Recommendation, with risk and next step"],
+      ['[data-v="recs"]', "All recommendations, owners, due dates and status"],
+      ['[data-v="handover"]', "Questions sent to the HAZOP, grouped by node, and export to a HAZOP study file"],
+      ['[data-v="matrix"]', "The 5 × 5 risk matrix – the same as the HAZOP"],
+      ['[data-v="library"]', "All checklist items and What-If prompts in the four packs"],
+      ['[data-v="reports"]', "Print the report, export to Excel or to a HAZOP study file, or download a backup"],
+      ["#dSample", "Open the hot DRI transfer conveyor example to see a finished study"],
+      ["#addTeam", "Add a person to the study team"], ["#edStudy", "Edit the study details"],
+      ['[data-v="psi"]', "Drawings, procedures and data used in the study, and which areas they cover"], ["#addPsi", "Add a drawing or document used in the study"], ["#psiChk", "Add the usual PSI documents as a list to fill in"],
+      ["#impH", "Bring in the HAZID register from Excel"], ["#addH", "Add one HAZID item by hand"],
+      ["#addArea", "Add a physical area, function or task to review"], ["#addCk", "Add your own checklist question for this area"],
+      ["[data-pack]", "Use this checklist pack for the selected area (click again to remove it)"],
+      ["[data-mkwi]", "Raise a What-If question on the worksheet from this checklist item"],
+      ["[data-goto]", "Open the What-If question raised from this item"], ["[data-ans]", "Answer this checklist item (click again to clear)"],
+      ["#addWi", "Add a new What-If question for this area"], ["#toCk", "Go to the checklist for this area to find gaps"],
+      ["#w_sgadd", "Add this safeguard to the question"], ["[data-ipl]", "Claim this safeguard as an IPL for this scenario (click to toggle)"],
+      ["#w_rl", "Link the selected existing recommendation"], ["#w_ra", "Add a new recommendation and link it to this question"],
+      ["#addRec", "Add a recommendation"], ["#expH", "Download the hand-over as a HAZOP Study Manager file (.hazop.json)"],
+      ["#edM", "Edit the names and descriptions of the risk matrix"],
+      ["#rp", "Print the report, or choose Save as PDF"], ["#rx", "Export all tables to Excel"], ["#rh", "Export the hand-over to a HAZOP study file"], ["#rb", "Download a backup (.json)"]
+    ],
     "Bow Tie Analysis": [
       ['[data-act="new"]', "Start a new, empty bow tie (save or back up the current one first)"],
       ["#btnHealth", "Switch between barriers at their design PFD and their current condition"],
@@ -996,7 +1123,7 @@ window.addEventListener("DOMContentLoaded", boot);
     ]
   };
   var LABELS = { // exact button labels, used when no selector rule matches
-    "Open worksheet": "Go to the HAZOP worksheet", "Worksheet": "Open this node in the HAZOP worksheet",
+    "Open worksheet": "Go to the HAZOP worksheet", "Worksheet": "Open the worksheet for this item", "Checklist": "Open the checklist for this area", "Discard": "Discard this new question", "Save": "Save the changes", "Cancel": "Close without saving", "Delete": "Delete this record", "Link": "Link the selected item",
     "All": "Show all recommendations", "Open": "Show only recommendations with this status", "In progress": "Show only recommendations with this status",
     "Open + In progress": "Show recommendations that are still open or in progress", "Closed": "Show only recommendations with this status", "Rejected": "Show only recommendations with this status",
     "Add": "Add this entry",

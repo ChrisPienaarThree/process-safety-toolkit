@@ -1,0 +1,1492 @@
+{
+ "app": "What-If Checklist Analysis",
+ "schema": 1,
+ "created": "2026-11-12T16:00:00.000Z",
+ "modified": "2026-11-12T16:00:00.000Z",
+ "study": {
+  "title": "What-If / Checklist – propane storage and propane–air dilution (worked example)",
+  "company": "Integrated steel works (illustrative example)",
+  "unit": "Utilities – LPG storage and propane–air plant",
+  "docNo": "WI-EX-PR-001",
+  "rev": "A",
+  "start": "2026-11-05",
+  "end": "2026-11-05",
+  "venue": "Utilities training room",
+  "hazidRef": "HI-EX-PR-001",
+  "hazopRef": "HZ-EX-PR-001",
+  "facilitator": "A. Facilitator",
+  "scribe": "B. Scribe",
+  "scope": "Three parts of the installation that the HAZID ranked High: the road-tanker unloading task (step by step), the bullet storage area, and the vaporisation and propane–air mixing system. Questions that need a systematic deviation analysis are sent to HAZOP nodes N01–N03.",
+  "exclusions": "Consumers' furnaces and burner management systems (separate studies).",
+  "basis": "P&IDs PID-PR-301/302/303, unloading procedure OP-PR-010, start-up procedure OP-PR-020, HAZID HI-EX-PR-001. Illustrative example – not data of any real plant."
+ },
+ "settings": {
+  "sev": [
+   "Negligible",
+   "Minor",
+   "Moderate",
+   "Major",
+   "Catastrophic"
+  ],
+  "sevDesc": [
+   "First aid; no lost time / minor on-site release / negligible damage",
+   "Medical treatment / reportable release contained on site / minor damage",
+   "Lost-time injury / off-site short-term impact / significant damage",
+   "Single fatality or permanent disability / significant off-site impact / major damage",
+   "Multiple fatalities / major off-site release / loss of unit"
+  ],
+  "lik": [
+   "Rare",
+   "Unlikely",
+   "Possible",
+   "Likely",
+   "Almost certain"
+  ],
+  "likDesc": [
+   "< 1 in 10 000 years",
+   "1 in 1 000 – 10 000 years",
+   "1 in 100 – 1 000 years",
+   "1 in 10 – 100 years",
+   "> 1 in 10 years"
+  ],
+  "grid": [
+   [
+    1,
+    2,
+    3,
+    4,
+    5
+   ],
+   [
+    2,
+    4,
+    6,
+    8,
+    10
+   ],
+   [
+    3,
+    6,
+    9,
+    12,
+    15
+   ],
+   [
+    4,
+    8,
+    12,
+    16,
+    20
+   ],
+   [
+    5,
+    10,
+    15,
+    20,
+    25
+   ]
+  ],
+  "bands": {
+   "Medium": 5,
+   "High": 10,
+   "Very High": 20
+  }
+ },
+ "team": [
+  {
+   "id": "t0001a47e3b",
+   "name": "A. Facilitator",
+   "company": "Istec",
+   "role": "Facilitator",
+   "attendance": "Day 1"
+  },
+  {
+   "id": "t0002d7a052",
+   "name": "B. Scribe",
+   "company": "Istec",
+   "role": "Scribe",
+   "attendance": "Day 1"
+  },
+  {
+   "id": "t0003e03a1a",
+   "name": "C. Process",
+   "company": "Owner",
+   "role": "Process engineer",
+   "attendance": "Day 1"
+  },
+  {
+   "id": "t000452d4db",
+   "name": "D. Operations",
+   "company": "Owner",
+   "role": "Operations representative",
+   "attendance": "Day 1"
+  },
+  {
+   "id": "t0005cc01ff",
+   "name": "G. Safety",
+   "company": "Owner",
+   "role": "HSE / process safety",
+   "attendance": "Day 1"
+  },
+  {
+   "id": "t00067cecc9",
+   "name": "K. Driver",
+   "company": "LPG supplier",
+   "role": "Tanker driver (task expert)",
+   "attendance": "Day 1"
+  }
+ ],
+ "psi": [
+  {
+   "id": "p0010644779",
+   "ref": "PSI-01",
+   "category": "Drawings",
+   "docNo": "PID-PR-301/302/303",
+   "title": "P&IDs – tanker unloading, storage, vaporisation and dilution",
+   "rev": "B",
+   "date": "",
+   "owner": "",
+   "status": "Available",
+   "areaIds": [
+    "a00073e58b2",
+    "a0008ccfad3",
+    "a0009d8edd6"
+   ],
+   "comments": ""
+  },
+  {
+   "id": "p0011955edc",
+   "ref": "PSI-02",
+   "category": "Procedures",
+   "docNo": "OP-PR-010",
+   "title": "Tanker unloading procedure and checklist",
+   "rev": "3",
+   "date": "",
+   "owner": "",
+   "status": "Available",
+   "areaIds": [
+    "a00073e58b2"
+   ],
+   "comments": ""
+  },
+  {
+   "id": "p0012b8d0d2",
+   "ref": "PSI-03",
+   "category": "Procedures",
+   "docNo": "OP-PR-020",
+   "title": "Propane–air plant start-up procedure",
+   "rev": "1",
+   "date": "",
+   "owner": "",
+   "status": "Available",
+   "areaIds": [
+    "a0009d8edd6"
+   ],
+   "comments": ""
+  },
+  {
+   "id": "p0013b4d762",
+   "ref": "PSI-04",
+   "category": "Previous studies",
+   "docNo": "HI-EX-PR-001",
+   "title": "HAZID register – propane installation",
+   "rev": "A",
+   "date": "",
+   "owner": "",
+   "status": "Available",
+   "areaIds": [
+    "a00073e58b2",
+    "a0008ccfad3",
+    "a0009d8edd6"
+   ],
+   "comments": ""
+  },
+  {
+   "id": "p001424631a",
+   "ref": "PSI-05",
+   "category": "Equipment",
+   "docNo": "–",
+   "title": "Unloading hose and arm test records",
+   "rev": "",
+   "date": "",
+   "owner": "",
+   "status": "Outstanding",
+   "areaIds": [
+    "a00073e58b2"
+   ],
+   "comments": ""
+  }
+ ],
+ "areas": [
+  {
+   "id": "a00073e58b2",
+   "no": "A01",
+   "name": "Road-tanker unloading – arrival to departure",
+   "kind": "Task / procedure",
+   "status": "Complete",
+   "drawings": "OP-PR-010",
+   "hazopNode": "N01",
+   "packs": [
+    "GEN",
+    "LPG"
+   ],
+   "description": "Driver and operator unload a 20 t road tanker into bullets T-1/T-2/T-3 through the unloading arm and ROV-1, using vapour compressors C-01/C-02/C-03."
+  },
+  {
+   "id": "a0008ccfad3",
+   "no": "A02",
+   "name": "Bullet storage area T-1 / T-2 / T-3",
+   "kind": "Physical area",
+   "status": "Complete",
+   "drawings": "PID-PR-301",
+   "hazopNode": "N01",
+   "packs": [
+    "GEN",
+    "LPG"
+   ],
+   "description": "Three 60 m³ propane bullets (17.5 barg) with relief valves, sprinklers, gas detection and remote-operated valves; road and drains nearby."
+  },
+  {
+   "id": "a0009d8edd6",
+   "no": "A03",
+   "name": "Vaporisation and propane–air mixing",
+   "kind": "Function / system",
+   "status": "Complete",
+   "drawings": "PID-PR-302/303",
+   "hazopNode": "N02, N03",
+   "packs": [
+    "GEN",
+    "LPG"
+   ],
+   "description": "Pumps P-01/P-02 feed vaporisers VAP-01/VAP-02; the vapour is reduced by PCV-01 and mixed with air in MX-01 to supply the steel works users."
+  }
+ ],
+ "checks": [
+  {
+   "id": "c0069f7aec4",
+   "areaId": "a00073e58b2",
+   "itemId": "GEN-MAT-03",
+   "custom": false,
+   "answer": "No",
+   "note": "Product identity taken on trust from the delivery note",
+   "whatifId": "w004677ebeb"
+  },
+  {
+   "id": "c0070b70f0e",
+   "areaId": "a00073e58b2",
+   "itemId": "LPG-OPS-01",
+   "custom": false,
+   "answer": "Yes",
+   "note": "OP-PR-010 rev 3 with checklist",
+   "whatifId": ""
+  },
+  {
+   "id": "c007163d6f4",
+   "areaId": "a00073e58b2",
+   "itemId": "LPG-OPS-02",
+   "custom": false,
+   "answer": "Yes",
+   "note": "EBI-1 interlock",
+   "whatifId": ""
+  },
+  {
+   "id": "c0072b9c6e9",
+   "areaId": "a00073e58b2",
+   "itemId": "LPG-OPS-03",
+   "custom": false,
+   "answer": "Q",
+   "note": "Brake interlock fitted; key control not written",
+   "whatifId": "w00482aa777"
+  },
+  {
+   "id": "c0073507dd9",
+   "areaId": "a00073e58b2",
+   "itemId": "LPG-OPS-04",
+   "custom": false,
+   "answer": "No",
+   "note": "Operator often leaves for other duties",
+   "whatifId": "w0050d37f35"
+  },
+  {
+   "id": "c00744a45be",
+   "areaId": "a00073e58b2",
+   "itemId": "LPG-EQP-02",
+   "custom": false,
+   "answer": "Q",
+   "note": "Test records not found",
+   "whatifId": "w0049141980"
+  },
+  {
+   "id": "c00750144ac",
+   "areaId": "a00073e58b2",
+   "itemId": "LPG-EQP-03",
+   "custom": false,
+   "answer": "Yes",
+   "note": "ERC-1 on the arm",
+   "whatifId": ""
+  },
+  {
+   "id": "c0076bf576e",
+   "areaId": "a00073e58b2",
+   "itemId": "LPG-MAT-01",
+   "custom": false,
+   "answer": "Q",
+   "note": "No cold-burn PPE at the bay",
+   "whatifId": "w00526858ad"
+  },
+  {
+   "id": "c0077f124bd",
+   "areaId": "a00073e58b2",
+   "itemId": "GEN-OPS-04",
+   "custom": false,
+   "answer": "Yes",
+   "note": "Line-up on the checklist",
+   "whatifId": ""
+  },
+  {
+   "id": "c0078653434",
+   "areaId": "a0008ccfad3",
+   "itemId": "LPG-LAY-01",
+   "custom": false,
+   "answer": "Yes",
+   "note": "Spacing to code checked at design",
+   "whatifId": ""
+  },
+  {
+   "id": "c00796d2bbd",
+   "areaId": "a0008ccfad3",
+   "itemId": "LPG-LAY-02",
+   "custom": false,
+   "answer": "Yes",
+   "note": "",
+   "whatifId": ""
+  },
+  {
+   "id": "c0080425df1",
+   "areaId": "a0008ccfad3",
+   "itemId": "LPG-REL-01",
+   "custom": false,
+   "answer": "Yes",
+   "note": "PSV-11/21/31 fire case",
+   "whatifId": ""
+  },
+  {
+   "id": "c00811b5b2b",
+   "areaId": "a0008ccfad3",
+   "itemId": "LPG-REL-02",
+   "custom": false,
+   "answer": "Q",
+   "note": "Sprinkler test two years ago",
+   "whatifId": "w0054ffab48"
+  },
+  {
+   "id": "c00822c00fe",
+   "areaId": "a0008ccfad3",
+   "itemId": "GEN-LAY-03",
+   "custom": false,
+   "answer": "No",
+   "note": "No barriers at the pipework",
+   "whatifId": "w0056eb82bc"
+  },
+  {
+   "id": "c0083e6f76c",
+   "areaId": "a0008ccfad3",
+   "itemId": "LPG-MAT-02",
+   "custom": false,
+   "answer": "Q",
+   "note": "Drain pit 6 m from T-3",
+   "whatifId": "w0057cc4786"
+  },
+  {
+   "id": "c008402b9a5",
+   "areaId": "a0008ccfad3",
+   "itemId": "LPG-MNT-01",
+   "custom": false,
+   "answer": "Yes",
+   "note": "PTW with N2 purge",
+   "whatifId": ""
+  },
+  {
+   "id": "c0085b35af6",
+   "areaId": "a0008ccfad3",
+   "itemId": "GEN-EMR-07",
+   "custom": false,
+   "answer": "No",
+   "note": "Brigade not briefed",
+   "whatifId": "w0059ea3d66"
+  },
+  {
+   "id": "c0086796eed",
+   "areaId": "a0008ccfad3",
+   "itemId": "LPG-INS-01",
+   "custom": false,
+   "answer": "Yes",
+   "note": "GLD-1/2/3 at low level",
+   "whatifId": ""
+  },
+  {
+   "id": "c0087ecfb56",
+   "areaId": "a0009d8edd6",
+   "itemId": "LPG-EQP-05",
+   "custom": false,
+   "answer": "Yes",
+   "note": "TSL-01, LSH-01",
+   "whatifId": ""
+  },
+  {
+   "id": "c0088517630",
+   "areaId": "a0009d8edd6",
+   "itemId": "GEN-SSD-02",
+   "custom": false,
+   "answer": "Q",
+   "note": "Purge by procedure only",
+   "whatifId": "w0065d1762d"
+  },
+  {
+   "id": "c008901645a",
+   "areaId": "a0009d8edd6",
+   "itemId": "GEN-UTL-02",
+   "custom": false,
+   "answer": "Yes",
+   "note": "UPS-1 30 min",
+   "whatifId": ""
+  },
+  {
+   "id": "c0090656845",
+   "areaId": "a0009d8edd6",
+   "itemId": "GEN-INS-03",
+   "custom": false,
+   "answer": "No",
+   "note": "No bypass register",
+   "whatifId": "w00684de6b3"
+  },
+  {
+   "id": "c0091c504f1",
+   "areaId": "a0009d8edd6",
+   "itemId": "GEN-INS-01",
+   "custom": false,
+   "answer": "Yes",
+   "note": "AT-01 independent of FFIC-01",
+   "whatifId": ""
+  },
+  {
+   "id": "c0092a59e0f",
+   "areaId": "a0009d8edd6",
+   "itemId": "GEN-EQP-06",
+   "custom": false,
+   "answer": "Yes",
+   "note": "Double seals on P-01/P-02",
+   "whatifId": ""
+  },
+  {
+   "id": "c0093f69c16",
+   "areaId": "a0009d8edd6",
+   "itemId": "GEN-EMR-08",
+   "custom": false,
+   "answer": "Yes",
+   "note": "ESD-1 and fail-closed ROVs",
+   "whatifId": ""
+  }
+ ],
+ "whatifs": [
+  {
+   "id": "w004677ebeb",
+   "areaId": "a00073e58b2",
+   "seq": 1,
+   "question": "What if the tanker delivers butane-rich or off-specification product?",
+   "source": "Checklist GEN-MAT-03",
+   "hazard": "Wrong product in the bullets",
+   "consequence": "Vapour pressure differs from design; vaporisers and burners upset",
+   "safeguards": [
+    {
+     "text": "Supplier contract specification",
+     "ipl": false
+    }
+   ],
+   "sevB": "3",
+   "likB": "2",
+   "sevA": "3",
+   "likA": "1",
+   "recIds": [
+    "r0035e0f02b"
+   ],
+   "disposition": "Closed",
+   "target": "",
+   "hazidRefs": [],
+   "comments": ""
+  },
+  {
+   "id": "w00475b13bf",
+   "areaId": "a00073e58b2",
+   "seq": 2,
+   "question": "What if transfer starts before the tanker is earthed?",
+   "source": "Brainstorm",
+   "hazard": "Static charge on the tanker",
+   "consequence": "Spark ignites a propane release at the coupling",
+   "safeguards": [
+    {
+     "text": "EBI-1 – Earth bonding interlock",
+     "ipl": false
+    },
+    {
+     "text": "Unloading procedure OP-PR-010",
+     "ipl": false
+    }
+   ],
+   "sevB": "4",
+   "likB": "3",
+   "sevA": "4",
+   "likA": "2",
+   "recIds": [],
+   "disposition": "HAZOP",
+   "target": "N01-03",
+   "hazidRefs": [
+    "HZD-06"
+   ],
+   "comments": ""
+  },
+  {
+   "id": "w00482aa777",
+   "areaId": "a00073e58b2",
+   "seq": 3,
+   "question": "What if the tanker drives off while still connected?",
+   "source": "Checklist LPG-OPS-03",
+   "hazard": "Tanker movement with the arm connected",
+   "consequence": "Arm torn off – large liquid propane release",
+   "safeguards": [
+    {
+     "text": "ERC-1 – Emergency release coupling",
+     "ipl": true
+    },
+    {
+     "text": "Tanker brake interlock and wheel chocks",
+     "ipl": false
+    }
+   ],
+   "sevB": "5",
+   "likB": "3",
+   "sevA": "5",
+   "likA": "1",
+   "recIds": [
+    "r003687a8c6"
+   ],
+   "disposition": "HAZOP",
+   "target": "N01-10",
+   "hazidRefs": [
+    "HZD-01",
+    "HZD-07"
+   ],
+   "comments": ""
+  },
+  {
+   "id": "w0049141980",
+   "areaId": "a00073e58b2",
+   "seq": 4,
+   "question": "What if the hose or unloading arm fails during transfer?",
+   "source": "Checklist LPG-EQP-02",
+   "hazard": "Liquid propane under pressure",
+   "consequence": "Two-phase release at the bay; jet fire or flash fire if ignited",
+   "safeguards": [
+    {
+     "text": "GLD-1/2/3 – Gas detection with ESD",
+     "ipl": true
+    },
+    {
+     "text": "ERC-1 – Emergency release coupling",
+     "ipl": true
+    }
+   ],
+   "sevB": "5",
+   "likB": "3",
+   "sevA": "5",
+   "likA": "2",
+   "recIds": [
+    "r00375cbebb"
+   ],
+   "disposition": "Quant",
+   "target": "ETA-PR-01",
+   "hazidRefs": [
+    "HZD-01"
+   ],
+   "comments": ""
+  },
+  {
+   "id": "w0050d37f35",
+   "areaId": "a00073e58b2",
+   "seq": 5,
+   "question": "What if the unloading is left unattended?",
+   "source": "Checklist LPG-OPS-04",
+   "hazard": "No one watching the transfer",
+   "consequence": "Overfill or a leak goes unnoticed; release grows",
+   "safeguards": [
+    {
+     "text": "LT-11 – High level alarm LAH",
+     "ipl": false
+    }
+   ],
+   "sevB": "4",
+   "likB": "3",
+   "sevA": "4",
+   "likA": "2",
+   "recIds": [
+    "r00389a43cc"
+   ],
+   "disposition": "Closed",
+   "target": "",
+   "hazidRefs": [
+    "HZD-02"
+   ],
+   "comments": ""
+  },
+  {
+   "id": "w005133df2d",
+   "areaId": "a00073e58b2",
+   "seq": 6,
+   "question": "What if the ullage check before unloading is skipped or wrong?",
+   "source": "Brainstorm",
+   "hazard": "More product than space in the bullet",
+   "consequence": "Bullet overfilled – liquid to the relief valve",
+   "safeguards": [
+    {
+     "text": "LT-11 – High level alarm LAH and operator",
+     "ipl": true
+    },
+    {
+     "text": "LT-11 – High-high level trip closes ROV-11",
+     "ipl": true
+    }
+   ],
+   "sevB": "5",
+   "likB": "3",
+   "sevA": "5",
+   "likA": "2",
+   "recIds": [],
+   "disposition": "Quant",
+   "target": "FT-PR-01",
+   "hazidRefs": [
+    "HZD-02"
+   ],
+   "comments": ""
+  },
+  {
+   "id": "w00526858ad",
+   "areaId": "a00073e58b2",
+   "seq": 7,
+   "question": "What if cold liquid sprays on the operator at disconnection?",
+   "source": "Checklist LPG-MAT-01",
+   "hazard": "Flashing propane at about −42 °C",
+   "consequence": "Cold burns to hands and face",
+   "safeguards": [
+    {
+     "text": "Gloves and safety glasses",
+     "ipl": false
+    }
+   ],
+   "sevB": "3",
+   "likB": "3",
+   "sevA": "3",
+   "likA": "2",
+   "recIds": [
+    "r003920ce36"
+   ],
+   "disposition": "Closed",
+   "target": "",
+   "hazidRefs": [
+    "HZD-08"
+   ],
+   "comments": ""
+  },
+  {
+   "id": "w005333e2d3",
+   "areaId": "a00073e58b2",
+   "seq": 8,
+   "question": "What if the vapour compressor runs against a closed ROV-1?",
+   "source": "Brainstorm",
+   "hazard": "Compressor dead-heading",
+   "consequence": "High pressure in the tanker vapour space",
+   "safeguards": [
+    {
+     "text": "C-01/C-02/C-03 – Discharge high-pressure trip",
+     "ipl": false
+    }
+   ],
+   "sevB": "3",
+   "likB": "3",
+   "sevA": "3",
+   "likA": "2",
+   "recIds": [],
+   "disposition": "HAZOP",
+   "target": "N01-02",
+   "hazidRefs": [],
+   "comments": ""
+  },
+  {
+   "id": "w0054ffab48",
+   "areaId": "a0008ccfad3",
+   "seq": 1,
+   "question": "What if a jet fire from a flange impinges on a bullet and the sprinklers do not start?",
+   "source": "Checklist LPG-REL-02",
+   "hazard": "Fire on a pressurised bullet",
+   "consequence": "BLEVE – fireball and fragments",
+   "safeguards": [
+    {
+     "text": "PSV-11 – Fire-case relief valves",
+     "ipl": true
+    },
+    {
+     "text": "Water sprinklers on the bullets",
+     "ipl": false
+    }
+   ],
+   "sevB": "5",
+   "likB": "2",
+   "sevA": "5",
+   "likA": "1",
+   "recIds": [
+    "r00408177b2"
+   ],
+   "disposition": "Quant",
+   "target": "ETA-PR-01",
+   "hazidRefs": [
+    "HZD-03"
+   ],
+   "comments": ""
+  },
+  {
+   "id": "w005582fcd9",
+   "areaId": "a0008ccfad3",
+   "seq": 2,
+   "question": "What if a bullet is emptied quickly by venting and the steel gets very cold?",
+   "source": "Brainstorm",
+   "hazard": "Auto-refrigeration of propane",
+   "consequence": "Brittle fracture – sudden release",
+   "safeguards": [
+    {
+     "text": "Low-temperature carbon steel",
+     "ipl": true
+    },
+    {
+     "text": "Depressurisation procedure",
+     "ipl": false
+    }
+   ],
+   "sevB": "5",
+   "likB": "2",
+   "sevA": "5",
+   "likA": "1",
+   "recIds": [],
+   "disposition": "HAZOP",
+   "target": "N01-08",
+   "hazidRefs": [
+    "HZD-05"
+   ],
+   "comments": ""
+  },
+  {
+   "id": "w0056eb82bc",
+   "areaId": "a0008ccfad3",
+   "seq": 3,
+   "question": "What if a vehicle hits the bullet pipework?",
+   "source": "Checklist GEN-LAY-03",
+   "hazard": "Impact on live LPG piping",
+   "consequence": "Pipe break – liquid release",
+   "safeguards": [
+    {
+     "text": "ROV-11 – Fails closed on ESD",
+     "ipl": false
+    }
+   ],
+   "sevB": "4",
+   "likB": "3",
+   "sevA": "4",
+   "likA": "1",
+   "recIds": [
+    "r0041ceb129"
+   ],
+   "disposition": "Closed",
+   "target": "",
+   "hazidRefs": [
+    "HZD-07"
+   ],
+   "comments": ""
+  },
+  {
+   "id": "w0057cc4786",
+   "areaId": "a0008ccfad3",
+   "seq": 4,
+   "question": "What if propane vapour collects in the drain pit next to the bullets?",
+   "source": "Checklist LPG-MAT-02",
+   "hazard": "Heavier-than-air vapour in a pit",
+   "consequence": "Flash fire or explosion in the pit",
+   "safeguards": [
+    {
+     "text": "GLD-1/2/3 – Gas detection",
+     "ipl": false
+    }
+   ],
+   "sevB": "4",
+   "likB": "3",
+   "sevA": "4",
+   "likA": "1",
+   "recIds": [
+    "r0042bfb403"
+   ],
+   "disposition": "Closed",
+   "target": "",
+   "hazidRefs": [
+    "HZD-01"
+   ],
+   "comments": ""
+  },
+  {
+   "id": "w0058a13f90",
+   "areaId": "a0008ccfad3",
+   "seq": 5,
+   "question": "What if a bullet is opened for inspection with propane still inside?",
+   "source": "Brainstorm",
+   "hazard": "Residual liquid in the bullet",
+   "consequence": "Release and fire during maintenance",
+   "safeguards": [
+    {
+     "text": "Permit-to-work with N2 purge and gas test",
+     "ipl": false
+    }
+   ],
+   "sevB": "4",
+   "likB": "3",
+   "sevA": "4",
+   "likA": "2",
+   "recIds": [],
+   "disposition": "HAZOP",
+   "target": "N01-13",
+   "hazidRefs": [
+    "HZD-16"
+   ],
+   "comments": ""
+  },
+  {
+   "id": "w0059ea3d66",
+   "areaId": "a0008ccfad3",
+   "seq": 6,
+   "question": "What if the fire brigade arrives and does not know the LPG hazards?",
+   "source": "Checklist GEN-EMR-07",
+   "hazard": "Uninformed responders",
+   "consequence": "Wrong tactics; responders inside the BLEVE zone",
+   "safeguards": [
+    {
+     "text": "Site emergency response team",
+     "ipl": false
+    }
+   ],
+   "sevB": "5",
+   "likB": "2",
+   "sevA": "5",
+   "likA": "1",
+   "recIds": [
+    "r00437bd009"
+   ],
+   "disposition": "Closed",
+   "target": "",
+   "hazidRefs": [
+    "HZD-19"
+   ],
+   "comments": ""
+  },
+  {
+   "id": "w0060fbe5cc",
+   "areaId": "a0008ccfad3",
+   "seq": 7,
+   "question": "What if lightning strikes during unloading?",
+   "source": "Brainstorm",
+   "hazard": "Ignition at a vent or the arm",
+   "consequence": "Small fire at a relief outlet",
+   "safeguards": [
+    {
+     "text": "Lightning protection of the bullets",
+     "ipl": false
+    },
+    {
+     "text": "Unloading stopped during storms (OP-PR-010)",
+     "ipl": false
+    }
+   ],
+   "sevB": "3",
+   "likB": "2",
+   "sevA": "2",
+   "likA": "2",
+   "recIds": [],
+   "disposition": "Closed",
+   "target": "",
+   "hazidRefs": [
+    "HZD-17"
+   ],
+   "comments": ""
+  },
+  {
+   "id": "w00610d8bd7",
+   "areaId": "a0009d8edd6",
+   "seq": 1,
+   "question": "What if a pump seal leaks at night when no one is in the area?",
+   "source": "Brainstorm",
+   "hazard": "Liquid propane at P-01/P-02",
+   "consequence": "Vapour cloud at the pump bay; fire if ignited",
+   "safeguards": [
+    {
+     "text": "P-01/P-02 – Double mechanical seals with seal-pot alarm",
+     "ipl": false
+    },
+    {
+     "text": "GLD-1/2/3 – Gas detection",
+     "ipl": false
+    }
+   ],
+   "sevB": "4",
+   "likB": "3",
+   "sevA": "4",
+   "likA": "2",
+   "recIds": [],
+   "disposition": "HAZOP",
+   "target": "N02-08",
+   "hazidRefs": [
+    "HZD-09"
+   ],
+   "comments": ""
+  },
+  {
+   "id": "w0062e834aa",
+   "areaId": "a0009d8edd6",
+   "seq": 2,
+   "question": "What if a vaporiser loses its heating while demand is high?",
+   "source": "Brainstorm",
+   "hazard": "Liquid carry-over",
+   "consequence": "Liquid propane reaches PCV-01 and the users",
+   "safeguards": [
+    {
+     "text": "TSL-01 – Low vapour temperature trip",
+     "ipl": true
+    },
+    {
+     "text": "LSH-01 – High liquid level trip",
+     "ipl": true
+    }
+   ],
+   "sevB": "4",
+   "likB": "3",
+   "sevA": "4",
+   "likA": "2",
+   "recIds": [],
+   "disposition": "HAZOP",
+   "target": "N02-04",
+   "hazidRefs": [
+    "HZD-10"
+   ],
+   "comments": ""
+  },
+  {
+   "id": "w0063b261a6",
+   "areaId": "a0009d8edd6",
+   "seq": 3,
+   "question": "What if the regulator PCV-01 fails open?",
+   "source": "Brainstorm",
+   "hazard": "Full vaporiser pressure on the vapour header",
+   "consequence": "Header overpressure – leak at flanges and users",
+   "safeguards": [
+    {
+     "text": "SSV-01 – Slam-shut valve",
+     "ipl": true
+    },
+    {
+     "text": "PSV-03 – Vapour header relief valve",
+     "ipl": true
+    }
+   ],
+   "sevB": "4",
+   "likB": "3",
+   "sevA": "4",
+   "likA": "1",
+   "recIds": [],
+   "disposition": "HAZOP",
+   "target": "N02-03",
+   "hazidRefs": [
+    "HZD-11"
+   ],
+   "comments": ""
+  },
+  {
+   "id": "w0064b0380c",
+   "areaId": "a0009d8edd6",
+   "seq": 4,
+   "question": "What if the air blowers keep running when the propane supply is lost?",
+   "source": "Brainstorm",
+   "hazard": "Air-rich mixture",
+   "consequence": "Mixture enters the flammable range – explosion in MX-01 or the header",
+   "safeguards": [
+    {
+     "text": "PSLL-01 – Low propane pressure trip",
+     "ipl": true
+    },
+    {
+     "text": "AT-01 – Calorimeter trip",
+     "ipl": true
+    }
+   ],
+   "sevB": "5",
+   "likB": "3",
+   "sevA": "5",
+   "likA": "2",
+   "recIds": [],
+   "disposition": "Quant",
+   "target": "FT-PR-02",
+   "hazidRefs": [
+    "HZD-12"
+   ],
+   "comments": ""
+  },
+  {
+   "id": "w0065d1762d",
+   "areaId": "a0009d8edd6",
+   "seq": 5,
+   "question": "What if the mixing station is started with air still in the mixer and surge tank?",
+   "source": "Checklist GEN-SSD-02",
+   "hazard": "Air in the system at start-up",
+   "consequence": "Flammable mixture at first propane admission",
+   "safeguards": [
+    {
+     "text": "Start-up procedure OP-PR-020 with N2 purge",
+     "ipl": false
+    }
+   ],
+   "sevB": "5",
+   "likB": "3",
+   "sevA": "5",
+   "likA": "1",
+   "recIds": [
+    "r0044d2d878"
+   ],
+   "disposition": "HAZOP",
+   "target": "N03-06",
+   "hazidRefs": [
+    "HZD-13"
+   ],
+   "comments": ""
+  },
+  {
+   "id": "w0066c40dc5",
+   "areaId": "a0009d8edd6",
+   "seq": 6,
+   "question": "What if a burner flashes back into the propane–air header?",
+   "source": "Brainstorm",
+   "hazard": "Flame travels upstream",
+   "consequence": "Explosion in the header",
+   "safeguards": [
+    {
+     "text": "FA-01 – In-line flame arrester",
+     "ipl": true
+    }
+   ],
+   "sevB": "4",
+   "likB": "3",
+   "sevA": "4",
+   "likA": "2",
+   "recIds": [],
+   "disposition": "HAZOP",
+   "target": "N03-07",
+   "hazidRefs": [
+    "HZD-14"
+   ],
+   "comments": ""
+  },
+  {
+   "id": "w0067d0969f",
+   "areaId": "a0009d8edd6",
+   "seq": 7,
+   "question": "What if power fails at the mixing station?",
+   "source": "Brainstorm",
+   "hazard": "Loss of blowers and controls",
+   "consequence": "Uncontrolled mixture on restart",
+   "safeguards": [
+    {
+     "text": "UPS-1 – UPS for controls and gas detection",
+     "ipl": false
+    },
+    {
+     "text": "Fail-closed valves XV-01/XV-02",
+     "ipl": false
+    }
+   ],
+   "sevB": "3",
+   "likB": "3",
+   "sevA": "3",
+   "likA": "2",
+   "recIds": [],
+   "disposition": "HAZOP",
+   "target": "N03-09",
+   "hazidRefs": [
+    "HZD-15"
+   ],
+   "comments": ""
+  },
+  {
+   "id": "w00684de6b3",
+   "areaId": "a0009d8edd6",
+   "seq": 8,
+   "question": "What if the mixture trips are left in bypass after the annual trip test?",
+   "source": "Checklist GEN-INS-03",
+   "hazard": "Trips not available",
+   "consequence": "Flammable mixture not stopped",
+   "safeguards": [
+    {
+     "text": "Annual proof test of the mixture trips",
+     "ipl": false
+    }
+   ],
+   "sevB": "5",
+   "likB": "2",
+   "sevA": "5",
+   "likA": "1",
+   "recIds": [
+    "r0045d19a83"
+   ],
+   "disposition": "Closed",
+   "target": "",
+   "hazidRefs": [
+    "HZD-12"
+   ],
+   "comments": ""
+  }
+ ],
+ "recs": [
+  {
+   "id": "r0035e0f02b",
+   "no": "WR-01",
+   "text": "Check the delivery note and take a vapour-pressure sample of each new supplier's product before first unloading.",
+   "responsible": "Operations",
+   "priority": "Medium",
+   "dueDate": "",
+   "status": "Open",
+   "closeout": ""
+  },
+  {
+   "id": "r003687a8c6",
+   "no": "WR-02",
+   "text": "Write tanker key control into OP-PR-010: the operator holds the ignition key from earthing until disconnection.",
+   "responsible": "Operations",
+   "priority": "High",
+   "dueDate": "",
+   "status": "Open",
+   "closeout": ""
+  },
+  {
+   "id": "r00375cbebb",
+   "no": "WR-03",
+   "text": "Set up a hose and arm register with test dates; no transfer with a hose whose test is out of date.",
+   "responsible": "Maintenance",
+   "priority": "High",
+   "dueDate": "",
+   "status": "Open",
+   "closeout": ""
+  },
+  {
+   "id": "r00389a43cc",
+   "no": "WR-04",
+   "text": "Make continuous attendance mandatory during transfer and add a dead-man button on the unloading panel.",
+   "responsible": "Operations",
+   "priority": "High",
+   "dueDate": "",
+   "status": "Open",
+   "closeout": ""
+  },
+  {
+   "id": "r003920ce36",
+   "no": "WR-05",
+   "text": "Issue cold-resistant gloves and face shields at the unloading bay; depressurise the arm to the vapour line before disconnection.",
+   "responsible": "HSE / process safety",
+   "priority": "Medium",
+   "dueDate": "",
+   "status": "Open",
+   "closeout": ""
+  },
+  {
+   "id": "r00408177b2",
+   "no": "WR-06",
+   "text": "Test the bullet sprinklers annually with a flow test and record the coverage.",
+   "responsible": "Fire officer",
+   "priority": "High",
+   "dueDate": "",
+   "status": "Open",
+   "closeout": ""
+  },
+  {
+   "id": "r0041ceb129",
+   "no": "WR-07",
+   "text": "Install crash barriers around the bullet pipework and the unloading arm.",
+   "responsible": "Civil engineer",
+   "priority": "Medium",
+   "dueDate": "",
+   "status": "Open",
+   "closeout": ""
+  },
+  {
+   "id": "r0042bfb403",
+   "no": "WR-08",
+   "text": "Seal the drain pit next to the bullets or fit it with a water seal and a low-level gas detector.",
+   "responsible": "Process engineer",
+   "priority": "Medium",
+   "dueDate": "",
+   "status": "Open",
+   "closeout": ""
+  },
+  {
+   "id": "r00437bd009",
+   "no": "WR-09",
+   "text": "Prepare an LPG pre-incident plan with the municipal fire brigade and exercise it yearly.",
+   "responsible": "HSE / process safety",
+   "priority": "High",
+   "dueDate": "",
+   "status": "Open",
+   "closeout": ""
+  },
+  {
+   "id": "r0044d2d878",
+   "no": "WR-10",
+   "text": "Add an oxygen check (AT-01 reading) as a permissive before propane is admitted at start-up.",
+   "responsible": "Instrument / SIS engineer",
+   "priority": "High",
+   "dueDate": "",
+   "status": "Open",
+   "closeout": ""
+  },
+  {
+   "id": "r0045d19a83",
+   "no": "WR-11",
+   "text": "Introduce a trip-bypass register with time limits and shift sign-off.",
+   "responsible": "Instrument / SIS engineer",
+   "priority": "High",
+   "dueDate": "",
+   "status": "Open",
+   "closeout": ""
+  }
+ ],
+ "hazid": [
+  {
+   "id": "h001580f1d3",
+   "ref": "HZD-01",
+   "area": "Unloading bay",
+   "hazard": "Liquid propane release during unloading",
+   "cause": "Hose / arm failure, coupling error, drive-away",
+   "consequence": "Flash fire, jet fire, VCE; BLEVE of the tanker",
+   "S": "5",
+   "L": "3",
+   "further": "HAZOP N01-09, N01-10; FT-PR-03; ETA-PR-01; BT-PR-01 T2, T3"
+  },
+  {
+   "id": "h001621c285",
+   "ref": "HZD-02",
+   "area": "Tank farm",
+   "hazard": "Bullet overfilled during unloading",
+   "cause": "Ullage not checked; level gauge reads low; trip shares the gauge",
+   "consequence": "Liquid relief through PSV-11/21/31 – large release",
+   "S": "5",
+   "L": "4",
+   "further": "HAZOP N01-06; FT-PR-01; BT-PR-01 T1"
+  },
+  {
+   "id": "h0017f72dde",
+   "ref": "HZD-03",
+   "area": "Tank farm",
+   "hazard": "BLEVE of a bullet in a fire",
+   "cause": "Jet or pool fire impinging on the vapour space",
+   "consequence": "Fireball, fragments up to several hundred metres",
+   "S": "5",
+   "L": "2",
+   "further": "HAZOP N01-07; ETA-PR-01 H5; BT-PR-01"
+  },
+  {
+   "id": "h0018b743a1",
+   "ref": "HZD-04",
+   "area": "Tank farm",
+   "hazard": "Bullet overpressure in hot weather",
+   "cause": "Vapour pressure about 16 barg at 50 °C",
+   "consequence": "Relief valve lifts – propane vapour vented",
+   "S": "3",
+   "L": "3",
+   "further": "HAZOP N01-04"
+  },
+  {
+   "id": "h00199aaafc",
+   "ref": "HZD-05",
+   "area": "Unloading bay / tank farm",
+   "hazard": "Brittle fracture after auto-refrigeration",
+   "cause": "Rapid depressurisation or flashing liquid leak (−42 °C)",
+   "consequence": "Sudden failure of a pressurised line or vessel",
+   "S": "5",
+   "L": "2",
+   "further": "HAZOP N01-08; BT-PR-01 T5"
+  },
+  {
+   "id": "h002079dca4",
+   "ref": "HZD-06",
+   "area": "Unloading bay",
+   "hazard": "Static discharge during filling",
+   "cause": "High flow; unbonded flanges; tanker not earthed",
+   "consequence": "Ignition of a small leak",
+   "S": "4",
+   "L": "3",
+   "further": "HAZOP N01-03"
+  },
+  {
+   "id": "h0021238b9b",
+   "ref": "HZD-07",
+   "area": "Unloading bay",
+   "hazard": "Vehicle impact on the arm or bullets",
+   "cause": "Other traffic during unloading; reversing tanker",
+   "consequence": "Release; escalation",
+   "S": "5",
+   "L": "2",
+   "further": "HAZOP N01-01; BT-PR-01 T6"
+  },
+  {
+   "id": "h0022667212",
+   "ref": "HZD-08",
+   "area": "Unloading bay",
+   "hazard": "Cold burns when connecting / disconnecting",
+   "cause": "Liquid propane spray from couplings",
+   "consequence": "Frostbite to hands and face",
+   "S": "3",
+   "L": "3",
+   "further": "BT-PR-01 consequence COLD"
+  },
+  {
+   "id": "h0023c6d430",
+   "ref": "HZD-09",
+   "area": "Pump and vaporiser area",
+   "hazard": "Pump seal leak",
+   "cause": "Dry running, wear",
+   "consequence": "Liquid propane release and fire near the bullets",
+   "S": "5",
+   "L": "3",
+   "further": "HAZOP N02-02, N02-08; BT-PR-01 T4"
+  },
+  {
+   "id": "h00245eb714",
+   "ref": "HZD-10",
+   "area": "Pump and vaporiser area",
+   "hazard": "Liquid carry-over from the vaporisers",
+   "cause": "Bath heater failure, flow above capacity",
+   "consequence": "Liquid in the vapour header – burner flare-ups",
+   "S": "4",
+   "L": "3",
+   "further": "HAZOP N02-04, N02-05"
+  },
+  {
+   "id": "h0025315334",
+   "ref": "HZD-11",
+   "area": "Vapour header",
+   "hazard": "Vapour header overpressure",
+   "cause": "PCV-01 fails open",
+   "consequence": "Leaks at users' fuel trains",
+   "S": "4",
+   "L": "3",
+   "further": "HAZOP N02-03"
+  },
+  {
+   "id": "h0026f236d3",
+   "ref": "HZD-12",
+   "area": "Mixing station",
+   "hazard": "Propane–air mixture in the flammable range",
+   "cause": "Loss of propane while the blowers run; ratio controller fault",
+   "consequence": "Internal explosion of ST-01 and the header",
+   "S": "5",
+   "L": "4",
+   "further": "HAZOP N03-01, N03-02; FT-PR-02; BT-PR-02 T1"
+  },
+  {
+   "id": "h0027c5e816",
+   "ref": "HZD-13",
+   "area": "Mixing station",
+   "hazard": "Start-up with air in the system",
+   "cause": "Purge omitted; blowers started first",
+   "consequence": "Explosion at the first light-off",
+   "S": "5",
+   "L": "3",
+   "further": "HAZOP N03-06; BT-PR-02 T2"
+  },
+  {
+   "id": "h002811cb72",
+   "ref": "HZD-14",
+   "area": "Furnace building",
+   "hazard": "Flashback from the burners",
+   "cause": "Low header pressure; mixture near the flammable range",
+   "consequence": "Deflagration in the header",
+   "S": "5",
+   "L": "2",
+   "further": "HAZOP N03-07; BT-PR-02 T3"
+  },
+  {
+   "id": "h00294fe0fb",
+   "ref": "HZD-15",
+   "area": "Whole installation",
+   "hazard": "Power failure",
+   "cause": "Grid failure",
+   "consequence": "Loss of supply; ESD and gas detection on UPS only",
+   "S": "3",
+   "L": "3",
+   "further": "HAZOP N01-12, N02-10, N03-09"
+  },
+  {
+   "id": "h0030196cff",
+   "ref": "HZD-16",
+   "area": "Whole installation",
+   "hazard": "Opening equipment with propane inside",
+   "cause": "Single-valve isolation, trapped liquid",
+   "consequence": "Flash fire, cold burns",
+   "S": "4",
+   "L": "3",
+   "further": "HAZOP N01-13"
+  },
+  {
+   "id": "h003138f752",
+   "ref": "HZD-17",
+   "area": "Whole installation",
+   "hazard": "Lightning strike",
+   "cause": "Thunderstorms (summer)",
+   "consequence": "Ignition at a relief valve outlet",
+   "S": "4",
+   "L": "2",
+   "further": "–"
+  },
+  {
+   "id": "h003243d38d",
+   "ref": "HZD-18",
+   "area": "Whole installation",
+   "hazard": "Unauthorised access / tampering",
+   "cause": "Open site perimeter at the bay",
+   "consequence": "Valves opened, release",
+   "S": "4",
+   "L": "2",
+   "further": "–"
+  },
+  {
+   "id": "h00338dee39",
+   "ref": "HZD-19",
+   "area": "Whole installation",
+   "hazard": "Fire brigade response to an LPG fire",
+   "cause": "Inexperience with BLEVE risk",
+   "consequence": "Fire fighters exposed to a BLEVE",
+   "S": "5",
+   "L": "2",
+   "further": "ETA-PR-01; BT-PR-01"
+  },
+  {
+   "id": "h0034185aa8",
+   "ref": "HZD-20",
+   "area": "Whole installation",
+   "hazard": "Propane venting to atmosphere",
+   "cause": "Relief valve lifts, maintenance venting",
+   "consequence": "VOC emission; odour complaints",
+   "S": "2",
+   "L": "3",
+   "further": "–"
+  }
+ ]
+}

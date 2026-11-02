@@ -1,5 +1,5 @@
 Steel works gas network PHA worked example – cross-link test results
-Run 01 Nov 2026 21:42 · 437 checks · 437 passed · 0 failed
+Run 02 Nov 2026 08:51 · 470 checks · 470 passed · 0 failed
 
 
 A. Apps
@@ -305,8 +305,9 @@ D. Tags
   PASS  HAZOP IPL PIGINT (PR-1001) is the barrier 'Pig-receiver closure pressure-warning ' in BT1
 
 E. Workbooks
-  PASS  Steel works gas network - HAZOP_Study_Workbook.xlsx recalculates in LibreOffice with no formula errors (9101 formulas)
+  PASS  Steel works gas network - HAZOP_Study_Workbook.xlsx recalculates in LibreOffice with no formula errors (10101 formulas)
   PASS  Steel works gas network - FMECA_Workbook.xlsx recalculates in LibreOffice with no formula errors (9210 formulas)
+  PASS  Steel works gas network - WhatIf_Checklist_Workbook.xlsx recalculates in LibreOffice with no formula errors (1120 formulas)
   PASS  HAZOP workbook: cover shows 8 nodes
   PASS  HAZOP workbook Node 01 is 'N01' and shows the node details from the Nodes sheet
   PASS  HAZOP workbook Node 01 has the same 7 deviations as the app
@@ -417,6 +418,40 @@ E. Workbooks
   PASS  HAZOP macro workbook Node 07: 6 deviations, 0 IPL tags as the app
   PASS  HAZOP macro workbook Node 08: 4 deviations, 1 IPL tags as the app
   PASS  FMECA macro workbook has all 33 failure modes
+
+W. What-If
+  PASS  What-If study has areas, checklist answers and What-If questions (4 areas, 24 answers, 22 questions)
+  PASS  Document numbers: follows HAZID –, feeds HAZOP HZ-EX-GN-001
+  PASS  Every checklist answer is a library item of the area's packs (24 answers)
+  PASS  Every checklist gap (No / ?) that raised a question links to it in the same area
+  PASS  A01-01 complete: question, hazard, consequence, safeguards; risk 15 → 5; Send to HAZOP N07-01; HAZID –
+  PASS  A01-02 complete: question, hazard, consequence, safeguards; risk 10 → 5; Send to HAZOP N07-02; HAZID –
+  PASS  A01-03 complete: question, hazard, consequence, safeguards; risk 12 → 8; Send to HAZOP N07-03; HAZID –
+  PASS  A01-04 complete: question, hazard, consequence, safeguards; risk 8 → 4; Send to HAZOP N07-04; HAZID –
+  PASS  A01-05 complete: question, hazard, consequence, safeguards; risk 15 → 5; Send to HAZOP N03-03; HAZID –
+  PASS  A02-01 complete: question, hazard, consequence, safeguards; risk 15 → 5; Send to HAZOP N07-06; HAZID –
+  PASS  A02-02 complete: question, hazard, consequence, safeguards; risk 10 → 5; Send to HAZOP N07-05; HAZID –
+  PASS  A02-03 complete: question, hazard, consequence, safeguards; risk 12 → 8; Send to HAZOP N03-06; HAZID –
+  PASS  A02-04 complete: question, hazard, consequence, safeguards; risk 12 → 4; Closed at What-If; HAZID –
+  PASS  A02-05 complete: question, hazard, consequence, safeguards; risk 10 → 5; Send to HAZOP N03-01; HAZID –
+  PASS  A03-01 complete: question, hazard, consequence, safeguards; risk 15 → 10; Send to quantified study (FT / ETA / bow tie) FT-GN-03; HAZID –
+  PASS  A03-02 complete: question, hazard, consequence, safeguards; risk 10 → 5; Send to quantified study (FT / ETA / bow tie) FT-GN-01; HAZID –
+  PASS  A03-03 complete: question, hazard, consequence, safeguards; risk 12 → 8; Send to HAZOP N04-05; HAZID –
+  PASS  A03-04 complete: question, hazard, consequence, safeguards; risk 10 → 5; Send to HAZOP N05-01; HAZID –
+  PASS  A03-05 complete: question, hazard, consequence, safeguards; risk 15 → 10; Send to quantified study (FT / ETA / bow tie) FT-GN-02; HAZID –
+  PASS  A03-06 complete: question, hazard, consequence, safeguards; risk 12 → 8; Send to HAZOP N08-02; HAZID –
+  PASS  A04-01 complete: question, hazard, consequence, safeguards; risk 15 → 5; Send to HAZOP N06-04; HAZID –
+  PASS  A04-02 complete: question, hazard, consequence, safeguards; risk 10 → 5; Send to HAZOP N06-05; HAZID –
+  PASS  A04-03 complete: question, hazard, consequence, safeguards; risk 15 → 5; Send to HAZOP N06-06; HAZID –
+  PASS  A04-04 complete: question, hazard, consequence, safeguards; risk 15 → 10; Send to HAZOP N05-04; HAZID –
+  PASS  A04-05 complete: question, hazard, consequence, safeguards; risk 10 → 5; Send to quantified study (FT / ETA / bow tie) ETA-GN-02; HAZID –
+  PASS  A04-06 complete: question, hazard, consequence, safeguards; risk 10 → 5; Send to HAZOP N06-07; HAZID –
+  PASS  Every What-If recommendation is used by a question (7)
+  PASS  Questions sent to the HAZOP land on existing HAZOP nodes / deviations (17)
+  PASS  Each area that feeds the HAZOP names an existing node
+  PASS  Equipment tags in the What-If are defined in the HAZOP / FMECA (13 tags)
+  PASS  What-If workbook: 22 rows, risk and rank calculated as the tool
+  PASS  What-If workbook: checklist sheet lists the packs of every area
 
 F. Report
   PASS  Report refers to FT-GN-01

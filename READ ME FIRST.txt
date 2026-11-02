@@ -1,14 +1,16 @@
 PROCESS SAFETY ANALYSIS TOOLKIT  (version 1.0, 2026-10-05)
 =====================================================
 
-Four offline tools that run directly from this folder - no installation,
-no administrator rights, no internet connection - plus HAZOP and FMECA
-Excel workbooks:
+Five offline tools that run directly from this folder - no installation,
+no administrator rights, no internet connection - plus What-If, HAZOP and
+FMECA Excel workbooks:
 
-  - HAZOP Study Manager           relational HAZOP database
+  - What-If Checklist Analysis    What-If / Checklist study between HAZID and HAZOP
+  - HAZOP Study Manager           relational HAZOP database, IPL / LOPA flags
   - Fault Tree and PFD Calculator quantitative fault trees, PFDavg, SIF (IEC 61508)
   - Event Tree Analysis           outcome frequencies, consequence categories
   - Bow Tie Analysis              barriers, escalation factors, barrier criticality
+  - What-If Checklist Workbook    Excel (.xlsx)
   - HAZOP Study Workbook          Excel (.xlsx, and .xlsm with macros)
   - FMECA Workbook                Excel (.xlsx, and .xlsm with macros)
   - HAZOP guidewords reference    Word + PDF (parameter / deviation / causes)
@@ -44,7 +46,7 @@ SAVING YOUR WORK  (important)
   - Always eject the USB stick safely before removing it.
 
 FOLDERS
-  Tools\        the four tools (self-contained HTML files)
+  Tools\        the five tools (self-contained HTML files)
   Workbooks\    Excel workbooks
                  - HAZOP_Study_Workbook.xlsx        no macros
                  - HAZOP_Study_Workbook_Macro.xlsm  multi-select causes,

@@ -1,9 +1,10 @@
 # Process Safety Analysis Toolkit
 
-Four browser tools for recording and calculating a process hazard analysis (PHA), with Excel workbooks,
+Five browser tools for recording and calculating a process hazard analysis (PHA), with Excel workbooks,
 guides and worked examples:
 
-- **HAZOP Study Manager** – study, team, PSI, nodes, deviations with causes, safeguards (IPL) and recommendations.
+- **What-If / Checklist Analysis** – What-If / Checklist study (CCPS) between the HAZID and the HAZOP: checklist library, What-If worksheet, hand-over to the HAZOP.
+- **HAZOP Study Manager** – study, team, PSI, nodes, deviations with causes, safeguards (Safeguard / IPL, LOPA flag), a LOPA study list and recommendations; imports the HAZOP workbook.
 - **Fault Tree & PFD Calculator** – exact top-event probability, time-averaged PFDavg, common cause, cut sets,
   importance, uncertainty and an IEC 61508 SIF calculator.
 - **Event Tree Analysis** – outcomes of an initiating event against frequency targets.

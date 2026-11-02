@@ -30,6 +30,8 @@
   "hz_xlsm": "Steel works gas network - HAZOP_Study_Workbook_Macro.xlsm",
   "fm_xlsx": "Steel works gas network - FMECA_Workbook.xlsx",
   "fm_xlsm": "Steel works gas network - FMECA_Workbook_Macro.xlsm",
+  "wi": "Steel works gas network - What-If WI-EX-GN-001.whatif.json",
+  "wi_xlsx": "Steel works gas network - WhatIf_Checklist_Workbook.xlsx",
   "results": "results.json"
  },
  "constants": {

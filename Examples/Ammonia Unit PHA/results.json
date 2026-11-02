@@ -36,6 +36,8 @@
   "fm_xlsx": "Ammonia unit - FMECA_Workbook.xlsx",
   "fm_xlsm": "Ammonia unit - FMECA_Workbook_Macro.xlsm",
   "hi_xlsx": "Ammonia unit - HAZID_Register.xlsx",
+  "wi": "Ammonia unit - What-If WI-EX-AM-001.whatif.json",
+  "wi_xlsx": "Ammonia unit - WhatIf_Checklist_Workbook.xlsx",
   "results": "results.json"
  },
  "constants": {

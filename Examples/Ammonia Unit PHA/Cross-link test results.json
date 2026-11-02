@@ -685,6 +685,12 @@
  },
  {
   "group": "C. References",
+  "check": "WI-EX-AM-001 exists as 'Ammonia unit - What-If WI-EX-AM-001.whatif.json'",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "group": "C. References",
   "check": "Ammonia unit - FT-AM-01 Refrigeration overpressure.fta.json: every FT / ETA / BT code it mentions exists (2 codes)",
   "pass": true,
   "detail": ""
@@ -1034,6 +1040,30 @@
  {
   "group": "C. References",
   "check": "Ammonia unit - HAZID_Register.xlsx: every FMECA system reference resolves (0 refs)",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "group": "C. References",
+  "check": "Ammonia unit - WhatIf_Checklist_Workbook.xlsx: every FT / ETA / BT code it mentions exists (7 codes)",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "group": "C. References",
+  "check": "Ammonia unit - WhatIf_Checklist_Workbook.xlsx: every HAZOP deviation reference resolves (25 refs)",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "group": "C. References",
+  "check": "Ammonia unit - WhatIf_Checklist_Workbook.xlsx: every recommendation reference resolves (1 refs)",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "group": "C. References",
+  "check": "Ammonia unit - WhatIf_Checklist_Workbook.xlsx: every FMECA system reference resolves (0 refs)",
   "pass": true,
   "detail": ""
  },
@@ -1651,9 +1681,9 @@
  },
  {
   "group": "E. Workbooks",
-  "check": "Ammonia unit - HAZOP_Study_Workbook.xlsx recalculates in LibreOffice with no formula errors (9101 formulas)",
+  "check": "Ammonia unit - HAZOP_Study_Workbook.xlsx recalculates in LibreOffice with no formula errors (10101 formulas)",
   "pass": true,
-  "detail": "{\"status\": \"success\", \"total_errors\": 0, \"error_summary\": {}, \"total_formulas\": 9101}"
+  "detail": "{\"status\": \"success\", \"total_errors\": 0, \"error_summary\": {}, \"total_formulas\": 10101}"
  },
  {
   "group": "E. Workbooks",
@@ -1666,6 +1696,12 @@
   "check": "Ammonia unit - HAZID_Register.xlsx recalculates in LibreOffice with no formula errors (44 formulas)",
   "pass": true,
   "detail": "{\"status\": \"success\", \"total_errors\": 0, \"error_summary\": {}, \"total_formulas\": 44}"
+ },
+ {
+  "group": "E. Workbooks",
+  "check": "Ammonia unit - WhatIf_Checklist_Workbook.xlsx recalculates in LibreOffice with no formula errors (1120 formulas)",
+  "pass": true,
+  "detail": "{\"status\": \"success\", \"total_errors\": 0, \"error_summary\": {}, \"total_formulas\": 1120}"
  },
  {
   "group": "E. Workbooks",
@@ -2661,7 +2697,217 @@
   "group": "G. HAZID",
   "check": "Every HAZOP node is reached from the HAZID",
   "pass": true,
-  "detail": "{'N02', 'N03', 'N05', 'N01', 'N04'}"
+  "detail": "{'N02', 'N03', 'N04', 'N05', 'N01'}"
+ },
+ {
+  "group": "W. What-If",
+  "check": "What-If study has areas, checklist answers and What-If questions (4 areas, 24 answers, 23 questions)",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "group": "W. What-If",
+  "check": "Document numbers: follows HAZID HI-EX-AM-001, feeds HAZOP HZ-EX-AM-001",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "group": "W. What-If",
+  "check": "Every checklist answer is a library item of the area's packs (24 answers)",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "group": "W. What-If",
+  "check": "Every checklist gap (No / ?) that raised a question links to it in the same area",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "group": "W. What-If",
+  "check": "A01-01 complete: question, hazard, consequence, safeguards; risk 12 \u2192 4; Closed at What-If; HAZID HZD-15",
+  "pass": true,
+  "detail": "target ''"
+ },
+ {
+  "group": "W. What-If",
+  "check": "A01-02 complete: question, hazard, consequence, safeguards; risk 12 \u2192 8; Send to HAZOP N04-08; HAZID HZD-15",
+  "pass": true,
+  "detail": "target 'N04-08'"
+ },
+ {
+  "group": "W. What-If",
+  "check": "A01-03 complete: question, hazard, consequence, safeguards; risk 10 \u2192 5; Closed at What-If; HAZID HZD-12",
+  "pass": true,
+  "detail": "target ''"
+ },
+ {
+  "group": "W. What-If",
+  "check": "A01-04 complete: question, hazard, consequence, safeguards; risk 15 \u2192 5; Send to quantified study (FT / ETA / bow tie) FT-AM-01; HAZID HZD-12",
+  "pass": true,
+  "detail": "target 'FT-AM-01'"
+ },
+ {
+  "group": "W. What-If",
+  "check": "A01-05 complete: question, hazard, consequence, safeguards; risk 10 \u2192 5; Send to HAZOP N04-05; HAZID HZD-13",
+  "pass": true,
+  "detail": "target 'N04-05'"
+ },
+ {
+  "group": "W. What-If",
+  "check": "A01-06 complete: question, hazard, consequence, safeguards; risk 12 \u2192 8; Send to HAZOP N04-02; HAZID HZD-14",
+  "pass": true,
+  "detail": "target 'N04-02'"
+ },
+ {
+  "group": "W. What-If",
+  "check": "A02-01 complete: question, hazard, consequence, safeguards; risk 15 \u2192 10; Send to HAZOP N03-09; HAZID HZD-07",
+  "pass": true,
+  "detail": "target 'N03-09'"
+ },
+ {
+  "group": "W. What-If",
+  "check": "A02-02 complete: question, hazard, consequence, safeguards; risk 20 \u2192 10; Send to quantified study (FT / ETA / bow tie) FT-AM-02; HAZID HZD-07",
+  "pass": true,
+  "detail": "target 'FT-AM-02'"
+ },
+ {
+  "group": "W. What-If",
+  "check": "A02-03 complete: question, hazard, consequence, safeguards; risk 10 \u2192 5; Send to HAZOP N03-06; HAZID HZD-09",
+  "pass": true,
+  "detail": "target 'N03-06'"
+ },
+ {
+  "group": "W. What-If",
+  "check": "A02-04 complete: question, hazard, consequence, safeguards; risk 12 \u2192 8; Send to HAZOP N03-02; HAZID HZD-10",
+  "pass": true,
+  "detail": "target 'N03-02'"
+ },
+ {
+  "group": "W. What-If",
+  "check": "A02-05 complete: question, hazard, consequence, safeguards; risk 10 \u2192 5; Send to HAZOP N03-04; HAZID HZD-08",
+  "pass": true,
+  "detail": "target 'N03-04'"
+ },
+ {
+  "group": "W. What-If",
+  "check": "A02-06 complete: question, hazard, consequence, safeguards; risk 15 \u2192 10; Send to quantified study (FT / ETA / bow tie) ETA-AM-02; HAZID HZD-06",
+  "pass": true,
+  "detail": "target 'ETA-AM-02'"
+ },
+ {
+  "group": "W. What-If",
+  "check": "A03-01 complete: question, hazard, consequence, safeguards; risk 15 \u2192 5; Send to HAZOP N02-06; HAZID HZD-03",
+  "pass": true,
+  "detail": "target 'N02-06'"
+ },
+ {
+  "group": "W. What-If",
+  "check": "A03-02 complete: question, hazard, consequence, safeguards; risk 12 \u2192 8; Send to HAZOP N01-09; HAZID HZD-01",
+  "pass": true,
+  "detail": "target 'N01-09'"
+ },
+ {
+  "group": "W. What-If",
+  "check": "A03-03 complete: question, hazard, consequence, safeguards; risk 12 \u2192 8; Send to HAZOP N01-06; HAZID HZD-02",
+  "pass": true,
+  "detail": "target 'N01-06'"
+ },
+ {
+  "group": "W. What-If",
+  "check": "A03-04 complete: question, hazard, consequence, safeguards; risk 12 \u2192 8; Send to HAZOP N02-08; HAZID HZD-04",
+  "pass": true,
+  "detail": "target 'N02-08'"
+ },
+ {
+  "group": "W. What-If",
+  "check": "A04-01 complete: question, hazard, consequence, safeguards; risk 15 \u2192 10; Send to quantified study (FT / ETA / bow tie) ETA-AM-01; HAZID HZD-11",
+  "pass": true,
+  "detail": "target 'ETA-AM-01'"
+ },
+ {
+  "group": "W. What-If",
+  "check": "A04-02 complete: question, hazard, consequence, safeguards; risk 15 \u2192 10; Send to quantified study (FT / ETA / bow tie) FT-AM-03; HAZID HZD-11, HZD-17",
+  "pass": true,
+  "detail": "target 'FT-AM-03'"
+ },
+ {
+  "group": "W. What-If",
+  "check": "A04-03 complete: question, hazard, consequence, safeguards; risk 15 \u2192 10; Send to quantified study (FT / ETA / bow tie) ETA-AM-01; HAZID HZD-11",
+  "pass": true,
+  "detail": "target 'ETA-AM-01'"
+ },
+ {
+  "group": "W. What-If",
+  "check": "A04-04 complete: question, hazard, consequence, safeguards; risk 10 \u2192 5; Closed at What-If; HAZID HZD-18",
+  "pass": true,
+  "detail": "target ''"
+ },
+ {
+  "group": "W. What-If",
+  "check": "A04-05 complete: question, hazard, consequence, safeguards; risk 10 \u2192 5; Closed at What-If; HAZID HZD-18",
+  "pass": true,
+  "detail": "target ''"
+ },
+ {
+  "group": "W. What-If",
+  "check": "A04-06 complete: question, hazard, consequence, safeguards; risk 15 \u2192 10; Send to HAZOP N05-02; HAZID HZD-16",
+  "pass": true,
+  "detail": "target 'N05-02'"
+ },
+ {
+  "group": "W. What-If",
+  "check": "A04-07 complete: question, hazard, consequence, safeguards; risk 12 \u2192 8; Send to HAZOP N05-06; HAZID HZD-17",
+  "pass": true,
+  "detail": "target 'N05-06'"
+ },
+ {
+  "group": "W. What-If",
+  "check": "Every What-If recommendation is used by a question (10)",
+  "pass": true,
+  "detail": "set()"
+ },
+ {
+  "group": "W. What-If",
+  "check": "Every High / Very High HAZID item is examined by a What-If question (17 items)",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "group": "W. What-If",
+  "check": "Questions sent to the HAZOP land on existing HAZOP nodes / deviations (13)",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "group": "W. What-If",
+  "check": "Each area that feeds the HAZOP names an existing node",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "group": "W. What-If",
+  "check": "Equipment tags in the What-If are defined in the HAZOP / FMECA (25 tags)",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "group": "W. What-If",
+  "check": "What-If workbook: 23 rows, risk and rank calculated as the tool",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "group": "W. What-If",
+  "check": "What-If workbook: HAZID coverage column agrees with the study (22 items)",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "group": "W. What-If",
+  "check": "What-If workbook: checklist sheet lists the packs of every area",
+  "pass": true,
+  "detail": ""
  },
  {
   "group": "F. Report",
@@ -2720,6 +2966,12 @@
  {
   "group": "F. Report",
   "check": "Report refers to HI-EX-AM-001",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "group": "F. Report",
+  "check": "Report refers to WI-EX-AM-001",
   "pass": true,
   "detail": ""
  },
