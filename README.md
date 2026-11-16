@@ -17,7 +17,8 @@ guides and worked examples:
 - Works in any modern browser. In Google Chrome or Microsoft Edge you can link a study to a file on your computer
   (File ▸ Save as… (link file)); every change is then written to it. Other browsers: Download / Import backup.
 - Your work stays in your own browser and in the files you save. Nothing is sent anywhere.
-- To use it offline (for example from a USB stick), download this repository as a ZIP, unzip it and open
+- To use it offline (for example from a USB stick), download the
+  [USB kit (zip)](https://github.com/ChrisPienaarThree/process-safety-toolkit/releases/latest/download/Process-Safety-Analysis-Toolkit.zip), unzip it and open
   `START HERE.html`.
 
 All example data are **illustrative** – replace them with site and vendor data before use. The calculators are
